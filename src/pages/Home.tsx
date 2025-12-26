@@ -49,14 +49,33 @@ export function HomePage() {
   React.useEffect(() => {
     if (!user) return
     (async () => {
-      const st = await getOrInitStats(user.uid)
-      setStats(st)
-      const inv = await listInventory(user.uid)
-      setInventory(inv)
-      const d = await getDailyState(user.uid)
-      setDaily(d)
-      const last = await listLast7Days(user.uid)
-      setDays(last)
+      try {
+        const st = await getOrInitStats(user.uid)
+        setStats(st)
+        const inv = await listInventory(user.uid)
+        setInventory(inv)
+      } catch (e) {
+        console.error('stats/inventory failed', e)
+      }
+      try {
+        const d = await getDailyState(user.uid)
+        setDaily(d)
+      } catch (e) {
+        console.warn('daily quests indisponibles (fallback local)', e)
+        setDaily({
+          dateKey: new Date().toISOString().slice(0, 10),
+          quests: [
+            { id: 'session_one', title: 'Faire 1 séance', description: '', target: 1, progress: 0, completed: false },
+            { id: 'answer_ten', title: 'Répondre à 10 questions', description: '', target: 10, progress: 0, completed: false },
+          ],
+        })
+      }
+      try {
+        const last = await listLast7Days(user.uid)
+        setDays(last)
+      } catch (e) {
+        console.warn('days stats indisponibles', e)
+      }
     })()
   }, [user])
 
