@@ -1,9 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// Pour GitHub Pages: base doit être "/<NOM_DU_REPO>/"
-// Avec HashRouter, ça évite les 404 au refresh, mais les assets doivent avoir le bon base.
-const base = process.env.VITE_BASE_PATH || '/'
+// Base fixe pour GitHub Pages (évite un build sans base quand la variable n'est pas injectée).
+const base = process.env.VITE_BASE_PATH || '/malo-study-app/'
 
 export default defineConfig({
   plugins: [react()],
