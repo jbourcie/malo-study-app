@@ -49,6 +49,14 @@ service cloud.firestore {
         allow read: if isOwner(userId) || isParent();
         allow write: if isOwner(userId) || isParent();
       }
+      match /meta/{docId} {
+        allow read: if isOwner(userId) || isParent();
+        allow write: if isOwner(userId);
+      }
+      match /rewardEvents/{docId} {
+        allow read: if isOwner(userId) || isParent();
+        allow write: if isOwner(userId);
+      }
     }
   }
 }

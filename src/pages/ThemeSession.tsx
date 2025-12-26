@@ -8,6 +8,10 @@ import { normalize } from '../utils/normalize'
 import { doc, getDoc } from 'firebase/firestore'
 import { db } from '../firebase'
 import { flattenThemeContent, PlayableExercise } from '../utils/flattenThemeContent'
+import { computeSessionXp, computeLevelFromXp } from '../rewards/rewards'
+import { awardSessionRewards } from '../rewards/rewardsService'
+import { useUserRewards } from '../state/useUserRewards'
+import { RewardsHeader } from '../components/RewardsHeader'
 
 type AnswerState = Record<string, any>
 
@@ -37,6 +41,7 @@ export function ThemeSessionPage() {
   const { themeId } = useParams()
   const nav = useNavigate()
   const { user } = useAuth()
+  const { rewards: liveRewards } = useUserRewards(user?.uid || null)
   const [theme, setTheme] = React.useState<any | null>(null)
   const [exos, setExos] = React.useState<PlayableExercise[]>([])
   const [answers, setAnswers] = React.useState<AnswerState>({})
@@ -52,6 +57,7 @@ export function ThemeSessionPage() {
     idx: number
   }>>([])
   const [showCorrections, setShowCorrections] = React.useState(false)
+  const [sessionRewards, setSessionRewards] = React.useState<{ deltaXp: number, levelUp: boolean, newRewards?: any, prevRewards?: any } | null>(null)
 
   React.useEffect(() => {
     (async () => {
@@ -110,6 +116,26 @@ export function ThemeSessionPage() {
       skipAttemptWrite: true,
     })
 
+    const answeredCount = exos.reduce((acc, ex) => {
+      const ans = answers[ex.id]
+      if (ans === undefined || ans === null) return acc
+      if (typeof ans === 'string' && ans.trim() === '') return acc
+      return acc + 1
+    }, 0)
+    const deltaXp = computeSessionXp({ answeredCount, isCompleted: true })
+    const prevRewards = liveRewards
+    let newRewards = null
+    let levelUp = false
+    try {
+      const res = await awardSessionRewards(user.uid, progress.attemptId || null, deltaXp)
+      newRewards = res
+      levelUp = (res?.level || 1) > (liveRewards?.level || 1)
+    } catch (e) {
+      console.error('awardSessionRewards failed', e)
+      // fallback: do not block UX
+    }
+    setSessionRewards({ deltaXp, levelUp, newRewards, prevRewards })
+
     const sessionTags = new Set<string>(exos.flatMap(ex => ex.tags || []))
     const sortedWeak = Object.values(progress.tagsUpdated || {})
       .filter(t => t && sessionTags.has(t.tagId || ''))
@@ -152,6 +178,18 @@ export function ThemeSessionPage() {
   if (!themeId) return <div className="container"><div className="card">Thème introuvable.</div></div>
 
   if (showCorrections && feedback.length) {
+    const prevXp = sessionRewards?.prevRewards?.xp ?? liveRewards?.xp ?? 0
+    const newXp = sessionRewards?.newRewards?.xp ?? prevXp
+    const xpBefore = prevXp
+    const xpAfter = newXp
+    const xpDelta = sessionRewards?.deltaXp ?? 0
+    const message = result ? (() => {
+      const rate = result.outOf ? (result.score / result.outOf) * 100 : 0
+      if (rate >= 80) return 'Super ! Continue comme ça.'
+      if (rate >= 50) return 'Bien joué ! On consolide et ça va monter.'
+      return 'Bien essayé. On progresse en s’entraînant.'
+    })() : ''
+
     return (
       <div className="container grid">
         <div className="card">
@@ -161,6 +199,12 @@ export function ThemeSessionPage() {
               Score <strong>{result.score}/{result.outOf}</strong> · {result.durationSec}s · +{result.xpGain} XP · +{result.coinsGain} pièces
             </div>
           )}
+          {sessionRewards && (
+            <div className="small" style={{ marginTop: 8 }}>
+              +{sessionRewards.deltaXp} XP {sessionRewards.levelUp ? `· 🎉 Niveau ${sessionRewards.newRewards?.level}` : ''}
+            </div>
+          )}
+          {message && <div className="small" style={{ marginTop: 8 }}>{message}</div>}
         </div>
 
         <div className="card">
@@ -185,6 +229,31 @@ export function ThemeSessionPage() {
             <button className="btn secondary" onClick={() => { setShowCorrections(false); setFeedback([]); setResult(null); setAnswers({}); }}>Refaire une session</button>
           </div>
         </div>
+
+        {sessionRewards && (
+          <div className="card">
+            <h3 style={{ marginTop: 0 }}>Progression XP</h3>
+            <div className="small">XP : {xpBefore} → {xpAfter}</div>
+            {(() => {
+              const before = computeLevelFromXp(xpBefore)
+              const after = computeLevelFromXp(xpAfter)
+              const progress = Math.min(100, Math.max(0, Math.round(after.xpIntoLevel / after.xpForNext * 100)))
+              return (
+                <>
+                  <div className="small">Niveau : {before.level} → {after.level}</div>
+                  <div style={{ height: 12, background:'rgba(255,255,255,0.08)', borderRadius: 999, overflow:'hidden', marginTop: 8 }}>
+                    <div style={{
+                      height: '100%',
+                      width: `${progress}%`,
+                      background:'linear-gradient(90deg,#7aa2ff,#2ecc71)',
+                      transition:'width 0.6s ease'
+                    }} />
+                  </div>
+                </>
+              )
+            })()}
+          </div>
+        )}
       </div>
     )
   }
@@ -195,6 +264,8 @@ export function ThemeSessionPage() {
         <h2 style={{ margin:0 }}>{theme?.title || 'Session'}</h2>
         <div className="small">Fais de ton mieux. Objectif : régularité 🙂</div>
       </div>
+
+      <RewardsHeader rewards={liveRewards} />
 
       {exos.map((ex, idx) => {
         const readingCtx = (ex as any).readingContext
