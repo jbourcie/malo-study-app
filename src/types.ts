@@ -17,7 +17,7 @@ export interface ExerciseBase {
   type: ExerciseType
   prompt: string
   difficulty: 1 | 2 | 3
-  tags?: string[]
+  tags: string[] // 1 à 3 tags pédagogiques issus de la taxonomie
 }
 
 export interface ExerciseMCQ extends ExerciseBase {

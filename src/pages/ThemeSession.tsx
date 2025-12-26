@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { listExercises, saveAttemptAndRewards } from '../data/firestore'
+import { saveSessionWithProgress } from '../data/progress'
 import { useAuth } from '../state/useAuth'
 import type { Exercise, ExerciseMCQ, ExerciseShortText, ExerciseFillBlank, SubjectId } from '../types'
 import { normalize } from '../utils/normalize'
@@ -24,6 +25,7 @@ export function ThemeSessionPage() {
   const [answers, setAnswers] = React.useState<AnswerState>({})
   const [startedAt] = React.useState<number>(() => Date.now())
   const [result, setResult] = React.useState<any | null>(null)
+  const [weakTags, setWeakTags] = React.useState<string[]>([])
 
   React.useEffect(() => {
     (async () => {
@@ -42,19 +44,43 @@ export function ThemeSessionPage() {
 
   const submit = async () => {
     if (!user || !themeId || !theme) return
-    const outOf = exos.length
-    const score = exos.reduce((acc, ex) => acc + (isCorrect(ex, answers[ex.id]) ? 1 : 0), 0)
     const durationSec = Math.max(1, Math.round((Date.now() - startedAt) / 1000))
+
+    const items = exos.map(ex => ({
+      exerciseId: ex.id,
+      difficulty: ex.difficulty,
+      tags: ex.tags || [],
+      correct: isCorrect(ex, answers[ex.id])
+    }))
+
+    const progress = await saveSessionWithProgress({
+      uid: user.uid,
+      subjectId: theme.subjectId as SubjectId,
+      themeId,
+      answers,
+      exercises: exos,
+      durationSec,
+    })
 
     const rewards = await saveAttemptAndRewards({
       uid: user.uid,
       subjectId: theme.subjectId as SubjectId,
       themeId,
-      score,
-      outOf,
-      durationSec
+      items,
+      durationSec,
+      existingAttemptId: progress.attemptId,
+      skipAttemptWrite: true,
     })
-    setResult({ score, outOf, durationSec, ...rewards })
+
+    const sessionTags = new Set<string>(exos.flatMap(ex => ex.tags || []))
+    const sortedWeak = Object.values(progress.tagsUpdated || {})
+      .filter(t => t && sessionTags.has(t.tagId || ''))
+      .sort((a, b) => (a.mastery ?? 0) - (b.mastery ?? 0))
+      .slice(0, 3)
+      .map(t => t.tagId!)
+
+    setWeakTags(sortedWeak)
+    setResult({ score: rewards.score, outOf: rewards.outOf, durationSec, ...rewards })
   }
 
   if (!themeId) return <div className="container"><div className="card">Thème introuvable.</div></div>
@@ -124,6 +150,11 @@ export function ThemeSessionPage() {
         {result?.badges?.length ? (
           <div className="row" style={{ marginTop: 10 }}>
             {result.badges.map((b: string) => <span key={b} className="badge">{b}</span>)}
+          </div>
+        ) : null}
+        {weakTags.length ? (
+          <div className="small" style={{ marginTop: 10 }}>
+            Tags à renforcer (thème) : {weakTags.map(t => <span key={t} className="badge">{t}</span>)}
           </div>
         ) : null}
       </div>
