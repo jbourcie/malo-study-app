@@ -26,6 +26,14 @@ export function ThemeSessionPage() {
   const [startedAt] = React.useState<number>(() => Date.now())
   const [result, setResult] = React.useState<any | null>(null)
   const [weakTags, setWeakTags] = React.useState<string[]>([])
+  const [feedback, setFeedback] = React.useState<Array<{
+    id: string
+    prompt: string
+    correct: boolean
+    expected: string
+    userAnswer: string
+    idx: number
+  }>>([])
 
   React.useEffect(() => {
     (async () => {
@@ -81,6 +89,33 @@ export function ThemeSessionPage() {
 
     setWeakTags(sortedWeak)
     setResult({ score: rewards.score, outOf: rewards.outOf, durationSec, ...rewards })
+
+    const fb = exos.map((ex, idx) => {
+      const userAns = answers[ex.id]
+      const correct = isCorrect(ex, userAns)
+      let expected = ''
+      let userAnswer = ''
+      if (ex.type === 'mcq') {
+        const mcq = ex as ExerciseMCQ
+        expected = mcq.choices[mcq.answerIndex] || ''
+        userAnswer = typeof userAns === 'number' ? (mcq.choices[userAns] || '') : ''
+      } else if (ex.type === 'short_text') {
+        expected = (ex as ExerciseShortText).expected[0] || ''
+        userAnswer = userAns || ''
+      } else if (ex.type === 'fill_blank') {
+        expected = (ex as ExerciseFillBlank).expected[0] || ''
+        userAnswer = userAns || ''
+      }
+      return {
+        id: ex.id,
+        prompt: ex.prompt,
+        correct,
+        expected: expected || '—',
+        userAnswer: (userAnswer ?? '').toString() || '—',
+        idx: idx + 1,
+      }
+    })
+    setFeedback(fb)
   }
 
   if (!themeId) return <div className="container"><div className="card">Thème introuvable.</div></div>
@@ -160,6 +195,22 @@ export function ThemeSessionPage() {
           </div>
         ) : null}
       </div>
+
+      {feedback.length ? (
+        <div className="card">
+          <h3 style={{ marginTop: 0 }}>Corrections</h3>
+          <div className="grid">
+            {feedback.map(f => (
+              <div key={f.id} className="pill" style={{ display:'flex', flexDirection:'column', alignItems:'flex-start', gap:6 }}>
+                <div className="small">Question {f.idx} • {f.correct ? <span className="badge">✔️ Bonne réponse</span> : <span className="badge">❌ Mauvaise réponse</span>}</div>
+                <div style={{ fontWeight: 700 }}>{f.prompt}</div>
+                <div className="small">Ta réponse : <strong>{f.userAnswer}</strong></div>
+                {!f.correct && <div className="small">Correction : <strong>{f.expected}</strong></div>}
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : null}
     </div>
   )
 }
