@@ -78,12 +78,19 @@ export function ProgressPage() {
     if (!selectedChild) return
     setSelectedTag(tagId)
     setLoadingTag(true)
-    const itemsSnap = await getDocs(query(
-      collection(db, 'users', selectedChild, 'attemptItems'),
-      where('tags', 'array-contains', tagId),
-      orderBy('createdAt', 'desc'),
-      limit(50)
-    ))
+    let itemsSnap
+    try {
+      itemsSnap = await getDocs(query(
+        collection(db, 'users', selectedChild, 'attemptItems'),
+        where('tags', 'array-contains', tagId),
+        limit(100)
+      ))
+    } catch {
+      itemsSnap = await getDocs(query(
+        collection(db, 'users', selectedChild, 'attemptItems'),
+        where('tags', 'array-contains', tagId)
+      ))
+    }
     const items = itemsSnap.docs.map(d => ({ id: d.id, ...(d.data() as any) }))
     // Fetch prompts for missing ones
     const prompts: Record<string, string> = {}
@@ -91,10 +98,16 @@ export function ProgressPage() {
       const exSnap = await getDoc(doc(db, 'exercises', exId))
       if (exSnap.exists()) prompts[exId] = (exSnap.data() as any).prompt || exId
     }))
-    const detailed = items.map(it => ({
-      ...it,
-      prompt: it.prompt || prompts[it.exerciseId] || it.exerciseId,
-    }))
+    const detailed = items
+      .map(it => ({
+        ...it,
+        prompt: it.prompt || prompts[it.exerciseId] || it.exerciseId,
+      }))
+      .sort((a, b) => {
+        const da = a.createdAt?.toMillis ? a.createdAt.toMillis() : 0
+        const db = b.createdAt?.toMillis ? b.createdAt.toMillis() : 0
+        return db - da
+      })
     setTagItems(detailed)
     setLoadingTag(false)
   }
