@@ -30,16 +30,16 @@ export async function awardSessionRewards(uid: string, sessionId: string | null,
   let result: UserRewards | null = null
 
   await runTransaction(db, async (tx) => {
-    if (eventsRef) {
-      const evSnap = await tx.get(eventsRef)
-      if (evSnap.exists()) {
-        const rewardsSnap = await tx.get(rewardsRef)
-        result = rewardsSnap.exists() ? (rewardsSnap.data() as UserRewards) : { xp: 0, level: 1 }
-        return
-      }
+    const [evSnap, rewardsSnap] = await Promise.all([
+      eventsRef ? tx.get(eventsRef) : Promise.resolve(null as any),
+      tx.get(rewardsRef),
+    ])
+
+    if (eventsRef && evSnap && evSnap.exists()) {
+      result = rewardsSnap.exists() ? (rewardsSnap.data() as UserRewards) : { xp: 0, level: 1 }
+      return
     }
 
-    const rewardsSnap = await tx.get(rewardsRef)
     const existing = rewardsSnap.exists() ? (rewardsSnap.data() as any) : null
     const current: UserRewards = {
       xp: existing?.xp || 0,

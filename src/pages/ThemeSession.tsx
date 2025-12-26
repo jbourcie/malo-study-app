@@ -171,7 +171,7 @@ export function ThemeSessionPage() {
     const accuracy = rewards.outOf ? (rewards.score / rewards.outOf) * 100 : 0
     const fb = getSessionFeedback({
       accuracy,
-      weakestTag: incorrectTags[0] || weakestTags[0],
+      weakestTag: incorrectTags[0] || weakTags[0],
       improvedTag,
     })
 
