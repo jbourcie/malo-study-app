@@ -1,0 +1,31 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() { return request.auth != null; }
+    function role() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+    }
+    function isParent() { return signedIn() && role() == 'parent'; }
+    function isOwner(userId) { return signedIn() && request.auth.uid == userId; }
+
+    // Bibliothèque d'exercices: lecture pour connectés
+    match /subjects/{id} { allow read: if signedIn(); allow write: if isParent(); }
+    match /themes/{id}    { allow read: if signedIn(); allow write: if isParent(); }
+    match /exercises/{id} { allow read: if signedIn(); allow write: if isParent(); }
+
+    // Profils utilisateurs
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isParent();
+      allow create: if isOwner(userId);
+      allow update: if isOwner(userId) || isParent();
+
+      match /attempts/{attemptId} {
+        allow read, write: if isOwner(userId) || isParent();
+      }
+      match /stats/{docId} {
+        allow read, write: if isOwner(userId) || isParent();
+      }
+    }
+  }
+}

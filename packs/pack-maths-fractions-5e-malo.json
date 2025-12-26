@@ -1,0 +1,186 @@
+{
+  "version": 1,
+  "grade": "5e",
+  "subjects": [
+    {
+      "id": "math",
+      "title": "Maths",
+      "themes": [
+        {
+          "id": "math_fractions_bases",
+          "title": "Fractions : bases (lire, comparer, simplifier)",
+          "exercises": [
+            {
+              "id": "m5_frac_001",
+              "type": "mcq",
+              "prompt": "Quelle fraction est la plus grande ?",
+              "choices": [
+                "1/3",
+                "1/2",
+                "1/4",
+                "1/5"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "fractions",
+                "comparer"
+              ]
+            },
+            {
+              "id": "m5_frac_002",
+              "type": "mcq",
+              "prompt": "Simplifie : 6/8 = ?",
+              "choices": [
+                "3/4",
+                "6/4",
+                "2/3",
+                "4/3"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "fractions",
+                "simplifier"
+              ]
+            },
+            {
+              "id": "m5_frac_003",
+              "type": "short_text",
+              "prompt": "Écris une fraction équivalente à 1/2 avec dénominateur 10.",
+              "expected": [
+                "5/10"
+              ],
+              "difficulty": 2,
+              "tags": [
+                "fractions",
+                "equivalentes"
+              ]
+            },
+            {
+              "id": "m5_frac_004",
+              "type": "mcq",
+              "prompt": "Quelle fraction est égale à 0,25 ?",
+              "choices": [
+                "1/2",
+                "1/4",
+                "3/4",
+                "2/5"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fractions",
+                "decimal"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "math_fractions_addsub",
+          "title": "Fractions : addition et soustraction",
+          "exercises": [
+            {
+              "id": "m5_frac_005",
+              "type": "mcq",
+              "prompt": "Calcule : 1/2 + 1/4 = ?",
+              "choices": [
+                "1/6",
+                "3/4",
+                "2/6",
+                "1/8"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "fractions",
+                "addition"
+              ]
+            },
+            {
+              "id": "m5_frac_006",
+              "type": "mcq",
+              "prompt": "Calcule : 3/5 - 1/5 = ?",
+              "choices": [
+                "2/5",
+                "3/10",
+                "1/5",
+                "4/5"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "fractions",
+                "soustraction"
+              ]
+            },
+            {
+              "id": "m5_frac_007",
+              "type": "short_text",
+              "prompt": "Calcule : 2/3 + 1/3 =",
+              "expected": [
+                "1",
+                "3/3"
+              ],
+              "difficulty": 2,
+              "tags": [
+                "fractions",
+                "addition"
+              ]
+            },
+            {
+              "id": "m5_frac_008",
+              "type": "short_text",
+              "prompt": "Calcule : 1/6 + 1/6 =",
+              "expected": [
+                "1/3",
+                "2/6"
+              ],
+              "difficulty": 2,
+              "tags": [
+                "fractions",
+                "addition"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "math_fraction_quantite",
+          "title": "Fractions : fraction d’une quantité",
+          "exercises": [
+            {
+              "id": "m5_frac_009",
+              "type": "short_text",
+              "prompt": "Calcule : 1/4 de 20 =",
+              "expected": [
+                "5"
+              ],
+              "difficulty": 1,
+              "tags": [
+                "fractions",
+                "quantite"
+              ]
+            },
+            {
+              "id": "m5_frac_010",
+              "type": "mcq",
+              "prompt": "Calcule : 2/3 de 12 =",
+              "choices": [
+                "6",
+                "8",
+                "9",
+                "10"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fractions",
+                "quantite"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

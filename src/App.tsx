@@ -1,0 +1,27 @@
+import React from 'react'
+import { HashRouter, Routes, Route } from 'react-router-dom'
+import { TopBar } from './components/TopBar'
+import { RequireAuth, RequireParent } from './components/Guards'
+import { HomePage } from './pages/Home'
+import { LoginPage } from './pages/Login'
+import { ThemeSessionPage } from './pages/ThemeSession'
+import { AdminImportPage } from './pages/AdminImport'
+import { NotFoundPage } from './pages/NotFound'
+
+export function App() {
+  return (
+    <HashRouter>
+      <div className="container">
+        <TopBar />
+      </div>
+
+      <Routes>
+        <Route path="/connexion" element={<LoginPage />} />
+        <Route path="/" element={<RequireAuth><HomePage /></RequireAuth>} />
+        <Route path="/theme/:themeId" element={<RequireAuth><ThemeSessionPage /></RequireAuth>} />
+        <Route path="/admin/import" element={<RequireParent><AdminImportPage /></RequireParent>} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </HashRouter>
+  )
+}

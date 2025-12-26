@@ -1,0 +1,267 @@
+{
+  "version": 1,
+  "grade": "5e",
+  "subjects": [
+    {
+      "id": "fr",
+      "title": "Français",
+      "themes": [
+        {
+          "id": "fr_grammaire_nature",
+          "title": "Grammaire : nature des mots",
+          "exercises": [
+            {
+              "id": "fr5_nat_001",
+              "type": "mcq",
+              "prompt": "Nature du mot souligné : Le _chat_ noir dort.",
+              "choices": [
+                "Nom",
+                "Verbe",
+                "Adjectif",
+                "Préposition"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "nature"
+              ]
+            },
+            {
+              "id": "fr5_nat_002",
+              "type": "mcq",
+              "prompt": "Nature du mot souligné : Elle _mange_ une pomme.",
+              "choices": [
+                "Nom",
+                "Verbe",
+                "Adverbe",
+                "Déterminant"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "nature"
+              ]
+            },
+            {
+              "id": "fr5_nat_003",
+              "type": "mcq",
+              "prompt": "Nature du mot souligné : Ce livre est _intéressant_.",
+              "choices": [
+                "Nom",
+                "Adjectif",
+                "Verbe",
+                "Pronom"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "nature"
+              ]
+            },
+            {
+              "id": "fr5_nat_004",
+              "type": "short_text",
+              "prompt": "Écris la nature du mot souligné : _Nous_ partons demain.",
+              "expected": [
+                "pronom"
+              ],
+              "difficulty": 1,
+              "tags": [
+                "nature"
+              ]
+            },
+            {
+              "id": "fr5_nat_005",
+              "type": "short_text",
+              "prompt": "Écris la nature du mot souligné : Il habite _près_ de l’école.",
+              "expected": [
+                "adverbe"
+              ],
+              "difficulty": 2,
+              "tags": [
+                "nature"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "fr_grammaire_fonctions",
+          "title": "Grammaire : fonctions (sujet, COD, COI, CC)",
+          "exercises": [
+            {
+              "id": "fr5_fct_001",
+              "type": "mcq",
+              "prompt": "Fonction du groupe en gras : **Le professeur** explique la leçon.",
+              "choices": [
+                "Sujet",
+                "COD",
+                "COI",
+                "CC"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "fonctions"
+              ]
+            },
+            {
+              "id": "fr5_fct_002",
+              "type": "mcq",
+              "prompt": "Fonction du groupe en gras : Il regarde **le film** avec attention.",
+              "choices": [
+                "Sujet",
+                "COD",
+                "COI",
+                "CC"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "fonctions"
+              ]
+            },
+            {
+              "id": "fr5_fct_003",
+              "type": "mcq",
+              "prompt": "Fonction du groupe en gras : Elle parle **à son amie**.",
+              "choices": [
+                "Sujet",
+                "COD",
+                "COI",
+                "CC"
+              ],
+              "answerIndex": 2,
+              "difficulty": 2,
+              "tags": [
+                "fonctions"
+              ]
+            },
+            {
+              "id": "fr5_fct_004",
+              "type": "short_text",
+              "prompt": "Écris la fonction du groupe en gras : Nous travaillerons **demain matin**.",
+              "expected": [
+                "complement circonstanciel",
+                "complément circonstanciel",
+                "cc"
+              ],
+              "difficulty": 2,
+              "tags": [
+                "fonctions"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "fr_conjugaison_temps",
+          "title": "Conjugaison : présent, imparfait, futur",
+          "exercises": [
+            {
+              "id": "fr5_conj_001",
+              "type": "mcq",
+              "prompt": "Temps du verbe souligné : Hier, il _jouait_ dans le jardin.",
+              "choices": [
+                "Présent",
+                "Imparfait",
+                "Futur",
+                "Passé composé"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "temps"
+              ]
+            },
+            {
+              "id": "fr5_conj_002",
+              "type": "mcq",
+              "prompt": "Temps du verbe souligné : Demain, nous _partirons_ en voyage.",
+              "choices": [
+                "Présent",
+                "Imparfait",
+                "Futur",
+                "Passé composé"
+              ],
+              "answerIndex": 2,
+              "difficulty": 1,
+              "tags": [
+                "temps"
+              ]
+            },
+            {
+              "id": "fr5_conj_003",
+              "type": "short_text",
+              "prompt": "Conjugue au futur : Nous (aller) ____ au collège demain.",
+              "expected": [
+                "irons"
+              ],
+              "difficulty": 2,
+              "tags": [
+                "conjugaison"
+              ]
+            },
+            {
+              "id": "fr5_conj_004",
+              "type": "fill_blank",
+              "prompt": "Conjugue à l’imparfait : Elle ____ (finir) ses devoirs.",
+              "text": "Elle ____ ses devoirs.",
+              "expected": [
+                "finissait"
+              ],
+              "difficulty": 2,
+              "tags": [
+                "conjugaison"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "fr_conjugaison_passe_compose",
+          "title": "Conjugaison : passé composé (bases)",
+          "exercises": [
+            {
+              "id": "fr5_pc_001",
+              "type": "mcq",
+              "prompt": "Repère le passé composé :",
+              "choices": [
+                "Il mange.",
+                "Il a mangé.",
+                "Il mangeait.",
+                "Il mangera."
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "passe_compose"
+              ]
+            },
+            {
+              "id": "fr5_pc_002",
+              "type": "short_text",
+              "prompt": "Conjugue au passé composé : Vous (prendre) ____ le bus.",
+              "expected": [
+                "avez pris"
+              ],
+              "difficulty": 2,
+              "tags": [
+                "passe_compose"
+              ]
+            },
+            {
+              "id": "fr5_pc_003",
+              "type": "short_text",
+              "prompt": "Conjugue au passé composé : Elle (comprendre) ____ la leçon.",
+              "expected": [
+                "a compris"
+              ],
+              "difficulty": 2,
+              "tags": [
+                "passe_compose"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
