@@ -33,6 +33,11 @@ service cloud.firestore {
         allow read: if isOwner(userId) || isParent();
         allow write: if isOwner(userId);
       }
+      // Journaux journaliers (ex: stats/days/{dateKey})
+      match /stats/days/{dateKey} {
+        allow read: if isOwner(userId) || isParent();
+        allow write: if isOwner(userId);
+      }
       match /tagProgress/{tagId} {
         allow read: if isOwner(userId) || isParent();
         allow write: if isOwner(userId);
