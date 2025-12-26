@@ -60,6 +60,18 @@ export function HomePage() {
             <h2 style={{ margin: 0 }}>Salut Malo 👋</h2>
             <div className="small">Choisis une matière, puis un thème. Objectif : 10 questions par jour.</div>
             <div className="small" style={{ marginTop: 6 }}>Niveau {rewards.level || 1} · XP {rewards.xp || 0}</div>
+            {(rewards.badges || []).length ? (
+              <div className="row" style={{ marginTop: 6, gap: 6 }}>
+                {rewards.badges?.map((b: string) => {
+                  const def = BADGES.find(x => x.id === b)
+                  return (
+                    <span key={b} className="pill" style={{ padding:'4px 8px', border:'1px solid rgba(255,255,255,0.2)' }}>
+                      {def?.icon || '🏅'} {def?.title || b}
+                    </span>
+                  )
+                })}
+              </div>
+            ) : null}
           </div>
         </div>
       </div>
