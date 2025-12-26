@@ -88,6 +88,7 @@ export async function listReadings(themeId: string) {
 
 export async function importPack(pack: PackJSON) {
   const batch = writeBatch(db)
+  const readingsToWrite: Array<{ id: string, payload: any }> = []
 
   for (const subj of pack.subjects) {
     batch.set(doc(db, 'subjects', subj.id), { title: subj.title }, { merge: true })
@@ -117,7 +118,6 @@ export async function importPack(pack: PackJSON) {
       if (Array.isArray((th as any).readings)) {
         for (const rd of (th as any).readings as Reading[]) {
           if (!rd.id || !rd.title || !rd.text || !Array.isArray(rd.questions)) continue
-          const readingDoc = doc(db, 'readings', rd.id)
           const readingPayload: Reading = {
             id: rd.id,
             title: rd.title,
@@ -131,13 +131,26 @@ export async function importPack(pack: PackJSON) {
               tags: Array.isArray(q.tags) ? q.tags.slice(0, 3) : [],
             })),
           }
-          batch.set(readingDoc, { ...readingPayload, themeId: th.id }, { merge: true })
+          readingsToWrite.push({ id: rd.id, payload: { ...readingPayload, themeId: th.id } })
         }
       }
     }
   }
 
   await batch.commit()
+
+  // Attempt to write readings collection; ignore permission errors (readings still embedded in theme)
+  if (readingsToWrite.length) {
+    try {
+      const batchReadings = writeBatch(db)
+      readingsToWrite.forEach(r => {
+        batchReadings.set(doc(db, 'readings', r.id), r.payload, { merge: true })
+      })
+      await batchReadings.commit()
+    } catch {
+      // ignore if insufficient permissions
+    }
+  }
 }
 
 export async function setThemeHidden(themeId: string, hidden: boolean) {
