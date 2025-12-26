@@ -40,9 +40,8 @@ export function ProgressPage() {
   const [loading, setLoading] = React.useState(false)
   const [selected, setSelected] = React.useState<SubjectId | 'all'>('fr')
   const [summary, setSummary] = React.useState<any | null>(null)
-  const [selectedTag, setSelectedTag] = React.useState<string>('')
-  const [tagItems, setTagItems] = React.useState<any[]>([])
-  const [loadingTag, setLoadingTag] = React.useState(false)
+  const [openTagId, setOpenTagId] = React.useState<string>('')
+  const [tagDetails, setTagDetails] = React.useState<Record<string, { loading: boolean, items: any[] }>>({})
 
   React.useEffect(() => {
     if (!user) return
@@ -76,8 +75,9 @@ export function ProgressPage() {
 
   const loadTagDetails = async (tagId: string) => {
     if (!selectedChild) return
-    setSelectedTag(tagId)
-    setLoadingTag(true)
+    setOpenTagId(tagId)
+    if (tagDetails[tagId]?.items?.length || tagDetails[tagId]?.loading) return
+    setTagDetails(prev => ({ ...prev, [tagId]: { loading: true, items: [] } }))
     let itemsSnap
     try {
       itemsSnap = await getDocs(query(
@@ -111,8 +111,7 @@ export function ProgressPage() {
         const db = b.createdAt?.toMillis ? b.createdAt.toMillis() : 0
         return db - da
       })
-    setTagItems(detailed)
-    setLoadingTag(false)
+    setTagDetails(prev => ({ ...prev, [tagId]: { loading: false, items: detailed } }))
   }
 
   const filtered = tags
@@ -187,68 +186,68 @@ export function ProgressPage() {
             <div className="grid">
               {filtered.map(tag => {
                 const last7 = computeLast7(tag)
+                const isOpen = openTagId === (tag.tagId || tag.id)
+                const detail = tagDetails[tag.tagId || tag.id] || { loading: false, items: [] }
                 return (
-                  <button
-                    key={tag.id}
-                    className="pill"
-                    style={{ justifyContent:'space-between', display:'flex', alignItems:'center', width:'100%', textAlign:'left', cursor:'pointer' }}
-                    onClick={() => loadTagDetails(tag.tagId || tag.id)}
-                  >
-                    <div>
-                      <div style={{ fontWeight: 700 }}>{tag.tagId}</div>
-                      <div className="small">
-                        {tag.mastery ?? 0}/100 · {tag.bucket} · {last7.correct}/{last7.correct + last7.wrong} sur 7 · Prochaine: {tag.nextDueDate || '—'}
+                  <div key={tag.id} className="card" style={{ padding: 12 }}>
+                    <div className="row" style={{ justifyContent:'space-between', alignItems:'center' }}>
+                      <div onClick={() => loadTagDetails(tag.tagId || tag.id)} style={{ cursor:'pointer', flex:1 }}>
+                        <div style={{ fontWeight: 700 }}>{tag.tagId}</div>
+                        <div className="small">
+                          {tag.mastery ?? 0}/100 · {tag.bucket} · {last7.correct}/{last7.correct + last7.wrong} sur 7 · Prochaine: {tag.nextDueDate || '—'}
+                        </div>
+                        <div style={{ height: 8, background:'rgba(255,255,255,0.08)', borderRadius: 999, marginTop: 6, width:'100%' }}>
+                          <div style={{ height: 8, borderRadius: 999, width: `${Math.min(100, Math.max(0, tag.mastery || 0))}%`, background: 'linear-gradient(90deg,#ff5a6f,#7aa2ff)' }} />
+                        </div>
+                        <div className="row" style={{ marginTop: 6, gap: 4 }}>
+                          {(tag.last7Results || []).map((r, idx) => (
+                            <span key={idx} style={{
+                              width: 10, height: 10, borderRadius: '50%',
+                              background: r ? '#2ecc71' : '#ff5a6f', opacity: 0.9
+                            }} />
+                          ))}
+                        </div>
                       </div>
-                      <div style={{ height: 8, background:'rgba(255,255,255,0.08)', borderRadius: 999, marginTop: 6, width:'100%' }}>
-                        <div style={{ height: 8, borderRadius: 999, width: `${Math.min(100, Math.max(0, tag.mastery || 0))}%`, background: 'linear-gradient(90deg,#ff5a6f,#7aa2ff)' }} />
-                      </div>
-                      <div className="row" style={{ marginTop: 6, gap: 4 }}>
-                        {(tag.last7Results || []).map((r, idx) => (
-                          <span key={idx} style={{
-                            width: 10, height: 10, borderRadius: '50%',
-                            background: r ? '#2ecc71' : '#ff5a6f', opacity: 0.9
-                          }} />
-                        ))}
-                      </div>
+                      <button className="btn secondary" style={{ width: 36, height: 36 }} onClick={() => loadTagDetails(tag.tagId || tag.id)}>
+                        {isOpen ? '−' : '+'}
+                      </button>
                     </div>
-                  </button>
+                    {isOpen && (
+                      <div className="card" style={{ marginTop: 10, background:'rgba(255,255,255,0.03)' }}>
+                        {detail.loading ? (
+                          <div className="small">Chargement…</div>
+                        ) : detail.items.length === 0 ? (
+                          <div className="small">Aucune question trouvée pour ce tag.</div>
+                        ) : (
+                          <div className="grid">
+                            {detail.items.map(item => (
+                              <div key={item.id} className="pill" style={{ display:'flex', flexDirection:'column', alignItems:'flex-start', gap:6 }}>
+                                <div className="small">
+                                  {item.createdAt?.toDate ? item.createdAt.toDate().toLocaleString() : ''} · Diff {item.difficulty} · {item.correct ? '✅' : '❌'}
+                                </div>
+                                <div style={{ fontWeight: 700 }}>{item.prompt}</div>
+                                {item.readingContext && (
+                                  <div className="small" style={{ whiteSpace:'pre-wrap' }}>
+                                    <div style={{ fontWeight: 600, marginBottom: 4 }}>Lecture : {item.readingContext.title}</div>
+                                    {item.readingContext.text}
+                                  </div>
+                                )}
+                                {Array.isArray(item.choices) && typeof item.answer === 'number' ? (
+                                  <div className="small">
+                                    Réponse : <strong>{item.choices[item.answer] || item.answer}</strong>
+                                  </div>
+                                ) : (
+                                  <div className="small">Réponse : <strong>{item.answer ?? '—'}</strong></div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
                 )
               })}
-            </div>
-          )}
-        </div>
-      )}
-
-      {selectedTag && (
-        <div className="card">
-          <h3 style={{ marginTop: 0 }}>Détails du tag : {selectedTag}</h3>
-          {loadingTag ? (
-            <div className="small">Chargement…</div>
-          ) : tagItems.length === 0 ? (
-            <div className="small">Aucune question trouvée pour ce tag.</div>
-          ) : (
-            <div className="grid">
-              {tagItems.map(item => (
-                <div key={item.id} className="pill" style={{ display:'flex', flexDirection:'column', alignItems:'flex-start', gap:6 }}>
-                  <div className="small">
-                    {item.createdAt?.toDate ? item.createdAt.toDate().toLocaleString() : ''} · Diff {item.difficulty} · {item.correct ? '✅' : '❌'}
-                  </div>
-                  <div style={{ fontWeight: 700 }}>{item.prompt}</div>
-                  {item.readingContext && (
-                    <div className="small" style={{ whiteSpace:'pre-wrap' }}>
-                      <div style={{ fontWeight: 600, marginBottom: 4 }}>Lecture : {item.readingContext.title}</div>
-                      {item.readingContext.text}
-                    </div>
-                  )}
-                  {Array.isArray(item.choices) && typeof item.answer === 'number' ? (
-                    <div className="small">
-                      Réponse : <strong>{item.choices[item.answer] || item.answer}</strong>
-                    </div>
-                  ) : (
-                    <div className="small">Réponse : <strong>{item.answer ?? '—'}</strong></div>
-                  )}
-                </div>
-              ))}
             </div>
           )}
         </div>
