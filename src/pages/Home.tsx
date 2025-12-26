@@ -59,14 +59,8 @@ export function HomePage() {
           <div>
             <h2 style={{ margin: 0 }}>Salut Malo 👋</h2>
             <div className="small">Choisis une matière, puis un thème. Objectif : 10 questions par jour.</div>
+            <div className="small" style={{ marginTop: 6 }}>Niveau {rewards.level || 1} · XP {rewards.xp || 0}</div>
           </div>
-          {stats && (
-            <div className="kpi">
-              <div className="pill">XP: <strong>{stats.xp ?? 0}</strong></div>
-              <div className="pill">Pièces: <strong>{stats.coins ?? 0}</strong></div>
-              <div className="pill">Série: <strong>{stats.streakDays ?? 0}</strong> jours</div>
-            </div>
-          )}
         </div>
       </div>
 
@@ -95,11 +89,11 @@ export function HomePage() {
         </div>
       </div>
 
-      {stats?.badges?.length ? (
+      {(rewards.badges || []).length ? (
         <div className="card">
-          <h3 style={{ marginTop:0 }}>Badges</h3>
+          <h3 style={{ marginTop:0 }}>Badges débloqués</h3>
           <div className="row">
-            {stats.badges.map((b: string) => <span key={b} className="badge">{b}</span>)}
+            {rewards.badges?.map((b: string) => <span key={b} className="badge">{b}</span>)}
           </div>
         </div>
       ) : null}

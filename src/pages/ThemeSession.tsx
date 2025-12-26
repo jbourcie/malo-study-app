@@ -58,7 +58,7 @@ export function ThemeSessionPage() {
     idx: number
   }>>([])
   const [showCorrections, setShowCorrections] = React.useState(false)
-  const [sessionRewards, setSessionRewards] = React.useState<{ deltaXp: number, levelUp: boolean, newRewards?: any, prevRewards?: any } | null>(null)
+  const [sessionRewards, setSessionRewards] = React.useState<{ deltaXp: number, levelUp: boolean, newRewards?: any, prevRewards?: any, unlockedBadges?: string[] } | null>(null)
   const [showRewardModal, setShowRewardModal] = React.useState(false)
   const [sessionFeedbackMsg, setSessionFeedbackMsg] = React.useState<string>('')
 
@@ -129,6 +129,7 @@ export function ThemeSessionPage() {
     const prevRewards = liveRewards
     let newRewards = null
     let levelUp = false
+    let unlockedBadges: string[] = []
     try {
       const res = await awardSessionRewards(user.uid, progress.attemptId || null, deltaXp)
       newRewards = res
@@ -138,12 +139,12 @@ export function ThemeSessionPage() {
         sessionId: progress.attemptId || themeId,
         items: items,
       })
-      await evaluateBadges({ uid: user.uid, rewards: res || liveRewards })
+      unlockedBadges = await evaluateBadges({ uid: user.uid, rewards: res || liveRewards }) || []
     } catch (e) {
       console.error('awardSessionRewards failed', e)
       // fallback: do not block UX
     }
-    setSessionRewards({ deltaXp, levelUp, newRewards, prevRewards })
+    setSessionRewards({ deltaXp, levelUp, newRewards, prevRewards, unlockedBadges })
 
     const sessionTags = new Set<string>(exos.flatMap(ex => ex.tags || []))
     const sortedWeak = Object.values(progress.tagsUpdated || {})
@@ -235,6 +236,11 @@ export function ThemeSessionPage() {
               {sessionRewards?.levelUp && (
                 <div className="small" style={{ marginTop: 6 }}>🎉 Niveau {sessionRewards?.newRewards?.level}</div>
               )}
+              {sessionRewards?.unlockedBadges?.length ? (
+                <div className="small" style={{ marginTop: 8 }}>
+                  Nouveau badge : {sessionRewards.unlockedBadges.map(b => <span key={b} className="badge">{b}</span>)}
+                </div>
+              ) : null}
               {message && <div className="small" style={{ marginTop: 8 }}>{message}</div>}
               <button className="btn" style={{ marginTop: 12 }} onClick={() => setShowRewardModal(false)}>Voir la correction</button>
             </div>
@@ -378,8 +384,7 @@ export function ThemeSessionPage() {
           <button className="btn" onClick={submit}>Corriger et enregistrer</button>
           {result && (
             <div className="small">
-              Score <strong>{result.score}/{result.outOf}</strong> · {result.durationSec}s ·
-              +<strong>{result.xpGain}</strong> XP · +<strong>{result.coinsGain}</strong> pièces · Série <strong>{result.streakDays}</strong>
+              Score <strong>{result.score}/{result.outOf}</strong> · {result.durationSec}s
             </div>
           )}
         </div>
