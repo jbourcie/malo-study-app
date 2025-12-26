@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { listSubjects, listThemes, getOrInitStats } from '../data/firestore'
+import { listInventory } from '../data/rewards'
 import { useAuth } from '../state/useAuth'
 import type { SubjectId } from '../types'
 
@@ -18,6 +19,7 @@ export function HomePage() {
   const [selected, setSelected] = React.useState<SubjectId>('fr')
   const [themes, setThemes] = React.useState<any[]>([])
   const [stats, setStats] = React.useState<any | null>(null)
+  const [inventory, setInventory] = React.useState<any[]>([])
 
   React.useEffect(() => {
     (async () => {
@@ -42,6 +44,8 @@ export function HomePage() {
     (async () => {
       const st = await getOrInitStats(user.uid)
       setStats(st)
+      const inv = await listInventory(user.uid)
+      setInventory(inv)
     })()
   }, [user])
 
@@ -93,6 +97,17 @@ export function HomePage() {
           <h3 style={{ marginTop:0 }}>Badges</h3>
           <div className="row">
             {stats.badges.map((b: string) => <span key={b} className="badge">{b}</span>)}
+          </div>
+        </div>
+      ) : null}
+
+      {inventory.length ? (
+        <div className="card">
+          <h3 style={{ marginTop:0 }}>Inventaire</h3>
+          <div className="row">
+            {inventory.map((item: any) => (
+              <span key={item.id} className="badge">{item.title || item.id}</span>
+            ))}
           </div>
         </div>
       ) : null}
