@@ -91,23 +91,33 @@ export async function applyMasteryEvents(opts: {
       updatedAt: existing?.updatedAt,
     }
 
-    let mastery = current.masteryByTag || {}
     const now = serverTimestamp() as any
+    const events = items.map(item => ({
+      item,
+      evRef: doc(db, 'users', uid, 'rewardEvents', `${sessionId}_${item.exerciseId}`)
+    }))
 
-    for (const item of items) {
-      const eventId = `${sessionId}_${item.exerciseId}`
-      const evRef = doc(db, 'users', uid, 'rewardEvents', eventId)
-      const evSnap = await tx.get(evRef)
-      if (evSnap.exists()) continue
-      const tags = Array.isArray(item.tags) ? item.tags : []
+    const eventSnaps = await Promise.all(events.map(e => tx.get(e.evRef)))
+
+    let mastery = current.masteryByTag || {}
+    events.forEach((e, idx) => {
+      const evSnap = eventSnaps[idx]
+      if (evSnap.exists()) return
+      const tags = Array.isArray(e.item.tags) ? e.item.tags : []
       mastery = updateMasteryFromAttempt({
         masteryByTag: mastery,
         questionTags: tags,
-        isCorrect: item.correct,
+        isCorrect: e.item.correct,
         timestamp: now,
       })
-      tx.set(evRef, { sessionId, exerciseId: item.exerciseId, correct: item.correct, tags, createdAt: now })
-    }
+    })
+
+    events.forEach((e, idx) => {
+      const evSnap = eventSnaps[idx]
+      if (evSnap.exists()) return
+      const tags = Array.isArray(e.item.tags) ? e.item.tags : []
+      tx.set(e.evRef, { sessionId, exerciseId: e.item.exerciseId, correct: e.item.correct, tags, createdAt: now })
+    })
 
     tx.set(rewardsRef, {
       ...current,
