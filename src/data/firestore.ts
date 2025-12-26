@@ -88,7 +88,6 @@ export async function listReadings(themeId: string) {
 
 export async function importPack(pack: PackJSON) {
   const batch = writeBatch(db)
-  const readingsToWrite: Array<{ id: string, payload: any }> = []
 
   for (const subj of pack.subjects) {
     batch.set(doc(db, 'subjects', subj.id), { title: subj.title }, { merge: true })
@@ -131,26 +130,19 @@ export async function importPack(pack: PackJSON) {
               tags: Array.isArray(q.tags) ? q.tags.slice(0, 3) : [],
             })),
           }
-          readingsToWrite.push({ id: rd.id, payload: { ...readingPayload, themeId: th.id } })
+          // embed readings inside theme doc for offline/permissions safety
+          const themeRef = doc(db, 'themes', th.id)
+          batch.set(themeRef, {
+            readings: [
+              ...(Array.isArray((th as any).readings) ? (th as any).readings : []).map(r => ({ ...r, themeId: th.id })),
+            ],
+          }, { merge: true })
         }
       }
     }
   }
 
   await batch.commit()
-
-  // Attempt to write readings collection; ignore permission errors (readings still embedded in theme)
-  if (readingsToWrite.length) {
-    try {
-      const batchReadings = writeBatch(db)
-      readingsToWrite.forEach(r => {
-        batchReadings.set(doc(db, 'readings', r.id), r.payload, { merge: true })
-      })
-      await batchReadings.commit()
-    } catch {
-      // ignore if insufficient permissions
-    }
-  }
 }
 
 export async function setThemeHidden(themeId: string, hidden: boolean) {
