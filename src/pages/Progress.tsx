@@ -1,5 +1,5 @@
 import React from 'react'
-import { collection, getDocs, query, where } from 'firebase/firestore'
+import { collection, doc, getDoc, getDocs, limit, orderBy, query, where } from 'firebase/firestore'
 import { db } from '../firebase'
 import { useAuth } from '../state/useAuth'
 import type { SubjectId } from '../types'
@@ -40,6 +40,9 @@ export function ProgressPage() {
   const [loading, setLoading] = React.useState(false)
   const [selected, setSelected] = React.useState<SubjectId | 'all'>('fr')
   const [summary, setSummary] = React.useState<any | null>(null)
+  const [selectedTag, setSelectedTag] = React.useState<string>('')
+  const [tagItems, setTagItems] = React.useState<any[]>([])
+  const [loadingTag, setLoadingTag] = React.useState(false)
 
   React.useEffect(() => {
     if (!user) return
@@ -70,6 +73,31 @@ export function ProgressPage() {
     if (!selectedChild) return
     loadData(selectedChild)
   }, [selectedChild, loadData])
+
+  const loadTagDetails = async (tagId: string) => {
+    if (!selectedChild) return
+    setSelectedTag(tagId)
+    setLoadingTag(true)
+    const itemsSnap = await getDocs(query(
+      collection(db, 'users', selectedChild, 'attemptItems'),
+      where('tags', 'array-contains', tagId),
+      orderBy('createdAt', 'desc'),
+      limit(50)
+    ))
+    const items = itemsSnap.docs.map(d => ({ id: d.id, ...(d.data() as any) }))
+    // Fetch prompts for missing ones
+    const prompts: Record<string, string> = {}
+    await Promise.all(Array.from(new Set(items.map(i => i.exerciseId))).map(async (exId) => {
+      const exSnap = await getDoc(doc(db, 'exercises', exId))
+      if (exSnap.exists()) prompts[exId] = (exSnap.data() as any).prompt || exId
+    }))
+    const detailed = items.map(it => ({
+      ...it,
+      prompt: it.prompt || prompts[it.exerciseId] || it.exerciseId,
+    }))
+    setTagItems(detailed)
+    setLoadingTag(false)
+  }
 
   const filtered = tags
     .filter(t => selected === 'all' ? true : extractSubject(t.tagId) === selected)
@@ -144,7 +172,12 @@ export function ProgressPage() {
               {filtered.map(tag => {
                 const last7 = computeLast7(tag)
                 return (
-                  <div key={tag.id} className="pill" style={{ justifyContent:'space-between', display:'flex', alignItems:'center' }}>
+                  <button
+                    key={tag.id}
+                    className="pill"
+                    style={{ justifyContent:'space-between', display:'flex', alignItems:'center', width:'100%', textAlign:'left', cursor:'pointer' }}
+                    onClick={() => loadTagDetails(tag.tagId || tag.id)}
+                  >
                     <div>
                       <div style={{ fontWeight: 700 }}>{tag.tagId}</div>
                       <div className="small">
@@ -162,9 +195,32 @@ export function ProgressPage() {
                         ))}
                       </div>
                     </div>
-                  </div>
+                  </button>
                 )
               })}
+            </div>
+          )}
+        </div>
+      )}
+
+      {selectedTag && (
+        <div className="card">
+          <h3 style={{ marginTop: 0 }}>Détails du tag : {selectedTag}</h3>
+          {loadingTag ? (
+            <div className="small">Chargement…</div>
+          ) : tagItems.length === 0 ? (
+            <div className="small">Aucune question trouvée pour ce tag.</div>
+          ) : (
+            <div className="grid">
+              {tagItems.map(item => (
+                <div key={item.id} className="pill" style={{ display:'flex', flexDirection:'column', alignItems:'flex-start', gap:6 }}>
+                  <div className="small">
+                    {item.createdAt?.toDate ? item.createdAt.toDate().toLocaleString() : ''} · Diff {item.difficulty} · {item.correct ? '✅' : '❌'}
+                  </div>
+                  <div style={{ fontWeight: 700 }}>{item.prompt}</div>
+                  <div className="small">Réponse donnée : <strong>{item.answer ?? '—'}</strong></div>
+                </div>
+              ))}
             </div>
           )}
         </div>
