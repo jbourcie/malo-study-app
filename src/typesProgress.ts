@@ -13,6 +13,14 @@ export interface AttemptItem {
   correct: boolean
   index?: number
   createdAt?: Timestamp
+  prompt?: string
+  choices?: string[]
+  readingContext?: {
+    readingId: string
+    title: string
+    text: string
+  }
+  answer?: any
 }
 
 export interface Attempt {

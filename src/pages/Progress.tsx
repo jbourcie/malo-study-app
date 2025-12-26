@@ -103,7 +103,8 @@ export function ProgressPage() {
       .map(it => ({
         ...it,
         prompt: it.prompt || prompts[it.exerciseId]?.prompt || it.exerciseId,
-        choices: prompts[it.exerciseId]?.choices || null,
+        choices: it.choices || prompts[it.exerciseId]?.choices || null,
+        readingContext: it.readingContext,
       }))
       .sort((a, b) => {
         const da = a.createdAt?.toMillis ? a.createdAt.toMillis() : 0
@@ -233,6 +234,12 @@ export function ProgressPage() {
                     {item.createdAt?.toDate ? item.createdAt.toDate().toLocaleString() : ''} · Diff {item.difficulty} · {item.correct ? '✅' : '❌'}
                   </div>
                   <div style={{ fontWeight: 700 }}>{item.prompt}</div>
+                  {item.readingContext && (
+                    <div className="small" style={{ whiteSpace:'pre-wrap' }}>
+                      <div style={{ fontWeight: 600, marginBottom: 4 }}>Lecture : {item.readingContext.title}</div>
+                      {item.readingContext.text}
+                    </div>
+                  )}
                   {Array.isArray(item.choices) && typeof item.answer === 'number' ? (
                     <div className="small">
                       Réponse : <strong>{item.choices[item.answer] || item.answer}</strong>

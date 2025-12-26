@@ -76,6 +76,9 @@ export async function saveSessionWithProgress(args: SaveSessionArgs) {
       tags: ex.tags?.slice(0, 3) || [],
       correct,
       index: idx,
+      prompt: (ex as any).prompt,
+      choices: (ex as any).choices,
+      readingContext: (ex as any).readingContext,
     }
   })
 
