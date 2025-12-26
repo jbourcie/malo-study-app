@@ -77,8 +77,8 @@ export async function saveSessionWithProgress(args: SaveSessionArgs) {
       correct,
       index: idx,
       prompt: (ex as any).prompt,
-      choices: (ex as any).choices,
-      readingContext: (ex as any).readingContext,
+      choices: Array.isArray((ex as any).choices) ? (ex as any).choices : null,
+      readingContext: (ex as any).readingContext || null,
     }
   })
 
