@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { listSubjects, listThemes, getOrInitStats } from '../data/firestore'
 import { listInventory } from '../data/rewards'
 import { useAuth } from '../state/useAuth'
+import { useUserRewards } from '../state/useUserRewards'
+import { BADGES } from '../rewards/badgesCatalog'
 import type { SubjectId } from '../types'
 
 const SUBJECTS_FALLBACK: Array<{id: SubjectId, title: string}> = [
@@ -15,6 +17,7 @@ const SUBJECTS_FALLBACK: Array<{id: SubjectId, title: string}> = [
 
 export function HomePage() {
   const { user } = useAuth()
+  const { rewards } = useUserRewards(user?.uid || null)
   const [subjects, setSubjects] = React.useState<any[]>([])
   const [selected, setSelected] = React.useState<SubjectId>('fr')
   const [themes, setThemes] = React.useState<any[]>([])
@@ -111,6 +114,25 @@ export function HomePage() {
           </div>
         </div>
       ) : null}
+
+      <div className="card">
+        <h3 style={{ marginTop:0 }}>Badges</h3>
+        <div className="grid2">
+          {BADGES.map(b => {
+            const unlocked = (rewards.badges || []).includes(b.id)
+            return (
+              <div key={b.id} className="pill" style={{
+                opacity: unlocked ? 1 : 0.35,
+                borderColor: unlocked ? 'rgba(122,162,255,0.6)' : 'rgba(255,255,255,0.18)',
+                display:'flex', flexDirection:'column', gap:4
+              }}>
+                <div style={{ fontWeight: 700 }}>{b.icon} {b.title}</div>
+                <div className="small">{b.description}</div>
+              </div>
+            )
+          })}
+        </div>
+      </div>
     </div>
   )
 }

@@ -3,7 +3,7 @@ import { doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../firebase'
 import type { UserRewards } from '../rewards/rewards'
 
-const defaultRewards: UserRewards = { xp: 0, level: 1 }
+const defaultRewards: UserRewards = { xp: 0, level: 1, badges: [], masteryByTag: {} }
 
 export function useUserRewards(uid: string | null) {
   const [rewards, setRewards] = React.useState<UserRewards>(defaultRewards)

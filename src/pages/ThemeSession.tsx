@@ -9,9 +9,10 @@ import { doc, getDoc } from 'firebase/firestore'
 import { db } from '../firebase'
 import { flattenThemeContent, PlayableExercise } from '../utils/flattenThemeContent'
 import { computeSessionXp, computeLevelFromXp } from '../rewards/rewards'
-import { awardSessionRewards } from '../rewards/rewardsService'
+import { awardSessionRewards, applyMasteryEvents, evaluateBadges } from '../rewards/rewardsService'
 import { useUserRewards } from '../state/useUserRewards'
 import { RewardsHeader } from '../components/RewardsHeader'
+import { getSessionFeedback } from '../utils/sessionFeedback'
 
 type AnswerState = Record<string, any>
 
@@ -59,6 +60,7 @@ export function ThemeSessionPage() {
   const [showCorrections, setShowCorrections] = React.useState(false)
   const [sessionRewards, setSessionRewards] = React.useState<{ deltaXp: number, levelUp: boolean, newRewards?: any, prevRewards?: any } | null>(null)
   const [showRewardModal, setShowRewardModal] = React.useState(false)
+  const [sessionFeedbackMsg, setSessionFeedbackMsg] = React.useState<string>('')
 
   React.useEffect(() => {
     (async () => {
@@ -131,6 +133,12 @@ export function ThemeSessionPage() {
       const res = await awardSessionRewards(user.uid, progress.attemptId || null, deltaXp)
       newRewards = res
       levelUp = (res?.level || 1) > (liveRewards?.level || 1)
+      await applyMasteryEvents({
+        uid: user.uid,
+        sessionId: progress.attemptId || themeId,
+        items: items,
+      })
+      await evaluateBadges({ uid: user.uid, rewards: res || liveRewards })
     } catch (e) {
       console.error('awardSessionRewards failed', e)
       // fallback: do not block UX
@@ -147,7 +155,27 @@ export function ThemeSessionPage() {
     setWeakTags(sortedWeak)
     setResult({ score: rewards.score, outOf: rewards.outOf, durationSec, ...rewards })
 
-    const fb = exos.map((ex, idx) => {
+    // feedback: weakest tag from incorrect answers, improved from highest delta
+    const incorrectTags = items.filter(i => !i.correct).flatMap(i => i.tags || [])
+    const tagDelta = new Map<string, number>()
+    items.forEach(i => {
+      const delta = i.correct ? 8 : 2
+      ;(i.tags || []).forEach(t => {
+        tagDelta.set(t, (tagDelta.get(t) || 0) + delta)
+      })
+    })
+    let improvedTag: string | undefined
+    if (tagDelta.size) {
+      improvedTag = Array.from(tagDelta.entries()).sort((a, b) => b[1] - a[1])[0]?.[0]
+    }
+    const accuracy = rewards.outOf ? (rewards.score / rewards.outOf) * 100 : 0
+    const fb = getSessionFeedback({
+      accuracy,
+      weakestTag: incorrectTags[0] || weakestTags[0],
+      improvedTag,
+    })
+
+    const fbDetails = exos.map((ex, idx) => {
       const userAns = answers[ex.id]
       const correct = isCorrect(ex, userAns)
       let expected = ''
@@ -172,7 +200,8 @@ export function ThemeSessionPage() {
         idx: idx + 1,
       }
     })
-    setFeedback(fb)
+    setSessionFeedbackMsg(fb)
+    setFeedback(fbDetails)
     setShowCorrections(true)
     setShowRewardModal(true)
   }
