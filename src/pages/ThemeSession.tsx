@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { listExercises, saveAttemptAndRewards } from '../data/firestore'
 import { saveSessionWithProgress } from '../data/progress'
 import { useAuth } from '../state/useAuth'
@@ -19,6 +19,7 @@ function isCorrect(ex: Exercise, ans: any): boolean {
 
 export function ThemeSessionPage() {
   const { themeId } = useParams()
+  const nav = useNavigate()
   const { user } = useAuth()
   const [theme, setTheme] = React.useState<any | null>(null)
   const [exos, setExos] = React.useState<Exercise[]>([])
@@ -34,6 +35,7 @@ export function ThemeSessionPage() {
     userAnswer: string
     idx: number
   }>>([])
+  const [showCorrections, setShowCorrections] = React.useState(false)
 
   React.useEffect(() => {
     (async () => {
@@ -116,9 +118,48 @@ export function ThemeSessionPage() {
       }
     })
     setFeedback(fb)
+    setShowCorrections(true)
   }
 
   if (!themeId) return <div className="container"><div className="card">Thème introuvable.</div></div>
+
+  if (showCorrections && feedback.length) {
+    return (
+      <div className="container grid">
+        <div className="card">
+          <h2 style={{ margin:0 }}>Corrections – {theme?.title}</h2>
+          {result && (
+            <div className="small">
+              Score <strong>{result.score}/{result.outOf}</strong> · {result.durationSec}s · +{result.xpGain} XP · +{result.coinsGain} pièces
+            </div>
+          )}
+        </div>
+
+        <div className="card">
+          <div className="grid">
+            {feedback.map(f => (
+              <div key={f.id} className="pill" style={{
+                display:'flex', flexDirection:'column', alignItems:'flex-start', gap:6,
+                background: f.correct ? 'rgba(46, 204, 113, 0.12)' : 'rgba(255, 90, 111, 0.12)',
+                border: f.correct ? '1px solid rgba(46, 204, 113, 0.4)' : '1px solid rgba(255, 90, 111, 0.4)'
+              }}>
+                <div className="small">
+                  Question {f.idx} • {f.correct ? <span className="badge" style={{ borderColor:'rgba(46,204,113,.6)', color:'#7fffb2' }}>✔️ Bonne réponse</span> : <span className="badge" style={{ borderColor:'rgba(255,90,111,.6)', color:'#ff9fb0' }}>❌ Mauvaise réponse</span>}
+                </div>
+                <div style={{ fontWeight: 700 }}>{f.prompt}</div>
+                <div className="small">Ta réponse : <strong>{f.userAnswer}</strong></div>
+                {!f.correct && <div className="small">Correction : <strong>{f.expected}</strong></div>}
+              </div>
+            ))}
+          </div>
+          <div className="row" style={{ marginTop: 16 }}>
+            <button className="btn" onClick={() => nav('/')}>Retour à l’accueil</button>
+            <button className="btn secondary" onClick={() => { setShowCorrections(false); setFeedback([]); setResult(null); setAnswers({}); }}>Refaire une session</button>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="container grid">
