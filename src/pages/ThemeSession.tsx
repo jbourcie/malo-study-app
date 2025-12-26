@@ -57,14 +57,17 @@ export function ThemeSessionPage() {
     (async () => {
       if (!themeId) return
       const tSnap = await getDoc(doc(db, 'themes', themeId))
-      setTheme(tSnap.exists() ? { id: themeId, ...tSnap.data() } : null)
+      const tData = tSnap.exists() ? { id: themeId, ...tSnap.data() } : null
+      setTheme(tData)
 
       const exercises = await listExercises(themeId, { uid: user?.uid })
-      let readings = []
+      const readingsFromTheme = Array.isArray((tData as any)?.readings) ? (tData as any).readings : []
+      let readings = readingsFromTheme
       try {
-        readings = await listReadings(themeId)
+        const remote = await listReadings(themeId)
+        if (remote.length) readings = remote
       } catch {
-        readings = []
+        // ignore
       }
       const content = flattenThemeContent({ exercises, readings })
       // session du jour: 10 questions max (ou moins si thème petit)

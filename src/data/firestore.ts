@@ -97,6 +97,7 @@ export async function importPack(pack: PackJSON) {
         subjectId: subj.id,
         title: th.title,
         grade: pack.grade,
+        readings: Array.isArray((th as any).readings) ? (th as any).readings : [],
       }, { merge: true })
 
       for (const ex of th.exercises) {
