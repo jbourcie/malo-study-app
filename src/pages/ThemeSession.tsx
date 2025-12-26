@@ -102,9 +102,11 @@ export function ThemeSessionPage() {
               {(ex as ExerciseMCQ).choices.map((c, i) => (
                 <button
                   key={i}
-                  className={"btn secondary"}
+                  type="button"
+                  className={"btn " + ((answers[ex.id] === i) ? '' : 'secondary')}
                   onClick={() => setAnswers(a => ({ ...a, [ex.id]: i }))}
                   style={{ textAlign:'left', opacity: answers[ex.id] === i ? 1 : 0.85 }}
+                  aria-pressed={answers[ex.id] === i}
                 >
                   {c}
                 </button>

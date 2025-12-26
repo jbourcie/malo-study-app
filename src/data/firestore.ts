@@ -25,7 +25,7 @@ export async function listThemes(subjectId: SubjectId) {
 export async function listExercises(themeId: string) {
   const q = query(collection(db, 'exercises'), where('themeId', '==', themeId))
   const snap = await getDocs(q)
-  return snap.docs.map(d => d.data()) as Exercise[]
+  return snap.docs.map(d => ({ id: d.id, ...(d.data() as any) })) as Exercise[]
 }
 
 export async function importPack(pack: PackJSON) {
