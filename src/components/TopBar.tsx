@@ -16,12 +16,12 @@ export function TopBar() {
         <div className="row" style={{ gap: 8 }}>
           <Link className="btn secondary" to="/">Accueil</Link>
           {user && <Link className="btn secondary" to="/recompenses">Récompenses</Link>}
-          {user && <Link className="btn secondary" to="/progression">Progression</Link>}
+          {user && <Link className="btn secondary" to="/progression">Ma progression</Link>}
           {role === 'parent' && (
             <>
               <Link className="btn secondary" to="/admin/import">Import (parent)</Link>
               <Link className="btn secondary" to="/admin/moderation">Modération</Link>
-              <Link className="btn secondary" to="/admin/progression">Progression</Link>
+              <Link className="btn secondary" to="/admin/progression">Progression enfant</Link>
             </>
           )}
           {user && <button className="btn secondary" onClick={signOutUser}>Déconnexion</button>}

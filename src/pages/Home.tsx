@@ -101,15 +101,6 @@ export function HomePage() {
         </div>
       </div>
 
-      {(rewards.badges || []).length ? (
-        <div className="card">
-          <h3 style={{ marginTop:0 }}>Badges débloqués</h3>
-          <div className="row">
-            {rewards.badges?.map((b: string) => <span key={b} className="badge">{b}</span>)}
-          </div>
-        </div>
-      ) : null}
-
       {inventory.length ? (
         <div className="card">
           <h3 style={{ marginTop:0 }}>Inventaire</h3>
