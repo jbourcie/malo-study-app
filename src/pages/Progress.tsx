@@ -92,16 +92,18 @@ export function ProgressPage() {
       ))
     }
     const items = itemsSnap.docs.map(d => ({ id: d.id, ...(d.data() as any) }))
-    // Fetch prompts for missing ones
-    const prompts: Record<string, string> = {}
+
+    const prompts: Record<string, any> = {}
     await Promise.all(Array.from(new Set(items.map(i => i.exerciseId))).map(async (exId) => {
       const exSnap = await getDoc(doc(db, 'exercises', exId))
-      if (exSnap.exists()) prompts[exId] = (exSnap.data() as any).prompt || exId
+      if (exSnap.exists()) prompts[exId] = exSnap.data()
+      else prompts[exId] = { prompt: exId }
     }))
     const detailed = items
       .map(it => ({
         ...it,
-        prompt: it.prompt || prompts[it.exerciseId] || it.exerciseId,
+        prompt: it.prompt || prompts[it.exerciseId]?.prompt || it.exerciseId,
+        choices: prompts[it.exerciseId]?.choices || null,
       }))
       .sort((a, b) => {
         const da = a.createdAt?.toMillis ? a.createdAt.toMillis() : 0
@@ -231,7 +233,13 @@ export function ProgressPage() {
                     {item.createdAt?.toDate ? item.createdAt.toDate().toLocaleString() : ''} · Diff {item.difficulty} · {item.correct ? '✅' : '❌'}
                   </div>
                   <div style={{ fontWeight: 700 }}>{item.prompt}</div>
-                  <div className="small">Réponse donnée : <strong>{item.answer ?? '—'}</strong></div>
+                  {Array.isArray(item.choices) && typeof item.answer === 'number' ? (
+                    <div className="small">
+                      Réponse : <strong>{item.choices[item.answer] || item.answer}</strong>
+                    </div>
+                  ) : (
+                    <div className="small">Réponse : <strong>{item.answer ?? '—'}</strong></div>
+                  )}
                 </div>
               ))}
             </div>
