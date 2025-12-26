@@ -18,6 +18,7 @@ export function TopBar() {
           {role === 'parent' && (
             <>
               <Link className="btn secondary" to="/admin/import">Import (parent)</Link>
+              <Link className="btn secondary" to="/admin/moderation">Modération</Link>
               <Link className="btn secondary" to="/admin/progression">Progression</Link>
             </>
           )}

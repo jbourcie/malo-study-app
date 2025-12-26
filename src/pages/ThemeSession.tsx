@@ -43,7 +43,7 @@ export function ThemeSessionPage() {
       const tSnap = await getDoc(doc(db, 'themes', themeId))
       setTheme(tSnap.exists() ? { id: themeId, ...tSnap.data() } : null)
 
-      const list = await listExercises(themeId)
+      const list = await listExercises(themeId, { uid: user?.uid })
       // session du jour: 10 questions max (ou moins si thème petit)
       const shuffled = [...list].sort(() => Math.random() - 0.5)
       setExos(shuffled.slice(0, 10))

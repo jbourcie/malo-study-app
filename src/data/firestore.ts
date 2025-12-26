@@ -16,16 +16,56 @@ export async function listSubjects() {
   return snap.docs.map(d => ({ id: d.id, ...d.data() })) as any[]
 }
 
-export async function listThemes(subjectId: SubjectId) {
+export async function listThemes(subjectId: SubjectId, opts?: { uid?: string, includeHidden?: boolean, includeOverrides?: boolean }) {
+  const { uid, includeHidden = false, includeOverrides = false } = opts || {}
   const q = query(collection(db, 'themes'), where('subjectId', '==', subjectId))
   const snap = await getDocs(q)
-  return snap.docs.map(d => ({ id: d.id, ...d.data() })) as Theme[]
+  const themes = snap.docs.map(d => ({ id: d.id, ...(d.data() as any) })) as Theme[]
+
+  let visibility = new Map<string, boolean>()
+  if (uid) {
+    const visSnap = await getDocs(collection(db, 'users', uid, 'visibilityThemes'))
+    visibility = new Map(visSnap.docs.map(d => [d.id, !!d.data().visible]))
+  }
+
+  const filtered = themes.filter(t => {
+    const override = visibility.get(t.id)
+    if (!includeHidden && (t as any).hidden) return false
+    if (!includeHidden && override === false) return false
+    return true
+  })
+
+  if (includeOverrides) {
+    return filtered.map(t => ({ ...t, visibleOverride: visibility.get(t.id) }))
+  }
+
+  return filtered
 }
 
-export async function listExercises(themeId: string) {
+export async function listExercises(themeId: string, opts?: { uid?: string, includeHidden?: boolean, includeOverrides?: boolean }) {
+  const { uid, includeHidden = false, includeOverrides = false } = opts || {}
   const q = query(collection(db, 'exercises'), where('themeId', '==', themeId))
   const snap = await getDocs(q)
-  return snap.docs.map(d => ({ id: d.id, ...(d.data() as any) })) as Exercise[]
+  const exercises = snap.docs.map(d => ({ id: d.id, ...(d.data() as any) })) as Exercise[]
+
+  let visibility = new Map<string, boolean>()
+  if (uid) {
+    const visSnap = await getDocs(collection(db, 'users', uid, 'visibilityExercises'))
+    visibility = new Map(visSnap.docs.map(d => [d.id, !!d.data().visible]))
+  }
+
+  const filtered = exercises.filter(ex => {
+    const override = visibility.get(ex.id)
+    if (!includeHidden && (ex as any).hidden) return false
+    if (!includeHidden && override === false) return false
+    return true
+  })
+
+  if (includeOverrides) {
+    return filtered.map(ex => ({ ...ex, visibleOverride: visibility.get(ex.id) }))
+  }
+
+  return filtered
 }
 
 export async function importPack(pack: PackJSON) {
@@ -58,6 +98,22 @@ export async function importPack(pack: PackJSON) {
   }
 
   await batch.commit()
+}
+
+export async function setThemeHidden(themeId: string, hidden: boolean) {
+  await setDoc(doc(db, 'themes', themeId), { hidden }, { merge: true })
+}
+
+export async function setExerciseHidden(exerciseId: string, hidden: boolean) {
+  await setDoc(doc(db, 'exercises', exerciseId), { hidden }, { merge: true })
+}
+
+export async function setThemeVisibilityForChild(uid: string, themeId: string, visible: boolean) {
+  await setDoc(doc(db, 'users', uid, 'visibilityThemes', themeId), { visible }, { merge: true })
+}
+
+export async function setExerciseVisibilityForChild(uid: string, exerciseId: string, visible: boolean) {
+  await setDoc(doc(db, 'users', uid, 'visibilityExercises', exerciseId), { visible }, { merge: true })
 }
 
 export async function getOrInitStats(uid: string) {

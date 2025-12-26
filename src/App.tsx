@@ -7,6 +7,7 @@ import { LoginPage } from './pages/Login'
 import { ThemeSessionPage } from './pages/ThemeSession'
 import { AdminImportPage } from './pages/AdminImport'
 import { ProgressPage } from './pages/Progress'
+import { ModerationPage } from './pages/Moderation'
 import { NotFoundPage } from './pages/NotFound'
 
 export function App() {
@@ -22,6 +23,7 @@ export function App() {
         <Route path="/theme/:themeId" element={<RequireAuth><ThemeSessionPage /></RequireAuth>} />
         <Route path="/admin/import" element={<RequireParent><AdminImportPage /></RequireParent>} />
         <Route path="/admin/progression" element={<RequireParent><ProgressPage /></RequireParent>} />
+        <Route path="/admin/moderation" element={<RequireParent><ModerationPage /></RequireParent>} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </HashRouter>

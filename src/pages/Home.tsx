@@ -32,10 +32,10 @@ export function HomePage() {
 
   React.useEffect(() => {
     (async () => {
-      const t = await listThemes(selected)
+      const t = await listThemes(selected, { uid: user?.uid })
       setThemes(t)
     })()
-  }, [selected])
+  }, [selected, user])
 
   React.useEffect(() => {
     if (!user) return
