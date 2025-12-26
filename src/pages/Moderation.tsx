@@ -1,7 +1,7 @@
 import React from 'react'
 import { collection, getDocs, query, where } from 'firebase/firestore'
 import { db } from '../firebase'
-import { listExercises, listThemes, setExerciseHidden, setExerciseVisibilityForChild, setThemeHidden, setThemeVisibilityForChild } from '../data/firestore'
+import { deleteTheme, listExercises, listThemes, setExerciseHidden, setExerciseVisibilityForChild, setThemeHidden, setThemeVisibilityForChild } from '../data/firestore'
 import type { SubjectId } from '../types'
 
 const SUBJECTS: Array<{ id: SubjectId | 'all', label: string }> = [
@@ -59,6 +59,17 @@ export function ModerationPage() {
   const toggleThemeHidden = async (themeId: string, hidden: boolean) => {
     await setThemeHidden(themeId, hidden)
     setThemes(t => t.map(th => th.id === themeId ? { ...th, hidden } : th))
+  }
+
+  const removeTheme = async (themeId: string) => {
+    if (!window.confirm('Supprimer ce thème et toutes ses questions ?')) return
+    await deleteTheme(themeId)
+    setThemes(t => t.filter(th => th.id !== themeId))
+    setExercisesByTheme(e => {
+      const copy = { ...e }
+      delete copy[themeId]
+      return copy
+    })
   }
 
   const loadExercises = async (themeId: string) => {
@@ -131,6 +142,7 @@ export function ModerationPage() {
                     <button className="btn secondary" onClick={() => toggleThemeHidden(th.id, !(th as any).hidden)}>
                       {(th as any).hidden ? 'Réactiver globalement' : 'Masquer globalement'}
                     </button>
+                    <button className="btn secondary" onClick={() => removeTheme(th.id)}>Supprimer</button>
                     <button className="btn secondary" onClick={() => loadExercises(th.id)}>
                       Voir questions
                     </button>

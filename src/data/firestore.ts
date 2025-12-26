@@ -169,6 +169,17 @@ export async function setExerciseVisibilityForChild(uid: string, exerciseId: str
   await setDoc(doc(db, 'users', uid, 'visibilityExercises', exerciseId), { visible }, { merge: true })
 }
 
+export async function deleteTheme(themeId: string) {
+  // best-effort: delete theme doc and its exercises
+  const batch = writeBatch(db)
+  batch.delete(doc(db, 'themes', themeId))
+  const exSnap = await getDocs(query(collection(db, 'exercises'), where('themeId', '==', themeId)))
+  exSnap.docs.forEach(d => batch.delete(d.ref))
+  const readSnap = await getDocs(query(collection(db, 'readings'), where('themeId', '==', themeId)))
+  readSnap.docs.forEach(d => batch.delete(d.ref))
+  await batch.commit()
+}
+
 export async function getOrInitStats(uid: string) {
   const ref = doc(db, 'users', uid, 'stats', 'main')
   const snap = await getDoc(ref)
