@@ -1,6 +1,6 @@
 export function registerSW() {
   if (!('serviceWorker' in navigator)) return
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').catch(() => {})
+    navigator.serviceWorker.register('${import.meta.env.BASE_URL}sw.js').catch(() => {})
   })
 }
