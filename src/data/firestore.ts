@@ -143,8 +143,15 @@ export async function saveAttemptAndRewards(args: {
   await runTransaction(db, async (tx) => {
     const statsRef = doc(db, 'users', uid, 'stats', 'main')
     const summaryRef = doc(db, 'users', uid, 'progressSummary', 'main')
+    const tagRefs = Array.from(tagImpacts.keys()).map(tagId => doc(db, 'users', uid, 'tagProgress', tagId))
 
-    const statsSnap = await tx.get(statsRef)
+    // Reads must precede writes in a transaction
+    const [statsSnap, summarySnap, tagSnaps] = await Promise.all([
+      tx.get(statsRef),
+      tx.get(summaryRef),
+      Promise.all(tagRefs.map(ref => tx.get(ref))),
+    ])
+
     const stats = statsSnap.exists()
       ? (statsSnap.data() as any)
       : { xp: 0, coins: 0, streakDays: 0, lastDoneDate: null, badges: [] as string[] }
@@ -163,6 +170,48 @@ export async function saveAttemptAndRewards(args: {
     if (streakDays >= 7) badges.add('7 jours d’affilée')
     if (score === outOf && outOf >= 10) badges.add('Zéro faute (10+)')
 
+    const summary = summarySnap.exists()
+      ? (summarySnap.data() as any)
+      : null
+    const bucketCounters: Record<TagMasteryBucket, number> = {
+      weak: 0,
+      developing: 0,
+      nearly: 0,
+      mastered: 0,
+    }
+
+    for (let i = 0; i < tagRefs.length; i++) {
+      const tagRef = tagRefs[i]
+      const tagSnap = tagSnaps[i]
+      const tagId = tagRef.id
+      const impact = tagImpacts.get(tagId)!
+      const tagData = tagSnap.exists() ? (tagSnap.data() as any) : null
+      const previousMastery = typeof tagData?.mastery === 'number' ? tagData.mastery : 0
+      const previousBucket = tagData?.bucket as TagMasteryBucket | undefined
+      const newMastery = clampMastery(previousMastery + impact.delta)
+      const bucket = masteryBucket(newMastery)
+
+      if (previousBucket && summary) bucketCounters[previousBucket] -= 1
+      bucketCounters[bucket] += 1
+
+      tx.set(tagRef, {
+        mastery: newMastery,
+        bucket,
+        correctAnswers: (tagData?.correctAnswers || 0) + impact.correct,
+        wrongAnswers: (tagData?.wrongAnswers || 0) + impact.wrong,
+        lastDelta: impact.delta,
+        updatedAt: serverTimestamp(),
+      }, { merge: true })
+    }
+
+    const prevBuckets = summary?.masteryBuckets || {
+      weak: 0,
+      developing: 0,
+      nearly: 0,
+      mastered: 0,
+    }
+
+    // Writes
     if (!skipAttemptWrite) {
       tx.set(attemptRef, {
         createdAt: serverTimestamp(),
@@ -198,46 +247,6 @@ export async function saveAttemptAndRewards(args: {
       badges: Array.from(badges),
       updatedAt: serverTimestamp(),
     }, { merge: true })
-
-    const summarySnap = await tx.get(summaryRef)
-    const summary = summarySnap.exists()
-      ? (summarySnap.data() as any)
-      : null
-    const bucketCounters: Record<TagMasteryBucket, number> = {
-      weak: 0,
-      developing: 0,
-      nearly: 0,
-      mastered: 0,
-    }
-
-    for (const [tagId, impact] of tagImpacts.entries()) {
-      const tagRef = doc(db, 'users', uid, 'tagProgress', tagId)
-      const tagSnap = await tx.get(tagRef)
-      const tagData = tagSnap.exists() ? (tagSnap.data() as any) : null
-      const previousMastery = typeof tagData?.mastery === 'number' ? tagData.mastery : 0
-      const previousBucket = tagData?.bucket as TagMasteryBucket | undefined
-      const newMastery = clampMastery(previousMastery + impact.delta)
-      const bucket = masteryBucket(newMastery)
-
-      if (previousBucket && summary) bucketCounters[previousBucket] -= 1
-      bucketCounters[bucket] += 1
-
-      tx.set(tagRef, {
-        mastery: newMastery,
-        bucket,
-        correctAnswers: (tagData?.correctAnswers || 0) + impact.correct,
-        wrongAnswers: (tagData?.wrongAnswers || 0) + impact.wrong,
-        lastDelta: impact.delta,
-        updatedAt: serverTimestamp(),
-      }, { merge: true })
-    }
-
-    const prevBuckets = summary?.masteryBuckets || {
-      weak: 0,
-      developing: 0,
-      nearly: 0,
-      mastered: 0,
-    }
 
     tx.set(summaryRef, {
       totalAnswers: (summary?.totalAnswers || 0) + outOf,
