@@ -78,8 +78,12 @@ export async function listExercises(themeId: string, opts?: { uid?: string, incl
 
 export async function listReadings(themeId: string) {
   const q = query(collection(db, 'readings'), where('themeId', '==', themeId))
-  const snap = await getDocs(q)
-  return snap.docs.map(d => ({ id: d.id, ...(d.data() as any) })) as Reading[]
+  try {
+    const snap = await getDocs(q)
+    return snap.docs.map(d => ({ id: d.id, ...(d.data() as any) })) as Reading[]
+  } catch {
+    return []
+  }
 }
 
 export async function importPack(pack: PackJSON) {

@@ -60,7 +60,12 @@ export function ThemeSessionPage() {
       setTheme(tSnap.exists() ? { id: themeId, ...tSnap.data() } : null)
 
       const exercises = await listExercises(themeId, { uid: user?.uid })
-      const readings = await listReadings(themeId)
+      let readings = []
+      try {
+        readings = await listReadings(themeId)
+      } catch {
+        readings = []
+      }
       const content = flattenThemeContent({ exercises, readings })
       // session du jour: 10 questions max (ou moins si thème petit)
       const shuffled = [...content].sort(() => Math.random() - 0.5)
