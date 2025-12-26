@@ -75,7 +75,7 @@ export function ProgressPage() {
 
   const loadTagDetails = async (tagId: string) => {
     if (!selectedChild) return
-    setOpenTagId(tagId)
+    if (openTagId !== tagId) setOpenTagId(tagId)
     if (tagDetails[tagId]?.items?.length || tagDetails[tagId]?.loading) return
     setTagDetails(prev => ({ ...prev, [tagId]: { loading: true, items: [] } }))
     let itemsSnap
@@ -112,6 +112,14 @@ export function ProgressPage() {
         return db - da
       })
     setTagDetails(prev => ({ ...prev, [tagId]: { loading: false, items: detailed } }))
+  }
+
+  const toggleTag = (tagId: string) => {
+    if (openTagId === tagId) {
+      setOpenTagId('')
+      return
+    }
+    loadTagDetails(tagId)
   }
 
   const filtered = tags
@@ -191,7 +199,7 @@ export function ProgressPage() {
                 return (
                   <div key={tag.id} className="card" style={{ padding: 12 }}>
                     <div className="row" style={{ justifyContent:'space-between', alignItems:'center' }}>
-                      <div onClick={() => loadTagDetails(tag.tagId || tag.id)} style={{ cursor:'pointer', flex:1 }}>
+                      <div onClick={() => toggleTag(tag.tagId || tag.id)} style={{ cursor:'pointer', flex:1 }}>
                         <div style={{ fontWeight: 700 }}>{tag.tagId}</div>
                         <div className="small">
                           {tag.mastery ?? 0}/100 · {tag.bucket} · {last7.correct}/{last7.correct + last7.wrong} sur 7 · Prochaine: {tag.nextDueDate || '—'}
@@ -208,7 +216,7 @@ export function ProgressPage() {
                           ))}
                         </div>
                       </div>
-                      <button className="btn secondary" style={{ width: 36, height: 36 }} onClick={() => loadTagDetails(tag.tagId || tag.id)}>
+                      <button className="btn secondary" style={{ width: 36, height: 36 }} onClick={() => toggleTag(tag.tagId || tag.id)}>
                         {isOpen ? '−' : '+'}
                       </button>
                     </div>
