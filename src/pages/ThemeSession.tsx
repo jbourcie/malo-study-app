@@ -1,12 +1,13 @@
 import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { listExercises, saveAttemptAndRewards } from '../data/firestore'
+import { listExercises, listReadings, saveAttemptAndRewards } from '../data/firestore'
 import { saveSessionWithProgress } from '../data/progress'
 import { useAuth } from '../state/useAuth'
-import type { Exercise, ExerciseMCQ, ExerciseShortText, ExerciseFillBlank, SubjectId } from '../types'
+import type { Exercise, ExerciseMCQ, ExerciseShortText, ExerciseFillBlank, SubjectId, Reading } from '../types'
 import { normalize } from '../utils/normalize'
 import { doc, getDoc } from 'firebase/firestore'
 import { db } from '../firebase'
+import { flattenThemeContent, PlayableExercise } from '../utils/flattenThemeContent'
 
 type AnswerState = Record<string, any>
 
@@ -37,7 +38,7 @@ export function ThemeSessionPage() {
   const nav = useNavigate()
   const { user } = useAuth()
   const [theme, setTheme] = React.useState<any | null>(null)
-  const [exos, setExos] = React.useState<Exercise[]>([])
+  const [exos, setExos] = React.useState<PlayableExercise[]>([])
   const [answers, setAnswers] = React.useState<AnswerState>({})
   const [startedAt] = React.useState<number>(() => Date.now())
   const [result, setResult] = React.useState<any | null>(null)
@@ -58,14 +59,18 @@ export function ThemeSessionPage() {
       const tSnap = await getDoc(doc(db, 'themes', themeId))
       setTheme(tSnap.exists() ? { id: themeId, ...tSnap.data() } : null)
 
-      const list = await listExercises(themeId, { uid: user?.uid })
+      const exercises = await listExercises(themeId, { uid: user?.uid })
+      const readings = await listReadings(themeId)
+      const content = flattenThemeContent({ exercises, readings })
       // session du jour: 10 questions max (ou moins si thème petit)
-      const shuffled = [...list].sort(() => Math.random() - 0.5)
+      const shuffled = [...content].sort(() => Math.random() - 0.5)
       setExos(shuffled.slice(0, 10))
       setAnswers({})
       setResult(null)
+      setFeedback([])
+      setShowCorrections(false)
     })()
-  }, [themeId])
+  }, [themeId, user])
 
   const submit = async () => {
     if (!user || !themeId || !theme) return
@@ -183,52 +188,63 @@ export function ThemeSessionPage() {
         <div className="small">Fais de ton mieux. Objectif : régularité 🙂</div>
       </div>
 
-      {exos.map((ex, idx) => (
-        <div className="card" key={ex.id}>
-          <div className="small">Question {idx+1} / {exos.length} <span className="badge">Difficulté {ex.difficulty}</span></div>
-          <div style={{ fontWeight: 800, marginTop: 6 }}>{renderUnderlined(ex.prompt)}</div>
+      {exos.map((ex, idx) => {
+        const readingCtx = (ex as any).readingContext
+        const showReading = readingCtx && (idx === 0 || (exos[idx - 1] as any).readingContext?.readingId !== readingCtx.readingId)
+        return (
+          <div className="card" key={ex.id}>
+            {showReading && readingCtx && (
+              <div style={{ marginBottom: 10 }}>
+                <div className="small" style={{ marginBottom: 4 }}>Lecture : {readingCtx.title}</div>
+                <div className="small" style={{ whiteSpace: 'pre-wrap' }}>{renderUnderlined(readingCtx.text)}</div>
+                <hr />
+              </div>
+            )}
+            <div className="small">Question {idx + 1} / {exos.length} <span className="badge">Difficulté {ex.difficulty}</span></div>
+            <div style={{ fontWeight: 800, marginTop: 6 }}>{renderUnderlined(ex.prompt)}</div>
 
-          {ex.type === 'mcq' && (
-            <div className="grid" style={{ marginTop: 10 }}>
-              {(ex as ExerciseMCQ).choices.map((c, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  className={"btn " + ((answers[ex.id] === i) ? '' : 'secondary')}
-                  onClick={() => setAnswers(a => ({ ...a, [ex.id]: i }))}
-                  style={{ textAlign:'left', opacity: answers[ex.id] === i ? 1 : 0.85 }}
-                  aria-pressed={answers[ex.id] === i}
-                >
-                  {renderUnderlined(c)}
-                </button>
-              ))}
-            </div>
-          )}
+            {ex.type === 'mcq' && (
+              <div className="grid" style={{ marginTop: 10 }}>
+                {(ex as ExerciseMCQ).choices.map((c, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    className={"btn " + ((answers[ex.id] === i) ? '' : 'secondary')}
+                    onClick={() => setAnswers(a => ({ ...a, [ex.id]: i }))}
+                    style={{ textAlign: 'left', opacity: answers[ex.id] === i ? 1 : 0.85 }}
+                    aria-pressed={answers[ex.id] === i}
+                  >
+                    {renderUnderlined(c)}
+                  </button>
+                ))}
+              </div>
+            )}
 
-          {(ex.type === 'short_text') && (
-            <div style={{ marginTop: 10 }}>
-              <input
-                className="input"
-                placeholder="Ta réponse…"
-                value={answers[ex.id] ?? ''}
-                onChange={(e) => setAnswers(a => ({ ...a, [ex.id]: e.target.value }))}
-              />
-            </div>
-          )}
+            {(ex.type === 'short_text') && (
+              <div style={{ marginTop: 10 }}>
+                <input
+                  className="input"
+                  placeholder="Ta réponse…"
+                  value={answers[ex.id] ?? ''}
+                  onChange={(e) => setAnswers(a => ({ ...a, [ex.id]: e.target.value }))}
+                />
+              </div>
+            )}
 
-          {(ex.type === 'fill_blank') && (
-            <div style={{ marginTop: 10 }}>
-              <div className="small">{renderUnderlined((ex as ExerciseFillBlank).text)}</div>
-              <input
-                className="input"
-                placeholder="Le mot manquant…"
-                value={answers[ex.id] ?? ''}
-                onChange={(e) => setAnswers(a => ({ ...a, [ex.id]: e.target.value }))}
-              />
-            </div>
-          )}
-        </div>
-      ))}
+            {(ex.type === 'fill_blank') && (
+              <div style={{ marginTop: 10 }}>
+                <div className="small">{renderUnderlined((ex as ExerciseFillBlank).text)}</div>
+                <input
+                  className="input"
+                  placeholder="Le mot manquant…"
+                  value={answers[ex.id] ?? ''}
+                  onChange={(e) => setAnswers(a => ({ ...a, [ex.id]: e.target.value }))}
+                />
+              </div>
+            )}
+          </div>
+        )
+      })}
 
       <div className="card">
         <div className="row">

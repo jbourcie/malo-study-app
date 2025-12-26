@@ -1,0 +1,1320 @@
+{
+  "version": 1,
+  "grade": "5e",
+  "subjects": [
+    {
+      "id": "fr",
+      "title": "Français",
+      "themes": [
+        {
+          "id": "fr_comprehension_textes_qcm_long",
+          "title": "Compréhension de texte – QCM (version longue)",
+          "exercises": [
+            {
+              "id": "fr_comp_long_001",
+              "type": "mcq",
+              "prompt": "Texte 1 : Malo arrive au collège avec un peu d’avance. Dans la cour, quelques élèves discutent déjà. Il vérifie son emploi du temps : ce matin, il a français, puis mathématiques. En classe, la professeure distribue une feuille. C’est un exercice de grammaire. Malo lit les consignes lentement. Il souligne le verbe, puis cherche le sujet. Au début, il hésite, mais il se rappelle la méthode : « Qui est-ce qui… ? ». Il trouve la réponse et se sent fier.\n\n1) Où se passe le début du texte ?",
+              "choices": [
+                "Dans un parc",
+                "Au collège",
+                "À la maison",
+                "Dans un bus"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_002",
+              "type": "mcq",
+              "prompt": "Texte 1 : Malo arrive au collège avec un peu d’avance. Dans la cour, quelques élèves discutent déjà. Il vérifie son emploi du temps : ce matin, il a français, puis mathématiques. En classe, la professeure distribue une feuille. C’est un exercice de grammaire. Malo lit les consignes lentement. Il souligne le verbe, puis cherche le sujet. Au début, il hésite, mais il se rappelle la méthode : « Qui est-ce qui… ? ». Il trouve la réponse et se sent fier.\n\n2) Quels cours Malo a-t-il le matin ?",
+              "choices": [
+                "Histoire puis sport",
+                "Français puis mathématiques",
+                "Mathématiques puis anglais",
+                "SVT puis arts plastiques"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_003",
+              "type": "mcq",
+              "prompt": "Texte 1 : Malo arrive au collège avec un peu d’avance. Dans la cour, quelques élèves discutent déjà. Il vérifie son emploi du temps : ce matin, il a français, puis mathématiques. En classe, la professeure distribue une feuille. C’est un exercice de grammaire. Malo lit les consignes lentement. Il souligne le verbe, puis cherche le sujet. Au début, il hésite, mais il se rappelle la méthode : « Qui est-ce qui… ? ». Il trouve la réponse et se sent fier.\n\n3) Quel travail la professeure distribue-t-elle ?",
+              "choices": [
+                "Un exercice de grammaire",
+                "Un contrôle de sport",
+                "Une carte de géographie",
+                "Un poème à apprendre"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_004",
+              "type": "mcq",
+              "prompt": "Texte 1 : Malo arrive au collège avec un peu d’avance. Dans la cour, quelques élèves discutent déjà. Il vérifie son emploi du temps : ce matin, il a français, puis mathématiques. En classe, la professeure distribue une feuille. C’est un exercice de grammaire. Malo lit les consignes lentement. Il souligne le verbe, puis cherche le sujet. Au début, il hésite, mais il se rappelle la méthode : « Qui est-ce qui… ? ». Il trouve la réponse et se sent fier.\n\n4) Quelle méthode aide Malo à trouver le sujet ?",
+              "choices": [
+                "Où ? Quand ?",
+                "Qui est-ce qui… ?",
+                "Combien ?",
+                "Pourquoi ?"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_005",
+              "type": "mcq",
+              "prompt": "Texte 1 : Malo arrive au collège avec un peu d’avance. Dans la cour, quelques élèves discutent déjà. Il vérifie son emploi du temps : ce matin, il a français, puis mathématiques. En classe, la professeure distribue une feuille. C’est un exercice de grammaire. Malo lit les consignes lentement. Il souligne le verbe, puis cherche le sujet. Au début, il hésite, mais il se rappelle la méthode : « Qui est-ce qui… ? ». Il trouve la réponse et se sent fier.\n\n5) À la fin, Malo se sent surtout :",
+              "choices": [
+                "Fier",
+                "En colère",
+                "Indifférent",
+                "Triste"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_inference"
+              ]
+            },
+            {
+              "id": "fr_comp_long_006",
+              "type": "mcq",
+              "prompt": "Texte 1 : Malo arrive au collège avec un peu d’avance. Dans la cour, quelques élèves discutent déjà. Il vérifie son emploi du temps : ce matin, il a français, puis mathématiques. En classe, la professeure distribue une feuille. C’est un exercice de grammaire. Malo lit les consignes lentement. Il souligne le verbe, puis cherche le sujet. Au début, il hésite, mais il se rappelle la méthode : « Qui est-ce qui… ? ». Il trouve la réponse et se sent fier.\n\n6) On comprend que Malo progresse parce qu’il :",
+              "choices": [
+                "Refuse la méthode",
+                "Lit les consignes et applique une méthode",
+                "Ne fait jamais l’exercice",
+                "Copie sur un camarade"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_inference"
+              ]
+            },
+            {
+              "id": "fr_comp_long_007",
+              "type": "mcq",
+              "prompt": "Texte 1 : Malo arrive au collège avec un peu d’avance. Dans la cour, quelques élèves discutent déjà. Il vérifie son emploi du temps : ce matin, il a français, puis mathématiques. En classe, la professeure distribue une feuille. C’est un exercice de grammaire. Malo lit les consignes lentement. Il souligne le verbe, puis cherche le sujet. Au début, il hésite, mais il se rappelle la méthode : « Qui est-ce qui… ? ». Il trouve la réponse et se sent fier.\n\n7) Le mot « consignes » signifie :",
+              "choices": [
+                "Des instructions",
+                "Des cadeaux",
+                "Des chansons",
+                "Des punitions"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "fr_lexique_synonyme"
+              ]
+            },
+            {
+              "id": "fr_comp_long_008",
+              "type": "mcq",
+              "prompt": "Texte 1 : Malo arrive au collège avec un peu d’avance. Dans la cour, quelques élèves discutent déjà. Il vérifie son emploi du temps : ce matin, il a français, puis mathématiques. En classe, la professeure distribue une feuille. C’est un exercice de grammaire. Malo lit les consignes lentement. Il souligne le verbe, puis cherche le sujet. Au début, il hésite, mais il se rappelle la méthode : « Qui est-ce qui… ? ». Il trouve la réponse et se sent fier.\n\n8) L’idée principale du texte est :",
+              "choices": [
+                "Malo se dispute",
+                "Malo réussit grâce à une méthode",
+                "Malo arrive en retard",
+                "Malo n’aime pas le français"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_009",
+              "type": "mcq",
+              "prompt": "Texte 1 : Malo arrive au collège avec un peu d’avance. Dans la cour, quelques élèves discutent déjà. Il vérifie son emploi du temps : ce matin, il a français, puis mathématiques. En classe, la professeure distribue une feuille. C’est un exercice de grammaire. Malo lit les consignes lentement. Il souligne le verbe, puis cherche le sujet. Au début, il hésite, mais il se rappelle la méthode : « Qui est-ce qui… ? ». Il trouve la réponse et se sent fier.\n\n9) Pourquoi Malo hésite-t-il au début ?",
+              "choices": [
+                "Il ne lit pas",
+                "Il ne sait pas tout de suite identifier le sujet",
+                "Il n’a pas de feuille",
+                "Il n’aime pas sa classe"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_inference"
+              ]
+            },
+            {
+              "id": "fr_comp_long_010",
+              "type": "mcq",
+              "prompt": "Texte 2 : Le samedi, la pluie tombe sans s’arrêter. L’air sent la terre mouillée. À l’intérieur, la famille décide de préparer des crêpes. Malo casse les œufs, sa sœur mesure la farine et leur père chauffe la poêle. Au début, la première crêpe colle et se déchire. Tout le monde rit. Ils ajustent la pâte, attendent un peu plus longtemps, et la suivante est parfaite. Quand l’odeur sucrée envahit la cuisine, Malo se dit que la pluie n’est finalement pas une si mauvaise nouvelle.\n\n10) Quel temps fait-il ?",
+              "choices": [
+                "Il neige",
+                "Il pleut",
+                "Il fait très chaud",
+                "Il y a du brouillard"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_011",
+              "type": "mcq",
+              "prompt": "Texte 2 : Le samedi, la pluie tombe sans s’arrêter. L’air sent la terre mouillée. À l’intérieur, la famille décide de préparer des crêpes. Malo casse les œufs, sa sœur mesure la farine et leur père chauffe la poêle. Au début, la première crêpe colle et se déchire. Tout le monde rit. Ils ajustent la pâte, attendent un peu plus longtemps, et la suivante est parfaite. Quand l’odeur sucrée envahit la cuisine, Malo se dit que la pluie n’est finalement pas une si mauvaise nouvelle.\n\n11) Que décide de faire la famille ?",
+              "choices": [
+                "Préparer des crêpes",
+                "Aller au stade",
+                "Faire du jardinage",
+                "Regarder un match"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_012",
+              "type": "mcq",
+              "prompt": "Texte 2 : Le samedi, la pluie tombe sans s’arrêter. L’air sent la terre mouillée. À l’intérieur, la famille décide de préparer des crêpes. Malo casse les œufs, sa sœur mesure la farine et leur père chauffe la poêle. Au début, la première crêpe colle et se déchire. Tout le monde rit. Ils ajustent la pâte, attendent un peu plus longtemps, et la suivante est parfaite. Quand l’odeur sucrée envahit la cuisine, Malo se dit que la pluie n’est finalement pas une si mauvaise nouvelle.\n\n12) Que se passe-t-il avec la première crêpe ?",
+              "choices": [
+                "Elle est parfaite",
+                "Elle colle et se déchire",
+                "Elle brûle complètement",
+                "Elle tombe par terre"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_013",
+              "type": "mcq",
+              "prompt": "Texte 2 : Le samedi, la pluie tombe sans s’arrêter. L’air sent la terre mouillée. À l’intérieur, la famille décide de préparer des crêpes. Malo casse les œufs, sa sœur mesure la farine et leur père chauffe la poêle. Au début, la première crêpe colle et se déchire. Tout le monde rit. Ils ajustent la pâte, attendent un peu plus longtemps, et la suivante est parfaite. Quand l’odeur sucrée envahit la cuisine, Malo se dit que la pluie n’est finalement pas une si mauvaise nouvelle.\n\n13) Que font-ils pour réussir la suivante ?",
+              "choices": [
+                "Ils jettent la pâte",
+                "Ils ajustent la pâte et attendent plus longtemps",
+                "Ils arrêtent de cuisiner",
+                "Ils changent de cuisine"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_014",
+              "type": "mcq",
+              "prompt": "Texte 2 : Le samedi, la pluie tombe sans s’arrêter. L’air sent la terre mouillée. À l’intérieur, la famille décide de préparer des crêpes. Malo casse les œufs, sa sœur mesure la farine et leur père chauffe la poêle. Au début, la première crêpe colle et se déchire. Tout le monde rit. Ils ajustent la pâte, attendent un peu plus longtemps, et la suivante est parfaite. Quand l’odeur sucrée envahit la cuisine, Malo se dit que la pluie n’est finalement pas une si mauvaise nouvelle.\n\n14) On comprend que l’ambiance est :",
+              "choices": [
+                "Tendue",
+                "Joyeuse",
+                "Silencieuse",
+                "Dangereuse"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_inference"
+              ]
+            },
+            {
+              "id": "fr_comp_long_015",
+              "type": "mcq",
+              "prompt": "Texte 2 : Le samedi, la pluie tombe sans s’arrêter. L’air sent la terre mouillée. À l’intérieur, la famille décide de préparer des crêpes. Malo casse les œufs, sa sœur mesure la farine et leur père chauffe la poêle. Au début, la première crêpe colle et se déchire. Tout le monde rit. Ils ajustent la pâte, attendent un peu plus longtemps, et la suivante est parfaite. Quand l’odeur sucrée envahit la cuisine, Malo se dit que la pluie n’est finalement pas une si mauvaise nouvelle.\n\n15) À la fin, Malo pense que la pluie :",
+              "choices": [
+                "Gâche tout",
+                "Permet un bon moment",
+                "N’existe pas",
+                "L’empêche de manger"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_inference"
+              ]
+            },
+            {
+              "id": "fr_comp_long_016",
+              "type": "mcq",
+              "prompt": "Texte 2 : Le samedi, la pluie tombe sans s’arrêter. L’air sent la terre mouillée. À l’intérieur, la famille décide de préparer des crêpes. Malo casse les œufs, sa sœur mesure la farine et leur père chauffe la poêle. Au début, la première crêpe colle et se déchire. Tout le monde rit. Ils ajustent la pâte, attendent un peu plus longtemps, et la suivante est parfaite. Quand l’odeur sucrée envahit la cuisine, Malo se dit que la pluie n’est finalement pas une si mauvaise nouvelle.\n\n16) « envahit la cuisine » signifie :",
+              "choices": [
+                "Remplit la cuisine",
+                "Quitte la cuisine",
+                "Nettoie la cuisine",
+                "Refroidit la cuisine"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "fr_lexique_synonyme"
+              ]
+            },
+            {
+              "id": "fr_comp_long_017",
+              "type": "mcq",
+              "prompt": "Texte 2 : Le samedi, la pluie tombe sans s’arrêter. L’air sent la terre mouillée. À l’intérieur, la famille décide de préparer des crêpes. Malo casse les œufs, sa sœur mesure la farine et leur père chauffe la poêle. Au début, la première crêpe colle et se déchire. Tout le monde rit. Ils ajustent la pâte, attendent un peu plus longtemps, et la suivante est parfaite. Quand l’odeur sucrée envahit la cuisine, Malo se dit que la pluie n’est finalement pas une si mauvaise nouvelle.\n\n17) L’idée principale du texte est :",
+              "choices": [
+                "La pluie est dangereuse",
+                "La famille cuisine ensemble malgré la pluie",
+                "Malo déteste les crêpes",
+                "La poêle est cassée"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_018",
+              "type": "mcq",
+              "prompt": "Texte 2 : Le samedi, la pluie tombe sans s’arrêter. L’air sent la terre mouillée. À l’intérieur, la famille décide de préparer des crêpes. Malo casse les œufs, sa sœur mesure la farine et leur père chauffe la poêle. Au début, la première crêpe colle et se déchire. Tout le monde rit. Ils ajustent la pâte, attendent un peu plus longtemps, et la suivante est parfaite. Quand l’odeur sucrée envahit la cuisine, Malo se dit que la pluie n’est finalement pas une si mauvaise nouvelle.\n\n18) Pourquoi tout le monde rit-il ?",
+              "choices": [
+                "Parce qu’ils sont stressés",
+                "Parce que la première crêpe est ratée",
+                "Parce que Malo tombe",
+                "Parce que la pluie s’arrête"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_inference"
+              ]
+            },
+            {
+              "id": "fr_comp_long_019",
+              "type": "mcq",
+              "prompt": "Texte 3 : Au CDI, Malo cherche un livre sur les voyages. Sur une étagère, il repère une couverture avec une grande carte et un bateau. Il l’ouvre au hasard et tombe sur l’histoire d’un marin qui doit traverser une mer agitée. Le héros a peur, mais il observe le ciel et apprend à lire les signes : la direction du vent, la forme des nuages, la couleur de l’eau. Peu à peu, il comprend qu’un voyage n’est pas seulement un déplacement : c’est aussi une manière d’apprendre.\n\n19) Où se trouve Malo ?",
+              "choices": [
+                "Au CDI",
+                "Au stade",
+                "À la boulangerie",
+                "Dans un train"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_020",
+              "type": "mcq",
+              "prompt": "Texte 3 : Au CDI, Malo cherche un livre sur les voyages. Sur une étagère, il repère une couverture avec une grande carte et un bateau. Il l’ouvre au hasard et tombe sur l’histoire d’un marin qui doit traverser une mer agitée. Le héros a peur, mais il observe le ciel et apprend à lire les signes : la direction du vent, la forme des nuages, la couleur de l’eau. Peu à peu, il comprend qu’un voyage n’est pas seulement un déplacement : c’est aussi une manière d’apprendre.\n\n20) Quel type de livre cherche-t-il ?",
+              "choices": [
+                "Sur les voyages",
+                "Sur les dinosaures",
+                "Sur le football",
+                "Sur la cuisine"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_021",
+              "type": "mcq",
+              "prompt": "Texte 3 : Au CDI, Malo cherche un livre sur les voyages. Sur une étagère, il repère une couverture avec une grande carte et un bateau. Il l’ouvre au hasard et tombe sur l’histoire d’un marin qui doit traverser une mer agitée. Le héros a peur, mais il observe le ciel et apprend à lire les signes : la direction du vent, la forme des nuages, la couleur de l’eau. Peu à peu, il comprend qu’un voyage n’est pas seulement un déplacement : c’est aussi une manière d’apprendre.\n\n21) Quel est le problème du marin ?",
+              "choices": [
+                "Il a perdu sa carte",
+                "Il traverse une mer agitée",
+                "Il cherche une montagne",
+                "Il n’a plus de bateau"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_022",
+              "type": "mcq",
+              "prompt": "Texte 3 : Au CDI, Malo cherche un livre sur les voyages. Sur une étagère, il repère une couverture avec une grande carte et un bateau. Il l’ouvre au hasard et tombe sur l’histoire d’un marin qui doit traverser une mer agitée. Le héros a peur, mais il observe le ciel et apprend à lire les signes : la direction du vent, la forme des nuages, la couleur de l’eau. Peu à peu, il comprend qu’un voyage n’est pas seulement un déplacement : c’est aussi une manière d’apprendre.\n\n22) Le héros apprend à lire des signes comme :",
+              "choices": [
+                "Des panneaux de route",
+                "Le vent et les nuages",
+                "Des mots dans un livre",
+                "Des feux tricolores"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_023",
+              "type": "mcq",
+              "prompt": "Texte 3 : Au CDI, Malo cherche un livre sur les voyages. Sur une étagère, il repère une couverture avec une grande carte et un bateau. Il l’ouvre au hasard et tombe sur l’histoire d’un marin qui doit traverser une mer agitée. Le héros a peur, mais il observe le ciel et apprend à lire les signes : la direction du vent, la forme des nuages, la couleur de l’eau. Peu à peu, il comprend qu’un voyage n’est pas seulement un déplacement : c’est aussi une manière d’apprendre.\n\n23) « au hasard » signifie :",
+              "choices": [
+                "Sans choisir précisément",
+                "Avec une méthode",
+                "Très vite",
+                "En secret"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "fr_lexique_synonyme"
+              ]
+            },
+            {
+              "id": "fr_comp_long_024",
+              "type": "mcq",
+              "prompt": "Texte 3 : Au CDI, Malo cherche un livre sur les voyages. Sur une étagère, il repère une couverture avec une grande carte et un bateau. Il l’ouvre au hasard et tombe sur l’histoire d’un marin qui doit traverser une mer agitée. Le héros a peur, mais il observe le ciel et apprend à lire les signes : la direction du vent, la forme des nuages, la couleur de l’eau. Peu à peu, il comprend qu’un voyage n’est pas seulement un déplacement : c’est aussi une manière d’apprendre.\n\n24) On comprend que le marin :",
+              "choices": [
+                "Abandonne",
+                "Apprend en observant malgré la peur",
+                "Ne veut rien comprendre",
+                "Se moque des signes"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_inference"
+              ]
+            },
+            {
+              "id": "fr_comp_long_025",
+              "type": "mcq",
+              "prompt": "Texte 3 : Au CDI, Malo cherche un livre sur les voyages. Sur une étagère, il repère une couverture avec une grande carte et un bateau. Il l’ouvre au hasard et tombe sur l’histoire d’un marin qui doit traverser une mer agitée. Le héros a peur, mais il observe le ciel et apprend à lire les signes : la direction du vent, la forme des nuages, la couleur de l’eau. Peu à peu, il comprend qu’un voyage n’est pas seulement un déplacement : c’est aussi une manière d’apprendre.\n\n25) L’idée principale du texte est :",
+              "choices": [
+                "Malo n’aime pas lire",
+                "Observer aide à apprendre",
+                "Le CDI est fermé",
+                "Les bateaux sont rapides"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_026",
+              "type": "mcq",
+              "prompt": "Texte 3 : Au CDI, Malo cherche un livre sur les voyages. Sur une étagère, il repère une couverture avec une grande carte et un bateau. Il l’ouvre au hasard et tombe sur l’histoire d’un marin qui doit traverser une mer agitée. Le héros a peur, mais il observe le ciel et apprend à lire les signes : la direction du vent, la forme des nuages, la couleur de l’eau. Peu à peu, il comprend qu’un voyage n’est pas seulement un déplacement : c’est aussi une manière d’apprendre.\n\n26) Pourquoi Malo repère-t-il le livre ?",
+              "choices": [
+                "La couverture montre une carte et un bateau",
+                "Le livre est très petit",
+                "Il est interdit",
+                "Il est déchiré"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_027",
+              "type": "mcq",
+              "prompt": "Texte 3 : Au CDI, Malo cherche un livre sur les voyages. Sur une étagère, il repère une couverture avec une grande carte et un bateau. Il l’ouvre au hasard et tombe sur l’histoire d’un marin qui doit traverser une mer agitée. Le héros a peur, mais il observe le ciel et apprend à lire les signes : la direction du vent, la forme des nuages, la couleur de l’eau. Peu à peu, il comprend qu’un voyage n’est pas seulement un déplacement : c’est aussi une manière d’apprendre.\n\n27) La phrase finale suggère qu’un voyage :",
+              "choices": [
+                "Ne sert à rien",
+                "Est seulement un déplacement",
+                "Permet d’apprendre",
+                "Est toujours dangereux"
+              ],
+              "answerIndex": 2,
+              "difficulty": 3,
+              "tags": [
+                "fr_comprehension_inference",
+                "meta_transfert"
+              ]
+            },
+            {
+              "id": "fr_comp_long_028",
+              "type": "mcq",
+              "prompt": "Texte 4 : Dans la cour, un panneau annonce une collecte de livres pour l’association du quartier. Malo hésite : il aime ses bandes dessinées, mais il sait qu’il ne les relit plus. Le soir, il choisit trois livres en bon état et les range dans un sac. Le lendemain, il les dépose dans la boîte prévue. En sortant, il se surprend à sourire : il imagine déjà quelqu’un découvrir ses histoires.\n\n28) Qu’annonce le panneau dans la cour ?",
+              "choices": [
+                "Un match",
+                "Une collecte de livres",
+                "Un contrôle surprise",
+                "Un voyage en Espagne"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_029",
+              "type": "mcq",
+              "prompt": "Texte 4 : Dans la cour, un panneau annonce une collecte de livres pour l’association du quartier. Malo hésite : il aime ses bandes dessinées, mais il sait qu’il ne les relit plus. Le soir, il choisit trois livres en bon état et les range dans un sac. Le lendemain, il les dépose dans la boîte prévue. En sortant, il se surprend à sourire : il imagine déjà quelqu’un découvrir ses histoires.\n\n29) Pourquoi Malo hésite-t-il ?",
+              "choices": [
+                "Il n’a pas de livres",
+                "Il aime ses BD mais ne les relit plus",
+                "Il déteste lire",
+                "Il est malade"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_inference"
+              ]
+            },
+            {
+              "id": "fr_comp_long_030",
+              "type": "mcq",
+              "prompt": "Texte 4 : Dans la cour, un panneau annonce une collecte de livres pour l’association du quartier. Malo hésite : il aime ses bandes dessinées, mais il sait qu’il ne les relit plus. Le soir, il choisit trois livres en bon état et les range dans un sac. Le lendemain, il les dépose dans la boîte prévue. En sortant, il se surprend à sourire : il imagine déjà quelqu’un découvrir ses histoires.\n\n30) Combien de livres choisit-il ?",
+              "choices": [
+                "Un",
+                "Deux",
+                "Trois",
+                "Dix"
+              ],
+              "answerIndex": 2,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_031",
+              "type": "mcq",
+              "prompt": "Texte 4 : Dans la cour, un panneau annonce une collecte de livres pour l’association du quartier. Malo hésite : il aime ses bandes dessinées, mais il sait qu’il ne les relit plus. Le soir, il choisit trois livres en bon état et les range dans un sac. Le lendemain, il les dépose dans la boîte prévue. En sortant, il se surprend à sourire : il imagine déjà quelqu’un découvrir ses histoires.\n\n31) Où dépose-t-il les livres ?",
+              "choices": [
+                "Dans une boîte prévue",
+                "Chez un ami",
+                "À la bibliothèque municipale",
+                "Dans son casier"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_032",
+              "type": "mcq",
+              "prompt": "Texte 4 : Dans la cour, un panneau annonce une collecte de livres pour l’association du quartier. Malo hésite : il aime ses bandes dessinées, mais il sait qu’il ne les relit plus. Le soir, il choisit trois livres en bon état et les range dans un sac. Le lendemain, il les dépose dans la boîte prévue. En sortant, il se surprend à sourire : il imagine déjà quelqu’un découvrir ses histoires.\n\n32) À la fin, Malo :",
+              "choices": [
+                "Regrette",
+                "Sourit en imaginant quelqu’un lire ses livres",
+                "Se fâche",
+                "Oublie son sac"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_inference"
+              ]
+            },
+            {
+              "id": "fr_comp_long_033",
+              "type": "mcq",
+              "prompt": "Texte 4 : Dans la cour, un panneau annonce une collecte de livres pour l’association du quartier. Malo hésite : il aime ses bandes dessinées, mais il sait qu’il ne les relit plus. Le soir, il choisit trois livres en bon état et les range dans un sac. Le lendemain, il les dépose dans la boîte prévue. En sortant, il se surprend à sourire : il imagine déjà quelqu’un découvrir ses histoires.\n\n33) Le mot « collecte » signifie :",
+              "choices": [
+                "Une réunion",
+                "Une action pour rassembler des objets",
+                "Une punition",
+                "Une course"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_lexique_synonyme"
+              ]
+            },
+            {
+              "id": "fr_comp_long_034",
+              "type": "mcq",
+              "prompt": "Texte 4 : Dans la cour, un panneau annonce une collecte de livres pour l’association du quartier. Malo hésite : il aime ses bandes dessinées, mais il sait qu’il ne les relit plus. Le soir, il choisit trois livres en bon état et les range dans un sac. Le lendemain, il les dépose dans la boîte prévue. En sortant, il se surprend à sourire : il imagine déjà quelqu’un découvrir ses histoires.\n\n34) L’idée principale du texte est :",
+              "choices": [
+                "Malo perd ses livres",
+                "Malo donne des livres et se sent bien",
+                "Malo vend ses BD",
+                "Le collège ferme"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_035",
+              "type": "mcq",
+              "prompt": "Texte 4 : Dans la cour, un panneau annonce une collecte de livres pour l’association du quartier. Malo hésite : il aime ses bandes dessinées, mais il sait qu’il ne les relit plus. Le soir, il choisit trois livres en bon état et les range dans un sac. Le lendemain, il les dépose dans la boîte prévue. En sortant, il se surprend à sourire : il imagine déjà quelqu’un découvrir ses histoires.\n\n35) Pourquoi les livres doivent-ils être en bon état ?",
+              "choices": [
+                "Pour être vendus cher",
+                "Pour que d’autres puissent les lire facilement",
+                "Parce que c’est une règle de maths",
+                "Parce qu’ils sont rares"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_inference"
+              ]
+            },
+            {
+              "id": "fr_comp_long_036",
+              "type": "mcq",
+              "prompt": "Texte 4 : Dans la cour, un panneau annonce une collecte de livres pour l’association du quartier. Malo hésite : il aime ses bandes dessinées, mais il sait qu’il ne les relit plus. Le soir, il choisit trois livres en bon état et les range dans un sac. Le lendemain, il les dépose dans la boîte prévue. En sortant, il se surprend à sourire : il imagine déjà quelqu’un découvrir ses histoires.\n\n36) Ce texte montre surtout :",
+              "choices": [
+                "Un geste de partage",
+                "Un match sportif",
+                "Une dispute",
+                "Un mensonge"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_037",
+              "type": "mcq",
+              "prompt": "Texte 5 : En classe de sciences, les élèves observent une plante posée près de la fenêtre. Depuis une semaine, elle a grandi et penche vers la lumière. La professeure explique que la tige se tourne pour capter davantage de soleil : c’est le phototropisme. Malo note le mot soigneusement. Il comprend que même sans bouger comme un animal, une plante réagit à son environnement.\n\n37) Où est posée la plante ?",
+              "choices": [
+                "Dans un placard",
+                "Près de la fenêtre",
+                "Dans la cour",
+                "Sous la table"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_038",
+              "type": "mcq",
+              "prompt": "Texte 5 : En classe de sciences, les élèves observent une plante posée près de la fenêtre. Depuis une semaine, elle a grandi et penche vers la lumière. La professeure explique que la tige se tourne pour capter davantage de soleil : c’est le phototropisme. Malo note le mot soigneusement. Il comprend que même sans bouger comme un animal, une plante réagit à son environnement.\n\n38) Que remarque-t-on sur la plante ?",
+              "choices": [
+                "Elle rétrécit",
+                "Elle penche vers la lumière",
+                "Elle change de couleur en rouge",
+                "Elle disparaît"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_039",
+              "type": "mcq",
+              "prompt": "Texte 5 : En classe de sciences, les élèves observent une plante posée près de la fenêtre. Depuis une semaine, elle a grandi et penche vers la lumière. La professeure explique que la tige se tourne pour capter davantage de soleil : c’est le phototropisme. Malo note le mot soigneusement. Il comprend que même sans bouger comme un animal, une plante réagit à son environnement.\n\n39) Comment s’appelle ce phénomène ?",
+              "choices": [
+                "Phototropisme",
+                "Téléportation",
+                "Hibernation",
+                "Évaporation"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_040",
+              "type": "mcq",
+              "prompt": "Texte 5 : En classe de sciences, les élèves observent une plante posée près de la fenêtre. Depuis une semaine, elle a grandi et penche vers la lumière. La professeure explique que la tige se tourne pour capter davantage de soleil : c’est le phototropisme. Malo note le mot soigneusement. Il comprend que même sans bouger comme un animal, une plante réagit à son environnement.\n\n40) Pourquoi la tige se tourne-t-elle ?",
+              "choices": [
+                "Pour capter plus de soleil",
+                "Pour éviter l’eau",
+                "Pour faire du bruit",
+                "Pour se cacher"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_041",
+              "type": "mcq",
+              "prompt": "Texte 5 : En classe de sciences, les élèves observent une plante posée près de la fenêtre. Depuis une semaine, elle a grandi et penche vers la lumière. La professeure explique que la tige se tourne pour capter davantage de soleil : c’est le phototropisme. Malo note le mot soigneusement. Il comprend que même sans bouger comme un animal, une plante réagit à son environnement.\n\n41) On comprend que Malo :",
+              "choices": [
+                "Se moque du cours",
+                "Prend des notes avec soin",
+                "Dort en classe",
+                "Refuse d’écrire"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_inference"
+              ]
+            },
+            {
+              "id": "fr_comp_long_042",
+              "type": "mcq",
+              "prompt": "Texte 5 : En classe de sciences, les élèves observent une plante posée près de la fenêtre. Depuis une semaine, elle a grandi et penche vers la lumière. La professeure explique que la tige se tourne pour capter davantage de soleil : c’est le phototropisme. Malo note le mot soigneusement. Il comprend que même sans bouger comme un animal, une plante réagit à son environnement.\n\n42) Le texte montre que les plantes :",
+              "choices": [
+                "Ne réagissent jamais",
+                "Réagissent à leur environnement",
+                "Sont des animaux",
+                "Voyagent en bus"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_inference"
+              ]
+            },
+            {
+              "id": "fr_comp_long_043",
+              "type": "mcq",
+              "prompt": "Texte 5 : En classe de sciences, les élèves observent une plante posée près de la fenêtre. Depuis une semaine, elle a grandi et penche vers la lumière. La professeure explique que la tige se tourne pour capter davantage de soleil : c’est le phototropisme. Malo note le mot soigneusement. Il comprend que même sans bouger comme un animal, une plante réagit à son environnement.\n\n43) « capter » signifie :",
+              "choices": [
+                "Attraper / recevoir",
+                "Casser",
+                "Vendre",
+                "Oublier"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "fr_lexique_synonyme"
+              ]
+            },
+            {
+              "id": "fr_comp_long_044",
+              "type": "mcq",
+              "prompt": "Texte 5 : En classe de sciences, les élèves observent une plante posée près de la fenêtre. Depuis une semaine, elle a grandi et penche vers la lumière. La professeure explique que la tige se tourne pour capter davantage de soleil : c’est le phototropisme. Malo note le mot soigneusement. Il comprend que même sans bouger comme un animal, une plante réagit à son environnement.\n\n44) L’idée principale du texte est :",
+              "choices": [
+                "La plante est malade",
+                "Une plante peut se tourner vers la lumière",
+                "Malo n’aime pas la SVT",
+                "La fenêtre est fermée"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_045",
+              "type": "mcq",
+              "prompt": "Texte 5 : En classe de sciences, les élèves observent une plante posée près de la fenêtre. Depuis une semaine, elle a grandi et penche vers la lumière. La professeure explique que la tige se tourne pour capter davantage de soleil : c’est le phototropisme. Malo note le mot soigneusement. Il comprend que même sans bouger comme un animal, une plante réagit à son environnement.\n\n45) La conclusion suggère que réagir :",
+              "choices": [
+                "N’existe que chez les animaux",
+                "Peut exister sans se déplacer",
+                "Est impossible pour une plante",
+                "Est toujours dangereux"
+              ],
+              "answerIndex": 1,
+              "difficulty": 3,
+              "tags": [
+                "fr_comprehension_inference",
+                "meta_transfert"
+              ]
+            },
+            {
+              "id": "fr_comp_long_046",
+              "type": "mcq",
+              "prompt": "Texte 6 : Pendant l’entraînement, Malo veut améliorer son temps de course. Il part trop vite et s’essouffle. Son entraîneur lui conseille de garder une allure régulière : respirer calmement, regarder loin devant, et accélérer seulement à la fin. La séance suivante, Malo applique le conseil. Il finit moins épuisé et, surtout, plus confiant.\n\n46) Quel objectif a Malo ?",
+              "choices": [
+                "Cuisiner mieux",
+                "Améliorer son temps de course",
+                "Dessiner un château",
+                "Lire plus vite"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_047",
+              "type": "mcq",
+              "prompt": "Texte 6 : Pendant l’entraînement, Malo veut améliorer son temps de course. Il part trop vite et s’essouffle. Son entraîneur lui conseille de garder une allure régulière : respirer calmement, regarder loin devant, et accélérer seulement à la fin. La séance suivante, Malo applique le conseil. Il finit moins épuisé et, surtout, plus confiant.\n\n47) Que fait-il au début ?",
+              "choices": [
+                "Il part trop vite",
+                "Il s’échauffe longtemps",
+                "Il marche seulement",
+                "Il s’arrête immédiatement"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_048",
+              "type": "mcq",
+              "prompt": "Texte 6 : Pendant l’entraînement, Malo veut améliorer son temps de course. Il part trop vite et s’essouffle. Son entraîneur lui conseille de garder une allure régulière : respirer calmement, regarder loin devant, et accélérer seulement à la fin. La séance suivante, Malo applique le conseil. Il finit moins épuisé et, surtout, plus confiant.\n\n48) Quel conseil donne l’entraîneur ?",
+              "choices": [
+                "Accélérer dès le début",
+                "Garder une allure régulière",
+                "Ne pas respirer",
+                "Regarder ses pieds"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_049",
+              "type": "mcq",
+              "prompt": "Texte 6 : Pendant l’entraînement, Malo veut améliorer son temps de course. Il part trop vite et s’essouffle. Son entraîneur lui conseille de garder une allure régulière : respirer calmement, regarder loin devant, et accélérer seulement à la fin. La séance suivante, Malo applique le conseil. Il finit moins épuisé et, surtout, plus confiant.\n\n49) Lors de la séance suivante, Malo :",
+              "choices": [
+                "Ignore le conseil",
+                "Applique le conseil",
+                "Arrête le sport",
+                "Se blesse"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_050",
+              "type": "mcq",
+              "prompt": "Texte 6 : Pendant l’entraînement, Malo veut améliorer son temps de course. Il part trop vite et s’essouffle. Son entraîneur lui conseille de garder une allure régulière : respirer calmement, regarder loin devant, et accélérer seulement à la fin. La séance suivante, Malo applique le conseil. Il finit moins épuisé et, surtout, plus confiant.\n\n50) On comprend que ce qui aide Malo, c’est :",
+              "choices": [
+                "La chance",
+                "Une méthode simple et régulière",
+                "Une punition",
+                "Un nouveau matériel"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_inference"
+              ]
+            },
+            {
+              "id": "fr_comp_long_051",
+              "type": "mcq",
+              "prompt": "Texte 6 : Pendant l’entraînement, Malo veut améliorer son temps de course. Il part trop vite et s’essouffle. Son entraîneur lui conseille de garder une allure régulière : respirer calmement, regarder loin devant, et accélérer seulement à la fin. La séance suivante, Malo applique le conseil. Il finit moins épuisé et, surtout, plus confiant.\n\n51) À la fin, Malo est :",
+              "choices": [
+                "Plus confiant",
+                "Plus fâché",
+                "Plus triste",
+                "Plus paresseux"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_inference"
+              ]
+            },
+            {
+              "id": "fr_comp_long_052",
+              "type": "mcq",
+              "prompt": "Texte 6 : Pendant l’entraînement, Malo veut améliorer son temps de course. Il part trop vite et s’essouffle. Son entraîneur lui conseille de garder une allure régulière : respirer calmement, regarder loin devant, et accélérer seulement à la fin. La séance suivante, Malo applique le conseil. Il finit moins épuisé et, surtout, plus confiant.\n\n52) « allure régulière » signifie :",
+              "choices": [
+                "Un rythme stable",
+                "Une vitesse très lente",
+                "Un sprint constant",
+                "Une pause"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "fr_lexique_synonyme"
+              ]
+            },
+            {
+              "id": "fr_comp_long_053",
+              "type": "mcq",
+              "prompt": "Texte 6 : Pendant l’entraînement, Malo veut améliorer son temps de course. Il part trop vite et s’essouffle. Son entraîneur lui conseille de garder une allure régulière : respirer calmement, regarder loin devant, et accélérer seulement à la fin. La séance suivante, Malo applique le conseil. Il finit moins épuisé et, surtout, plus confiant.\n\n53) L’idée principale du texte est :",
+              "choices": [
+                "Malo abandonne",
+                "Un bon conseil améliore la course",
+                "Le sport est inutile",
+                "L’entraîneur crie"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_054",
+              "type": "mcq",
+              "prompt": "Texte 6 : Pendant l’entraînement, Malo veut améliorer son temps de course. Il part trop vite et s’essouffle. Son entraîneur lui conseille de garder une allure régulière : respirer calmement, regarder loin devant, et accélérer seulement à la fin. La séance suivante, Malo applique le conseil. Il finit moins épuisé et, surtout, plus confiant.\n\n54) Le texte suggère qu’en sport :",
+              "choices": [
+                "Partir trop vite est toujours mieux",
+                "La régularité peut être efficace",
+                "Il faut arrêter de respirer",
+                "On ne progresse jamais"
+              ],
+              "answerIndex": 1,
+              "difficulty": 3,
+              "tags": [
+                "fr_comprehension_inference",
+                "meta_transfert"
+              ]
+            },
+            {
+              "id": "fr_comp_long_055",
+              "type": "mcq",
+              "prompt": "Texte 7 : Un matin, Malo oublie son cahier de français à la maison. Il le remarque juste avant de monter dans le bus. Il pourrait faire demi-tour, mais il risquerait d’arriver en retard. Il choisit d’expliquer la situation au professeur et promet de rattraper le travail. À sa surprise, l’enseignant apprécie son honnêteté et lui donne une feuille pour suivre le cours.\n\n55) Qu’oublie Malo ?",
+              "choices": [
+                "Son sac",
+                "Son cahier de français",
+                "Son goûter",
+                "Son manteau"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_056",
+              "type": "mcq",
+              "prompt": "Texte 7 : Un matin, Malo oublie son cahier de français à la maison. Il le remarque juste avant de monter dans le bus. Il pourrait faire demi-tour, mais il risquerait d’arriver en retard. Il choisit d’expliquer la situation au professeur et promet de rattraper le travail. À sa surprise, l’enseignant apprécie son honnêteté et lui donne une feuille pour suivre le cours.\n\n56) Quand s’en rend-il compte ?",
+              "choices": [
+                "Après le cours",
+                "Juste avant de monter dans le bus",
+                "Le soir",
+                "À la récréation"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_057",
+              "type": "mcq",
+              "prompt": "Texte 7 : Un matin, Malo oublie son cahier de français à la maison. Il le remarque juste avant de monter dans le bus. Il pourrait faire demi-tour, mais il risquerait d’arriver en retard. Il choisit d’expliquer la situation au professeur et promet de rattraper le travail. À sa surprise, l’enseignant apprécie son honnêteté et lui donne une feuille pour suivre le cours.\n\n57) Quel dilemme a-t-il ?",
+              "choices": [
+                "Aller au cinéma ou non",
+                "Faire demi-tour ou risquer d’être en retard",
+                "Manger ou dormir",
+                "Lire ou écrire"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_inference"
+              ]
+            },
+            {
+              "id": "fr_comp_long_058",
+              "type": "mcq",
+              "prompt": "Texte 7 : Un matin, Malo oublie son cahier de français à la maison. Il le remarque juste avant de monter dans le bus. Il pourrait faire demi-tour, mais il risquerait d’arriver en retard. Il choisit d’expliquer la situation au professeur et promet de rattraper le travail. À sa surprise, l’enseignant apprécie son honnêteté et lui donne une feuille pour suivre le cours.\n\n58) Que choisit Malo ?",
+              "choices": [
+                "Il fait demi-tour",
+                "Il explique au professeur et promet de rattraper",
+                "Il ment",
+                "Il ne va pas en cours"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_059",
+              "type": "mcq",
+              "prompt": "Texte 7 : Un matin, Malo oublie son cahier de français à la maison. Il le remarque juste avant de monter dans le bus. Il pourrait faire demi-tour, mais il risquerait d’arriver en retard. Il choisit d’expliquer la situation au professeur et promet de rattraper le travail. À sa surprise, l’enseignant apprécie son honnêteté et lui donne une feuille pour suivre le cours.\n\n59) Comment réagit l’enseignant ?",
+              "choices": [
+                "Il punit Malo",
+                "Il apprécie l’honnêteté et aide Malo",
+                "Il ignore Malo",
+                "Il appelle la police"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_060",
+              "type": "mcq",
+              "prompt": "Texte 7 : Un matin, Malo oublie son cahier de français à la maison. Il le remarque juste avant de monter dans le bus. Il pourrait faire demi-tour, mais il risquerait d’arriver en retard. Il choisit d’expliquer la situation au professeur et promet de rattraper le travail. À sa surprise, l’enseignant apprécie son honnêteté et lui donne une feuille pour suivre le cours.\n\n60) On comprend que l’honnêteté de Malo :",
+              "choices": [
+                "Aggrave la situation",
+                "Est bien reçue",
+                "Ne sert à rien",
+                "Le met en danger"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_inference"
+              ]
+            },
+            {
+              "id": "fr_comp_long_061",
+              "type": "mcq",
+              "prompt": "Texte 7 : Un matin, Malo oublie son cahier de français à la maison. Il le remarque juste avant de monter dans le bus. Il pourrait faire demi-tour, mais il risquerait d’arriver en retard. Il choisit d’expliquer la situation au professeur et promet de rattraper le travail. À sa surprise, l’enseignant apprécie son honnêteté et lui donne une feuille pour suivre le cours.\n\n61) « rattraper le travail » signifie :",
+              "choices": [
+                "Abandonner",
+                "Faire le travail plus tard pour compenser",
+                "Se reposer",
+                "Punir quelqu’un"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_lexique_synonyme"
+              ]
+            },
+            {
+              "id": "fr_comp_long_062",
+              "type": "mcq",
+              "prompt": "Texte 7 : Un matin, Malo oublie son cahier de français à la maison. Il le remarque juste avant de monter dans le bus. Il pourrait faire demi-tour, mais il risquerait d’arriver en retard. Il choisit d’expliquer la situation au professeur et promet de rattraper le travail. À sa surprise, l’enseignant apprécie son honnêteté et lui donne une feuille pour suivre le cours.\n\n62) L’idée principale du texte est :",
+              "choices": [
+                "Malo arrive toujours en retard",
+                "Dire la vérité peut aider à résoudre un problème",
+                "Le bus est en panne",
+                "Le cahier est magique"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_063",
+              "type": "mcq",
+              "prompt": "Texte 7 : Un matin, Malo oublie son cahier de français à la maison. Il le remarque juste avant de monter dans le bus. Il pourrait faire demi-tour, mais il risquerait d’arriver en retard. Il choisit d’expliquer la situation au professeur et promet de rattraper le travail. À sa surprise, l’enseignant apprécie son honnêteté et lui donne une feuille pour suivre le cours.\n\n63) Malo choisit de ne pas faire demi-tour surtout parce que :",
+              "choices": [
+                "Il risque d’arriver en retard",
+                "Il a peur du professeur",
+                "Il n’aime pas le bus",
+                "Il veut sécher le cours"
+              ],
+              "answerIndex": 0,
+              "difficulty": 3,
+              "tags": [
+                "fr_comprehension_inference",
+                "meta_transfert"
+              ]
+            },
+            {
+              "id": "fr_comp_long_064",
+              "type": "mcq",
+              "prompt": "Texte 8 : Sur Internet, Malo voit une publicité pour une « super méthode » qui promet d’apprendre en une journée. Son parent lui rappelle qu’apprendre demande du temps : comprendre, s’entraîner, se tromper, recommencer. Malo décide alors de travailler un peu chaque jour. Au bout d’une semaine, il se rend compte qu’il retient mieux et qu’il se sent moins stressé.\n\n64) Que voit Malo sur Internet ?",
+              "choices": [
+                "Une recette",
+                "Une publicité promettant d’apprendre en une journée",
+                "Un film",
+                "Un match"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_065",
+              "type": "mcq",
+              "prompt": "Texte 8 : Sur Internet, Malo voit une publicité pour une « super méthode » qui promet d’apprendre en une journée. Son parent lui rappelle qu’apprendre demande du temps : comprendre, s’entraîner, se tromper, recommencer. Malo décide alors de travailler un peu chaque jour. Au bout d’une semaine, il se rend compte qu’il retient mieux et qu’il se sent moins stressé.\n\n65) Que lui rappelle son parent ?",
+              "choices": [
+                "Apprendre demande du temps",
+                "Tout est facile",
+                "Il faut arrêter l’école",
+                "Il faut acheter la méthode"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_066",
+              "type": "mcq",
+              "prompt": "Texte 8 : Sur Internet, Malo voit une publicité pour une « super méthode » qui promet d’apprendre en une journée. Son parent lui rappelle qu’apprendre demande du temps : comprendre, s’entraîner, se tromper, recommencer. Malo décide alors de travailler un peu chaque jour. Au bout d’une semaine, il se rend compte qu’il retient mieux et qu’il se sent moins stressé.\n\n66) Quelles étapes sont citées pour apprendre ?",
+              "choices": [
+                "Dormir, courir, manger",
+                "Comprendre, s’entraîner, se tromper, recommencer",
+                "Acheter, jeter, oublier",
+                "Copier, tricher, gagner"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_067",
+              "type": "mcq",
+              "prompt": "Texte 8 : Sur Internet, Malo voit une publicité pour une « super méthode » qui promet d’apprendre en une journée. Son parent lui rappelle qu’apprendre demande du temps : comprendre, s’entraîner, se tromper, recommencer. Malo décide alors de travailler un peu chaque jour. Au bout d’une semaine, il se rend compte qu’il retient mieux et qu’il se sent moins stressé.\n\n67) Que décide Malo ?",
+              "choices": [
+                "Travailler un peu chaque jour",
+                "Travailler une journée puis arrêter",
+                "Ne rien faire",
+                "Changer de collège"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_068",
+              "type": "mcq",
+              "prompt": "Texte 8 : Sur Internet, Malo voit une publicité pour une « super méthode » qui promet d’apprendre en une journée. Son parent lui rappelle qu’apprendre demande du temps : comprendre, s’entraîner, se tromper, recommencer. Malo décide alors de travailler un peu chaque jour. Au bout d’une semaine, il se rend compte qu’il retient mieux et qu’il se sent moins stressé.\n\n68) Après une semaine, Malo :",
+              "choices": [
+                "Retient mieux et est moins stressé",
+                "Oublie tout",
+                "Est plus stressé",
+                "N’a rien appris"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_inference"
+              ]
+            },
+            {
+              "id": "fr_comp_long_069",
+              "type": "mcq",
+              "prompt": "Texte 8 : Sur Internet, Malo voit une publicité pour une « super méthode » qui promet d’apprendre en une journée. Son parent lui rappelle qu’apprendre demande du temps : comprendre, s’entraîner, se tromper, recommencer. Malo décide alors de travailler un peu chaque jour. Au bout d’une semaine, il se rend compte qu’il retient mieux et qu’il se sent moins stressé.\n\n69) On comprend que le texte critique :",
+              "choices": [
+                "Le sport",
+                "Les promesses trop rapides",
+                "La lecture",
+                "La cuisine"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_inference"
+              ]
+            },
+            {
+              "id": "fr_comp_long_070",
+              "type": "mcq",
+              "prompt": "Texte 8 : Sur Internet, Malo voit une publicité pour une « super méthode » qui promet d’apprendre en une journée. Son parent lui rappelle qu’apprendre demande du temps : comprendre, s’entraîner, se tromper, recommencer. Malo décide alors de travailler un peu chaque jour. Au bout d’une semaine, il se rend compte qu’il retient mieux et qu’il se sent moins stressé.\n\n70) « promet » signifie :",
+              "choices": [
+                "Affirme qu’on va obtenir quelque chose",
+                "Oublie",
+                "Explique",
+                "Refuse"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "fr_lexique_synonyme"
+              ]
+            },
+            {
+              "id": "fr_comp_long_071",
+              "type": "mcq",
+              "prompt": "Texte 8 : Sur Internet, Malo voit une publicité pour une « super méthode » qui promet d’apprendre en une journée. Son parent lui rappelle qu’apprendre demande du temps : comprendre, s’entraîner, se tromper, recommencer. Malo décide alors de travailler un peu chaque jour. Au bout d’une semaine, il se rend compte qu’il retient mieux et qu’il se sent moins stressé.\n\n71) L’idée principale du texte est :",
+              "choices": [
+                "On peut tout apprendre en une journée",
+                "Le travail régulier est plus efficace",
+                "Internet est interdit",
+                "Malo n’aime pas travailler"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_072",
+              "type": "mcq",
+              "prompt": "Texte 8 : Sur Internet, Malo voit une publicité pour une « super méthode » qui promet d’apprendre en une journée. Son parent lui rappelle qu’apprendre demande du temps : comprendre, s’entraîner, se tromper, recommencer. Malo décide alors de travailler un peu chaque jour. Au bout d’une semaine, il se rend compte qu’il retient mieux et qu’il se sent moins stressé.\n\n72) Le message du texte peut s’appliquer à :",
+              "choices": [
+                "Seulement les maths",
+                "Tous les apprentissages",
+                "Seulement la cuisine",
+                "Seulement les voyages"
+              ],
+              "answerIndex": 1,
+              "difficulty": 3,
+              "tags": [
+                "fr_comprehension_inference",
+                "meta_transfert"
+              ]
+            },
+            {
+              "id": "fr_comp_long_073",
+              "type": "mcq",
+              "prompt": "Texte 9 : Lors d’une sortie, la classe visite un vieux château. Le guide raconte que les murailles servaient à se protéger et que le donjon était le dernier refuge en cas d’attaque. Malo observe les meurtrières étroites et imagine la vie des habitants. Il comprend que l’architecture raconte aussi une histoire : celle des besoins et des dangers d’une époque.\n\n73) Où va la classe ?",
+              "choices": [
+                "Dans un musée de science",
+                "Dans un vieux château",
+                "Dans un cinéma",
+                "Dans une piscine"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_074",
+              "type": "mcq",
+              "prompt": "Texte 9 : Lors d’une sortie, la classe visite un vieux château. Le guide raconte que les murailles servaient à se protéger et que le donjon était le dernier refuge en cas d’attaque. Malo observe les meurtrières étroites et imagine la vie des habitants. Il comprend que l’architecture raconte aussi une histoire : celle des besoins et des dangers d’une époque.\n\n74) À quoi servaient les murailles ?",
+              "choices": [
+                "Décorer",
+                "Se protéger",
+                "Faire du sport",
+                "Ranger des livres"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_075",
+              "type": "mcq",
+              "prompt": "Texte 9 : Lors d’une sortie, la classe visite un vieux château. Le guide raconte que les murailles servaient à se protéger et que le donjon était le dernier refuge en cas d’attaque. Malo observe les meurtrières étroites et imagine la vie des habitants. Il comprend que l’architecture raconte aussi une histoire : celle des besoins et des dangers d’une époque.\n\n75) Qu’est-ce que le donjon selon le guide ?",
+              "choices": [
+                "Une cuisine",
+                "Le dernier refuge en cas d’attaque",
+                "Un jardin",
+                "Une salle de classe"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_076",
+              "type": "mcq",
+              "prompt": "Texte 9 : Lors d’une sortie, la classe visite un vieux château. Le guide raconte que les murailles servaient à se protéger et que le donjon était le dernier refuge en cas d’attaque. Malo observe les meurtrières étroites et imagine la vie des habitants. Il comprend que l’architecture raconte aussi une histoire : celle des besoins et des dangers d’une époque.\n\n76) Que fait Malo pendant la visite ?",
+              "choices": [
+                "Il dort",
+                "Il observe et imagine la vie des habitants",
+                "Il joue au ballon",
+                "Il téléphone"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_inference"
+              ]
+            },
+            {
+              "id": "fr_comp_long_077",
+              "type": "mcq",
+              "prompt": "Texte 9 : Lors d’une sortie, la classe visite un vieux château. Le guide raconte que les murailles servaient à se protéger et que le donjon était le dernier refuge en cas d’attaque. Malo observe les meurtrières étroites et imagine la vie des habitants. Il comprend que l’architecture raconte aussi une histoire : celle des besoins et des dangers d’une époque.\n\n77) Les meurtrières sont :",
+              "choices": [
+                "Des fenêtres très larges",
+                "Des ouvertures étroites dans les murs",
+                "Des escaliers",
+                "Des meubles"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_078",
+              "type": "mcq",
+              "prompt": "Texte 9 : Lors d’une sortie, la classe visite un vieux château. Le guide raconte que les murailles servaient à se protéger et que le donjon était le dernier refuge en cas d’attaque. Malo observe les meurtrières étroites et imagine la vie des habitants. Il comprend que l’architecture raconte aussi une histoire : celle des besoins et des dangers d’une époque.\n\n78) « raconte une histoire » signifie ici :",
+              "choices": [
+                "L’architecture donne des infos sur le passé",
+                "Le château parle",
+                "Le guide ment",
+                "Malo écrit un roman"
+              ],
+              "answerIndex": 0,
+              "difficulty": 3,
+              "tags": [
+                "fr_comprehension_inference"
+              ]
+            },
+            {
+              "id": "fr_comp_long_079",
+              "type": "mcq",
+              "prompt": "Texte 9 : Lors d’une sortie, la classe visite un vieux château. Le guide raconte que les murailles servaient à se protéger et que le donjon était le dernier refuge en cas d’attaque. Malo observe les meurtrières étroites et imagine la vie des habitants. Il comprend que l’architecture raconte aussi une histoire : celle des besoins et des dangers d’une époque.\n\n79) « refuge » signifie :",
+              "choices": [
+                "Un endroit où se protéger",
+                "Un instrument de musique",
+                "Un repas",
+                "Un livre"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "fr_lexique_synonyme"
+              ]
+            },
+            {
+              "id": "fr_comp_long_080",
+              "type": "mcq",
+              "prompt": "Texte 9 : Lors d’une sortie, la classe visite un vieux château. Le guide raconte que les murailles servaient à se protéger et que le donjon était le dernier refuge en cas d’attaque. Malo observe les meurtrières étroites et imagine la vie des habitants. Il comprend que l’architecture raconte aussi une histoire : celle des besoins et des dangers d’une époque.\n\n80) L’idée principale du texte est :",
+              "choices": [
+                "Le château est moderne",
+                "L’architecture montre les besoins d’une époque",
+                "Malo n’aime pas l’histoire",
+                "Les murs sont fragiles"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "fr_comprehension_idee_principale"
+              ]
+            },
+            {
+              "id": "fr_comp_long_081",
+              "type": "mcq",
+              "prompt": "Texte 9 : Lors d’une sortie, la classe visite un vieux château. Le guide raconte que les murailles servaient à se protéger et que le donjon était le dernier refuge en cas d’attaque. Malo observe les meurtrières étroites et imagine la vie des habitants. Il comprend que l’architecture raconte aussi une histoire : celle des besoins et des dangers d’une époque.\n\n81) Le texte invite surtout à :",
+              "choices": [
+                "Observer pour comprendre le passé",
+                "Oublier les visites",
+                "Détester les châteaux",
+                "Ne pas écouter"
+              ],
+              "answerIndex": 0,
+              "difficulty": 3,
+              "tags": [
+                "fr_comprehension_inference",
+                "meta_transfert"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

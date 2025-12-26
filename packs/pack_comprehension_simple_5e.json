@@ -1,0 +1,275 @@
+{
+  "version": 1,
+  "grade": "5e",
+  "subjects": [
+    {
+      "id": "fr",
+      "title": "Français",
+      "themes": [
+        {
+          "id": "fr_comprehension_textes_qcm",
+          "title": "Compréhension de texte – QCM (textes courts)",
+          "exercises": [
+            {
+              "id": "fr_txt1_000",
+              "type": "info",
+              "prompt": "Texte 1 :\nMalo arrive au collège avec un peu d’avance. Dans la cour, quelques élèves discutent déjà. Il vérifie son emploi du temps : ce matin, il a français, puis mathématiques. En classe, la professeure distribue une feuille. C’est un exercice de grammaire. Malo lit les consignes lentement. Il souligne le verbe, puis cherche le sujet. Au début, il hésite, mais il se rappelle la méthode : « Qui est-ce qui… ? ». Il trouve la réponse et se sent fier.\n\n(Questions 1 à 8 sur ce texte.)",
+              "difficulty": 1,
+              "tags": ["fr_comprehension_idee_principale"]
+            },
+
+            {
+              "id": "fr_txt1_q1",
+              "type": "mcq",
+              "prompt": "1) Où se passe le début du texte ?",
+              "choices": ["Dans un parc", "Au collège", "À la maison", "Dans un bus"],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": ["fr_comprehension_idee_principale"]
+            },
+            {
+              "id": "fr_txt1_q2",
+              "type": "mcq",
+              "prompt": "2) Pourquoi Malo vérifie-t-il son emploi du temps ?",
+              "choices": ["Pour choisir un sport", "Pour connaître ses cours", "Pour appeler un ami", "Pour finir un devoir"],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": ["fr_comprehension_detail", "fr_comprehension_idee_principale"]
+            },
+            {
+              "id": "fr_txt1_q3",
+              "type": "mcq",
+              "prompt": "3) Quel exercice reçoit Malo en classe ?",
+              "choices": ["Un exercice de grammaire", "Un contrôle de sport", "Une dictée de 3 pages", "Un dessin à colorier"],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": ["fr_comprehension_detail"]
+            },
+            {
+              "id": "fr_txt1_q4",
+              "type": "mcq",
+              "prompt": "4) Quelle méthode Malo utilise-t-il pour trouver le sujet ?",
+              "choices": ["« Où ? Quand ? »", "« Qui est-ce qui… ? »", "« Combien ? »", "« Pourquoi ? »"],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": ["fr_comprehension_detail"]
+            },
+            {
+              "id": "fr_txt1_q5",
+              "type": "mcq",
+              "prompt": "5) À la fin, Malo se sent surtout :",
+              "choices": ["Furieux", "Fier", "Endormi", "Indifférent"],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": ["fr_comprehension_inference"]
+            },
+            {
+              "id": "fr_txt1_q6",
+              "type": "mcq",
+              "prompt": "6) On peut comprendre que Malo…",
+              "choices": ["n’aime pas le collège", "essaie de faire les choses méthodiquement", "refuse de travailler", "ne lit jamais les consignes"],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": ["fr_comprehension_inference"]
+            },
+            {
+              "id": "fr_txt1_q7",
+              "type": "mcq",
+              "prompt": "7) Dans « Malo lit les consignes lentement », le mot « consignes » signifie :",
+              "choices": ["des règles / instructions", "des punitions", "des chansons", "des cadeaux"],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": ["fr_lexique_synonyme"]
+            },
+            {
+              "id": "fr_txt1_q8",
+              "type": "mcq",
+              "prompt": "8) Quelle est l’idée principale du texte ?",
+              "choices": [
+                "Malo se dispute avec un camarade",
+                "Malo réussit un exercice grâce à une méthode",
+                "Malo oublie son emploi du temps",
+                "Malo arrive en retard en cours"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": ["fr_comprehension_idee_principale"]
+            },
+
+            {
+              "id": "fr_txt2_000",
+              "type": "info",
+              "prompt": "Texte 2 :\nLe samedi, la pluie tombe sans s’arrêter. L’air sent la terre mouillée. À l’intérieur, la famille décide de préparer des crêpes. Malo casse les œufs, sa sœur mesure la farine et leur père chauffe la poêle. Au début, la première crêpe colle et se déchire. Tout le monde rit. Ils ajustent la pâte, attendent un peu plus longtemps, et la suivante est parfaite. Quand l’odeur sucrée envahit la cuisine, Malo se dit que la pluie n’est finalement pas une si mauvaise nouvelle.\n\n(Questions 9 à 16 sur ce texte.)",
+              "difficulty": 1,
+              "tags": ["fr_comprehension_idee_principale"]
+            },
+
+            {
+              "id": "fr_txt2_q9",
+              "type": "mcq",
+              "prompt": "9) Quel jour se déroule l’histoire ?",
+              "choices": ["Lundi", "Samedi", "Mercredi", "Jeudi"],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": ["fr_comprehension_detail"]
+            },
+            {
+              "id": "fr_txt2_q10",
+              "type": "mcq",
+              "prompt": "10) Que décide de faire la famille ?",
+              "choices": ["Aller au cinéma", "Préparer des crêpes", "Faire du vélo", "Planter un arbre"],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": ["fr_comprehension_detail"]
+            },
+            {
+              "id": "fr_txt2_q11",
+              "type": "mcq",
+              "prompt": "11) Qui chauffe la poêle ?",
+              "choices": ["Malo", "Sa sœur", "Leur père", "Le voisin"],
+              "answerIndex": 2,
+              "difficulty": 1,
+              "tags": ["fr_comprehension_detail"]
+            },
+            {
+              "id": "fr_txt2_q12",
+              "type": "mcq",
+              "prompt": "12) Pourquoi tout le monde rit-il ?",
+              "choices": ["Parce qu’il fait très chaud", "Parce que la première crêpe rate", "Parce qu’ils sont en colère", "Parce que Malo tombe"],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": ["fr_comprehension_detail"]
+            },
+            {
+              "id": "fr_txt2_q13",
+              "type": "mcq",
+              "prompt": "13) Que signifie « envahit la cuisine » ?",
+              "choices": ["Quitte la cuisine", "Remplit la cuisine", "Nettoie la cuisine", "Refroidit la cuisine"],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": ["fr_lexique_synonyme"]
+            },
+            {
+              "id": "fr_txt2_q14",
+              "type": "mcq",
+              "prompt": "14) À la fin, Malo pense que la pluie…",
+              "choices": ["a tout gâché", "a permis un bon moment", "l’a rendu triste", "a détruit la maison"],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": ["fr_comprehension_inference"]
+            },
+            {
+              "id": "fr_txt2_q15",
+              "type": "mcq",
+              "prompt": "15) On peut comprendre que la famille est plutôt :",
+              "choices": ["Stressée et silencieuse", "Joy euse et soudée", "Fâchée et pressée", "Indifférente"],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": ["fr_comprehension_inference"]
+            },
+            {
+              "id": "fr_txt2_q16",
+              "type": "mcq",
+              "prompt": "16) L’idée principale du texte est :",
+              "choices": [
+                "La pluie empêche tout le monde de sortir",
+                "La famille cuisine ensemble malgré la pluie",
+                "Malo n’aime pas les crêpes",
+                "La poêle est cassée"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": ["fr_comprehension_idee_principale"]
+            },
+
+            {
+              "id": "fr_txt3_000",
+              "type": "info",
+              "prompt": "Texte 3 :\nAu CDI, Malo cherche un livre sur les voyages. Sur une étagère, il repère une couverture avec une grande carte et un bateau. Il l’ouvre au hasard et tombe sur l’histoire d’un marin qui doit traverser une mer agitée. Le héros a peur, mais il observe le ciel et apprend à lire les signes : la direction du vent, la forme des nuages, la couleur de l’eau. Peu à peu, il comprend qu’un voyage n’est pas seulement un déplacement : c’est aussi une manière d’apprendre.\n\n(Questions 17 à 24 sur ce texte.)",
+              "difficulty": 2,
+              "tags": ["fr_comprehension_idee_principale"]
+            },
+
+            {
+              "id": "fr_txt3_q17",
+              "type": "mcq",
+              "prompt": "17) Où se trouve Malo ?",
+              "choices": ["Au CDI", "Au stade", "Dans un bus", "À la boulangerie"],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": ["fr_comprehension_detail"]
+            },
+            {
+              "id": "fr_txt3_q18",
+              "type": "mcq",
+              "prompt": "18) Que cherche Malo ?",
+              "choices": ["Un livre sur les voyages", "Un livre de cuisine", "Un dictionnaire", "Un cahier de maths"],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": ["fr_comprehension_detail"]
+            },
+            {
+              "id": "fr_txt3_q19",
+              "type": "mcq",
+              "prompt": "19) Le marin doit traverser :",
+              "choices": ["Une montagne", "Une mer agitée", "Un désert", "Une forêt"],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": ["fr_comprehension_detail"]
+            },
+            {
+              "id": "fr_txt3_q20",
+              "type": "mcq",
+              "prompt": "20) Que fait le héros malgré sa peur ?",
+              "choices": ["Il abandonne", "Il observe et apprend", "Il dort", "Il se fâche"],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": ["fr_comprehension_inference"]
+            },
+            {
+              "id": "fr_txt3_q21",
+              "type": "mcq",
+              "prompt": "21) Les « signes » mentionnés sont plutôt :",
+              "choices": ["Des panneaux publicitaires", "Des indices dans la nature", "Des notes de musique", "Des dessins"],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": ["fr_comprehension_inference"]
+            },
+            {
+              "id": "fr_txt3_q22",
+              "type": "mcq",
+              "prompt": "22) « Au hasard » signifie :",
+              "choices": ["avec une méthode précise", "sans choisir précisément", "très lentement", "avec colère"],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": ["fr_lexique_synonyme"]
+            },
+            {
+              "id": "fr_txt3_q23",
+              "type": "mcq",
+              "prompt": "23) D’après le texte, un voyage est aussi :",
+              "choices": ["un sport", "une manière d’apprendre", "une punition", "un mensonge"],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": ["fr_comprehension_idee_principale"]
+            },
+            {
+              "id": "fr_txt3_q24",
+              "type": "mcq",
+              "prompt": "24) L’idée principale du texte est :",
+              "choices": [
+                "Malo aime les cartes",
+                "Le marin a peur des nuages",
+                "Observer aide à comprendre et apprendre",
+                "Le CDI est fermé"
+              ],
+              "answerIndex": 2,
+              "difficulty": 3,
+              "tags": ["fr_comprehension_idee_principale", "fr_comprehension_inference", "meta_transfert"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

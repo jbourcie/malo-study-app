@@ -9,6 +9,8 @@ export interface Theme {
   subjectId: SubjectId
   title: string
   grade: '5e'
+  readings?: Reading[]
+  exercises?: Exercise[]
 }
 
 export interface ExerciseBase {
@@ -38,6 +40,15 @@ export interface ExerciseFillBlank extends ExerciseBase {
 }
 
 export type Exercise = ExerciseMCQ | ExerciseShortText | ExerciseFillBlank
+
+export interface Reading {
+  id: string
+  title: string
+  text: string
+  difficulty: 1 | 2 | 3
+  tags: string[]
+  questions: ExerciseMCQ[]
+}
 
 export interface PackJSON {
   version: number

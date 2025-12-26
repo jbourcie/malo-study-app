@@ -1,6 +1,6 @@
 import { collection, doc, getDoc, getDocs, query, where, writeBatch, serverTimestamp, setDoc, runTransaction } from 'firebase/firestore'
 import { db } from '../firebase'
-import type { Exercise, PackJSON, SubjectId, Theme } from '../types'
+import type { Exercise, PackJSON, Reading, SubjectId, Theme } from '../types'
 import type { TagMasteryBucket } from '../typesProgress'
 import { normalize } from '../utils/normalize'
 
@@ -76,6 +76,12 @@ export async function listExercises(themeId: string, opts?: { uid?: string, incl
   return filtered
 }
 
+export async function listReadings(themeId: string) {
+  const q = query(collection(db, 'readings'), where('themeId', '==', themeId))
+  const snap = await getDocs(q)
+  return snap.docs.map(d => ({ id: d.id, ...(d.data() as any) })) as Reading[]
+}
+
 export async function importPack(pack: PackJSON) {
   const batch = writeBatch(db)
 
@@ -101,6 +107,27 @@ export async function importPack(pack: PackJSON) {
           cleaned.expected = cleaned.expected.map((x: string) => normalize(x))
         }
         batch.set(exDoc, cleaned, { merge: true })
+      }
+
+      if (Array.isArray((th as any).readings)) {
+        for (const rd of (th as any).readings as Reading[]) {
+          if (!rd.id || !rd.title || !rd.text || !Array.isArray(rd.questions)) continue
+          const readingDoc = doc(db, 'readings', rd.id)
+          const readingPayload: Reading = {
+            id: rd.id,
+            title: rd.title,
+            text: rd.text,
+            difficulty: rd.difficulty as any,
+            tags: Array.isArray(rd.tags) ? rd.tags.slice(0, 3) : [],
+            questions: rd.questions.map((q) => ({
+              ...q,
+              type: 'mcq',
+              themeId: th.id,
+              tags: Array.isArray(q.tags) ? q.tags.slice(0, 3) : [],
+            })),
+          }
+          batch.set(readingDoc, { ...readingPayload, themeId: th.id }, { merge: true })
+        }
       }
     }
   }
