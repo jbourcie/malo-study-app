@@ -1,21 +1,12 @@
-// Service worker très simple: cache des assets buildés.
-// Pour un vrai offline complet, on peut affiner (workbox).
-const CACHE = 'malo-revisions-v1';
+// Service worker neutre pour éviter les 404 lors de l'enregistrement.
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE));
-  self.skipWaiting();
-});
+  self.skipWaiting()
+})
+
 self.addEventListener('activate', (event) => {
-  event.waitUntil(self.clients.claim());
-});
-self.addEventListener('fetch', (event) => {
-  const req = event.request;
-  // Network-first pour garder les données fraîches
-  event.respondWith(
-    fetch(req).then(res => {
-      const copy = res.clone();
-      caches.open(CACHE).then(cache => cache.put(req, copy)).catch(()=>{});
-      return res;
-    }).catch(() => caches.match(req))
-  );
-});
+  // Pas de cache pour l'instant
+})
+
+self.addEventListener('fetch', () => {
+  // Pas d'interception : on laisse le réseau gérer
+})
