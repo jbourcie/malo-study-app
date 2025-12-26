@@ -17,6 +17,21 @@ function isCorrect(ex: Exercise, ans: any): boolean {
   return false
 }
 
+function renderUnderlined(text: string) {
+  const parts: React.ReactNode[] = []
+  const regex = /_([^_]+)_/g
+  let lastIndex = 0
+  let m: RegExpExecArray | null
+  let key = 0
+  while ((m = regex.exec(text)) !== null) {
+    if (m.index > lastIndex) parts.push(text.slice(lastIndex, m.index))
+    parts.push(<span key={`u-${key++}`} style={{ textDecoration: 'underline' }}>{m[1]}</span>)
+    lastIndex = regex.lastIndex
+  }
+  if (lastIndex < text.length) parts.push(text.slice(lastIndex))
+  return parts
+}
+
 export function ThemeSessionPage() {
   const { themeId } = useParams()
   const nav = useNavigate()
@@ -171,7 +186,7 @@ export function ThemeSessionPage() {
       {exos.map((ex, idx) => (
         <div className="card" key={ex.id}>
           <div className="small">Question {idx+1} / {exos.length} <span className="badge">Difficulté {ex.difficulty}</span></div>
-          <div style={{ fontWeight: 800, marginTop: 6 }}>{ex.prompt}</div>
+          <div style={{ fontWeight: 800, marginTop: 6 }}>{renderUnderlined(ex.prompt)}</div>
 
           {ex.type === 'mcq' && (
             <div className="grid" style={{ marginTop: 10 }}>
@@ -184,7 +199,7 @@ export function ThemeSessionPage() {
                   style={{ textAlign:'left', opacity: answers[ex.id] === i ? 1 : 0.85 }}
                   aria-pressed={answers[ex.id] === i}
                 >
-                  {c}
+                  {renderUnderlined(c)}
                 </button>
               ))}
             </div>
@@ -203,7 +218,7 @@ export function ThemeSessionPage() {
 
           {(ex.type === 'fill_blank') && (
             <div style={{ marginTop: 10 }}>
-              <div className="small">{(ex as ExerciseFillBlank).text}</div>
+              <div className="small">{renderUnderlined((ex as ExerciseFillBlank).text)}</div>
               <input
                 className="input"
                 placeholder="Le mot manquant…"
