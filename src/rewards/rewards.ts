@@ -7,6 +7,10 @@ export type UserRewards = {
   level: number
   badges?: string[]
   masteryByTag?: Record<string, { state: MasteryState, score: number, updatedAt?: Timestamp }>
+  collectibles?: {
+    owned: string[]
+    equippedAvatarId?: string
+  }
   updatedAt?: Timestamp
 }
 

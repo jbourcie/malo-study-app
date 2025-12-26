@@ -11,6 +11,7 @@ import { ModerationPage } from './pages/Moderation'
 import { RewardPage } from './pages/Reward'
 import { ProgressOverviewPage } from './pages/ProgressOverview'
 import { NotFoundPage } from './pages/NotFound'
+import { CollectionPage } from './pages/Collection'
 
 export function App() {
   return (
@@ -27,6 +28,7 @@ export function App() {
         <Route path="/admin/progression" element={<RequireParent><ProgressPage /></RequireParent>} />
         <Route path="/admin/moderation" element={<RequireParent><ModerationPage /></RequireParent>} />
         <Route path="/recompenses" element={<RequireAuth><RewardPage /></RequireAuth>} />
+        <Route path="/collection" element={<RequireAuth><CollectionPage /></RequireAuth>} />
         <Route path="/progression" element={<RequireAuth><ProgressOverviewPage /></RequireAuth>} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

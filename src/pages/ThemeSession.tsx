@@ -8,11 +8,16 @@ import { normalize } from '../utils/normalize'
 import { doc, getDoc } from 'firebase/firestore'
 import { db } from '../firebase'
 import { flattenThemeContent, PlayableExercise } from '../utils/flattenThemeContent'
-import { computeSessionXp, computeLevelFromXp } from '../rewards/rewards'
+import { computeSessionXp, computeLevelFromXp, updateMasteryFromAttempt } from '../rewards/rewards'
 import { awardSessionRewards, applyMasteryEvents, evaluateBadges } from '../rewards/rewardsService'
 import { useUserRewards } from '../state/useUserRewards'
 import { RewardsHeader } from '../components/RewardsHeader'
 import { getSessionFeedback } from '../utils/sessionFeedback'
+import { rollCollectible } from '../rewards/collectibles'
+import { equipAvatar, unlockCollectible } from '../rewards/collectiblesService'
+import { COLLECTIBLES } from '../rewards/collectiblesCatalog'
+import { updateDailyProgress } from '../rewards/daily'
+import { upsertDayStat } from '../stats/dayLog'
 
 type AnswerState = Record<string, any>
 
@@ -40,7 +45,6 @@ function renderUnderlined(text: string) {
 
 export function ThemeSessionPage() {
   const { themeId } = useParams()
-  const nav = useNavigate()
   const { user } = useAuth()
   const { rewards: liveRewards } = useUserRewards(user?.uid || null)
   const [theme, setTheme] = React.useState<any | null>(null)
@@ -58,8 +62,9 @@ export function ThemeSessionPage() {
     idx: number
   }>>([])
   const [showCorrections, setShowCorrections] = React.useState(false)
-  const [sessionRewards, setSessionRewards] = React.useState<{ deltaXp: number, levelUp: boolean, newRewards?: any, prevRewards?: any, unlockedBadges?: string[] } | null>(null)
+  const [sessionRewards, setSessionRewards] = React.useState<{ deltaXp: number, levelUp: boolean, newRewards?: any, prevRewards?: any, unlockedBadges?: string[], collectibleId?: string | null } | null>(null)
   const [showRewardModal, setShowRewardModal] = React.useState(false)
+  const nav = useNavigate()
   const [sessionFeedbackMsg, setSessionFeedbackMsg] = React.useState<string>('')
 
   React.useEffect(() => {
@@ -125,11 +130,28 @@ export function ThemeSessionPage() {
       if (typeof ans === 'string' && ans.trim() === '') return acc
       return acc + 1
     }, 0)
+
+    // Projection for mastery unlocks (used to decide collectible roll)
+    const masteryBefore = liveRewards?.masteryByTag || {}
+    let masteryAfter = masteryBefore
+    items.forEach(item => {
+      masteryAfter = updateMasteryFromAttempt({
+        masteryByTag: masteryAfter,
+        questionTags: item.tags || [],
+        isCorrect: item.correct,
+        timestamp: new Date(),
+      })
+    })
+    const newMasteredTagCount = Object.entries(masteryAfter)
+      .filter(([tag, val]) => val?.state === 'mastered' && (masteryBefore as any)?.[tag]?.state !== 'mastered')
+      .length
+
     const deltaXp = computeSessionXp({ answeredCount, isCompleted: true })
     const prevRewards = liveRewards
     let newRewards = null
     let levelUp = false
     let unlockedBadges: string[] = []
+    let rolledCollectibleId: string | null = null
     try {
       const res = await awardSessionRewards(user.uid, progress.attemptId || null, deltaXp)
       newRewards = res
@@ -140,11 +162,34 @@ export function ThemeSessionPage() {
         items: items,
       })
       unlockedBadges = await evaluateBadges({ uid: user.uid, rewards: res || liveRewards }) || []
+
+      const shouldRollCollectible = deltaXp >= 20 || levelUp || newMasteredTagCount > 0
+      if (shouldRollCollectible) {
+        const owned = (res as any)?.collectibles?.owned || liveRewards?.collectibles?.owned || []
+        rolledCollectibleId = rollCollectible(owned)
+        if (rolledCollectibleId) {
+          const evId = progress.attemptId ? `collectible_${progress.attemptId}` : undefined
+          await unlockCollectible(user.uid, rolledCollectibleId, evId)
+        }
+      }
+
+      // Daily quests update (idempotent via event)
+      updateDailyProgress({
+        uid: user.uid,
+        sessionId: progress.attemptId || themeId,
+        answeredCount,
+        tagsUsed: items.flatMap(i => i.tags || []),
+      }).catch(err => console.error('updateDailyProgress failed', err))
+      upsertDayStat({
+        uid: user.uid,
+        sessionsDelta: 1,
+        xpDelta: deltaXp,
+      }).catch(err => console.error('upsertDayStat failed', err))
     } catch (e) {
       console.error('awardSessionRewards failed', e)
       // fallback: do not block UX
     }
-    setSessionRewards({ deltaXp, levelUp, newRewards, prevRewards, unlockedBadges })
+    setSessionRewards({ deltaXp, levelUp, newRewards, prevRewards, unlockedBadges, collectibleId: rolledCollectibleId })
 
     const sessionTags = new Set<string>(exos.flatMap(ex => ex.tags || []))
     const sortedWeak = Object.values(progress.tagsUpdated || {})
@@ -222,6 +267,19 @@ export function ThemeSessionPage() {
       return 'Bien essayé. On progresse en s’entraînant.'
     })() : ''
 
+    const collectibleDef = sessionRewards?.collectibleId ? COLLECTIBLES.find(c => c.id === sessionRewards?.collectibleId) : null
+    const rarityLabel = collectibleDef?.rarity === 'epic' ? 'Épique' : collectibleDef?.rarity === 'rare' ? 'Rare' : 'Commun'
+
+    const onEquip = async () => {
+      if (!user || !collectibleDef || collectibleDef.type !== 'avatar') return
+      try {
+        await equipAvatar(user.uid, collectibleDef.id)
+      } catch (e) {
+        console.error('equipAvatar failed', e)
+      }
+      setShowRewardModal(false)
+    }
+
     return (
       <div className="container grid" style={{ position: 'relative' }}>
         {showRewardModal && (
@@ -229,12 +287,21 @@ export function ThemeSessionPage() {
             position:'fixed', inset:0, background:'rgba(0,0,0,0.55)',
             display:'flex', alignItems:'center', justifyContent:'center', zIndex:999
           }}>
-            <div className="card" style={{ maxWidth: 420 }}>
+            <div className="card" style={{ maxWidth: 460 }}>
               <h3 style={{ marginTop: 0 }}>Bravo {user?.displayName?.split(' ')[0] || '!'}</h3>
               <div className="small">Score {result?.score}/{result?.outOf}</div>
               <div className="small" style={{ marginTop: 6 }}>+{sessionRewards?.deltaXp ?? 0} XP</div>
               {sessionRewards?.levelUp && (
                 <div className="small" style={{ marginTop: 6 }}>🎉 Niveau {sessionRewards?.newRewards?.level}</div>
+              )}
+              {collectibleDef && (
+                <div className="pill" style={{ marginTop: 10, display:'flex', alignItems:'center', gap:10 }}>
+                  <div style={{ fontSize: '1.6rem' }}>{collectibleDef.icon}</div>
+                  <div>
+                    <div style={{ fontWeight: 800 }}>🎁 Nouveau ! {collectibleDef.title}</div>
+                    <div className="small">{collectibleDef.type === 'avatar' ? 'Avatar' : 'Sticker'} • {rarityLabel}</div>
+                  </div>
+                </div>
               )}
               {sessionRewards?.unlockedBadges?.length ? (
                 <div className="small" style={{ marginTop: 8 }}>
@@ -242,7 +309,15 @@ export function ThemeSessionPage() {
                 </div>
               ) : null}
               {message && <div className="small" style={{ marginTop: 8 }}>{message}</div>}
-              <button className="btn" style={{ marginTop: 12 }} onClick={() => setShowRewardModal(false)}>Voir la correction</button>
+              <div className="row" style={{ marginTop: 12, flexWrap:'wrap', gap:8 }}>
+                {collectibleDef?.type === 'avatar' && (
+                  <button className="btn" onClick={onEquip}>Équiper</button>
+                )}
+                {collectibleDef && (
+                  <button className="btn secondary" onClick={() => { setShowRewardModal(false); nav('/collection') }}>Voir ma collection</button>
+                )}
+                <button className="btn" onClick={() => setShowRewardModal(false)}>Voir la correction</button>
+              </div>
             </div>
           </div>
         )}

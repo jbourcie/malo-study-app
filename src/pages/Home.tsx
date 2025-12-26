@@ -5,6 +5,8 @@ import { listInventory } from '../data/rewards'
 import { useAuth } from '../state/useAuth'
 import { useUserRewards } from '../state/useUserRewards'
 import { BADGES } from '../rewards/badgesCatalog'
+import { getDailyState } from '../rewards/daily'
+import { listLast7Days } from '../stats/dayLog'
 import type { SubjectId } from '../types'
 
 const SUBJECTS_FALLBACK: Array<{id: SubjectId, title: string}> = [
@@ -23,6 +25,8 @@ export function HomePage() {
   const [themes, setThemes] = React.useState<any[]>([])
   const [stats, setStats] = React.useState<any | null>(null)
   const [inventory, setInventory] = React.useState<any[]>([])
+  const [daily, setDaily] = React.useState<any | null>(null)
+  const [days, setDays] = React.useState<any[]>([])
 
   React.useEffect(() => {
     (async () => {
@@ -49,6 +53,10 @@ export function HomePage() {
       setStats(st)
       const inv = await listInventory(user.uid)
       setInventory(inv)
+      const d = await getDailyState(user.uid)
+      setDaily(d)
+      const last = await listLast7Days(user.uid)
+      setDays(last)
     })()
   }, [user])
 
@@ -75,6 +83,51 @@ export function HomePage() {
           </div>
         </div>
       </div>
+
+      {daily && (
+        <div className="card">
+          <h3 style={{ marginTop: 0 }}>Défis du jour</h3>
+          <div className="grid" style={{ gap: 10 }}>
+            {daily.quests.slice(0, 3).map((q: any) => {
+              const pct = Math.min(100, Math.round((q.progress / q.target) * 100))
+              return (
+                <div key={q.id} className="pill" style={{ position:'relative', overflow:'hidden' }}>
+                  <div style={{ fontWeight: 700, display:'flex', alignItems:'center', gap:6 }}>
+                    {q.completed ? '✅' : '🟡'} {q.title}
+                  </div>
+                  <div className="small">{q.progress}/{q.target}</div>
+                  <div style={{ height: 8, background:'rgba(255,255,255,0.1)', borderRadius: 999, marginTop: 6 }}>
+                    <div style={{
+                      width: `${pct}%`,
+                      height: '100%',
+                      background: q.completed ? 'linear-gradient(90deg,#7fffb2,#2ecc71)' : 'linear-gradient(90deg,#7aa2ff,#7fffb2)',
+                      transition:'width 0.6s ease',
+                    }} />
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      )}
+
+      {days.length ? (
+        <div className="card">
+          <h3 style={{ marginTop: 0 }}>7 derniers jours</h3>
+          <div className="row" style={{ gap: 8, flexWrap:'wrap' }}>
+            {days.map((d: any) => {
+              const ok = (d.sessions || 0) > 0
+              return (
+                <div key={d.dateKey} className="pill" style={{ minWidth: 80, textAlign:'center', background: ok ? 'rgba(46,204,113,0.16)' : 'rgba(255,255,255,0.08)', borderColor: ok ? 'rgba(46,204,113,0.5)' : 'rgba(255,255,255,0.18)' }}>
+                  <div style={{ fontWeight: 700 }}>{d.dateKey.slice(5)}</div>
+                  <div className="small">{ok ? 'Séance ✓' : '—'}</div>
+                  <div className="small">XP {d.xp || 0}</div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      ) : null}
 
       <div className="grid2">
         <div className="card">

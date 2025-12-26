@@ -14,10 +14,13 @@ export async function getOrInitRewards(uid: string): Promise<UserRewards> {
       level: data.level || 1,
       badges: Array.isArray(data.badges) ? data.badges : [],
       masteryByTag: typeof data.masteryByTag === 'object' && data.masteryByTag ? data.masteryByTag : {},
+      collectibles: data.collectibles && Array.isArray(data.collectibles.owned)
+        ? { owned: data.collectibles.owned, equippedAvatarId: data.collectibles.equippedAvatarId }
+        : { owned: [], equippedAvatarId: undefined },
       updatedAt: data.updatedAt,
     }
   }
-  const initial: UserRewards = { xp: 0, level: 1, badges: [], masteryByTag: {}, updatedAt: serverTimestamp() as any }
+  const initial: UserRewards = { xp: 0, level: 1, badges: [], masteryByTag: {}, collectibles: { owned: [], equippedAvatarId: undefined }, updatedAt: serverTimestamp() as any }
   await setDoc(ref, initial)
   return initial
 }
@@ -46,6 +49,9 @@ export async function awardSessionRewards(uid: string, sessionId: string | null,
       level: existing?.level || 1,
       badges: Array.isArray(existing?.badges) ? existing.badges : [],
       masteryByTag: typeof existing?.masteryByTag === 'object' && existing?.masteryByTag ? existing.masteryByTag : {},
+      collectibles: existing?.collectibles && Array.isArray(existing.collectibles.owned)
+        ? existing.collectibles
+        : { owned: [], equippedAvatarId: undefined },
       updatedAt: existing?.updatedAt,
     }
     const newXp = Math.max(0, (current.xp || 0) + deltaXp)
@@ -55,6 +61,7 @@ export async function awardSessionRewards(uid: string, sessionId: string | null,
       level: levelInfo.level,
       badges: current.badges || [],
       masteryByTag: current.masteryByTag || {},
+      collectibles: current.collectibles || { owned: [], equippedAvatarId: undefined },
       updatedAt: serverTimestamp() as any,
     }
 
