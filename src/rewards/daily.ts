@@ -130,7 +130,9 @@ export async function updateDailyProgress(opts: {
         level: lvlInfo.level,
         badges: rewardsData?.badges || [],
         masteryByTag: rewardsData?.masteryByTag || {},
-        collectibles: rewardsData?.collectibles || { owned: [], equippedAvatarId: undefined },
+        collectibles: rewardsData?.collectibles
+          ? { owned: rewardsData.collectibles.owned || [], equippedAvatarId: rewardsData.collectibles.equippedAvatarId ?? null }
+          : { owned: [], equippedAvatarId: null },
         updatedAt: serverTimestamp(),
       }, { merge: true })
       const commonOwned = new Set<string>(rewardsData?.collectibles?.owned || [])

@@ -61,7 +61,10 @@ export async function awardSessionRewards(uid: string, sessionId: string | null,
       level: levelInfo.level,
       badges: current.badges || [],
       masteryByTag: current.masteryByTag || {},
-      collectibles: current.collectibles || { owned: [], equippedAvatarId: undefined },
+      collectibles: {
+        owned: current.collectibles?.owned || [],
+        equippedAvatarId: current.collectibles?.equippedAvatarId ?? null,
+      },
       updatedAt: serverTimestamp() as any,
     }
 

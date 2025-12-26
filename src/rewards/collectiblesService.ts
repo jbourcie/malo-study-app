@@ -33,7 +33,7 @@ export async function unlockCollectible(uid: string, collectibleId: string, even
     tx.set(rewardsRef, {
       collectibles: {
         owned: Array.from(owned),
-        equippedAvatarId: equipAvatar ? collectibleId : current.collectibles?.equippedAvatarId,
+        equippedAvatarId: equipAvatar ? collectibleId : (current.collectibles?.equippedAvatarId ?? null),
       },
       updatedAt: serverTimestamp(),
     }, { merge: true })

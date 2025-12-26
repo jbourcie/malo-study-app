@@ -1,0 +1,1007 @@
+{
+  "version": 2,
+  "grade": "5e",
+  "subjects": [
+    {
+      "id": "es",
+      "title": "Espagnol",
+      "themes": [
+        {
+          "id": "es_vocab_daily_life_pack",
+          "title": "Vocabulaire – Vie quotidienne",
+          "exercises": [
+            {
+              "id": "es_dl_001",
+              "type": "mcq",
+              "prompt": "Choisis la bonne traduction : 'hola'",
+              "choices": [
+                "Au revoir",
+                "Bonjour",
+                "Merci",
+                "S'il te plaît"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "es_vocab_daily_life"
+              ]
+            },
+            {
+              "id": "es_dl_002",
+              "type": "mcq",
+              "prompt": "Choisis la bonne traduction : 'gracias'",
+              "choices": [
+                "Pardon",
+                "Merci",
+                "Bonsoir",
+                "Salut"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "es_vocab_daily_life"
+              ]
+            },
+            {
+              "id": "es_dl_003",
+              "type": "mcq",
+              "prompt": "Choisis la bonne traduction : 'por favor'",
+              "choices": [
+                "S'il te plaît",
+                "De rien",
+                "Peut-être",
+                "Toujours"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "es_vocab_daily_life"
+              ]
+            },
+            {
+              "id": "es_dl_004",
+              "type": "mcq",
+              "prompt": "Choisis la bonne traduction : 'hoy'",
+              "choices": [
+                "Hier",
+                "Aujourd'hui",
+                "Demain",
+                "Jamais"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "es_vocab_daily_life"
+              ]
+            },
+            {
+              "id": "es_dl_005",
+              "type": "mcq",
+              "prompt": "Choisis la bonne traduction : 'mañana'",
+              "choices": [
+                "Maintenant",
+                "Demain",
+                "Hier",
+                "Souvent"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "es_vocab_daily_life"
+              ]
+            },
+            {
+              "id": "es_dl_006",
+              "type": "mcq",
+              "prompt": "Choisis la bonne traduction : 'siempre'",
+              "choices": [
+                "Toujours",
+                "Parfois",
+                "Jamais",
+                "Bientôt"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "es_vocab_daily_life"
+              ]
+            },
+            {
+              "id": "es_dl_007",
+              "type": "mcq",
+              "prompt": "Choisis la bonne traduction : 'nunca'",
+              "choices": [
+                "Souvent",
+                "Jamais",
+                "Toujours",
+                "Hier"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "es_vocab_daily_life"
+              ]
+            },
+            {
+              "id": "es_dl_008",
+              "type": "mcq",
+              "prompt": "Choisis la bonne traduction : 'rápido'",
+              "choices": [
+                "Lent",
+                "Rapide",
+                "Calme",
+                "Froid"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "es_vocab_daily_life"
+              ]
+            },
+            {
+              "id": "es_dl_009",
+              "type": "mcq",
+              "prompt": "Choisis la bonne traduction : 'cansado'",
+              "choices": [
+                "Affamé",
+                "Fatigué",
+                "Heureux",
+                "Triste"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "es_vocab_daily_life"
+              ]
+            },
+            {
+              "id": "es_dl_010",
+              "type": "mcq",
+              "prompt": "Choisis la bonne traduction : 'ayudar'",
+              "choices": [
+                "Aider",
+                "Oublier",
+                "Dormir",
+                "Ranger"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "es_vocab_daily_life"
+              ]
+            },
+            {
+              "id": "es_dl_011",
+              "type": "mcq",
+              "prompt": "Choisis la bonne traduction : 'entrenar / practicar'",
+              "choices": [
+                "S'entraîner",
+                "Écrire",
+                "Casser",
+                "Courir"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "es_vocab_daily_life"
+              ]
+            },
+            {
+              "id": "es_dl_012",
+              "type": "mcq",
+              "prompt": "Choisis la bonne traduction : 'porque'",
+              "choices": [
+                "Mais",
+                "Parce que",
+                "Donc",
+                "Ou"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "es_vocab_daily_life"
+              ]
+            }
+          ],
+          "readings": []
+        },
+        {
+          "id": "es_vocab_school_pack",
+          "title": "Vocabulaire – L’école",
+          "exercises": [
+            {
+              "id": "es_sc_001",
+              "type": "mcq",
+              "prompt": "Traduction de 'profesor/profesora' :",
+              "choices": [
+                "Un élève",
+                "Un professeur",
+                "Un voisin",
+                "Un ami"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "es_vocab_school"
+              ]
+            },
+            {
+              "id": "es_sc_002",
+              "type": "mcq",
+              "prompt": "Traduction de 'clase' :",
+              "choices": [
+                "La salle de classe / le cours",
+                "La cour",
+                "La cantine",
+                "Le bus"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "es_vocab_school"
+              ]
+            },
+            {
+              "id": "es_sc_003",
+              "type": "mcq",
+              "prompt": "Traduction de 'cuaderno' :",
+              "choices": [
+                "Un cahier",
+                "Un tableau",
+                "Une chaise",
+                "Un livre"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "es_vocab_school"
+              ]
+            },
+            {
+              "id": "es_sc_004",
+              "type": "mcq",
+              "prompt": "Traduction de 'tarea' :",
+              "choices": [
+                "La récréation",
+                "Les devoirs",
+                "Le sport",
+                "La punition"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "es_vocab_school"
+              ]
+            },
+            {
+              "id": "es_sc_005",
+              "type": "mcq",
+              "prompt": "Traduction de 'examen' :",
+              "choices": [
+                "Un contrôle",
+                "Une leçon",
+                "Un exposé",
+                "Un livre"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "es_vocab_school"
+              ]
+            },
+            {
+              "id": "es_sc_006",
+              "type": "mcq",
+              "prompt": "Traduction de 'horario' :",
+              "choices": [
+                "Un horaire / emploi du temps",
+                "Un sac",
+                "Une gomme",
+                "Une règle"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "es_vocab_school"
+              ]
+            },
+            {
+              "id": "es_sc_007",
+              "type": "mcq",
+              "prompt": "Complète : 'Abre el ___ en la página 10.'",
+              "choices": [
+                "zapato",
+                "libro",
+                "perro",
+                "calle"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "es_vocab_school"
+              ]
+            },
+            {
+              "id": "es_sc_008",
+              "type": "mcq",
+              "prompt": "Complète : 'Escribe con un ___.'",
+              "choices": [
+                "lápiz",
+                "mesa",
+                "pared",
+                "ventana"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "es_vocab_school"
+              ]
+            },
+            {
+              "id": "es_sc_009",
+              "type": "mcq",
+              "prompt": "Traduction de 'pregunta' :",
+              "choices": [
+                "Réponse",
+                "Question",
+                "Règle",
+                "Histoire"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "es_vocab_school"
+              ]
+            },
+            {
+              "id": "es_sc_010",
+              "type": "mcq",
+              "prompt": "Traduction de 'responder' :",
+              "choices": [
+                "Répondre",
+                "Demander",
+                "Écouter",
+                "Courir"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "es_vocab_school"
+              ]
+            },
+            {
+              "id": "es_sc_011",
+              "type": "mcq",
+              "prompt": "Traduction de 'corregir' :",
+              "choices": [
+                "Corriger",
+                "Oublier",
+                "Attendre",
+                "Choisir"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "es_vocab_school"
+              ]
+            },
+            {
+              "id": "es_sc_012",
+              "type": "mcq",
+              "prompt": "Traduction de 'equipo' (à l’école) :",
+              "choices": [
+                "Équipe / groupe",
+                "Feutre",
+                "Cartable",
+                "Livre"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "es_vocab_school"
+              ]
+            }
+          ],
+          "readings": []
+        },
+        {
+          "id": "es_grammar_pronouns_pack",
+          "title": "Grammaire – Pronoms & possessifs",
+          "exercises": [
+            {
+              "id": "es_pr_001",
+              "type": "mcq",
+              "prompt": "Choisis le bon pronom : ___ soy Malo.",
+              "choices": [
+                "Yo",
+                "Tú",
+                "Él",
+                "Nosotros"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "es_grammar_pronouns"
+              ]
+            },
+            {
+              "id": "es_pr_002",
+              "type": "mcq",
+              "prompt": "Choisis le bon pronom : Tom y Ana = ___",
+              "choices": [
+                "Vosotros",
+                "Ellos",
+                "Yo",
+                "Tú"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "es_grammar_pronouns"
+              ]
+            },
+            {
+              "id": "es_pr_003",
+              "type": "mcq",
+              "prompt": "Choisis le bon pronom : Ana = ___",
+              "choices": [
+                "Él",
+                "Ella",
+                "Nosotros",
+                "Ellos"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "es_grammar_pronouns"
+              ]
+            },
+            {
+              "id": "es_pr_004",
+              "type": "mcq",
+              "prompt": "Choisis le bon pronom : Malo y yo = ___",
+              "choices": [
+                "Nosotros",
+                "Vosotros",
+                "Ellos",
+                "Ella"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "es_grammar_pronouns"
+              ]
+            },
+            {
+              "id": "es_pr_005",
+              "type": "mcq",
+              "prompt": "Complète : '___ tienes 12 años.'",
+              "choices": [
+                "Yo",
+                "Tú",
+                "Él",
+                "Ellas"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "es_grammar_pronouns"
+              ]
+            },
+            {
+              "id": "es_pr_006",
+              "type": "mcq",
+              "prompt": "Complète : '___ es mi amigo.' (Tom)",
+              "choices": [
+                "Él",
+                "Ella",
+                "Tú",
+                "Nosotros"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "es_grammar_pronouns"
+              ]
+            },
+            {
+              "id": "es_pr_007",
+              "type": "mcq",
+              "prompt": "Possessif : 'mi' signifie :",
+              "choices": [
+                "mon/ma",
+                "ton/ta",
+                "son/sa",
+                "notre"
+              ],
+              "answerIndex": 0,
+              "difficulty": 1,
+              "tags": [
+                "es_grammar_pronouns"
+              ]
+            },
+            {
+              "id": "es_pr_008",
+              "type": "mcq",
+              "prompt": "Possessif : 'tu libro' signifie :",
+              "choices": [
+                "mon livre",
+                "ton livre",
+                "son livre",
+                "notre livre"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "es_grammar_pronouns"
+              ]
+            },
+            {
+              "id": "es_pr_009",
+              "type": "mcq",
+              "prompt": "Possessif : 'su casa' peut vouloir dire :",
+              "choices": [
+                "sa maison (à lui/elle)",
+                "ma maison",
+                "ta maison",
+                "notre maison"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "es_grammar_pronouns"
+              ]
+            },
+            {
+              "id": "es_pr_010",
+              "type": "mcq",
+              "prompt": "Choisis : 'Nuestro' signifie :",
+              "choices": [
+                "notre",
+                "votre",
+                "leur",
+                "son"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "es_grammar_pronouns"
+              ]
+            },
+            {
+              "id": "es_pr_011",
+              "type": "mcq",
+              "prompt": "Choisis : 'Vuestro' signifie :",
+              "choices": [
+                "leur",
+                "votre",
+                "notre",
+                "mon"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "es_grammar_pronouns"
+              ]
+            },
+            {
+              "id": "es_pr_012",
+              "type": "mcq",
+              "prompt": "Choisis : 'Ellas' correspond à :",
+              "choices": [
+                "Ils (masc./mixte)",
+                "Elles",
+                "Tu",
+                "Nous"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "es_grammar_pronouns"
+              ]
+            }
+          ],
+          "readings": []
+        },
+        {
+          "id": "es_grammar_present_pack",
+          "title": "Grammaire – Présent (bases)",
+          "exercises": [
+            {
+              "id": "es_pres_001",
+              "type": "mcq",
+              "prompt": "Choisis : 'Yo ___ estudiante.'",
+              "choices": [
+                "eres",
+                "soy",
+                "es",
+                "somos"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "es_grammar_present"
+              ]
+            },
+            {
+              "id": "es_pres_002",
+              "type": "mcq",
+              "prompt": "Choisis : 'Tú ___ en 5º.'",
+              "choices": [
+                "soy",
+                "eres",
+                "es",
+                "están"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "es_grammar_present"
+              ]
+            },
+            {
+              "id": "es_pres_003",
+              "type": "mcq",
+              "prompt": "Choisis : 'Malo ___ cansado.' (être fatigué)",
+              "choices": [
+                "está",
+                "es",
+                "soy",
+                "están"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "es_grammar_present"
+              ]
+            },
+            {
+              "id": "es_pres_004",
+              "type": "mcq",
+              "prompt": "Choisis : 'Nosotros ___ en clase.'",
+              "choices": [
+                "estamos",
+                "soy",
+                "eres",
+                "está"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "es_grammar_present"
+              ]
+            },
+            {
+              "id": "es_pres_005",
+              "type": "mcq",
+              "prompt": "Choisis : 'Ellos ___ en casa.'",
+              "choices": [
+                "estoy",
+                "están",
+                "es",
+                "somos"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "es_grammar_present"
+              ]
+            },
+            {
+              "id": "es_pres_006",
+              "type": "mcq",
+              "prompt": "Verbe -AR : 'Yo ___ (hablar) español.'",
+              "choices": [
+                "hablo",
+                "hablas",
+                "habla",
+                "hablamos"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "es_grammar_present"
+              ]
+            },
+            {
+              "id": "es_pres_007",
+              "type": "mcq",
+              "prompt": "Verbe -AR : 'Ella ___ (estudiar) mucho.'",
+              "choices": [
+                "estudio",
+                "estudias",
+                "estudia",
+                "estudiamos"
+              ],
+              "answerIndex": 2,
+              "difficulty": 2,
+              "tags": [
+                "es_grammar_present"
+              ]
+            },
+            {
+              "id": "es_pres_008",
+              "type": "mcq",
+              "prompt": "Verbe -ER : 'Nosotros ___ (comer) pan.'",
+              "choices": [
+                "como",
+                "comes",
+                "come",
+                "comemos"
+              ],
+              "answerIndex": 3,
+              "difficulty": 2,
+              "tags": [
+                "es_grammar_present"
+              ]
+            },
+            {
+              "id": "es_pres_009",
+              "type": "mcq",
+              "prompt": "Verbe -IR : 'Ellos ___ (vivir) aquí.'",
+              "choices": [
+                "vive",
+                "viven",
+                "vivimos",
+                "vivo"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "es_grammar_present"
+              ]
+            },
+            {
+              "id": "es_pres_010",
+              "type": "mcq",
+              "prompt": "Négation : 'No' sert à :",
+              "choices": [
+                "nier / dire non",
+                "dire oui",
+                "faire une question",
+                "donner une date"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "es_grammar_present"
+              ]
+            },
+            {
+              "id": "es_pres_011",
+              "type": "mcq",
+              "prompt": "Question : '¿Cómo te llamas?' signifie :",
+              "choices": [
+                "Où habites-tu ?",
+                "Comment tu t’appelles ?",
+                "Quel âge as-tu ?",
+                "Ça va ?"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "es_grammar_present"
+              ]
+            },
+            {
+              "id": "es_pres_012",
+              "type": "mcq",
+              "prompt": "Question : '¿Qué hora es?' signifie :",
+              "choices": [
+                "Quel jour sommes-nous ?",
+                "Quelle heure est-il ?",
+                "Où es-tu ?",
+                "Qui es-tu ?"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "es_grammar_present"
+              ]
+            }
+          ],
+          "readings": []
+        },
+        {
+          "id": "es_past_and_reading_pack",
+          "title": "Passé (bases) + mini compréhension",
+          "exercises": [
+            {
+              "id": "es_past_001",
+              "type": "mcq",
+              "prompt": "Choisis : 'Ayer ___ al colegio.'",
+              "choices": [
+                "voy",
+                "fui",
+                "iba",
+                "iré"
+              ],
+              "answerIndex": 1,
+              "difficulty": 3,
+              "tags": [
+                "es_grammar_past"
+              ]
+            },
+            {
+              "id": "es_past_002",
+              "type": "mcq",
+              "prompt": "Choisis : 'El domingo ___ una película.'",
+              "choices": [
+                "veo",
+                "vi",
+                "veré",
+                "veía"
+              ],
+              "answerIndex": 1,
+              "difficulty": 3,
+              "tags": [
+                "es_grammar_past"
+              ]
+            },
+            {
+              "id": "es_past_003",
+              "type": "mcq",
+              "prompt": "Choisis : 'Nosotros ___ en casa.' (hier/ponctuel)",
+              "choices": [
+                "estamos",
+                "estuvimos",
+                "estábamos",
+                "estaremos"
+              ],
+              "answerIndex": 1,
+              "difficulty": 3,
+              "tags": [
+                "es_grammar_past"
+              ]
+            },
+            {
+              "id": "es_past_004",
+              "type": "mcq",
+              "prompt": "Choisis : 'Ella ___ mucho.' (hier/ponctuel)",
+              "choices": [
+                "estudia",
+                "estudió",
+                "estudiará",
+                "estudiaba"
+              ],
+              "answerIndex": 1,
+              "difficulty": 3,
+              "tags": [
+                "es_grammar_past"
+              ]
+            },
+            {
+              "id": "es_past_005",
+              "type": "mcq",
+              "prompt": "Choisis : 'Yo ___ los deberes.' (hier)",
+              "choices": [
+                "hago",
+                "hice",
+                "haré",
+                "hacía"
+              ],
+              "answerIndex": 1,
+              "difficulty": 3,
+              "tags": [
+                "es_grammar_past"
+              ]
+            },
+            {
+              "id": "es_past_006",
+              "type": "mcq",
+              "prompt": "Choisis : 'Ellos ___ temprano.' (hier)",
+              "choices": [
+                "duermen",
+                "durmieron",
+                "dormirán",
+                "dormían"
+              ],
+              "answerIndex": 1,
+              "difficulty": 3,
+              "tags": [
+                "es_grammar_past"
+              ]
+            },
+            {
+              "id": "es_past_007",
+              "type": "mcq",
+              "prompt": "Traduction de 'ayer' :",
+              "choices": [
+                "demain",
+                "hier",
+                "aujourd'hui",
+                "bientôt"
+              ],
+              "answerIndex": 1,
+              "difficulty": 1,
+              "tags": [
+                "es_grammar_past"
+              ]
+            },
+            {
+              "id": "es_past_008",
+              "type": "mcq",
+              "prompt": "Traduction de 'la semana pasada' :",
+              "choices": [
+                "la semaine prochaine",
+                "la semaine passée",
+                "le week-end",
+                "tous les jours"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "es_grammar_past"
+              ]
+            },
+            {
+              "id": "es_comp_001",
+              "type": "mcq",
+              "prompt": "Lee: Malo fue a la biblioteca después de clase. Eligió un libro corto y leyó veinte minutos. Luego hizo la tarea en casa.\n¿Adónde fue Malo después de clase?",
+              "choices": [
+                "Al parque",
+                "A la biblioteca",
+                "Al cine",
+                "Al estadio"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "es_comprehension_short_text"
+              ]
+            },
+            {
+              "id": "es_comp_002",
+              "type": "mcq",
+              "prompt": "Lee: Malo fue a la biblioteca después de clase. Eligió un libro corto y leyó veinte minutos. Luego hizo la tarea en casa.\n¿Qué eligió?",
+              "choices": [
+                "Un libro corto",
+                "Un móvil",
+                "Una bici",
+                "Un bocadillo"
+              ],
+              "answerIndex": 0,
+              "difficulty": 2,
+              "tags": [
+                "es_comprehension_short_text"
+              ]
+            },
+            {
+              "id": "es_comp_003",
+              "type": "mcq",
+              "prompt": "Lee: Malo fue a la biblioteca después de clase. Eligió un libro corto y leyó veinte minutos. Luego hizo la tarea en casa.\n¿Cuánto tiempo leyó?",
+              "choices": [
+                "Cinco minutos",
+                "Veinte minutos",
+                "Una hora",
+                "Dos horas"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "es_comprehension_short_text"
+              ]
+            },
+            {
+              "id": "es_comp_004",
+              "type": "mcq",
+              "prompt": "Lee: Malo fue a la biblioteca después de clase. Eligió un libro corto y leyó veinte minutos. Luego hizo la tarea en casa.\n¿Qué hizo luego en casa?",
+              "choices": [
+                "Durmió",
+                "Hizo la tarea",
+                "Jugó al fútbol",
+                "Cocinó"
+              ],
+              "answerIndex": 1,
+              "difficulty": 2,
+              "tags": [
+                "es_comprehension_short_text"
+              ]
+            }
+          ],
+          "readings": []
+        }
+      ]
+    }
+  ]
+}
