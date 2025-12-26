@@ -1,5 +1,5 @@
 import React from 'react'
-import { collection, getDocs } from 'firebase/firestore'
+import { collection, getDocs, query, where } from 'firebase/firestore'
 import { db } from '../firebase'
 import { useAuth } from '../state/useAuth'
 import type { SubjectId } from '../types'
@@ -33,37 +33,103 @@ function computeLast7(t: TagProgress) {
 }
 
 export function ProgressPage() {
-  const { user } = useAuth()
+  const { user, role } = useAuth()
+  const [children, setChildren] = React.useState<Array<{ id: string, displayName: string }>>([])
+  const [selectedChild, setSelectedChild] = React.useState<string>('')
   const [tags, setTags] = React.useState<Array<TagProgress & { id: string }>>([])
   const [loading, setLoading] = React.useState(false)
   const [selected, setSelected] = React.useState<SubjectId | 'all'>('fr')
+  const [summary, setSummary] = React.useState<any | null>(null)
 
   React.useEffect(() => {
     if (!user) return
+    if (role === 'parent') {
+      (async () => {
+        const snap = await getDocs(query(collection(db, 'users'), where('role', '==', 'child')))
+        const kids = snap.docs.map(d => ({ id: d.id, displayName: d.data().displayName || 'Enfant' }))
+        setChildren(kids)
+        if (kids[0]) setSelectedChild(kids[0].id)
+      })()
+    } else {
+      setSelectedChild(user.uid)
+    }
+  }, [user, role])
+
+  const loadData = React.useCallback(async (uid: string) => {
     setLoading(true)
-    ;(async () => {
-      const snap = await getDocs(collection(db, 'users', user.uid, 'tagProgress'))
-      const data = snap.docs.map(d => ({ id: d.id, tagId: d.id, ...(d.data() as TagProgress) }))
-      setTags(data)
-      setLoading(false)
-    })()
-  }, [user])
+    const snap = await getDocs(collection(db, 'users', uid, 'tagProgress'))
+    const data = snap.docs.map(d => ({ id: d.id, tagId: d.id, ...(d.data() as TagProgress) }))
+    setTags(data)
+    const summarySnap = await getDocs(collection(db, 'users', uid, 'progressSummary'))
+    const main = summarySnap.docs.find(d => d.id === 'main')
+    setSummary(main?.data() || null)
+    setLoading(false)
+  }, [])
+
+  React.useEffect(() => {
+    if (!selectedChild) return
+    loadData(selectedChild)
+  }, [selectedChild, loadData])
 
   const filtered = tags
     .filter(t => selected === 'all' ? true : extractSubject(t.tagId) === selected)
     .sort((a, b) => (a.mastery || 0) - (b.mastery || 0))
     .slice(0, 20)
 
+  const downloadReport = () => {
+    const rows = [
+      ['tagId', 'mastery', 'bucket', 'attempts', 'correct', 'wrong', 'last7_correct', 'last7_wrong', 'nextDueDate']
+    ]
+    tags.forEach(t => {
+      const last7 = computeLast7(t)
+      rows.push([
+        t.tagId || t.id,
+        String(t.mastery ?? 0),
+        t.bucket || '',
+        String((t as any).attempts ?? 0),
+        String(t.correctAnswers ?? 0),
+        String(t.wrongAnswers ?? 0),
+        String(last7.correct),
+        String(last7.wrong),
+        t.nextDueDate || ''
+      ])
+    })
+    const csv = rows.map(r => r.map(x => `"${(x ?? '').toString().replace(/"/g, '""')}"`).join(',')).join('\n')
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `progress-${selectedChild || 'user'}.csv`
+    a.click()
+    URL.revokeObjectURL(url)
+  }
+
   return (
     <div className="container">
       <div className="card">
         <h2 style={{ marginTop: 0 }}>Progression par tag</h2>
         <div className="row" style={{ gap: 8, alignItems:'center' }}>
+          {role === 'parent' && (
+            <>
+              <label className="small">Enfant</label>
+              <select className="input" value={selectedChild} onChange={(e) => setSelectedChild(e.target.value)}>
+                {children.map(c => <option key={c.id} value={c.id}>{c.displayName}</option>)}
+              </select>
+            </>
+          )}
           <label className="small">Matière</label>
           <select className="input" value={selected} onChange={(e) => setSelected(e.target.value as SubjectId | 'all')}>
             {SUBJECTS.map(s => <option key={s.id} value={s.id}>{s.label}</option>)}
           </select>
+          <button className="btn secondary" onClick={downloadReport} disabled={!tags.length}>Télécharger CSV</button>
         </div>
+        {summary && (
+          <div className="kpi" style={{ marginTop: 10 }}>
+            <div className="pill">Réponses: <strong>{summary.totalAnswers || 0}</strong></div>
+            <div className="pill">Taux: <strong>{summary.totalAnswers ? Math.round((summary.correctAnswers || 0) / summary.totalAnswers * 100) : 0}%</strong></div>
+            <div className="pill">Tentatives: <strong>{summary.totalAttempts || 0}</strong></div>
+          </div>
+        )}
       </div>
 
       {loading ? (
@@ -83,6 +149,17 @@ export function ProgressPage() {
                       <div style={{ fontWeight: 700 }}>{tag.tagId}</div>
                       <div className="small">
                         {tag.mastery ?? 0}/100 · {tag.bucket} · {last7.correct}/{last7.correct + last7.wrong} sur 7 · Prochaine: {tag.nextDueDate || '—'}
+                      </div>
+                      <div style={{ height: 8, background:'rgba(255,255,255,0.08)', borderRadius: 999, marginTop: 6, width:'100%' }}>
+                        <div style={{ height: 8, borderRadius: 999, width: `${Math.min(100, Math.max(0, tag.mastery || 0))}%`, background: 'linear-gradient(90deg,#ff5a6f,#7aa2ff)' }} />
+                      </div>
+                      <div className="row" style={{ marginTop: 6, gap: 4 }}>
+                        {(tag.last7Results || []).map((r, idx) => (
+                          <span key={idx} style={{
+                            width: 10, height: 10, borderRadius: '50%',
+                            background: r ? '#2ecc71' : '#ff5a6f', opacity: 0.9
+                          }} />
+                        ))}
                       </div>
                     </div>
                   </div>
