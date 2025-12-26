@@ -4,6 +4,7 @@ import { db } from '../firebase'
 import { useAuth } from '../state/useAuth'
 import type { SubjectId } from '../types'
 import type { TagProgress } from '../typesProgress'
+import { getTagMeta, SUBJECT_LABEL_FR } from '../taxonomy/tagCatalog'
 
 const SUBJECTS: Array<{ id: SubjectId | 'all', label: string }> = [
   { id: 'all', label: 'Toutes' },
@@ -194,13 +195,15 @@ export function ProgressPage() {
             <div className="grid">
               {filtered.map(tag => {
                 const last7 = computeLast7(tag)
+                const meta = getTagMeta(tag.tagId || tag.id)
                 const isOpen = openTagId === (tag.tagId || tag.id)
                 const detail = tagDetails[tag.tagId || tag.id] || { loading: false, items: [] }
                 return (
                   <div key={tag.id} className="card" style={{ padding: 12 }}>
                     <div className="row" style={{ justifyContent:'space-between', alignItems:'center' }}>
                       <div onClick={() => toggleTag(tag.tagId || tag.id)} style={{ cursor:'pointer', flex:1 }}>
-                        <div style={{ fontWeight: 700 }}>{tag.tagId}</div>
+                        <div style={{ fontWeight: 700 }}>{meta.label}</div>
+                        <div className="small">{meta.theme} · {SUBJECT_LABEL_FR[meta.subject]}</div>
                         <div className="small">
                           {tag.mastery ?? 0}/100 · {tag.bucket} · {last7.correct}/{last7.correct + last7.wrong} sur 7 · Prochaine: {tag.nextDueDate || '—'}
                         </div>
