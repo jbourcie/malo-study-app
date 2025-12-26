@@ -24,8 +24,12 @@ export async function listThemes(subjectId: SubjectId, opts?: { uid?: string, in
 
   let visibility = new Map<string, boolean>()
   if (uid) {
-    const visSnap = await getDocs(collection(db, 'users', uid, 'visibilityThemes'))
-    visibility = new Map(visSnap.docs.map(d => [d.id, !!d.data().visible]))
+    try {
+      const visSnap = await getDocs(collection(db, 'users', uid, 'visibilityThemes'))
+      visibility = new Map(visSnap.docs.map(d => [d.id, !!d.data().visible]))
+    } catch {
+      visibility = new Map()
+    }
   }
 
   const filtered = themes.filter(t => {
@@ -50,8 +54,12 @@ export async function listExercises(themeId: string, opts?: { uid?: string, incl
 
   let visibility = new Map<string, boolean>()
   if (uid) {
-    const visSnap = await getDocs(collection(db, 'users', uid, 'visibilityExercises'))
-    visibility = new Map(visSnap.docs.map(d => [d.id, !!d.data().visible]))
+    try {
+      const visSnap = await getDocs(collection(db, 'users', uid, 'visibilityExercises'))
+      visibility = new Map(visSnap.docs.map(d => [d.id, !!d.data().visible]))
+    } catch {
+      visibility = new Map()
+    }
   }
 
   const filtered = exercises.filter(ex => {
