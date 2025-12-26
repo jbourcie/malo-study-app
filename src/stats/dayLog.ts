@@ -14,7 +14,7 @@ export async function upsertDayStat(opts: { uid: string, dateKey?: string, sessi
   const dateKey = opts.dateKey || todayKeyParis()
   const sessionsDelta = opts.sessionsDelta ?? 0
   const xpDelta = opts.xpDelta ?? 0
-  const ref = doc(db, 'users', uid, 'stats', 'days', dateKey)
+  const ref = doc(db, 'users', uid, 'statsDays', dateKey)
   await setDoc(ref, {
     dateKey,
     sessions: sessionsDelta,
@@ -24,7 +24,7 @@ export async function upsertDayStat(opts: { uid: string, dateKey?: string, sessi
 }
 
 export async function listLast7Days(uid: string): Promise<DayStat[]> {
-  const ref = collection(db, 'users', uid, 'stats', 'days')
+  const ref = collection(db, 'users', uid, 'statsDays')
   const snap = await getDocs(query(ref, orderBy('dateKey', 'desc'), limit(7)))
   const list = snap.docs.map(d => d.data() as DayStat)
   return list.sort((a, b) => a.dateKey.localeCompare(b.dateKey)) // ascending for timeline
