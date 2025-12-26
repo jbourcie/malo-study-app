@@ -63,13 +63,17 @@ export function ModerationPage() {
 
   const removeTheme = async (themeId: string) => {
     if (!window.confirm('Supprimer ce thème et toutes ses questions ?')) return
-    await deleteTheme(themeId)
+    const res = await deleteTheme(themeId)
     setThemes(t => t.filter(th => th.id !== themeId))
     setExercisesByTheme(e => {
       const copy = { ...e }
       delete copy[themeId]
       return copy
     })
+    if (res.hidden) {
+      // fallback: mark locally hidden if not deleted
+      setThemes(t => t.map(th => th.id === themeId ? { ...th, hidden: true } : th))
+    }
   }
 
   const loadExercises = async (themeId: string) => {

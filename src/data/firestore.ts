@@ -162,14 +162,20 @@ export async function setExerciseVisibilityForChild(uid: string, exerciseId: str
 }
 
 export async function deleteTheme(themeId: string) {
-  // best-effort: delete theme doc and its exercises
-  const batch = writeBatch(db)
-  batch.delete(doc(db, 'themes', themeId))
-  const exSnap = await getDocs(query(collection(db, 'exercises'), where('themeId', '==', themeId)))
-  exSnap.docs.forEach(d => batch.delete(d.ref))
-  const readSnap = await getDocs(query(collection(db, 'readings'), where('themeId', '==', themeId)))
-  readSnap.docs.forEach(d => batch.delete(d.ref))
-  await batch.commit()
+  // best-effort: delete theme doc and its exercises/readings. If delete is blocked, mark hidden.
+  try {
+    const batch = writeBatch(db)
+    batch.delete(doc(db, 'themes', themeId))
+    const exSnap = await getDocs(query(collection(db, 'exercises'), where('themeId', '==', themeId)))
+    exSnap.docs.forEach(d => batch.delete(d.ref))
+    const readSnap = await getDocs(query(collection(db, 'readings'), where('themeId', '==', themeId)))
+    readSnap.docs.forEach(d => batch.delete(d.ref))
+    await batch.commit()
+    return { deleted: true }
+  } catch {
+    await setDoc(doc(db, 'themes', themeId), { hidden: true }, { merge: true })
+    return { deleted: false, hidden: true }
+  }
 }
 
 export async function getOrInitStats(uid: string) {
