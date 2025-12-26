@@ -58,6 +58,7 @@ export function ThemeSessionPage() {
   }>>([])
   const [showCorrections, setShowCorrections] = React.useState(false)
   const [sessionRewards, setSessionRewards] = React.useState<{ deltaXp: number, levelUp: boolean, newRewards?: any, prevRewards?: any } | null>(null)
+  const [showRewardModal, setShowRewardModal] = React.useState(false)
 
   React.useEffect(() => {
     (async () => {
@@ -173,6 +174,7 @@ export function ThemeSessionPage() {
     })
     setFeedback(fb)
     setShowCorrections(true)
+    setShowRewardModal(true)
   }
 
   if (!themeId) return <div className="container"><div className="card">Thème introuvable.</div></div>
@@ -191,7 +193,24 @@ export function ThemeSessionPage() {
     })() : ''
 
     return (
-      <div className="container grid">
+      <div className="container grid" style={{ position: 'relative' }}>
+        {showRewardModal && (
+          <div style={{
+            position:'fixed', inset:0, background:'rgba(0,0,0,0.55)',
+            display:'flex', alignItems:'center', justifyContent:'center', zIndex:999
+          }}>
+            <div className="card" style={{ maxWidth: 420 }}>
+              <h3 style={{ marginTop: 0 }}>Bravo {user?.displayName?.split(' ')[0] || '!'}</h3>
+              <div className="small">Score {result?.score}/{result?.outOf}</div>
+              <div className="small" style={{ marginTop: 6 }}>+{sessionRewards?.deltaXp ?? 0} XP</div>
+              {sessionRewards?.levelUp && (
+                <div className="small" style={{ marginTop: 6 }}>🎉 Niveau {sessionRewards?.newRewards?.level}</div>
+              )}
+              {message && <div className="small" style={{ marginTop: 8 }}>{message}</div>}
+              <button className="btn" style={{ marginTop: 12 }} onClick={() => setShowRewardModal(false)}>Voir la correction</button>
+            </div>
+          </div>
+        )}
         <div className="card">
           <h2 style={{ margin:0 }}>Corrections – {theme?.title}</h2>
           {result && (
