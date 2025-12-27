@@ -21,8 +21,8 @@ import { upsertDayStat } from '../stats/dayLog'
 import { selectQuestionsFromPool, shouldRepair, type ExpeditionType } from '../pedagogy/questionSelector'
 import { awardMalocraftLoot } from '../rewards/awardMalocraftLoot'
 import { subjectToBiomeId } from '../game/biomeCatalog'
-import { MalocraftLootModal } from '../components/rewards/MalocraftLootModal'
 import { inferSubject } from '../taxonomy/tagCatalog'
+import { MALLOOT_CATALOG } from '../rewards/malocraftLootCatalog'
 
 type AnswerState = Record<string, any>
 
@@ -350,6 +350,7 @@ export function ThemeSessionPage() {
 
     const collectibleDef = sessionRewards?.collectibleId ? COLLECTIBLES.find(c => c.id === sessionRewards?.collectibleId) : null
     const rarityLabel = collectibleDef?.rarity === 'epic' ? 'Épique' : collectibleDef?.rarity === 'rare' ? 'Rare' : 'Commun'
+    const lootDef = awardedLootId ? MALLOOT_CATALOG.find(l => l.id === awardedLootId) : null
 
     const onEquip = async () => {
       if (!user || !collectibleDef || collectibleDef.type !== 'avatar') return
@@ -384,6 +385,15 @@ export function ThemeSessionPage() {
                   </div>
                 </div>
               )}
+              {lootDef && (
+                <div className="pill" style={{ marginTop: 10, display:'flex', alignItems:'center', gap:10 }}>
+                  <div style={{ fontSize:'1.6rem' }}>{lootDef.icon}</div>
+                  <div>
+                    <div style={{ fontWeight:800 }}>Butin MaloCraft : {lootDef.title}</div>
+                    <div className="small">{lootDef.type} • {lootDef.rarity === 'epic' ? 'Épique' : lootDef.rarity === 'rare' ? 'Rare' : 'Commun'}</div>
+                  </div>
+                </div>
+              )}
               {sessionRewards?.unlockedBadges?.length ? (
                 <div className="small" style={{ marginTop: 8 }}>
                   Nouveau badge : {sessionRewards.unlockedBadges.map(b => <span key={b} className="badge">{b}</span>)}
@@ -393,9 +403,6 @@ export function ThemeSessionPage() {
               <div className="row" style={{ marginTop: 12, flexWrap:'wrap', gap:8 }}>
                 {collectibleDef?.type === 'avatar' && (
                   <button className="btn" onClick={onEquip}>Équiper</button>
-                )}
-                {collectibleDef && (
-                  <button className="btn secondary" onClick={() => { setShowRewardModal(false); nav('/collection') }}>Voir ma collection</button>
                 )}
                 <button className="btn" onClick={() => setShowRewardModal(false)}>Voir la correction</button>
               </div>
@@ -414,6 +421,10 @@ export function ThemeSessionPage() {
               +{sessionRewards.deltaXp} XP {sessionRewards.levelUp ? `· 🎉 Niveau ${sessionRewards.newRewards?.level}` : ''}
             </div>
           )}
+          <div className="row" style={{ gap:8, marginTop:10, flexWrap:'wrap' }}>
+            {lootDef && <button className="btn secondary" onClick={() => nav('/chest')}>Voir mon coffre</button>}
+            {collectibleDef && <button className="btn secondary" onClick={() => nav('/collection')}>Voir ma collection</button>}
+          </div>
           {message && <div className="small" style={{ marginTop: 8 }}>{message}</div>}
         </div>
 
@@ -572,21 +583,6 @@ export function ThemeSessionPage() {
           </div>
         </div>
       ) : null}
-
-      <MalocraftLootModal
-        awardedId={awardedLootId}
-        onClose={() => setAwardedLootId(null)}
-        onViewChest={() => nav('/chest')}
-        onEquipAvatar={async (id) => {
-          if (!user) return
-          try {
-            await unlockCollectible(user.uid, id, `collectible_manual_${id}`)
-          } catch (e) {
-            console.error('equip avatar failed', e)
-          }
-          setAwardedLootId(null)
-        }}
-      />
     </div>
   )
 }
