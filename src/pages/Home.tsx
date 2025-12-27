@@ -14,6 +14,7 @@ import type { NpcRecommendation } from '../game/npc/npcRecommendation'
 import { BIOMES_SORTED } from '../game/biomeCatalog'
 import { getBlocksForBiome } from '../game/blockCatalog'
 import { listExercisesByTag } from '../data/firestore'
+import { getBlockDef } from '../game/blockCatalog'
 
 export function HomePage() {
   const { user } = useAuth()
@@ -27,6 +28,7 @@ export function HomePage() {
   const [availableTags, setAvailableTags] = React.useState<string[]>([])
   const [npcMessage, setNpcMessage] = React.useState<string>('')
   const [loadingTags, setLoadingTags] = React.useState<boolean>(true)
+  const [showRerollModal, setShowRerollModal] = React.useState(false)
   const streakFlames = React.useMemo(() => {
     const sorted = [...days].sort((a, b) => (b.dateKey || '').localeCompare(a.dateKey || ''))
     let streak = 0
@@ -45,6 +47,7 @@ export function HomePage() {
   const onReroll = () => {
     if (getDailyRerollUsed(dateKey)) {
       setNpcMessage('Tu as déjà changé de mission aujourd’hui.')
+      setShowRerollModal(true)
       return
     }
     const masteryByTag = rewards?.masteryByTag || {}
@@ -100,9 +103,11 @@ export function HomePage() {
     const loadAvailable = async () => {
       setLoadingTags(true)
       const masteryTags = Object.keys(rewards?.masteryByTag || {})
+      const biomeTags = BIOMES_SORTED.flatMap(b => getBlocksForBiome(b.id).map(block => block.tagId))
       const candidates = Array.from(new Set([
         ...PRIORITY_TAGS,
         ...masteryTags,
+        ...biomeTags,
       ]))
       const results = await Promise.all(candidates.map(async (tag) => {
         try {
@@ -134,7 +139,7 @@ export function HomePage() {
       rec = null
       clearDailyRecommendation(dateKey)
     }
-    if (!rec) {
+    if (!rec && availableTags.length) {
       clearDailyRecommendation(dateKey)
       rec = getOrCreateDailyRecommendation({
         npcId,
@@ -144,7 +149,7 @@ export function HomePage() {
         availableTagIds: availableTags.length ? availableTags : undefined,
       })
     }
-    if (!rec) {
+    if (!rec && availableTags.length) {
       rec = buildNpcRecommendation({ npcId, masteryByTag, history, nowTs: Date.now(), availableTagIds: availableTags })
       if (rec) setDailyRecommendation(dateKey, rec)
     }
@@ -277,6 +282,18 @@ export function HomePage() {
           }
         }}
       />
+
+      {showRerollModal && (
+        <div style={{ position:'fixed', inset:0, background:'rgba(0,0,0,0.55)', display:'flex', alignItems:'center', justifyContent:'center', zIndex:999 }}>
+          <div className="card mc-card" style={{ maxWidth:360 }}>
+            <h3 className="mc-title">Mission déjà changée</h3>
+            <div className="small" style={{ color:'var(--mc-muted)' }}>Tu ne peux changer la mission qu’une fois par jour.</div>
+            <div className="row" style={{ marginTop:12, justifyContent:'flex-end', gap:8 }}>
+              <button className="mc-button" onClick={() => setShowRerollModal(false)}>OK</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
