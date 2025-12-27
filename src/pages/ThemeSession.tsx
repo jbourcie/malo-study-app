@@ -59,6 +59,7 @@ export function ThemeSessionPage() {
   const [result, setResult] = React.useState<any | null>(null)
   const [weakTags, setWeakTags] = React.useState<string[]>([])
   const [sessionTargetTagId, setSessionTargetTagId] = React.useState<string | null>(null)
+  const [sessionExpeditionType, setSessionExpeditionType] = React.useState<ExpeditionType>('mine')
   const [feedback, setFeedback] = React.useState<Array<{
     id: string
     prompt: string
@@ -81,6 +82,7 @@ export function ThemeSessionPage() {
       if (!themeId) return
       const targetTagFromQuery = searchParams.get('targetTagId') || searchParams.get('tagId')
       const expeditionType = (searchParams.get('expeditionType') as ExpeditionType) || 'mine'
+      setSessionExpeditionType(expeditionType)
 
       const tSnap = await getDoc(doc(db, 'themes', themeId))
       const tData = tSnap.exists() ? { id: themeId, ...tSnap.data() } : null
@@ -122,7 +124,7 @@ export function ThemeSessionPage() {
         const masteryByTag = (liveRewards?.masteryByTag || {}) as any
         const history: Array<{ questionId: string, tagIds: string[], correct: boolean, ts: number, difficulty?: number }> = []
         const effectiveExpedition: ExpeditionType =
-          expeditionType === 'mine' && shouldRepair(targetTagId, history) ? 'repair' : expeditionType
+          sessionExpeditionType === 'mine' && shouldRepair(targetTagId, history) ? 'repair' : sessionExpeditionType
         picked = selectQuestionsFromPool(content, {
           expedition: effectiveExpedition,
           targetTagId,
@@ -240,7 +242,7 @@ export function ThemeSessionPage() {
             sessionId: progress.attemptId || themeId,
             biomeId,
             targetTagId: targetTag,
-            expedition: expeditionType,
+            expedition: sessionExpeditionType,
             sessionStats: { deltaXp, correctRate, levelUp },
           })
           if (resLoot.awarded?.id) setAwardedLootId(resLoot.awarded.id)
