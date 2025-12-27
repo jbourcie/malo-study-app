@@ -10,6 +10,8 @@ type Props = {
   onStart: () => void
   onReroll: () => void
   onChangeNpc: () => void
+  rerollCount?: number
+  rerollLimit?: number
 }
 
 const expeditionLabels: Record<string, string> = {
@@ -18,11 +20,12 @@ const expeditionLabels: Record<string, string> = {
   craft: '🛠️ Crafter',
 }
 
-export function NpcGuideCard({ recommendation, dateKey, onStart, onReroll, onChangeNpc }: Props) {
+export function NpcGuideCard({ recommendation, dateKey, onStart, onReroll, onChangeNpc, rerollCount = 0, rerollLimit = 1 }: Props) {
   const npc = NPC_CATALOG[recommendation.npcId]
   const rerollUsed = getDailyRerollUsed(dateKey)
   const targetBlock = getBlockDef(recommendation.expedition.targetTagId)
   const secondaryLabels = (recommendation.expedition.secondaryTagIds || []).map(id => getBlockDef(id).blockName)
+  const remaining = Math.max(0, rerollLimit - rerollCount)
 
   return (
     <div className="card mc-card">
@@ -55,10 +58,12 @@ export function NpcGuideCard({ recommendation, dateKey, onStart, onReroll, onCha
         <div className="row" style={{ gap:8, marginTop:10, flexWrap:'wrap' }}>
           <button className="mc-button" onClick={onStart}>Lancer la mission</button>
           <button className="mc-button secondary" onClick={onReroll}>
-            {rerollUsed ? 'Mission déjà changée' : 'Changer de mission'}
+            {remaining <= 0 || rerollUsed ? 'Mission déjà changée' : 'Changer de mission'}
           </button>
         </div>
-        {rerollUsed && <div className="small" style={{ marginTop:6, color:'var(--mc-muted)' }}>1 changement par jour.</div>}
+        <div className="small" style={{ marginTop:6, color:'var(--mc-muted)' }}>
+          Changements restants : {remaining}
+        </div>
       </div>
     </div>
   )

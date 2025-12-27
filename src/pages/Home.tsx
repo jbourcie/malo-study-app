@@ -208,6 +208,8 @@ export function HomePage() {
           onStart={onStartMission}
           onReroll={onReroll}
           onChangeNpc={() => setShowNpcPicker(true)}
+          rerollCount={getDailyRerollCount(dateKey)}
+          rerollLimit={role === 'parent' ? 100 : 1}
         />
       )}
 
