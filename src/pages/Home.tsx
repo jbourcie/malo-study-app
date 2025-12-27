@@ -6,7 +6,7 @@ import { useUserRewards } from '../state/useUserRewards'
 import { BADGES } from '../rewards/badgesCatalog'
 import { listLast7Days } from '../stats/dayLog'
 import { useNavigate } from 'react-router-dom'
-import { getPreferredNpcId, setPreferredNpcId, getOrCreateDailyRecommendation, setDailyRecommendation, setDailyRerollUsed, getDailyRerollUsed } from '../game/npc/npcStorage'
+import { getPreferredNpcId, setPreferredNpcId, getOrCreateDailyRecommendation, setDailyRecommendation, setDailyRerollUsed, getDailyRerollUsed, clearDailyRecommendation, getDailyRecommendation } from '../game/npc/npcStorage'
 import { NpcPickerModal } from '../components/game/NpcPickerModal'
 import { NpcGuideCard } from '../components/game/NpcGuideCard'
 import { buildNpcRecommendation, formatDateKeyParis } from '../game/npc/npcRecommendation'
@@ -74,12 +74,17 @@ export function HomePage() {
     const dateKey = formatDateKeyParis(Date.now())
     const masteryByTag = rewards?.masteryByTag || {}
     const history: Array<{ tagIds: string[], correct: boolean, ts: number }> = [] // TODO: branch to real history if disponible
-    let rec = getOrCreateDailyRecommendation({
-      npcId,
-      masteryByTag,
-      history,
-      nowTs: Date.now(),
-    })
+    const stored = getDailyRecommendation(dateKey)
+    let rec = stored && stored.npcId === npcId ? stored : null
+    if (!rec) {
+      clearDailyRecommendation(dateKey)
+      rec = getOrCreateDailyRecommendation({
+        npcId,
+        masteryByTag,
+        history,
+        nowTs: Date.now(),
+      })
+    }
     if (!rec) {
       rec = buildNpcRecommendation({ npcId, masteryByTag, history, nowTs: Date.now() })
       if (rec) setDailyRecommendation(dateKey, rec)
@@ -210,6 +215,16 @@ export function HomePage() {
         onPicked={(id) => {
           setNpcId(id)
           setPreferredNpcId(id)
+          const masteryByTag = rewards?.masteryByTag || {}
+          const history: Array<{ tagIds: string[], correct: boolean, ts: number }> = []
+          const rec = buildNpcRecommendation({ npcId: id, masteryByTag, history, nowTs: Date.now() })
+          if (rec) {
+            setDailyRecommendation(dateKey, rec)
+            setRecommendation(rec)
+          } else {
+            clearDailyRecommendation(dateKey)
+            setRecommendation(null)
+          }
         }}
       />
     </div>

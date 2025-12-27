@@ -42,6 +42,11 @@ export function getDailyRecommendation(dateKey: string): NpcRecommendation | nul
   }
 }
 
+export function clearDailyRecommendation(dateKey: string) {
+  if (typeof localStorage === 'undefined') return
+  localStorage.removeItem(dailyKey(dateKey))
+}
+
 export function setDailyRecommendation(dateKey: string, rec: NpcRecommendation) {
   if (typeof localStorage === 'undefined') return
   localStorage.setItem(dailyKey(dateKey), JSON.stringify(rec))
