@@ -104,46 +104,48 @@ export function BiomePage() {
       )}
 
       {selected && (
-        <div className="card mc-card">
-          <div className="row" style={{ justifyContent:'space-between', alignItems:'center', gap:10 }}>
-            <div>
-              <div className="small" style={{ color:'var(--mc-muted)' }}>Bloc ciblé</div>
-              <div style={{ fontWeight:900 }}>{selected.blockName}</div>
-              <div className="small">{stateToUiLabel(selected.masteryState)}</div>
+        <div style={{ position:'fixed', inset:0, background:'rgba(0,0,0,0.55)', display:'flex', alignItems:'center', justifyContent:'center', zIndex:999 }} role="dialog" aria-modal="true">
+          <div className="card mc-card" style={{ maxWidth:520, width:'92%', maxHeight:'90vh', overflowY:'auto' }}>
+            <div className="row" style={{ justifyContent:'space-between', alignItems:'center', gap:10 }}>
+              <div>
+                <div className="small" style={{ color:'var(--mc-muted)' }}>Bloc ciblé</div>
+                <div style={{ fontWeight:900 }}>{selected.blockName}</div>
+                <div className="small">{stateToUiLabel(selected.masteryState)}</div>
+              </div>
+              <button className="mc-button secondary" onClick={() => setSelectedBlockId(null)}>Fermer</button>
             </div>
-            <button className="mc-button secondary" onClick={() => setSelectedBlockId(null)}>Fermer</button>
-          </div>
-          <div className="grid" style={{ gap:10, marginTop:12 }}>
-            {expeditions.slice(0,3).map(exp => {
-              const icon = exp.type === 'mine' ? '⛏️' : exp.type === 'repair' ? '🔧' : '🛠️'
-              const label = exp.type === 'mine' ? 'Mine' : exp.type === 'repair' ? 'Réparer' : 'Artisanat'
-              const goal = exp.type === 'mine'
-                ? 'Récolte et consolidation de ton bloc.'
-                : exp.type === 'repair'
-                  ? 'Corriger les fissures : focus sur les erreurs récentes.'
-                  : 'Combiner ce bloc avec un autre pour progresser.'
-              return (
-                <div key={exp.type} className="mc-card" style={{ border:'2px solid var(--mc-border)' }}>
-                  <div className="row" style={{ justifyContent:'space-between', alignItems:'center' }}>
-                    <div style={{ display:'flex', gap:8, alignItems:'center' }}>
-                      <div style={{ fontSize:'1.4rem' }}>{icon}</div>
-                      <div>
-                        <div style={{ fontWeight:800 }}>{label} {exp.recommended ? '• recommandé' : ''}</div>
-                        <div className="small" style={{ color:'var(--mc-muted)' }}>{goal}</div>
+            <div className="grid" style={{ gap:10, marginTop:12 }}>
+              {expeditions.slice(0,3).map(exp => {
+                const icon = exp.type === 'mine' ? '⛏️' : exp.type === 'repair' ? '🔧' : '🛠️'
+                const label = exp.type === 'mine' ? 'Mine' : exp.type === 'repair' ? 'Réparer' : 'Artisanat'
+                const goal = exp.type === 'mine'
+                  ? 'Récolte et consolidation de ton bloc.'
+                  : exp.type === 'repair'
+                    ? 'Corriger les fissures : focus sur les erreurs récentes.'
+                    : 'Combiner ce bloc avec un autre pour progresser.'
+                return (
+                  <div key={exp.type} className="mc-card" style={{ border:'2px solid var(--mc-border)' }}>
+                    <div className="row" style={{ justifyContent:'space-between', alignItems:'center' }}>
+                      <div style={{ display:'flex', gap:8, alignItems:'center' }}>
+                        <div style={{ fontSize:'1.4rem' }}>{icon}</div>
+                        <div>
+                          <div style={{ fontWeight:800 }}>{label} {exp.recommended ? '• recommandé' : ''}</div>
+                          <div className="small" style={{ color:'var(--mc-muted)' }}>{goal}</div>
+                        </div>
                       </div>
+                      <div className="mc-chip">{exp.estimatedMinutes} min</div>
                     </div>
-                    <div className="mc-chip">{exp.estimatedMinutes} min</div>
+                    <button
+                      className="mc-button"
+                      style={{ marginTop:10, width:'100%' }}
+                      onClick={() => navigate(`/theme/${biomeId}?expeditionType=${exp.type}&targetTagId=${selected.tagId}&biomeId=${biomeId}`)}
+                    >
+                      Commencer l’expédition
+                    </button>
                   </div>
-                  <button
-                    className="mc-button"
-                    style={{ marginTop:10, width:'100%' }}
-                    onClick={() => navigate(`/theme/${biomeId}?expeditionType=${exp.type}&targetTagId=${selected.tagId}&biomeId=${biomeId}`)}
-                  >
-                    Commencer l’expédition
-                  </button>
-                </div>
-              )
-            })}
+                )
+              })}
+            </div>
           </div>
         </div>
       )}
