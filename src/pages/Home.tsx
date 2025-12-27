@@ -26,6 +26,7 @@ export function HomePage() {
   const [days, setDays] = React.useState<any[]>([])
   const [availableTags, setAvailableTags] = React.useState<string[]>([])
   const [npcMessage, setNpcMessage] = React.useState<string>('')
+  const [loadingTags, setLoadingTags] = React.useState<boolean>(true)
   const streakFlames = React.useMemo(() => {
     const sorted = [...days].sort((a, b) => (b.dateKey || '').localeCompare(a.dateKey || ''))
     let streak = 0
@@ -97,9 +98,11 @@ export function HomePage() {
 
   React.useEffect(() => {
     const loadAvailable = async () => {
+      setLoadingTags(true)
+      const masteryTags = Object.keys(rewards?.masteryByTag || {})
       const candidates = Array.from(new Set([
         ...PRIORITY_TAGS,
-        ...(Object.keys(rewards?.masteryByTag || {}).slice(0, 20)),
+        ...masteryTags,
       ]))
       const results = await Promise.all(candidates.map(async (tag) => {
         try {
@@ -109,7 +112,14 @@ export function HomePage() {
           return null
         }
       }))
-      setAvailableTags(results.filter(Boolean) as string[])
+      const valid = results.filter(Boolean) as string[]
+      setAvailableTags(valid)
+      setLoadingTags(false)
+      if (!valid.length) {
+        setNpcMessage('Pas de mission disponible (aucune question trouvée).')
+      } else {
+        setNpcMessage('')
+      }
     }
     loadAvailable()
   }, [rewards, user])
@@ -139,7 +149,7 @@ export function HomePage() {
       if (rec) setDailyRecommendation(dateKey, rec)
     }
     setRecommendation(rec)
-    if (!rec && availableTags.length === 0) {
+    if (!rec && availableTags.length === 0 && !loadingTags) {
       setNpcMessage('Pas de mission disponible (aucun exercice trouvé).')
     } else {
       setNpcMessage('')
@@ -147,7 +157,7 @@ export function HomePage() {
     if (process.env.NODE_ENV !== 'production' && rec) {
       console.debug('[npc.mission]', { npcId, reason: rec.reasonCode, tag: rec.expedition.targetTagId, type: rec.expedition.type })
     }
-  }, [npcId, rewards, availableTags])
+  }, [npcId, rewards, availableTags, loadingTags])
 
   return (
     <div className="container grid">
@@ -259,9 +269,11 @@ export function HomePage() {
           if (rec) {
             setDailyRecommendation(dateKey, rec)
             setRecommendation(rec)
+            setNpcMessage('')
           } else {
             clearDailyRecommendation(dateKey)
             setRecommendation(null)
+            setNpcMessage('Pas de mission disponible (aucun exercice trouvé).')
           }
         }}
       />
