@@ -1,58 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { listSubjects, listThemes, getOrInitStats } from '../data/firestore'
 import { listInventory } from '../data/rewards'
 import { useAuth } from '../state/useAuth'
 import { useUserRewards } from '../state/useUserRewards'
 import { BADGES } from '../rewards/badgesCatalog'
 import { getDailyState } from '../rewards/daily'
 import { listLast7Days } from '../stats/dayLog'
-import type { SubjectId } from '../types'
-import { Link } from 'react-router-dom'
-
-const SUBJECTS_FALLBACK: Array<{id: SubjectId, title: string}> = [
-  { id: 'fr', title: 'Français' },
-  { id: 'math', title: 'Maths' },
-  { id: 'en', title: 'Anglais' },
-  { id: 'es', title: 'Espagnol' },
-  { id: 'hist', title: 'Histoire' },
-]
 
 export function HomePage() {
   const { user } = useAuth()
   const { rewards } = useUserRewards(user?.uid || null)
-  const [subjects, setSubjects] = React.useState<any[]>([])
-  const [selected, setSelected] = React.useState<SubjectId>('fr')
-  const [themes, setThemes] = React.useState<any[]>([])
-  const [stats, setStats] = React.useState<any | null>(null)
   const [inventory, setInventory] = React.useState<any[]>([])
   const [daily, setDaily] = React.useState<any | null>(null)
   const [days, setDays] = React.useState<any[]>([])
 
   React.useEffect(() => {
-    (async () => {
-      try {
-        const s = await listSubjects()
-        setSubjects(s.length ? s : SUBJECTS_FALLBACK)
-      } catch {
-        setSubjects(SUBJECTS_FALLBACK)
-      }
-    })()
-  }, [])
-
-  React.useEffect(() => {
-    (async () => {
-      const t = await listThemes(selected, { uid: user?.uid })
-      setThemes(t)
-    })()
-  }, [selected, user])
-
-  React.useEffect(() => {
     if (!user) return
     (async () => {
       try {
-        const st = await getOrInitStats(user.uid)
-        setStats(st)
         const inv = await listInventory(user.uid)
         setInventory(inv)
       } catch (e) {
@@ -86,7 +51,7 @@ export function HomePage() {
         <div className="row" style={{ justifyContent:'space-between' }}>
           <div>
             <h2 style={{ margin: 0 }}>Salut Malo 👋</h2>
-            <div className="small">Choisis une matière, puis un thème. Objectif : 10 questions par jour.</div>
+            <div className="small">Pars sur la carte du monde, choisis un biome et progresse bloc par bloc.</div>
             <div className="small" style={{ marginTop: 6 }}>Niveau {rewards.level || 1} · XP {rewards.xp || 0}</div>
             {(rewards.badges || []).length ? (
               <div className="row" style={{ marginTop: 6, gap: 6 }}>
@@ -149,35 +114,10 @@ export function HomePage() {
         </div>
       ) : null}
 
-      <div className="grid2">
-        <div className="card" style={{ background:'linear-gradient(120deg, rgba(122,162,255,0.25), rgba(46,204,113,0.18))' }}>
-          <h3 style={{ marginTop: 0 }}>🗺️ Carte du monde (MaloCraft)</h3>
-          <div className="small" style={{ marginBottom: 10 }}>Explore chaque biome et vois l’état de tes blocs.</div>
-          <Link to="/world" className="btn">Ouvrir la carte</Link>
-        </div>
-
-        <div className="card">
-          <h3 style={{ marginTop: 0 }}>Matière</h3>
-          <select className="input" value={selected} onChange={(e) => setSelected(e.target.value as SubjectId)}>
-            {subjects.map(s => <option key={s.id} value={s.id}>{s.title}</option>)}
-          </select>
-          <div className="small" style={{ marginTop: 8 }}>
-            Priorités : Français (grammaire & conjugaison) + Maths (fractions).
-          </div>
-        </div>
-
-        <div className="card">
-          <h3 style={{ marginTop: 0 }}>Thèmes</h3>
-          {themes.length === 0 ? (
-            <div className="small">Aucun thème pour l’instant. (Parent : importe un pack JSON)</div>
-          ) : (
-            <div className="grid">
-              {themes.map(t => (
-                <Link key={t.id} className="btn secondary" to={`/theme/${t.id}`}>{t.title}</Link>
-              ))}
-            </div>
-          )}
-        </div>
+      <div className="card" style={{ background:'linear-gradient(120deg, rgba(122,162,255,0.25), rgba(46,204,113,0.18))' }}>
+        <h3 style={{ marginTop: 0 }}>🗺️ Carte du monde (MaloCraft)</h3>
+        <div className="small" style={{ marginBottom: 10 }}>Explore les biomes, trouve ton bloc cible et lance une expédition.</div>
+        <Link to="/world" className="btn">Ouvrir la carte</Link>
       </div>
 
       {inventory.length ? (
