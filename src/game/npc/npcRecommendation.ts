@@ -94,6 +94,7 @@ export function buildNpcRecommendation(params: {
   const tagIds = Object.keys(masteryByTag || {})
   const poolSet = new Set([...tagIds, ...history.flatMap(h => h.tagIds || []), ...PRIORITY_TAGS].filter(t => !excludeTagIds.includes(t)))
   const pool = Array.from(poolSet).filter(t => !availableTagIds || availableTagIds.includes(t))
+  if (!pool.length) return null
 
   // Step 1: repair
   const repairable = pool.filter(tag => shouldRepair(tag, history))

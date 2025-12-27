@@ -25,6 +25,7 @@ export function HomePage() {
   const [inventory, setInventory] = React.useState<any[]>([])
   const [days, setDays] = React.useState<any[]>([])
   const [availableTags, setAvailableTags] = React.useState<string[]>([])
+  const [npcMessage, setNpcMessage] = React.useState<string>('')
   const streakFlames = React.useMemo(() => {
     const sorted = [...days].sort((a, b) => (b.dateKey || '').localeCompare(a.dateKey || ''))
     let streak = 0
@@ -41,7 +42,10 @@ export function HomePage() {
   const dateKey = formatDateKeyParis(Date.now())
 
   const onReroll = () => {
-    if (getDailyRerollUsed(dateKey)) return
+    if (getDailyRerollUsed(dateKey)) {
+      setNpcMessage('Tu as déjà changé de mission aujourd’hui.')
+      return
+    }
     const masteryByTag = rewards?.masteryByTag || {}
     const history: Array<{ tagIds: string[], correct: boolean, ts: number }> = []
     const previousTag = recommendation?.expedition.targetTagId
@@ -52,11 +56,18 @@ export function HomePage() {
       setRecommendation(rec)
       setDailyRecommendation(dateKey, rec)
       setDailyRerollUsed(dateKey)
+      setNpcMessage('')
+    } else {
+      setNpcMessage('Aucune autre mission disponible pour l’instant.')
     }
   }
 
   const onStartMission = () => {
     if (!recommendation) return
+    if (availableTags.length && !availableTags.includes(recommendation.expedition.targetTagId)) {
+      setNpcMessage('Mission indisponible (aucune question pour ce bloc). Change de mission.')
+      return
+    }
     const exp = recommendation.expedition
     const params = new URLSearchParams()
     params.set('expeditionType', exp.type)
@@ -109,6 +120,10 @@ export function HomePage() {
     const history: Array<{ tagIds: string[], correct: boolean, ts: number }> = [] // TODO: branch to real history si disponible
     const stored = getDailyRecommendation(dateKey)
     let rec = stored && stored.npcId === npcId ? stored : null
+    if (rec && availableTags.length && !availableTags.includes(rec.expedition.targetTagId)) {
+      rec = null
+      clearDailyRecommendation(dateKey)
+    }
     if (!rec) {
       clearDailyRecommendation(dateKey)
       rec = getOrCreateDailyRecommendation({
@@ -124,6 +139,11 @@ export function HomePage() {
       if (rec) setDailyRecommendation(dateKey, rec)
     }
     setRecommendation(rec)
+    if (!rec && availableTags.length === 0) {
+      setNpcMessage('Pas de mission disponible (aucun exercice trouvé).')
+    } else {
+      setNpcMessage('')
+    }
     if (process.env.NODE_ENV !== 'production' && rec) {
       console.debug('[npc.mission]', { npcId, reason: rec.reasonCode, tag: rec.expedition.targetTagId, type: rec.expedition.type })
     }
@@ -156,6 +176,7 @@ export function HomePage() {
             </div>
           )}
         </div>
+        {npcMessage && <div className="small" style={{ marginTop:8, color:'#ffb347' }}>{npcMessage}</div>}
       </div>
 
       {recommendation && (
