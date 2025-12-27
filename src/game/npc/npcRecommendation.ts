@@ -87,12 +87,13 @@ export function buildNpcRecommendation(params: {
   history: Array<{ tagIds: string[]; correct: boolean; ts: number }>
   nowTs: number
   excludeTagIds?: string[]
+  availableTagIds?: string[]
 }): NpcRecommendation | null {
-  const { npcId, masteryByTag, history, nowTs, excludeTagIds = [] } = params
+  const { npcId, masteryByTag, history, nowTs, excludeTagIds = [], availableTagIds } = params
   const dateKey = formatDateKeyParis(nowTs)
   const tagIds = Object.keys(masteryByTag || {})
-  const poolSet = new Set([...tagIds, ...history.flatMap(h => h.tagIds || [])].filter(t => !excludeTagIds.includes(t)))
-  const pool = Array.from(poolSet)
+  const poolSet = new Set([...tagIds, ...history.flatMap(h => h.tagIds || []), ...PRIORITY_TAGS].filter(t => !excludeTagIds.includes(t)))
+  const pool = Array.from(poolSet).filter(t => !availableTagIds || availableTagIds.includes(t))
 
   // Step 1: repair
   const repairable = pool.filter(tag => shouldRepair(tag, history))

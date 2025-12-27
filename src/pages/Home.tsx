@@ -9,10 +9,11 @@ import { useNavigate } from 'react-router-dom'
 import { getPreferredNpcId, setPreferredNpcId, getOrCreateDailyRecommendation, setDailyRecommendation, setDailyRerollUsed, getDailyRerollUsed, clearDailyRecommendation, getDailyRecommendation } from '../game/npc/npcStorage'
 import { NpcPickerModal } from '../components/game/NpcPickerModal'
 import { NpcGuideCard } from '../components/game/NpcGuideCard'
-import { buildNpcRecommendation, formatDateKeyParis } from '../game/npc/npcRecommendation'
+import { buildNpcRecommendation, formatDateKeyParis, PRIORITY_TAGS } from '../game/npc/npcRecommendation'
 import type { NpcRecommendation } from '../game/npc/npcRecommendation'
 import { BIOMES_SORTED } from '../game/biomeCatalog'
 import { getBlocksForBiome } from '../game/blockCatalog'
+import { listExercisesByTag } from '../data/firestore'
 
 export function HomePage() {
   const { user } = useAuth()
@@ -23,6 +24,7 @@ export function HomePage() {
   const [recommendation, setRecommendation] = React.useState<NpcRecommendation | null>(null)
   const [inventory, setInventory] = React.useState<any[]>([])
   const [days, setDays] = React.useState<any[]>([])
+  const [availableTags, setAvailableTags] = React.useState<string[]>([])
   const streakFlames = React.useMemo(() => {
     const sorted = [...days].sort((a, b) => (b.dateKey || '').localeCompare(a.dateKey || ''))
     let streak = 0
@@ -45,7 +47,7 @@ export function HomePage() {
     const previousTag = recommendation?.expedition.targetTagId
     const filteredMastery = { ...masteryByTag }
     if (previousTag) delete (filteredMastery as any)[previousTag]
-    const rec = buildNpcRecommendation({ npcId, masteryByTag: filteredMastery, history, nowTs: Date.now(), excludeTagIds: previousTag ? [previousTag] : [] })
+    const rec = buildNpcRecommendation({ npcId, masteryByTag: filteredMastery, history, nowTs: Date.now(), excludeTagIds: previousTag ? [previousTag] : [], availableTagIds: availableTags })
     if (rec) {
       setRecommendation(rec)
       setDailyRecommendation(dateKey, rec)
@@ -83,6 +85,25 @@ export function HomePage() {
   }, [user])
 
   React.useEffect(() => {
+    const loadAvailable = async () => {
+      const candidates = Array.from(new Set([
+        ...PRIORITY_TAGS,
+        ...(Object.keys(rewards?.masteryByTag || {}).slice(0, 20)),
+      ]))
+      const results = await Promise.all(candidates.map(async (tag) => {
+        try {
+          const list = await listExercisesByTag(tag, { uid: user?.uid })
+          return list.length ? tag : null
+        } catch {
+          return null
+        }
+      }))
+      setAvailableTags(results.filter(Boolean) as string[])
+    }
+    loadAvailable()
+  }, [rewards, user])
+
+  React.useEffect(() => {
     const dateKey = formatDateKeyParis(Date.now())
     const masteryByTag = rewards?.masteryByTag || {}
     const history: Array<{ tagIds: string[], correct: boolean, ts: number }> = [] // TODO: branch to real history si disponible
@@ -95,17 +116,18 @@ export function HomePage() {
         masteryByTag,
         history,
         nowTs: Date.now(),
+        availableTagIds: availableTags.length ? availableTags : undefined,
       })
     }
     if (!rec) {
-      rec = buildNpcRecommendation({ npcId, masteryByTag, history, nowTs: Date.now() })
+      rec = buildNpcRecommendation({ npcId, masteryByTag, history, nowTs: Date.now(), availableTagIds: availableTags })
       if (rec) setDailyRecommendation(dateKey, rec)
     }
     setRecommendation(rec)
     if (process.env.NODE_ENV !== 'production' && rec) {
       console.debug('[npc.mission]', { npcId, reason: rec.reasonCode, tag: rec.expedition.targetTagId, type: rec.expedition.type })
     }
-  }, [npcId, rewards])
+  }, [npcId, rewards, availableTags])
 
   return (
     <div className="container grid">
@@ -212,7 +234,7 @@ export function HomePage() {
           setPreferredNpcId(id)
           const masteryByTag = rewards?.masteryByTag || {}
           const history: Array<{ tagIds: string[], correct: boolean, ts: number }> = []
-          const rec = buildNpcRecommendation({ npcId: id, masteryByTag, history, nowTs: Date.now() })
+          const rec = buildNpcRecommendation({ npcId: id, masteryByTag, history, nowTs: Date.now(), availableTagIds: availableTags })
           if (rec) {
             setDailyRecommendation(dateKey, rec)
             setRecommendation(rec)
