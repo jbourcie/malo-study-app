@@ -75,23 +75,24 @@ export function BiomePage() {
       ) : (
         <div className="grid" style={{ gap: 12 }}>
           {blocks.map((block) => {
-            const stateClass =
-              block.masteryState === 'mastered' ? 'block-shiny' :
-              block.masteryState === 'progressing' ? 'block-solid' : 'block-cracked'
-            const chipTone = block.masteryState === 'mastered' ? 'gold' : block.masteryState === 'progressing' ? 'accent' : ''
-            return (
-            <div
-              key={block.tagId}
-              className={`block-card mc-card ${stateClass}`}
-              role="button"
-              tabIndex={0}
-              onClick={() => setSelectedBlockId(block.tagId)}
-              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedBlockId(block.tagId) } }}
-            >
-              <div className="row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
-                <div>
-                  <div style={{ fontWeight: 800 }}>{block.blockName}</div>
-                  <div className="small" style={{ color:'var(--mc-muted)' }}>{block.description || 'Description à venir.'}</div>
+          const stateClass =
+            block.masteryState === 'mastered' ? 'block-shiny' :
+            block.masteryState === 'progressing' ? 'block-solid' : 'block-cracked'
+          const chipTone = block.masteryState === 'mastered' ? 'gold' : block.masteryState === 'progressing' ? 'accent' : ''
+          return (
+          <div
+            key={block.tagId}
+            className={`block-card mc-card ${stateClass}`}
+            role="button"
+            tabIndex={0}
+            onClick={() => setSelectedBlockId(block.tagId)}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedBlockId(block.tagId) } }}
+            style={{ cursor:'pointer', outline: selectedBlockId === block.tagId ? '2px solid var(--mc-accent)' : undefined }}
+          >
+            <div className="row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <div style={{ fontWeight: 800 }}>{block.blockName}</div>
+                <div className="small" style={{ color:'var(--mc-muted)' }}>{block.description || 'Description à venir.'}</div>
                 </div>
                 <span className={`mc-chip ${chipTone}`}>
                   {block.masteryState === 'mastered' ? '🟨' : block.masteryState === 'progressing' ? '🟩' : '🟫'} {stateToUiLabel(block.masteryState)}
