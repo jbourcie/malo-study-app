@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom'
-import { listExercises, listReadings, saveAttemptAndRewards } from '../data/firestore'
+import { listExercises, listReadings, listExercisesByTag, saveAttemptAndRewards } from '../data/firestore'
 import { saveSessionWithProgress } from '../data/progress'
 import { useAuth } from '../state/useAuth'
 import type { Exercise, ExerciseMCQ, ExerciseShortText, ExerciseFillBlank, SubjectId, Reading } from '../types'
@@ -22,6 +22,7 @@ import { selectQuestionsFromPool, shouldRepair, type ExpeditionType } from '../p
 import { awardMalocraftLoot } from '../rewards/awardMalocraftLoot'
 import { subjectToBiomeId } from '../game/biomeCatalog'
 import { MalocraftLootModal } from '../components/rewards/MalocraftLootModal'
+import { inferSubject } from '../taxonomy/tagCatalog'
 
 type AnswerState = Record<string, any>
 
@@ -78,24 +79,38 @@ export function ThemeSessionPage() {
   React.useEffect(() => {
     (async () => {
       if (!themeId) return
+      const targetTagFromQuery = searchParams.get('targetTagId') || searchParams.get('tagId')
+      const expeditionType = (searchParams.get('expeditionType') as ExpeditionType) || 'mine'
+
       const tSnap = await getDoc(doc(db, 'themes', themeId))
       const tData = tSnap.exists() ? { id: themeId, ...tSnap.data() } : null
-      setTheme(tData)
 
-      const exercises = await listExercises(themeId, { uid: user?.uid })
-      const readingsFromTheme = Array.isArray((tData as any)?.readings) ? (tData as any).readings : []
+      let exercises = await listExercises(themeId, { uid: user?.uid })
+      let readingsFromTheme = Array.isArray((tData as any)?.readings) ? (tData as any).readings : []
       let readings = readingsFromTheme
-      try {
-        const remote = await listReadings(themeId)
-        if (remote.length) readings = remote
-      } catch {
-        // ignore
+      // fallback : si expédition et aucune question, charger par tag
+      if ((!exercises.length || !tData) && targetTagFromQuery) {
+        exercises = await listExercisesByTag(targetTagFromQuery, { uid: user?.uid })
+        readings = []
+      } else {
+        try {
+          const remote = await listReadings(themeId)
+          if (remote.length) readings = remote
+        } catch {
+          // ignore
+        }
       }
+
+      const effectiveTheme = tData || (targetTagFromQuery ? {
+        id: themeId,
+        subjectId: inferSubject(targetTagFromQuery),
+        title: 'Expédition MaloCraft',
+      } : null)
+      setTheme(effectiveTheme)
+
       const content = flattenThemeContent({ exercises, readings })
       const desiredCount = 10
 
-      const targetTagFromQuery = searchParams.get('targetTagId') || searchParams.get('tagId')
-      const expeditionType = (searchParams.get('expeditionType') as ExpeditionType) || 'mine'
       const tagFrequency: Record<string, number> = {}
       content.forEach((c: any) => (c.tags || []).forEach((t: string) => { tagFrequency[t] = (tagFrequency[t] || 0) + 1 }))
       const fallbackTag = Object.entries(tagFrequency).sort((a, b) => b[1] - a[1])[0]?.[0]

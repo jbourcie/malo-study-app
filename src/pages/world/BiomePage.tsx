@@ -138,7 +138,7 @@ export function BiomePage() {
                     <button
                       className="mc-button"
                       style={{ marginTop:10, width:'100%' }}
-                      onClick={() => navigate(`/theme/${biomeId}?expeditionType=${exp.type}&targetTagId=${selected.tagId}&biomeId=${biomeId}`)}
+                      onClick={() => navigate(`/theme/expedition?expeditionType=${exp.type}&targetTagId=${selected.tagId}&biomeId=${biomeId}`)}
                     >
                       Commencer l’expédition
                     </button>
