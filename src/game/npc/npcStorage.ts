@@ -32,6 +32,23 @@ export function setDailyRerollUsed(dateKey: string): void {
   localStorage.setItem(rerollKey(dateKey), '1')
 }
 
+function rerollCountKey(dateKey: string) {
+  return `malocraft.npc.dailyRerollCount.${dateKey}`
+}
+
+export function getDailyRerollCount(dateKey: string): number {
+  if (typeof localStorage === 'undefined') return 0
+  const raw = localStorage.getItem(rerollCountKey(dateKey))
+  const n = raw ? parseInt(raw, 10) : 0
+  return Number.isFinite(n) ? n : 0
+}
+
+export function incrementDailyRerollCount(dateKey: string): void {
+  if (typeof localStorage === 'undefined') return
+  const next = getDailyRerollCount(dateKey) + 1
+  localStorage.setItem(rerollCountKey(dateKey), String(next))
+}
+
 export function getDailyRecommendation(dateKey: string): NpcRecommendation | null {
   if (typeof localStorage === 'undefined') return null
   try {

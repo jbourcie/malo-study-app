@@ -6,7 +6,7 @@ import { useUserRewards } from '../state/useUserRewards'
 import { BADGES } from '../rewards/badgesCatalog'
 import { listLast7Days } from '../stats/dayLog'
 import { useNavigate } from 'react-router-dom'
-import { getPreferredNpcId, setPreferredNpcId, getOrCreateDailyRecommendation, setDailyRecommendation, setDailyRerollUsed, getDailyRerollUsed, clearDailyRecommendation, getDailyRecommendation } from '../game/npc/npcStorage'
+import { getPreferredNpcId, setPreferredNpcId, getOrCreateDailyRecommendation, setDailyRecommendation, setDailyRerollUsed, getDailyRerollUsed, clearDailyRecommendation, getDailyRecommendation, getDailyRerollCount, incrementDailyRerollCount } from '../game/npc/npcStorage'
 import { NpcPickerModal } from '../components/game/NpcPickerModal'
 import { NpcGuideCard } from '../components/game/NpcGuideCard'
 import { buildNpcRecommendation, formatDateKeyParis, PRIORITY_TAGS } from '../game/npc/npcRecommendation'
@@ -17,7 +17,7 @@ import { listExercisesByTag } from '../data/firestore'
 import { getBlockDef } from '../game/blockCatalog'
 
 export function HomePage() {
-  const { user } = useAuth()
+  const { user, role } = useAuth()
   const { rewards } = useUserRewards(user?.uid || null)
   const nav = useNavigate()
   const [showNpcPicker, setShowNpcPicker] = React.useState(false)
@@ -45,8 +45,10 @@ export function HomePage() {
   const dateKey = formatDateKeyParis(Date.now())
 
   const onReroll = () => {
-    if (getDailyRerollUsed(dateKey)) {
-      setNpcMessage('Tu as déjà changé de mission aujourd’hui.')
+    const rerollCount = getDailyRerollCount(dateKey)
+    const limit = role === 'parent' ? 100 : 1
+    if (rerollCount >= limit || (role !== 'parent' && getDailyRerollUsed(dateKey))) {
+      setNpcMessage(role === 'parent' ? 'Limite de changements atteinte pour aujourd’hui.' : 'Tu as déjà changé de mission aujourd’hui.')
       setShowRerollModal(true)
       return
     }
@@ -59,7 +61,12 @@ export function HomePage() {
     if (rec) {
       setRecommendation(rec)
       setDailyRecommendation(dateKey, rec)
-      setDailyRerollUsed(dateKey)
+      if (role === 'parent') {
+        incrementDailyRerollCount(dateKey)
+      } else {
+        setDailyRerollUsed(dateKey)
+        incrementDailyRerollCount(dateKey)
+      }
       setNpcMessage('')
     } else {
       setNpcMessage('Aucune autre mission disponible pour l’instant.')
