@@ -21,7 +21,7 @@ export type NpcRecommendation = {
   }
 }
 
-const PRIORITY_TAGS = [
+export const PRIORITY_TAGS = [
   'math_fractions_addition',
   'math_fractions_soustraction',
   'math_fractions_equivalentes',
