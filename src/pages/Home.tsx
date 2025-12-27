@@ -4,7 +4,6 @@ import { listInventory } from '../data/rewards'
 import { useAuth } from '../state/useAuth'
 import { useUserRewards } from '../state/useUserRewards'
 import { BADGES } from '../rewards/badgesCatalog'
-import { getDailyState } from '../rewards/daily'
 import { listLast7Days } from '../stats/dayLog'
 import { useNavigate } from 'react-router-dom'
 import { getPreferredNpcId, setPreferredNpcId, getOrCreateDailyRecommendation, setDailyRecommendation, setDailyRerollUsed, getDailyRerollUsed } from '../game/npc/npcStorage'
@@ -12,6 +11,8 @@ import { NpcPickerModal } from '../components/game/NpcPickerModal'
 import { NpcGuideCard } from '../components/game/NpcGuideCard'
 import { buildNpcRecommendation, formatDateKeyParis } from '../game/npc/npcRecommendation'
 import type { NpcRecommendation } from '../game/npc/npcRecommendation'
+import { BIOMES_SORTED } from '../game/biomeCatalog'
+import { getBlocksForBiome } from '../game/blockCatalog'
 
 export function HomePage() {
   const { user } = useAuth()
@@ -21,7 +22,6 @@ export function HomePage() {
   const [npcId, setNpcId] = React.useState(getPreferredNpcId())
   const [recommendation, setRecommendation] = React.useState<NpcRecommendation | null>(null)
   const [inventory, setInventory] = React.useState<any[]>([])
-  const [daily, setDaily] = React.useState<any | null>(null)
   const [days, setDays] = React.useState<any[]>([])
 
   const dateKey = formatDateKeyParis(Date.now())
@@ -60,19 +60,6 @@ export function HomePage() {
         setInventory(inv)
       } catch (e) {
         console.error('stats/inventory failed', e)
-      }
-      try {
-        const d = await getDailyState(user.uid)
-        setDaily(d)
-      } catch (e) {
-        console.warn('daily quests indisponibles (fallback local)', e)
-        setDaily({
-          dateKey: new Date().toISOString().slice(0, 10),
-          quests: [
-            { id: 'session_one', title: 'Faire 1 séance', description: '', target: 1, progress: 0, completed: false },
-            { id: 'answer_ten', title: 'Répondre à 10 questions', description: '', target: 10, progress: 0, completed: false },
-          ],
-        })
       }
       try {
         const last = await listLast7Days(user.uid)
@@ -137,33 +124,6 @@ export function HomePage() {
         />
       )}
 
-      {daily && (
-        <div className="card">
-          <h3 style={{ marginTop: 0 }}>Défis du jour</h3>
-          <div className="grid" style={{ gap: 10 }}>
-            {daily.quests.slice(0, 3).map((q: any) => {
-              const pct = Math.min(100, Math.round((q.progress / q.target) * 100))
-              return (
-                <div key={q.id} className="pill" style={{ position:'relative', overflow:'hidden' }}>
-                  <div style={{ fontWeight: 700, display:'flex', alignItems:'center', gap:6 }}>
-                    {q.completed ? '✅' : '🟡'} {q.title}
-                  </div>
-                  <div className="small">{q.progress}/{q.target}</div>
-                  <div style={{ height: 8, background:'rgba(255,255,255,0.1)', borderRadius: 999, marginTop: 6 }}>
-                    <div style={{
-                      width: `${pct}%`,
-                      height: '100%',
-                      background: q.completed ? 'linear-gradient(90deg,#7fffb2,#2ecc71)' : 'linear-gradient(90deg,#7aa2ff,#7fffb2)',
-                      transition:'width 0.6s ease',
-                    }} />
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      )}
-
       {days.length ? (
         <div className="card">
           <h3 style={{ marginTop: 0 }}>7 derniers jours</h3>
@@ -186,6 +146,32 @@ export function HomePage() {
         <h3 style={{ marginTop: 0 }}>🗺️ Carte du monde (MaloCraft)</h3>
         <div className="small" style={{ marginBottom: 10 }}>Explore les biomes, trouve ton bloc cible et lance une expédition.</div>
         <Link to="/world" className="btn">Ouvrir la carte</Link>
+      </div>
+
+      <div className="grid2">
+        {BIOMES_SORTED.map((biome) => {
+          const blocks = getBlocksForBiome(biome.id)
+          const masteredCount = blocks.filter(
+            (block) => rewards.masteryByTag?.[block.tagId]?.state === 'mastered'
+          ).length
+          const total = blocks.length
+          const progression = total > 0 ? Math.round((masteredCount / total) * 100) : 0
+          return (
+            <div key={biome.id} className="card mc-card world-card">
+              <div className="row" style={{ alignItems:'center', gap:10 }}>
+                <div style={{ fontSize:'1.6rem' }}>{biome.icon}</div>
+                <div>
+                  <div style={{ fontWeight:800 }}>{biome.name}</div>
+                  <div className="small" style={{ color:'var(--mc-muted)' }}>{biome.description}</div>
+                </div>
+                <div className="mc-chip">{progression}%</div>
+              </div>
+              <button className="mc-button secondary" style={{ marginTop:10 }} onClick={() => nav(`/world/${biome.id}`)}>
+                Ouvrir le biome
+              </button>
+            </div>
+          )
+        })}
       </div>
 
       {inventory.length ? (

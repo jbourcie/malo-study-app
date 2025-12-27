@@ -26,7 +26,6 @@ export function TopBar() {
           {user && <Link className="btn secondary" to="/chest">Coffre</Link>}
           {user && <Link className="btn secondary" to="/world">Carte du monde</Link>}
           {user && <Link className="btn secondary" to="/collection">Ma collection</Link>}
-          {user && <Link className="btn secondary" to="/progression">Ma progression</Link>}
           {role === 'parent' && (
             <>
               <Link className="btn secondary" to="/admin/import">Import (parent)</Link>
