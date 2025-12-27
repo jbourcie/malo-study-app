@@ -8,8 +8,8 @@ const defaultRewards: UserRewards = {
   level: 1,
   badges: [],
   masteryByTag: {},
-  collectibles: { owned: [], equippedAvatarId: undefined },
-  malocraft: { ownedLootIds: [], equippedAvatarId: undefined, biomeMilestones: {} },
+  collectibles: { owned: [], equippedAvatarId: null },
+  malocraft: { ownedLootIds: [], equippedAvatarId: null, biomeMilestones: {} },
 }
 
 export function useUserRewards(uid: string | null) {

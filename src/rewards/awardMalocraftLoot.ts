@@ -64,7 +64,7 @@ export async function awardMalocraftLoot(params: AwardParams): Promise<{ awarded
       badges: data?.badges || [],
       masteryByTag: data?.masteryByTag || {},
       collectibles: data?.collectibles || { owned: [], equippedAvatarId: null },
-      malocraft: data?.malocraft || { ownedLootIds: [], equippedAvatarId: undefined, biomeMilestones: {} },
+      malocraft: data?.malocraft || { ownedLootIds: [], equippedAvatarId: null, biomeMilestones: {} },
       updatedAt: data?.updatedAt,
     }
     const owned = new Set(rewards.malocraft?.ownedLootIds || [])
@@ -81,7 +81,7 @@ export async function awardMalocraftLoot(params: AwardParams): Promise<{ awarded
         malocraft: {
           ownedLootIds: Array.from(owned),
           biomeMilestones: { ...(rewards.malocraft?.biomeMilestones || {}), [biomeId]: Math.max(currentLevel, mastered) },
-          equippedAvatarId: rewards.malocraft?.equippedAvatarId ?? undefined,
+          equippedAvatarId: rewards.malocraft?.equippedAvatarId ?? null,
         },
         updatedAt: serverTimestamp(),
       }, { merge: true })
@@ -105,11 +105,11 @@ export async function awardMalocraftLoot(params: AwardParams): Promise<{ awarded
     owned.add(rolled.id)
     const nextMilestones = { ...(rewards.malocraft?.biomeMilestones || {}) }
     tx.set(rewardsRef, {
-      malocraft: {
-        ownedLootIds: Array.from(owned),
-        biomeMilestones: nextMilestones,
-        equippedAvatarId: rewards.malocraft?.equippedAvatarId ?? undefined,
-      },
+        malocraft: {
+          ownedLootIds: Array.from(owned),
+          biomeMilestones: nextMilestones,
+          equippedAvatarId: rewards.malocraft?.equippedAvatarId ?? null,
+        },
       collectibles: rolled.type === 'avatar'
         ? {
             owned: Array.from(new Set([...(rewards.collectibles?.owned || []), rolled.id])),

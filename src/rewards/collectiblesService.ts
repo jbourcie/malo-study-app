@@ -23,7 +23,7 @@ export async function unlockCollectible(uid: string, collectibleId: string, even
       masteryByTag: typeof existing?.masteryByTag === 'object' && existing?.masteryByTag ? existing.masteryByTag : {},
       collectibles: existing?.collectibles && Array.isArray(existing.collectibles.owned)
         ? existing.collectibles
-        : { owned: [], equippedAvatarId: undefined },
+        : { owned: [], equippedAvatarId: null },
       updatedAt: existing?.updatedAt,
     }
     const owned = new Set(current.collectibles?.owned || [])

@@ -15,15 +15,15 @@ export async function getOrInitRewards(uid: string): Promise<UserRewards> {
       badges: Array.isArray(data.badges) ? data.badges : [],
       masteryByTag: typeof data.masteryByTag === 'object' && data.masteryByTag ? data.masteryByTag : {},
       collectibles: data.collectibles && Array.isArray(data.collectibles.owned)
-        ? { owned: data.collectibles.owned, equippedAvatarId: data.collectibles.equippedAvatarId }
-        : { owned: [], equippedAvatarId: undefined },
+        ? { owned: data.collectibles.owned, equippedAvatarId: data.collectibles.equippedAvatarId ?? null }
+        : { owned: [], equippedAvatarId: null },
       malocraft: data.malocraft && Array.isArray(data.malocraft.ownedLootIds)
-        ? { ownedLootIds: data.malocraft.ownedLootIds, equippedAvatarId: data.malocraft.equippedAvatarId, biomeMilestones: data.malocraft.biomeMilestones || {} }
-        : { ownedLootIds: [], equippedAvatarId: undefined, biomeMilestones: {} },
+        ? { ownedLootIds: data.malocraft.ownedLootIds, equippedAvatarId: data.malocraft.equippedAvatarId ?? null, biomeMilestones: data.malocraft.biomeMilestones || {} }
+        : { ownedLootIds: [], equippedAvatarId: null, biomeMilestones: {} },
       updatedAt: data.updatedAt,
     }
   }
-  const initial: UserRewards = { xp: 0, level: 1, badges: [], masteryByTag: {}, collectibles: { owned: [], equippedAvatarId: undefined }, malocraft: { ownedLootIds: [], equippedAvatarId: undefined, biomeMilestones: {} }, updatedAt: serverTimestamp() as any }
+  const initial: UserRewards = { xp: 0, level: 1, badges: [], masteryByTag: {}, collectibles: { owned: [], equippedAvatarId: null }, malocraft: { ownedLootIds: [], equippedAvatarId: null, biomeMilestones: {} }, updatedAt: serverTimestamp() as any }
   await setDoc(ref, initial)
   return initial
 }
@@ -53,11 +53,11 @@ export async function awardSessionRewards(uid: string, sessionId: string | null,
       badges: Array.isArray(existing?.badges) ? existing.badges : [],
       masteryByTag: typeof existing?.masteryByTag === 'object' && existing?.masteryByTag ? existing.masteryByTag : {},
       collectibles: existing?.collectibles && Array.isArray(existing.collectibles.owned)
-        ? existing.collectibles
-        : { owned: [], equippedAvatarId: undefined },
+        ? { owned: existing.collectibles.owned, equippedAvatarId: existing.collectibles.equippedAvatarId ?? null }
+        : { owned: [], equippedAvatarId: null },
       malocraft: existing?.malocraft && Array.isArray(existing.malocraft.ownedLootIds)
-        ? existing.malocraft
-        : { ownedLootIds: [], equippedAvatarId: undefined, biomeMilestones: {} },
+        ? { ownedLootIds: existing.malocraft.ownedLootIds, equippedAvatarId: existing.malocraft.equippedAvatarId ?? null, biomeMilestones: existing.malocraft.biomeMilestones || {} }
+        : { ownedLootIds: [], equippedAvatarId: null, biomeMilestones: {} },
       updatedAt: existing?.updatedAt,
     }
     const newXp = Math.max(0, (current.xp || 0) + deltaXp)
