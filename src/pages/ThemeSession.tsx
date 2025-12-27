@@ -76,11 +76,12 @@ export function ThemeSessionPage() {
   const [sessionFeedbackMsg, setSessionFeedbackMsg] = React.useState<string>('')
   const [errorMsg, setErrorMsg] = React.useState<string>('')
   const [searchParams] = useSearchParams()
+  const [isSubmitting, setIsSubmitting] = React.useState(false)
 
   React.useEffect(() => {
     (async () => {
       if (!themeId) return
-      if (showCorrections) return // ne pas relancer une nouvelle session pendant l’écran de correction
+      if (showCorrections || isSubmitting) return // ne pas relancer une nouvelle session pendant l’écran de correction ou en soumission
       const targetTagFromQuery = searchParams.get('targetTagId') || searchParams.get('tagId')
       const expeditionType = (searchParams.get('expeditionType') as ExpeditionType) || 'mine'
       setSessionExpeditionType(expeditionType)
@@ -155,6 +156,7 @@ export function ThemeSessionPage() {
 
   const submit = async () => {
     if (!user || !themeId || !theme) return
+    setIsSubmitting(true)
     setErrorMsg('')
     const durationSec = Math.max(1, Math.round((Date.now() - startedAt) / 1000))
 
@@ -332,6 +334,7 @@ export function ThemeSessionPage() {
       console.error('submit session failed', e)
       setErrorMsg(e?.message || 'Enregistrement impossible. Vérifie la connexion ou les droits.')
     }
+    setIsSubmitting(false)
   }
 
   if (!themeId) return <div className="container"><div className="card">Thème introuvable.</div></div>
