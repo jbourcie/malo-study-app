@@ -14,6 +14,7 @@ import type { NpcRecommendation } from '../game/npc/npcRecommendation'
 import { BIOMES_SORTED } from '../game/biomeCatalog'
 import { getBlocksForBiome } from '../game/blockCatalog'
 import { listExercisesByTag } from '../data/firestore'
+import { TAG_CATALOG } from '../taxonomy/tagCatalog'
 import { getBlockDef } from '../game/blockCatalog'
 
 export function HomePage() {
@@ -109,13 +110,7 @@ export function HomePage() {
   React.useEffect(() => {
     const loadAvailable = async () => {
       setLoadingTags(true)
-      const masteryTags = Object.keys(rewards?.masteryByTag || {})
-      const biomeTags = BIOMES_SORTED.flatMap(b => getBlocksForBiome(b.id).map(block => block.tagId))
-      const candidates = Array.from(new Set([
-        ...PRIORITY_TAGS,
-        ...masteryTags,
-        ...biomeTags,
-      ]))
+      const candidates = Object.keys(TAG_CATALOG || {})
       const results = await Promise.all(candidates.map(async (tag) => {
         try {
           const list = await listExercisesByTag(tag, { uid: user?.uid })
