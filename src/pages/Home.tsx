@@ -23,6 +23,18 @@ export function HomePage() {
   const [recommendation, setRecommendation] = React.useState<NpcRecommendation | null>(null)
   const [inventory, setInventory] = React.useState<any[]>([])
   const [days, setDays] = React.useState<any[]>([])
+  const streakFlames = React.useMemo(() => {
+    const sorted = [...days].sort((a, b) => (b.dateKey || '').localeCompare(a.dateKey || ''))
+    let streak = 0
+    for (const d of sorted) {
+      if ((d.sessions || 0) > 0) {
+        streak += 1
+      } else {
+        break
+      }
+    }
+    return streak
+  }, [days])
 
   const dateKey = formatDateKeyParis(Date.now())
 
@@ -116,6 +128,11 @@ export function HomePage() {
               </div>
             ) : null}
           </div>
+          {streakFlames > 0 && (
+            <div className="pill" style={{ alignSelf:'flex-start' }}>
+              🔥 Streak {streakFlames} j
+            </div>
+          )}
         </div>
       </div>
 
@@ -129,29 +146,7 @@ export function HomePage() {
         />
       )}
 
-      {days.length ? (
-        <div className="card">
-          <h3 style={{ marginTop: 0 }}>7 derniers jours</h3>
-          <div className="row" style={{ gap: 8, flexWrap:'wrap' }}>
-            {days.map((d: any) => {
-              const ok = (d.sessions || 0) > 0
-              return (
-                <div key={d.dateKey} className="pill" style={{ minWidth: 80, textAlign:'center', background: ok ? 'rgba(46,204,113,0.16)' : 'rgba(255,255,255,0.08)', borderColor: ok ? 'rgba(46,204,113,0.5)' : 'rgba(255,255,255,0.18)' }}>
-                  <div style={{ fontWeight: 700 }}>{d.dateKey.slice(5)}</div>
-                  <div className="small">{ok ? 'Séance ✓' : '—'}</div>
-                  <div className="small">XP {d.xp || 0}</div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      ) : null}
-
-      <div className="card" style={{ background:'linear-gradient(120deg, rgba(122,162,255,0.25), rgba(46,204,113,0.18))' }}>
-        <h3 style={{ marginTop: 0 }}>🗺️ Carte du monde (MaloCraft)</h3>
-        <div className="small" style={{ marginBottom: 10 }}>Explore les biomes, trouve ton bloc cible et lance une expédition.</div>
-        <Link to="/world" className="btn">Ouvrir la carte</Link>
-      </div>
+      {/* Carte du monde déjà accessible, on conserve juste les biomes */}
 
       <div className="grid2">
         {BIOMES_SORTED.map((biome) => {
