@@ -9,6 +9,7 @@ import type { MasteryState } from '../../rewards/rewards'
 import { getTagMeta } from '../../taxonomy/tagCatalog'
 import { getAvailableExpeditionsForBlock, type Expedition } from '../../game/expeditions'
 import { shouldRepair } from '../../pedagogy/questionSelector'
+import { listExercisesByTag } from '../../data/firestore'
 
 export function BiomePage() {
   const { biomeId } = useParams<{ biomeId: BiomeId }>()
@@ -17,6 +18,7 @@ export function BiomePage() {
   const { rewards, loading } = useUserRewards(user?.uid || null)
   const navigate = useNavigate()
   const [selectedBlockId, setSelectedBlockId] = React.useState<string | null>(null)
+  const [availability, setAvailability] = React.useState<Record<string, boolean>>({})
 
   if (!biomeId || !biome) {
     return (
@@ -55,6 +57,27 @@ export function BiomePage() {
     })
     : []
 
+  React.useEffect(() => {
+    let canceled = false
+    const check = async () => {
+      const entries = await Promise.all(blocks.map(async (b) => {
+        try {
+          const list = await listExercisesByTag(b.tagId, { uid: user?.uid })
+          return [b.tagId, list.length > 0] as const
+        } catch {
+          return [b.tagId, false] as const
+        }
+      }))
+      if (!canceled) {
+        const next: Record<string, boolean> = {}
+        entries.forEach(([tagId, ok]) => { next[tagId] = ok })
+        setAvailability(next)
+      }
+    }
+    check()
+    return () => { canceled = true }
+  }, [blocks, user])
+
   return (
     <div className="container grid">
       <div className="card mc-card">
@@ -79,15 +102,20 @@ export function BiomePage() {
             block.masteryState === 'mastered' ? 'block-shiny' :
             block.masteryState === 'progressing' ? 'block-solid' : 'block-cracked'
           const chipTone = block.masteryState === 'mastered' ? 'gold' : block.masteryState === 'progressing' ? 'accent' : ''
+          const hasQuestions = availability[block.tagId] !== false
           return (
           <div
             key={block.tagId}
             className={`block-card mc-card ${stateClass}`}
             role="button"
             tabIndex={0}
-            onClick={() => setSelectedBlockId(block.tagId)}
-            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedBlockId(block.tagId) } }}
-            style={{ cursor:'pointer', outline: selectedBlockId === block.tagId ? '2px solid var(--mc-accent)' : undefined }}
+            onClick={() => hasQuestions && setSelectedBlockId(block.tagId)}
+            onKeyDown={(e) => { if (hasQuestions && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); setSelectedBlockId(block.tagId) } }}
+            style={{
+              cursor: hasQuestions ? 'pointer' : 'not-allowed',
+              opacity: hasQuestions ? 1 : 0.55,
+              outline: selectedBlockId === block.tagId ? '2px solid var(--mc-accent)' : undefined,
+            }}
           >
             <div className="row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
@@ -98,6 +126,11 @@ export function BiomePage() {
                   {block.masteryState === 'mastered' ? '🟨' : block.masteryState === 'progressing' ? '🟩' : '🟫'} {stateToUiLabel(block.masteryState)}
                 </span>
               </div>
+              {!hasQuestions && (
+                <div className="small" style={{ color:'var(--mc-muted)', marginTop:6 }}>
+                  Pas encore de missions pour ce bloc.
+                </div>
+              )}
             </div>
           )})}
         </div>
