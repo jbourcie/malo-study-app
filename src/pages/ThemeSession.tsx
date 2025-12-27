@@ -80,6 +80,7 @@ export function ThemeSessionPage() {
   React.useEffect(() => {
     (async () => {
       if (!themeId) return
+      if (showCorrections) return // ne pas relancer une nouvelle session pendant l’écran de correction
       const targetTagFromQuery = searchParams.get('targetTagId') || searchParams.get('tagId')
       const expeditionType = (searchParams.get('expeditionType') as ExpeditionType) || 'mine'
       setSessionExpeditionType(expeditionType)
