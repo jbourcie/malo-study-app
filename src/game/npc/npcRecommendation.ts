@@ -68,23 +68,41 @@ function lastIncorrectTs(history: Array<{ tagIds: string[]; correct: boolean; ts
   return max
 }
 
+function pickWeighted<T>(items: T[], weightFn: (item: T) => number): T | null {
+  const weighted = items.map(item => ({ item, w: Math.max(0, weightFn(item)) }))
+  const total = weighted.reduce((acc, cur) => acc + cur.w, 0)
+  if (!total) return items[0] || null
+  const r = Math.random() * total
+  let acc = 0
+  for (const it of weighted) {
+    acc += it.w
+    if (r <= acc) return it.item
+  }
+  return weighted[0]?.item || null
+}
+
 export function buildNpcRecommendation(params: {
   npcId: NpcId
   masteryByTag: Record<string, { state: 'discovering' | 'progressing' | 'mastered' }>
   history: Array<{ tagIds: string[]; correct: boolean; ts: number }>
   nowTs: number
+  excludeTagIds?: string[]
 }): NpcRecommendation | null {
-  const { npcId, masteryByTag, history, nowTs } = params
+  const { npcId, masteryByTag, history, nowTs, excludeTagIds = [] } = params
   const dateKey = formatDateKeyParis(nowTs)
   const tagIds = Object.keys(masteryByTag || {})
-  const poolSet = new Set([...tagIds, ...history.flatMap(h => h.tagIds || [])])
+  const poolSet = new Set([...tagIds, ...history.flatMap(h => h.tagIds || [])].filter(t => !excludeTagIds.includes(t)))
   const pool = Array.from(poolSet)
 
   // Step 1: repair
   const repairable = pool.filter(tag => shouldRepair(tag, history))
-  const priorityRepair = repairable.find(tag => PRIORITY_TAGS.includes(tag)) || null
-  const bestRepair = priorityRepair || repairable.sort((a, b) => (lastIncorrectTs(history, b) - lastIncorrectTs(history, a)))[0]
-  if (bestRepair) {
+  if (repairable.length) {
+    const bestRepair = pickWeighted(repairable, (tag) => {
+      const priorityBoost = PRIORITY_TAGS.includes(tag) ? 5 : 1
+      const recency = Math.max(1, (nowTs - lastIncorrectTs(history, tag)) / (24 * 60 * 60 * 1000))
+      return priorityBoost + 2 / recency
+    })
+    if (bestRepair) {
     const biomeId = getBlockDef(bestRepair).biomeId || subjectToBiomeId(inferSubject(bestRepair))
     return {
       npcId,
@@ -99,11 +117,14 @@ export function buildNpcRecommendation(params: {
       },
     }
   }
+  }
 
   // Step 2: priority mine
-  const notMasteredPriority = PRIORITY_TAGS.find(tag => (masteryByTag[tag]?.state || 'discovering') !== 'mastered')
-  const discovering = pool.find(tag => (masteryByTag[tag]?.state || 'discovering') === 'discovering')
-  const mineTag = notMasteredPriority || discovering
+  const priorityCandidates = PRIORITY_TAGS.filter(tag => !excludeTagIds.includes(tag) && (masteryByTag[tag]?.state || 'discovering') !== 'mastered')
+  const discovering = pool.filter(tag => (masteryByTag[tag]?.state || 'discovering') === 'discovering')
+  const mineTag = priorityCandidates.length
+    ? pickWeighted(priorityCandidates, (tag) => (masteryByTag[tag]?.state === 'discovering' ? 3 : 1))
+    : (discovering.length ? pickWeighted(discovering, () => 1) : null)
   if (mineTag) {
     const biomeId = getBlockDef(mineTag).biomeId || subjectToBiomeId(inferSubject(mineTag))
     return {
@@ -126,7 +147,13 @@ export function buildNpcRecommendation(params: {
     .map(tag => ({ tag, last: lastTsForTag(history, tag) }))
     .filter(t => t.last > 0 && nowTs - t.last > fiveDays)
     .sort((a, b) => a.last - b.last)
-  const spacedTag = spaced.find(t => (masteryByTag[t.tag]?.state || 'discovering') !== 'mastered') || spaced[0]
+  const spacedTag = spaced.length
+    ? pickWeighted(spaced, (t) => {
+        const ageDays = Math.max(1, (nowTs - t.last) / (24 * 60 * 60 * 1000))
+        const notMasteredBoost = (masteryByTag[t.tag]?.state || 'discovering') !== 'mastered' ? 2 : 1
+        return ageDays * notMasteredBoost
+      })
+    : null
   if (spacedTag) {
     const biomeId = getBlockDef(spacedTag.tag).biomeId || subjectToBiomeId(inferSubject(spacedTag.tag))
     return {
@@ -153,13 +180,13 @@ export function buildNpcRecommendation(params: {
     const subj = inferSubject(tag)
     bySubject.set(subj, [...(bySubject.get(subj) || []), tag])
   })
-  let craftPair: string[] | null = null
+  const craftPairs: string[][] = []
   for (const [, tags] of bySubject) {
     if (tags.length >= 2) {
-      craftPair = tags.slice(0, 2)
-      break
+      craftPairs.push(tags.slice(0, 2))
     }
   }
+  let craftPair: string[] | null = craftPairs.length ? craftPairs[Math.floor(Math.random() * craftPairs.length)] : null
   if (craftPair) {
     const biomeId = getBlockDef(craftPair[0]).biomeId || subjectToBiomeId(inferSubject(craftPair[0]))
     return {

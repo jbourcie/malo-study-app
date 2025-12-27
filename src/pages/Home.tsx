@@ -45,7 +45,7 @@ export function HomePage() {
     const previousTag = recommendation?.expedition.targetTagId
     const filteredMastery = { ...masteryByTag }
     if (previousTag) delete (filteredMastery as any)[previousTag]
-    const rec = buildNpcRecommendation({ npcId, masteryByTag: filteredMastery, history, nowTs: Date.now() })
+    const rec = buildNpcRecommendation({ npcId, masteryByTag: filteredMastery, history, nowTs: Date.now(), excludeTagIds: previousTag ? [previousTag] : [] })
     if (rec) {
       setRecommendation(rec)
       setDailyRecommendation(dateKey, rec)
@@ -85,7 +85,7 @@ export function HomePage() {
   React.useEffect(() => {
     const dateKey = formatDateKeyParis(Date.now())
     const masteryByTag = rewards?.masteryByTag || {}
-    const history: Array<{ tagIds: string[], correct: boolean, ts: number }> = [] // TODO: branch to real history if disponible
+    const history: Array<{ tagIds: string[], correct: boolean, ts: number }> = [] // TODO: branch to real history si disponible
     const stored = getDailyRecommendation(dateKey)
     let rec = stored && stored.npcId === npcId ? stored : null
     if (!rec) {

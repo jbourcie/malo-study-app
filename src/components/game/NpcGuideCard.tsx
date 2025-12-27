@@ -1,6 +1,7 @@
 import React from 'react'
 import { NPC_CATALOG } from '../../game/npc/npcCatalog'
 import type { NpcRecommendation } from '../../game/npc/npcRecommendation'
+import { getBlockDef } from '../../game/blockCatalog'
 import { getDailyRerollUsed } from '../../game/npc/npcStorage'
 
 type Props = {
@@ -20,6 +21,8 @@ const expeditionLabels: Record<string, string> = {
 export function NpcGuideCard({ recommendation, dateKey, onStart, onReroll, onChangeNpc }: Props) {
   const npc = NPC_CATALOG[recommendation.npcId]
   const rerollUsed = getDailyRerollUsed(dateKey)
+  const targetBlock = getBlockDef(recommendation.expedition.targetTagId)
+  const secondaryLabels = (recommendation.expedition.secondaryTagIds || []).map(id => getBlockDef(id).blockName)
 
   return (
     <div className="card mc-card">
@@ -44,7 +47,7 @@ export function NpcGuideCard({ recommendation, dateKey, onStart, onReroll, onCha
           <div>
             <div style={{ fontWeight:800 }}>{expeditionLabels[recommendation.expedition.type]}</div>
             <div className="small" style={{ color:'var(--mc-muted)' }}>
-              Bloc : {recommendation.expedition.targetTagId}{recommendation.expedition.secondaryTagIds?.length ? ` + ${recommendation.expedition.secondaryTagIds.join(', ')}` : ''}
+              Bloc : {targetBlock.blockName}{secondaryLabels.length ? ` + ${secondaryLabels.join(', ')}` : ''}
             </div>
           </div>
           <div className="mc-chip">{recommendation.expedition.estimatedMinutes} min</div>
