@@ -3,7 +3,14 @@ import { doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../firebase'
 import type { UserRewards } from '../rewards/rewards'
 
-const defaultRewards: UserRewards = { xp: 0, level: 1, badges: [], masteryByTag: {}, collectibles: { owned: [], equippedAvatarId: undefined } }
+const defaultRewards: UserRewards = {
+  xp: 0,
+  level: 1,
+  badges: [],
+  masteryByTag: {},
+  collectibles: { owned: [], equippedAvatarId: undefined },
+  malocraft: { ownedLootIds: [], equippedAvatarId: undefined, biomeMilestones: {} },
+}
 
 export function useUserRewards(uid: string | null) {
   const [rewards, setRewards] = React.useState<UserRewards>(defaultRewards)
@@ -18,7 +25,13 @@ export function useUserRewards(uid: string | null) {
     const ref = doc(db, 'users', uid, 'meta', 'rewards')
     const unsub = onSnapshot(ref, (snap) => {
       if (snap.exists()) {
-        setRewards(snap.data() as UserRewards)
+        const data = snap.data() as UserRewards
+        setRewards({
+          ...defaultRewards,
+          ...data,
+          collectibles: data.collectibles || defaultRewards.collectibles,
+          malocraft: data.malocraft || defaultRewards.malocraft,
+        })
       } else {
         setRewards(defaultRewards)
       }

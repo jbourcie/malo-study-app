@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom'
 import { listExercises, listReadings, saveAttemptAndRewards } from '../data/firestore'
 import { saveSessionWithProgress } from '../data/progress'
 import { useAuth } from '../state/useAuth'
@@ -18,6 +18,10 @@ import { equipAvatar, unlockCollectible } from '../rewards/collectiblesService'
 import { COLLECTIBLES } from '../rewards/collectiblesCatalog'
 import { updateDailyProgress } from '../rewards/daily'
 import { upsertDayStat } from '../stats/dayLog'
+import { selectQuestionsFromPool, shouldRepair, type ExpeditionType } from '../pedagogy/questionSelector'
+import { awardMalocraftLoot } from '../rewards/awardMalocraftLoot'
+import { subjectToBiomeId } from '../game/biomeCatalog'
+import { MalocraftLootModal } from '../components/rewards/MalocraftLootModal'
 
 type AnswerState = Record<string, any>
 
@@ -53,6 +57,7 @@ export function ThemeSessionPage() {
   const [startedAt] = React.useState<number>(() => Date.now())
   const [result, setResult] = React.useState<any | null>(null)
   const [weakTags, setWeakTags] = React.useState<string[]>([])
+  const [sessionTargetTagId, setSessionTargetTagId] = React.useState<string | null>(null)
   const [feedback, setFeedback] = React.useState<Array<{
     id: string
     prompt: string
@@ -63,10 +68,12 @@ export function ThemeSessionPage() {
   }>>([])
   const [showCorrections, setShowCorrections] = React.useState(false)
   const [sessionRewards, setSessionRewards] = React.useState<{ deltaXp: number, levelUp: boolean, newRewards?: any, prevRewards?: any, unlockedBadges?: string[], collectibleId?: string | null } | null>(null)
+  const [awardedLootId, setAwardedLootId] = React.useState<string | null>(null)
   const [showRewardModal, setShowRewardModal] = React.useState(false)
   const nav = useNavigate()
   const [sessionFeedbackMsg, setSessionFeedbackMsg] = React.useState<string>('')
   const [errorMsg, setErrorMsg] = React.useState<string>('')
+  const [searchParams] = useSearchParams()
 
   React.useEffect(() => {
     (async () => {
@@ -85,15 +92,48 @@ export function ThemeSessionPage() {
         // ignore
       }
       const content = flattenThemeContent({ exercises, readings })
-      // session du jour: 10 questions max (ou moins si thème petit)
-      const shuffled = [...content].sort(() => Math.random() - 0.5)
-      setExos(shuffled.slice(0, 10))
+      const desiredCount = 10
+
+      const targetTagFromQuery = searchParams.get('targetTagId') || searchParams.get('tagId')
+      const expeditionType = (searchParams.get('expeditionType') as ExpeditionType) || 'mine'
+      const tagFrequency: Record<string, number> = {}
+      content.forEach((c: any) => (c.tags || []).forEach((t: string) => { tagFrequency[t] = (tagFrequency[t] || 0) + 1 }))
+      const fallbackTag = Object.entries(tagFrequency).sort((a, b) => b[1] - a[1])[0]?.[0]
+      const targetTagId = targetTagFromQuery || fallbackTag
+      setSessionTargetTagId(targetTagId || null)
+
+      let picked = content
+      if (targetTagId) {
+        const masteryByTag = (liveRewards?.masteryByTag || {}) as any
+        const history: Array<{ questionId: string, tagIds: string[], correct: boolean, ts: number, difficulty?: number }> = []
+        const effectiveExpedition: ExpeditionType =
+          expeditionType === 'mine' && shouldRepair(targetTagId, history) ? 'repair' : expeditionType
+        picked = selectQuestionsFromPool(content, {
+          expedition: effectiveExpedition,
+          targetTagId,
+          desiredCount,
+          masteryByTag,
+          history,
+        })
+        if (process.env.NODE_ENV !== 'production') {
+          const targetCount = picked.filter((p: any) => (p.tags || []).includes(targetTagId)).length
+          const avgDifficulty = picked.length ? (picked.reduce((acc: number, p: any) => acc + (p.difficulty || 1), 0) / picked.length).toFixed(2) : '0'
+          console.debug('[session.select]', { expedition: effectiveExpedition, targetTagId, count: picked.length, targetCount, avgDifficulty })
+        }
+      }
+
+      if (!picked.length) {
+        const shuffled = [...content].sort(() => Math.random() - 0.5)
+        picked = shuffled.slice(0, desiredCount)
+      }
+
+      setExos(picked.slice(0, desiredCount))
       setAnswers({})
       setResult(null)
       setFeedback([])
       setShowCorrections(false)
     })()
-  }, [themeId, user])
+  }, [themeId, user, searchParams, liveRewards])
 
   const submit = async () => {
     if (!user || !themeId || !theme) return
@@ -174,6 +214,23 @@ export function ThemeSessionPage() {
             const evId = progress.attemptId ? `collectible_${progress.attemptId}` : undefined
             await unlockCollectible(user.uid, rolledCollectibleId, evId)
           }
+        }
+        // MaloCraft loot (idempotent)
+        try {
+          const correctRate = items.length ? items.filter(i => i.correct).length / items.length : 0
+          const targetTag = items[0]?.tags?.[0] || sessionTargetTagId || ''
+          const biomeId = subjectToBiomeId(theme.subjectId as any)
+          const resLoot = await awardMalocraftLoot({
+            uid: user.uid,
+            sessionId: progress.attemptId || themeId,
+            biomeId,
+            targetTagId: targetTag,
+            expedition: expeditionType,
+            sessionStats: { deltaXp, correctRate, levelUp },
+          })
+          if (resLoot.awarded?.id) setAwardedLootId(resLoot.awarded.id)
+        } catch (e) {
+          console.warn('awardMalocraftLoot failed', e)
         }
 
         // Daily quests update (idempotent via event)
@@ -498,6 +555,21 @@ export function ThemeSessionPage() {
           </div>
         </div>
       ) : null}
+
+      <MalocraftLootModal
+        awardedId={awardedLootId}
+        onClose={() => setAwardedLootId(null)}
+        onViewChest={() => nav('/chest')}
+        onEquipAvatar={async (id) => {
+          if (!user) return
+          try {
+            await unlockCollectible(user.uid, id, `collectible_manual_${id}`)
+          } catch (e) {
+            console.error('equip avatar failed', e)
+          }
+          setAwardedLootId(null)
+        }}
+      />
     </div>
   )
 }

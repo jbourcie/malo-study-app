@@ -24,6 +24,8 @@ export function TopBar() {
         <div className="row" style={{ gap: 8 }}>
           <Link className="btn secondary" to="/">Accueil</Link>
           {user && <Link className="btn secondary" to="/recompenses">Récompenses</Link>}
+          {user && <Link className="btn secondary" to="/chest">Coffre</Link>}
+          {user && <Link className="btn secondary" to="/world">Carte du monde</Link>}
           {user && <Link className="btn secondary" to="/collection">Ma collection</Link>}
           {user && <Link className="btn secondary" to="/progression">Ma progression</Link>}
           {role === 'parent' && (

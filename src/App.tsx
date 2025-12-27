@@ -12,6 +12,9 @@ import { RewardPage } from './pages/Reward'
 import { ProgressOverviewPage } from './pages/ProgressOverview'
 import { NotFoundPage } from './pages/NotFound'
 import { CollectionPage } from './pages/Collection'
+import { WorldMapPage } from './pages/world/WorldMapPage'
+import { BiomePage } from './pages/world/BiomePage'
+import { ChestPage } from './pages/ChestPage'
 
 export function App() {
   return (
@@ -30,6 +33,9 @@ export function App() {
         <Route path="/recompenses" element={<RequireAuth><RewardPage /></RequireAuth>} />
         <Route path="/collection" element={<RequireAuth><CollectionPage /></RequireAuth>} />
         <Route path="/progression" element={<RequireAuth><ProgressOverviewPage /></RequireAuth>} />
+        <Route path="/chest" element={<RequireAuth><ChestPage /></RequireAuth>} />
+        <Route path="/world" element={<RequireAuth><WorldMapPage /></RequireAuth>} />
+        <Route path="/world/:biomeId" element={<RequireAuth><BiomePage /></RequireAuth>} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </HashRouter>

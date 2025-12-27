@@ -8,6 +8,7 @@ import { BADGES } from '../rewards/badgesCatalog'
 import { getDailyState } from '../rewards/daily'
 import { listLast7Days } from '../stats/dayLog'
 import type { SubjectId } from '../types'
+import { Link } from 'react-router-dom'
 
 const SUBJECTS_FALLBACK: Array<{id: SubjectId, title: string}> = [
   { id: 'fr', title: 'Français' },
@@ -149,6 +150,12 @@ export function HomePage() {
       ) : null}
 
       <div className="grid2">
+        <div className="card" style={{ background:'linear-gradient(120deg, rgba(122,162,255,0.25), rgba(46,204,113,0.18))' }}>
+          <h3 style={{ marginTop: 0 }}>🗺️ Carte du monde (MaloCraft)</h3>
+          <div className="small" style={{ marginBottom: 10 }}>Explore chaque biome et vois l’état de tes blocs.</div>
+          <Link to="/world" className="btn">Ouvrir la carte</Link>
+        </div>
+
         <div className="card">
           <h3 style={{ marginTop: 0 }}>Matière</h3>
           <select className="input" value={selected} onChange={(e) => setSelected(e.target.value as SubjectId)}>

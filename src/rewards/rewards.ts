@@ -11,6 +11,11 @@ export type UserRewards = {
     owned: string[]
     equippedAvatarId?: string
   }
+  malocraft?: {
+    ownedLootIds: string[]
+    equippedAvatarId?: string
+    biomeMilestones?: Record<string, number>
+  }
   updatedAt?: Timestamp
 }
 
