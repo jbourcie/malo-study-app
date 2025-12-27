@@ -54,8 +54,11 @@ export function NpcGuideCard({ recommendation, dateKey, onStart, onReroll, onCha
         </div>
         <div className="row" style={{ gap:8, marginTop:10, flexWrap:'wrap' }}>
           <button className="mc-button" onClick={onStart}>Lancer la mission</button>
-          <button className="mc-button secondary" onClick={onReroll} disabled={rerollUsed}>Changer de mission</button>
+          <button className="mc-button secondary" onClick={onReroll}>
+            {rerollUsed ? 'Mission déjà changée' : 'Changer de mission'}
+          </button>
         </div>
+        {rerollUsed && <div className="small" style={{ marginTop:6, color:'var(--mc-muted)' }}>1 changement par jour.</div>}
       </div>
     </div>
   )
