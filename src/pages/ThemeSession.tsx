@@ -66,6 +66,7 @@ export function ThemeSessionPage() {
   const [showRewardModal, setShowRewardModal] = React.useState(false)
   const nav = useNavigate()
   const [sessionFeedbackMsg, setSessionFeedbackMsg] = React.useState<string>('')
+  const [errorMsg, setErrorMsg] = React.useState<string>('')
 
   React.useEffect(() => {
     (async () => {
@@ -96,160 +97,166 @@ export function ThemeSessionPage() {
 
   const submit = async () => {
     if (!user || !themeId || !theme) return
+    setErrorMsg('')
     const durationSec = Math.max(1, Math.round((Date.now() - startedAt) / 1000))
 
-    const items = exos.map(ex => ({
-      exerciseId: ex.id,
-      difficulty: ex.difficulty,
-      tags: ex.tags || [],
-      correct: isCorrect(ex, answers[ex.id])
-    }))
-
-    const progress = await saveSessionWithProgress({
-      uid: user.uid,
-      subjectId: theme.subjectId as SubjectId,
-      themeId,
-      answers,
-      exercises: exos,
-      durationSec,
-    })
-
-    const rewards = await saveAttemptAndRewards({
-      uid: user.uid,
-      subjectId: theme.subjectId as SubjectId,
-      themeId,
-      items,
-      durationSec,
-      existingAttemptId: progress.attemptId,
-      skipAttemptWrite: true,
-    })
-
-    const answeredCount = exos.reduce((acc, ex) => {
-      const ans = answers[ex.id]
-      if (ans === undefined || ans === null) return acc
-      if (typeof ans === 'string' && ans.trim() === '') return acc
-      return acc + 1
-    }, 0)
-
-    // Projection for mastery unlocks (used to decide collectible roll)
-    const masteryBefore = liveRewards?.masteryByTag || {}
-    let masteryAfter = masteryBefore
-    items.forEach(item => {
-      masteryAfter = updateMasteryFromAttempt({
-        masteryByTag: masteryAfter,
-        questionTags: item.tags || [],
-        isCorrect: item.correct,
-        timestamp: new Date(),
-      })
-    })
-    const newMasteredTagCount = Object.entries(masteryAfter)
-      .filter(([tag, val]) => val?.state === 'mastered' && (masteryBefore as any)?.[tag]?.state !== 'mastered')
-      .length
-
-    const deltaXp = computeSessionXp({ answeredCount, isCompleted: true })
-    const prevRewards = liveRewards
-    let newRewards = null
-    let levelUp = false
-    let unlockedBadges: string[] = []
-    let rolledCollectibleId: string | null = null
     try {
-      const res = await awardSessionRewards(user.uid, progress.attemptId || null, deltaXp)
-      newRewards = res
-      levelUp = (res?.level || 1) > (liveRewards?.level || 1)
-      await applyMasteryEvents({
-        uid: user.uid,
-        sessionId: progress.attemptId || themeId,
-        items: items,
-      })
-      unlockedBadges = await evaluateBadges({ uid: user.uid, rewards: res || liveRewards }) || []
+      const items = exos.map(ex => ({
+        exerciseId: ex.id,
+        difficulty: ex.difficulty,
+        tags: ex.tags || [],
+        correct: isCorrect(ex, answers[ex.id])
+      }))
 
-      const shouldRollCollectible = deltaXp >= 20 || levelUp || newMasteredTagCount > 0
-      if (shouldRollCollectible) {
-        const owned = (res as any)?.collectibles?.owned || liveRewards?.collectibles?.owned || []
-        rolledCollectibleId = rollCollectible(owned)
-        if (rolledCollectibleId) {
-          const evId = progress.attemptId ? `collectible_${progress.attemptId}` : undefined
-          await unlockCollectible(user.uid, rolledCollectibleId, evId)
+      const progress = await saveSessionWithProgress({
+        uid: user.uid,
+        subjectId: theme.subjectId as SubjectId,
+        themeId,
+        answers,
+        exercises: exos,
+        durationSec,
+      })
+
+      const rewards = await saveAttemptAndRewards({
+        uid: user.uid,
+        subjectId: theme.subjectId as SubjectId,
+        themeId,
+        items,
+        durationSec,
+        existingAttemptId: progress.attemptId,
+        skipAttemptWrite: true,
+      })
+
+      const answeredCount = exos.reduce((acc, ex) => {
+        const ans = answers[ex.id]
+        if (ans === undefined || ans === null) return acc
+        if (typeof ans === 'string' && ans.trim() === '') return acc
+        return acc + 1
+      }, 0)
+
+      // Projection for mastery unlocks (used to decide collectible roll)
+      const masteryBefore = liveRewards?.masteryByTag || {}
+      let masteryAfter = masteryBefore
+      items.forEach(item => {
+        masteryAfter = updateMasteryFromAttempt({
+          masteryByTag: masteryAfter,
+          questionTags: item.tags || [],
+          isCorrect: item.correct,
+          timestamp: new Date(),
+        })
+      })
+      const newMasteredTagCount = Object.entries(masteryAfter)
+        .filter(([tag, val]) => val?.state === 'mastered' && (masteryBefore as any)?.[tag]?.state !== 'mastered')
+        .length
+
+      const deltaXp = computeSessionXp({ answeredCount, isCompleted: true })
+      const prevRewards = liveRewards
+      let newRewards = null
+      let levelUp = false
+      let unlockedBadges: string[] = []
+      let rolledCollectibleId: string | null = null
+      try {
+        const res = await awardSessionRewards(user.uid, progress.attemptId || null, deltaXp)
+        newRewards = res
+        levelUp = (res?.level || 1) > (liveRewards?.level || 1)
+        await applyMasteryEvents({
+          uid: user.uid,
+          sessionId: progress.attemptId || themeId,
+          items: items,
+        })
+        unlockedBadges = await evaluateBadges({ uid: user.uid, rewards: res || liveRewards }) || []
+
+        const shouldRollCollectible = deltaXp >= 20 || levelUp || newMasteredTagCount > 0
+        if (shouldRollCollectible) {
+          const owned = (res as any)?.collectibles?.owned || liveRewards?.collectibles?.owned || []
+          rolledCollectibleId = rollCollectible(owned)
+          if (rolledCollectibleId) {
+            const evId = progress.attemptId ? `collectible_${progress.attemptId}` : undefined
+            await unlockCollectible(user.uid, rolledCollectibleId, evId)
+          }
         }
+
+        // Daily quests update (idempotent via event)
+        updateDailyProgress({
+          uid: user.uid,
+          sessionId: progress.attemptId || themeId,
+          answeredCount,
+          tagsUsed: items.flatMap(i => i.tags || []),
+        }).catch(err => console.error('updateDailyProgress failed', err))
+        upsertDayStat({
+          uid: user.uid,
+          sessionsDelta: 1,
+          xpDelta: deltaXp,
+        }).catch(err => console.error('upsertDayStat failed', err))
+      } catch (e) {
+        console.error('awardSessionRewards failed', e)
+        // fallback: do not block UX
       }
+      setSessionRewards({ deltaXp, levelUp, newRewards, prevRewards, unlockedBadges, collectibleId: rolledCollectibleId })
 
-      // Daily quests update (idempotent via event)
-      updateDailyProgress({
-        uid: user.uid,
-        sessionId: progress.attemptId || themeId,
-        answeredCount,
-        tagsUsed: items.flatMap(i => i.tags || []),
-      }).catch(err => console.error('updateDailyProgress failed', err))
-      upsertDayStat({
-        uid: user.uid,
-        sessionsDelta: 1,
-        xpDelta: deltaXp,
-      }).catch(err => console.error('upsertDayStat failed', err))
-    } catch (e) {
-      console.error('awardSessionRewards failed', e)
-      // fallback: do not block UX
-    }
-    setSessionRewards({ deltaXp, levelUp, newRewards, prevRewards, unlockedBadges, collectibleId: rolledCollectibleId })
+      const sessionTags = new Set<string>(exos.flatMap(ex => ex.tags || []))
+      const sortedWeak = Object.values(progress.tagsUpdated || {})
+        .filter(t => t && sessionTags.has(t.tagId || ''))
+        .sort((a, b) => (a.mastery ?? 0) - (b.mastery ?? 0))
+        .slice(0, 3)
+        .map(t => t.tagId!)
 
-    const sessionTags = new Set<string>(exos.flatMap(ex => ex.tags || []))
-    const sortedWeak = Object.values(progress.tagsUpdated || {})
-      .filter(t => t && sessionTags.has(t.tagId || ''))
-      .sort((a, b) => (a.mastery ?? 0) - (b.mastery ?? 0))
-      .slice(0, 3)
-      .map(t => t.tagId!)
+      setWeakTags(sortedWeak)
+      setResult({ score: rewards.score, outOf: rewards.outOf, durationSec, ...rewards })
 
-    setWeakTags(sortedWeak)
-    setResult({ score: rewards.score, outOf: rewards.outOf, durationSec, ...rewards })
-
-    // feedback: weakest tag from incorrect answers, improved from highest delta
-    const incorrectTags = items.filter(i => !i.correct).flatMap(i => i.tags || [])
-    const tagDelta = new Map<string, number>()
-    items.forEach(i => {
-      const delta = i.correct ? 8 : 2
-      ;(i.tags || []).forEach(t => {
-        tagDelta.set(t, (tagDelta.get(t) || 0) + delta)
+      // feedback: weakest tag from incorrect answers, improved from highest delta
+      const incorrectTags = items.filter(i => !i.correct).flatMap(i => i.tags || [])
+      const tagDelta = new Map<string, number>()
+      items.forEach(i => {
+        const delta = i.correct ? 8 : 2
+        ;(i.tags || []).forEach(t => {
+          tagDelta.set(t, (tagDelta.get(t) || 0) + delta)
+        })
       })
-    })
-    let improvedTag: string | undefined
-    if (tagDelta.size) {
-      improvedTag = Array.from(tagDelta.entries()).sort((a, b) => b[1] - a[1])[0]?.[0]
-    }
-    const accuracy = rewards.outOf ? (rewards.score / rewards.outOf) * 100 : 0
-    const fb = getSessionFeedback({
-      accuracy,
-      weakestTag: incorrectTags[0] || weakTags[0],
-      improvedTag,
-    })
+      let improvedTag: string | undefined
+      if (tagDelta.size) {
+        improvedTag = Array.from(tagDelta.entries()).sort((a, b) => b[1] - a[1])[0]?.[0]
+      }
+      const accuracy = rewards.outOf ? (rewards.score / rewards.outOf) * 100 : 0
+      const fb = getSessionFeedback({
+        accuracy,
+        weakestTag: incorrectTags[0] || weakTags[0],
+        improvedTag,
+      })
 
-    const fbDetails = exos.map((ex, idx) => {
-      const userAns = answers[ex.id]
-      const correct = isCorrect(ex, userAns)
-      let expected = ''
-      let userAnswer = ''
-      if (ex.type === 'mcq') {
-        const mcq = ex as ExerciseMCQ
-        expected = mcq.choices[mcq.answerIndex] || ''
-        userAnswer = typeof userAns === 'number' ? (mcq.choices[userAns] || '') : ''
-      } else if (ex.type === 'short_text') {
-        expected = (ex as ExerciseShortText).expected[0] || ''
-        userAnswer = userAns || ''
-      } else if (ex.type === 'fill_blank') {
-        expected = (ex as ExerciseFillBlank).expected[0] || ''
-        userAnswer = userAns || ''
-      }
-      return {
-        id: ex.id,
-        prompt: ex.prompt,
-        correct,
-        expected: expected || '—',
-        userAnswer: (userAnswer ?? '').toString() || '—',
-        idx: idx + 1,
-      }
-    })
-    setSessionFeedbackMsg(fb)
-    setFeedback(fbDetails)
-    setShowCorrections(true)
-    setShowRewardModal(true)
+      const fbDetails = exos.map((ex, idx) => {
+        const userAns = answers[ex.id]
+        const correct = isCorrect(ex, userAns)
+        let expected = ''
+        let userAnswer = ''
+        if (ex.type === 'mcq') {
+          const mcq = ex as ExerciseMCQ
+          expected = mcq.choices[mcq.answerIndex] || ''
+          userAnswer = typeof userAns === 'number' ? (mcq.choices[userAns] || '') : ''
+        } else if (ex.type === 'short_text') {
+          expected = (ex as ExerciseShortText).expected[0] || ''
+          userAnswer = userAns || ''
+        } else if (ex.type === 'fill_blank') {
+          expected = (ex as ExerciseFillBlank).expected[0] || ''
+          userAnswer = userAns || ''
+        }
+        return {
+          id: ex.id,
+          prompt: ex.prompt,
+          correct,
+          expected: expected || '—',
+          userAnswer: (userAnswer ?? '').toString() || '—',
+          idx: idx + 1,
+        }
+      })
+      setSessionFeedbackMsg(fb)
+      setFeedback(fbDetails)
+      setShowCorrections(true)
+      setShowRewardModal(true)
+    } catch (e: any) {
+      console.error('submit session failed', e)
+      setErrorMsg(e?.message || 'Enregistrement impossible. Vérifie la connexion ou les droits.')
+    }
   }
 
   if (!themeId) return <div className="container"><div className="card">Thème introuvable.</div></div>
@@ -478,6 +485,7 @@ export function ThemeSessionPage() {
       {feedback.length ? (
         <div className="card">
           <h3 style={{ marginTop: 0 }}>Corrections</h3>
+          {errorMsg && <div className="small" style={{ color:'#ff5a6f', marginBottom: 8 }}>{errorMsg}</div>}
           <div className="grid">
             {feedback.map(f => (
               <div key={f.id} className="pill" style={{ display:'flex', flexDirection:'column', alignItems:'flex-start', gap:6 }}>
