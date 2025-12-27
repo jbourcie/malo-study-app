@@ -6,13 +6,51 @@ import { useUserRewards } from '../state/useUserRewards'
 import { BADGES } from '../rewards/badgesCatalog'
 import { getDailyState } from '../rewards/daily'
 import { listLast7Days } from '../stats/dayLog'
+import { useNavigate } from 'react-router-dom'
+import { getPreferredNpcId, setPreferredNpcId, getOrCreateDailyRecommendation, setDailyRecommendation, setDailyRerollUsed, getDailyRerollUsed } from '../game/npc/npcStorage'
+import { NpcPickerModal } from '../components/game/NpcPickerModal'
+import { NpcGuideCard } from '../components/game/NpcGuideCard'
+import { buildNpcRecommendation, formatDateKeyParis } from '../game/npc/npcRecommendation'
+import type { NpcRecommendation } from '../game/npc/npcRecommendation'
 
 export function HomePage() {
   const { user } = useAuth()
   const { rewards } = useUserRewards(user?.uid || null)
+  const nav = useNavigate()
+  const [showNpcPicker, setShowNpcPicker] = React.useState(false)
+  const [npcId, setNpcId] = React.useState(getPreferredNpcId())
+  const [recommendation, setRecommendation] = React.useState<NpcRecommendation | null>(null)
   const [inventory, setInventory] = React.useState<any[]>([])
   const [daily, setDaily] = React.useState<any | null>(null)
   const [days, setDays] = React.useState<any[]>([])
+
+  const dateKey = formatDateKeyParis(Date.now())
+
+  const onReroll = () => {
+    if (getDailyRerollUsed(dateKey)) return
+    const masteryByTag = rewards?.masteryByTag || {}
+    const history: Array<{ tagIds: string[], correct: boolean, ts: number }> = []
+    const previousTag = recommendation?.expedition.targetTagId
+    const filteredMastery = { ...masteryByTag }
+    if (previousTag) delete (filteredMastery as any)[previousTag]
+    const rec = buildNpcRecommendation({ npcId, masteryByTag: filteredMastery, history, nowTs: Date.now() })
+    if (rec) {
+      setRecommendation(rec)
+      setDailyRecommendation(dateKey, rec)
+      setDailyRerollUsed(dateKey)
+    }
+  }
+
+  const onStartMission = () => {
+    if (!recommendation) return
+    const exp = recommendation.expedition
+    const params = new URLSearchParams()
+    params.set('expeditionType', exp.type)
+    params.set('targetTagId', exp.targetTagId)
+    params.set('biomeId', exp.biomeId)
+    if (exp.secondaryTagIds?.length) params.set('secondaryTagIds', exp.secondaryTagIds.join(','))
+    nav(`/theme/expedition?${params.toString()}`)
+  }
 
   React.useEffect(() => {
     if (!user) return
@@ -45,6 +83,26 @@ export function HomePage() {
     })()
   }, [user])
 
+  React.useEffect(() => {
+    const dateKey = formatDateKeyParis(Date.now())
+    const masteryByTag = rewards?.masteryByTag || {}
+    const history: Array<{ tagIds: string[], correct: boolean, ts: number }> = [] // TODO: branch to real history if disponible
+    let rec = getOrCreateDailyRecommendation({
+      npcId,
+      masteryByTag,
+      history,
+      nowTs: Date.now(),
+    })
+    if (!rec) {
+      rec = buildNpcRecommendation({ npcId, masteryByTag, history, nowTs: Date.now() })
+      if (rec) setDailyRecommendation(dateKey, rec)
+    }
+    setRecommendation(rec)
+    if (process.env.NODE_ENV !== 'production' && rec) {
+      console.debug('[npc.mission]', { npcId, reason: rec.reasonCode, tag: rec.expedition.targetTagId, type: rec.expedition.type })
+    }
+  }, [npcId, rewards])
+
   return (
     <div className="container grid">
       <div className="card">
@@ -68,6 +126,16 @@ export function HomePage() {
           </div>
         </div>
       </div>
+
+      {recommendation && (
+        <NpcGuideCard
+          recommendation={recommendation}
+          dateKey={dateKey}
+          onStart={onStartMission}
+          onReroll={onReroll}
+          onChangeNpc={() => setShowNpcPicker(true)}
+        />
+      )}
 
       {daily && (
         <div className="card">
@@ -149,6 +217,15 @@ export function HomePage() {
           })}
         </div>
       </div>
+
+      <NpcPickerModal
+        open={showNpcPicker}
+        onClose={() => setShowNpcPicker(false)}
+        onPicked={(id) => {
+          setNpcId(id)
+          setPreferredNpcId(id)
+        }}
+      />
     </div>
   )
 }
