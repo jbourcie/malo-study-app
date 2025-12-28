@@ -2,6 +2,7 @@ import { arrayUnion, collection, deleteDoc, doc, getDoc, getDocs, limit, orderBy
 import { db } from '../firebase'
 import { validateQuestionPack, type ImportReport, type PackMetaV1, type QualityStatus, type QuestionPackV1, type QuestionV1 } from '../domain/questions/types'
 import type { Exercise, ExerciseFillBlank, ExerciseMCQ, ExerciseShortText } from '../types'
+import { normalize } from '../utils/normalize'
 
 export type ModerationFilters = {
   status?: QualityStatus
@@ -172,24 +173,26 @@ export function mapQuestionToExercise(q: QuestionV1): Exercise {
     return mcq
   }
   if (q.type === 'FILL_BLANK') {
+    const expected = normalize(String(q.answer || ''))
     const fb: ExerciseFillBlank = {
       id: q.id,
       themeId: q.blockId || q.primaryTag,
       type: 'fill_blank',
       prompt: q.statement,
       text: q.statement,
-      expected: [String(q.answer || '')],
+      expected: [expected],
       difficulty,
       tags,
     }
     return fb
   }
+  const expected = normalize(String(q.answer || ''))
   const short: ExerciseShortText = {
     id: q.id,
     themeId: q.blockId || q.primaryTag,
     type: 'short_text',
     prompt: q.statement,
-    expected: [String(q.answer || '')],
+    expected: [expected],
     difficulty,
     tags,
   }
@@ -217,9 +220,11 @@ export async function fetchExercisesForPlay(tagId: string, opts?: { limitTo?: nu
       lessonRef?: string | null
       packLesson?: string
       packLessonTitle?: string
+      explanation?: string | null
     }
     ex.setId = q.setId
     ex.lessonRef = q.lessonRef || null
+    ex.explanation = (q as any).explanation || null
     if (opts?.includeLessons && q.setId) {
       const pack = packMetaBySetId[q.setId]
       ex.packLesson = pack?.lesson

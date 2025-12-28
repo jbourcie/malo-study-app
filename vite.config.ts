@@ -7,4 +7,9 @@ const base = process.env.VITE_BASE_PATH || '/malo-study-app/'
 export default defineConfig({
   plugins: [react()],
   base,
+  test: {
+    environment: 'node',
+    include: ['tests/**/*.test.ts'],
+    watch: false,
+  },
 })

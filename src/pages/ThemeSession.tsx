@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom'
-import { listExercises, listReadings, listExercisesByTag, saveAttemptAndRewards } from '../data/firestore'
+import { listExercises, listReadings, listExercisesByTag, saveAttemptAndRewards, type AttemptItemInput } from '../data/firestore'
 import { saveSessionWithProgress } from '../data/progress'
 import { useAuth } from '../state/useAuth'
 import type { Exercise, ExerciseMCQ, ExerciseShortText, ExerciseFillBlank, SubjectId, Reading } from '../types'
@@ -8,12 +8,12 @@ import { normalize } from '../utils/normalize'
 import { doc, getDoc } from 'firebase/firestore'
 import { db } from '../firebase'
 import { flattenThemeContent, PlayableExercise } from '../utils/flattenThemeContent'
-import { computeSessionXp, computeLevelFromXp, updateMasteryFromAttempt } from '../rewards/rewards'
+import { computeSessionXp, computeLevelFromXp, updateMasteryFromAttempt, type SessionXpBreakdown, type MasteryState } from '../rewards/rewards'
 import { awardSessionRewards, applyMasteryEvents, evaluateBadges } from '../rewards/rewardsService'
 import { useUserRewards } from '../state/useUserRewards'
 import { RewardsHeader } from '../components/RewardsHeader'
 import { LessonReminder } from '../components/LessonReminder'
-import { markdownToHtml } from '../utils/markdown'
+import { extractLessonSection, markdownToHtml } from '../utils/markdown'
 import { getSessionFeedback } from '../utils/sessionFeedback'
 import { rollCollectible } from '../rewards/collectibles'
 import { equipAvatar, unlockCollectible } from '../rewards/collectiblesService'
@@ -23,10 +23,28 @@ import { upsertDayStat } from '../stats/dayLog'
 import { selectQuestionsFromPool, shouldRepair, type ExpeditionType } from '../pedagogy/questionSelector'
 import { awardMalocraftLoot } from '../rewards/awardMalocraftLoot'
 import { subjectToBiomeId } from '../game/biomeCatalog'
-import { inferSubject } from '../taxonomy/tagCatalog'
+import { getTagMeta, inferSubject } from '../taxonomy/tagCatalog'
 import { MALLOOT_CATALOG } from '../rewards/malocraftLootCatalog'
 
 type AnswerState = Record<string, any>
+type LessonReminderState = {
+  title?: string | null
+  content?: string | null
+  lessonRef?: string | null
+  mode?: 'full' | 'contextual'
+}
+type FeedbackItem = {
+  id: string
+  prompt: string
+  correct: boolean
+  expected: string
+  userAnswer: string
+  idx: number
+  explanation?: string | null
+  lessonRef?: string | null
+  packLesson?: string | null
+  packLessonTitle?: string | null
+}
 
 function isCorrect(ex: Exercise, ans: any): boolean {
   if (ex.type === 'mcq') return ans === (ex as ExerciseMCQ).answerIndex
@@ -62,16 +80,18 @@ export function ThemeSessionPage() {
   const [weakTags, setWeakTags] = React.useState<string[]>([])
   const [sessionTargetTagId, setSessionTargetTagId] = React.useState<string | null>(null)
   const [sessionExpeditionType, setSessionExpeditionType] = React.useState<ExpeditionType>('mine')
-  const [feedback, setFeedback] = React.useState<Array<{
-    id: string
-    prompt: string
-    correct: boolean
-    expected: string
-    userAnswer: string
-    idx: number
-  }>>([])
+  const [feedback, setFeedback] = React.useState<FeedbackItem[]>([])
   const [showCorrections, setShowCorrections] = React.useState(false)
-  const [sessionRewards, setSessionRewards] = React.useState<{ deltaXp: number, levelUp: boolean, newRewards?: any, prevRewards?: any, unlockedBadges?: string[], collectibleId?: string | null } | null>(null)
+  const [sessionRewards, setSessionRewards] = React.useState<{
+    deltaXp: number
+    levelUp: boolean
+    newRewards?: any
+    prevRewards?: any
+    unlockedBadges?: string[]
+    collectibleId?: string | null
+    xpBreakdown?: SessionXpBreakdown
+    blockProgress?: { tagId: string, attempts: number, successRate: number, state?: MasteryState }
+  } | null>(null)
   const [awardedLootId, setAwardedLootId] = React.useState<string | null>(null)
   const [showRewardModal, setShowRewardModal] = React.useState(false)
   const nav = useNavigate()
@@ -79,7 +99,8 @@ export function ThemeSessionPage() {
   const [errorMsg, setErrorMsg] = React.useState<string>('')
   const [searchParams] = useSearchParams()
   const [isSubmitting, setIsSubmitting] = React.useState(false)
-  const [lessonReminder, setLessonReminder] = React.useState<{ title?: string | null, content?: string | null, lessonRef?: string | null, mode?: 'full' | 'contextual' } | null>(null)
+  const [lessonReminder, setLessonReminder] = React.useState<LessonReminderState | null>(null)
+  const [openLessonByQuestion, setOpenLessonByQuestion] = React.useState<Record<string, boolean>>({})
 
   React.useEffect(() => {
     (async () => {
@@ -122,6 +143,7 @@ export function ThemeSessionPage() {
         setErrorMsg('Aucune question publiée pour ce bloc pour le moment.')
         setFeedback([])
         setShowCorrections(false)
+        setOpenLessonByQuestion({})
         setLessonReminder(null)
         return
       } else {
@@ -174,6 +196,7 @@ export function ThemeSessionPage() {
       setAnswers({})
       setResult(null)
       setFeedback([])
+      setOpenLessonByQuestion({})
       setShowCorrections(false)
     })()
   }, [themeId, user, searchParams, liveRewards])
@@ -185,12 +208,28 @@ export function ThemeSessionPage() {
     const durationSec = Math.max(1, Math.round((Date.now() - startedAt) / 1000))
 
     try {
-      const items = exos.map(ex => ({
-        exerciseId: ex.id,
-        difficulty: ex.difficulty,
-        tags: ex.tags || [],
-        correct: isCorrect(ex, answers[ex.id])
-      }))
+      const answeredItemIds = new Set<string>()
+      exos.forEach((ex) => {
+        const ans = answers[ex.id]
+        if (ans === undefined || ans === null) return
+        if (typeof ans === 'string' && ans.trim() === '') return
+        answeredItemIds.add(ex.id)
+      })
+      const answeredCount = answeredItemIds.size
+      // Bonus de complétion uniquement si toutes les questions ont été répondues (évite double comptage sur abandon/refresh).
+      const sessionCompleted = answeredCount > 0 && answeredCount === exos.length
+
+      // exerciseId provient de la question publiée (questionId Firestore), nécessaire pour l'idempotence rewardEvents.
+      const items: Array<AttemptItemInput & { answered: boolean }> = exos.map(ex => {
+        const answered = answeredItemIds.has(ex.id)
+        return {
+          exerciseId: ex.id,
+          difficulty: ex.difficulty,
+          tags: ex.tags || [],
+          correct: answered ? isCorrect(ex, answers[ex.id]) : false,
+          answered,
+        }
+      })
 
       const progress = await saveSessionWithProgress({
         uid: user.uid,
@@ -211,12 +250,29 @@ export function ThemeSessionPage() {
         skipAttemptWrite: true,
       })
 
-      const answeredCount = exos.reduce((acc, ex) => {
-        const ans = answers[ex.id]
-        if (ans === undefined || ans === null) return acc
-        if (typeof ans === 'string' && ans.trim() === '') return acc
-        return acc + 1
-      }, 0)
+      const correctCount = items.filter(i => i.answered && i.correct).length
+      const streaks: number[] = []
+      let currentStreak = 0
+      let comebackCount = 0
+      let previousIncorrect = false
+      items.forEach((item) => {
+        if (!item.answered) {
+          if (currentStreak >= 2) streaks.push(currentStreak)
+          currentStreak = 0
+          previousIncorrect = false
+          return
+        }
+        if (item.correct) {
+          currentStreak += 1
+          if (previousIncorrect) comebackCount += 1
+          previousIncorrect = false
+        } else {
+          if (currentStreak >= 2) streaks.push(currentStreak)
+          currentStreak = 0
+          previousIncorrect = true
+        }
+      })
+      if (currentStreak >= 2) streaks.push(currentStreak)
 
       // Projection for mastery unlocks (used to decide collectible roll)
       const masteryBefore = liveRewards?.masteryByTag || {}
@@ -233,7 +289,23 @@ export function ThemeSessionPage() {
         .filter(([tag, val]) => val?.state === 'mastered' && (masteryBefore as any)?.[tag]?.state !== 'mastered')
         .length
 
-      const deltaXp = computeSessionXp({ answeredCount, isCompleted: true })
+      const xpOutcome = computeSessionXp({
+        answeredCount,
+        correctCount,
+        streaks,
+        comebackCount,
+        isCompleted: sessionCompleted,
+      })
+      const deltaXp = xpOutcome.total
+      const targetTag = sessionTargetTagId || items.find(i => Array.isArray(i.tags) && i.tags.length)?.tags?.[0] || null
+      const blockProgress = targetTag ? (() => {
+        const tagged = items.filter(i => i.answered && (i.tags || []).includes(targetTag))
+        const attempts = tagged.length
+        const correctBlock = tagged.filter(i => i.correct).length
+        const successRate = attempts ? Math.round((correctBlock / attempts) * 100) : 0
+        const state = (masteryAfter as any)?.[targetTag]?.state || (masteryBefore as any)?.[targetTag]?.state
+        return { tagId: targetTag, attempts, successRate, state: state as MasteryState | undefined }
+      })() : undefined
       const prevRewards = liveRewards
       let newRewards = null
       let levelUp = false
@@ -289,11 +361,12 @@ export function ThemeSessionPage() {
           sessionsDelta: 1,
           xpDelta: deltaXp,
         }).catch(err => console.error('upsertDayStat failed', err))
+        // TODO: branch here for futures (quests journalières v2, PNJ réactions, stats parents) without changing rewardEvents idempotence.
       } catch (e) {
         console.error('awardSessionRewards failed', e)
         // fallback: do not block UX
       }
-      setSessionRewards({ deltaXp, levelUp, newRewards, prevRewards, unlockedBadges, collectibleId: rolledCollectibleId })
+      setSessionRewards({ deltaXp, levelUp, newRewards, prevRewards, unlockedBadges, collectibleId: rolledCollectibleId, xpBreakdown: xpOutcome.breakdown, blockProgress })
 
       const sessionTags = new Set<string>(exos.flatMap(ex => ex.tags || []))
       const sortedWeak = Object.values(progress.tagsUpdated || {})
@@ -348,8 +421,27 @@ export function ThemeSessionPage() {
           expected: expected || '—',
           userAnswer: (userAnswer ?? '').toString() || '—',
           idx: idx + 1,
+          explanation: (ex as any).explanation || null,
+          lessonRef: (ex as any).lessonRef || null,
+          packLesson: (ex as any).packLesson || lessonReminder?.content || null,
+          packLessonTitle: (ex as any).packLessonTitle || lessonReminder?.title || null,
         }
       })
+      const firstIncorrectWithLesson = exos.find((ex, idx) => {
+        const ans = answers[ex.id]
+        return !isCorrect(ex, ans) && (ex as any).lessonRef
+      })
+      if (firstIncorrectWithLesson) {
+        const packLesson = (firstIncorrectWithLesson as any).packLesson || lessonReminder?.content
+        if (packLesson) {
+          setLessonReminder(prev => ({
+            title: (firstIncorrectWithLesson as any).packLessonTitle || prev?.title || null,
+            content: packLesson,
+            lessonRef: (firstIncorrectWithLesson as any).lessonRef || prev?.lessonRef || null,
+            mode: 'contextual',
+          }))
+        }
+      }
       setSessionFeedbackMsg(fb)
       setFeedback(fbDetails)
       setShowCorrections(true)
@@ -374,6 +466,14 @@ export function ThemeSessionPage() {
       if (rate >= 80) return 'Super ! Continue comme ça.'
       if (rate >= 50) return 'Bien joué ! On consolide et ça va monter.'
       return 'Bien essayé. On progresse en s’entraînant.'
+    })() : ''
+    const blockMeta = sessionRewards?.blockProgress?.tagId ? getTagMeta(sessionRewards.blockProgress.tagId) : null
+    const blockFeedback = sessionRewards?.blockProgress ? (() => {
+      const r = sessionRewards.blockProgress.successRate
+      if (r >= 80) return 'Bloc presque réparé'
+      if (r >= 50) return 'Bloc en bonne voie'
+      if (r > 0) return 'Premiers pas sur ce bloc'
+      return ''
     })() : ''
 
     const collectibleDef = sessionRewards?.collectibleId ? COLLECTIBLES.find(c => c.id === sessionRewards?.collectibleId) : null
@@ -401,8 +501,18 @@ export function ThemeSessionPage() {
               <h3 style={{ marginTop: 0 }}>Bravo {user?.displayName?.split(' ')[0] || '!'}</h3>
               <div className="small">Score {result?.score}/{result?.outOf}</div>
               <div className="small" style={{ marginTop: 6 }}>+{sessionRewards?.deltaXp ?? 0} XP</div>
+              {sessionRewards?.xpBreakdown && (
+                <div className="small" style={{ marginTop: 4 }}>
+                  Base {sessionRewards.xpBreakdown.base} · série +{sessionRewards.xpBreakdown.streakBonus} · retour +{sessionRewards.xpBreakdown.comebackBonus} · session +{sessionRewards.xpBreakdown.completion}
+                </div>
+              )}
               {sessionRewards?.levelUp && (
                 <div className="small" style={{ marginTop: 6 }}>🎉 Niveau {sessionRewards?.newRewards?.level}</div>
+              )}
+              {sessionRewards?.blockProgress && blockMeta && (
+                <div className="small" style={{ marginTop: 6 }}>
+                  {blockMeta.label} : {sessionRewards.blockProgress.successRate}% ({sessionRewards.blockProgress.attempts} q.) {blockFeedback ? `• ${blockFeedback}` : ''}
+                </div>
               )}
               {collectibleDef && (
                 <div className="pill" style={{ marginTop: 10, display:'flex', alignItems:'center', gap:10 }}>
@@ -449,12 +559,31 @@ export function ThemeSessionPage() {
               +{sessionRewards.deltaXp} XP {sessionRewards.levelUp ? `· 🎉 Niveau ${sessionRewards.newRewards?.level}` : ''}
             </div>
           )}
+          {sessionRewards?.xpBreakdown && (
+            <div className="small" style={{ marginTop: 4 }}>
+              Détail XP : base {sessionRewards.xpBreakdown.base} · série +{sessionRewards.xpBreakdown.streakBonus} · retour +{sessionRewards.xpBreakdown.comebackBonus} · session +{sessionRewards.xpBreakdown.completion}
+            </div>
+          )}
+          {sessionRewards?.blockProgress && blockMeta && (
+            <div className="small" style={{ marginTop: 6 }}>
+              {blockMeta.label} : {sessionRewards.blockProgress.successRate}% ({sessionRewards.blockProgress.attempts} q.) {blockFeedback ? `• ${blockFeedback}` : ''}
+            </div>
+          )}
           <div className="row" style={{ gap:8, marginTop:10, flexWrap:'wrap' }}>
             {lootDef && <button className="btn secondary" onClick={() => nav('/chest')}>Voir mon coffre</button>}
             {collectibleDef && <button className="btn secondary" onClick={() => nav('/collection')}>Voir ma collection</button>}
           </div>
           {message && <div className="small" style={{ marginTop: 8 }}>{message}</div>}
         </div>
+
+        {lessonReminder?.content && (
+          <LessonReminder
+            title={lessonReminder.title}
+            content={lessonReminder.content}
+            lessonRef={lessonReminder.lessonRef}
+            mode={lessonReminder.mode || 'full'}
+          />
+        )}
 
         <div className="card">
           <div className="grid">
@@ -469,13 +598,48 @@ export function ThemeSessionPage() {
                 </div>
                 <div style={{ fontWeight: 700 }}>{f.prompt}</div>
                 <div className="small">Ta réponse : <strong>{f.userAnswer}</strong></div>
-                {!f.correct && <div className="small">Correction : <strong>{f.expected}</strong></div>}
+                {!f.correct && (
+                  <>
+                    <div className="small">Correction : <strong>{f.expected}</strong></div>
+                    {f.explanation && (
+                      <div className="small" style={{ marginTop: 4 }}>Explication : {f.explanation}</div>
+                    )}
+                    {f.packLesson && (
+                      <div className="small" style={{ marginTop: 6 }}>
+                        <button
+                          className="btn secondary"
+                          style={{ padding:'4px 8px', fontSize: '0.8rem' }}
+                          onClick={() => setOpenLessonByQuestion(prev => ({ ...prev, [f.id]: !prev[f.id] }))}
+                        >
+                          {openLessonByQuestion[f.id] ? 'Masquer le rappel' : 'Voir le rappel de leçon'}
+                        </button>
+                        {openLessonByQuestion[f.id] && (
+                          <div className="pill" style={{ marginTop: 6 }}>
+                            <div className="small" style={{ color:'var(--mc-muted)' }}>
+                              {f.packLessonTitle || 'Leçon'}
+                            </div>
+                            {(() => {
+                              const section = f.lessonRef ? extractLessonSection(f.packLesson || '', f.lessonRef) : null
+                              const html = markdownToHtml(section?.markdown || f.packLesson || '')
+                              return (
+                                <>
+                                  {section?.title && <div style={{ fontWeight: 700 }}>{section.title}</div>}
+                                  <div className="small" dangerouslySetInnerHTML={{ __html: html }} />
+                                </>
+                              )
+                            })()}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </>
+                )}
               </div>
             ))}
           </div>
           <div className="row" style={{ marginTop: 16 }}>
             <button className="btn" onClick={() => nav('/')}>Retour à l’accueil</button>
-            <button className="btn secondary" onClick={() => { setShowCorrections(false); setFeedback([]); setResult(null); setAnswers({}); }}>Refaire une session</button>
+            <button className="btn secondary" onClick={() => { setShowCorrections(false); setFeedback([]); setResult(null); setAnswers({}); setOpenLessonByQuestion({}); }}>Refaire une session</button>
           </div>
         </div>
 
@@ -483,6 +647,11 @@ export function ThemeSessionPage() {
           <div className="card">
             <h3 style={{ marginTop: 0 }}>Progression XP</h3>
             <div className="small">XP : {xpBefore} → {xpAfter}</div>
+            {sessionRewards.blockProgress && blockMeta && (
+              <div className="small" style={{ marginTop: 6 }}>
+                Bloc cible : {blockMeta.label} · {sessionRewards.blockProgress.successRate}% ({sessionRewards.blockProgress.attempts} q.) {blockFeedback ? `• ${blockFeedback}` : ''}
+              </div>
+            )}
             {(() => {
               const before = computeLevelFromXp(xpBefore)
               const after = computeLevelFromXp(xpAfter)
@@ -517,7 +686,12 @@ export function ThemeSessionPage() {
       <RewardsHeader rewards={liveRewards} />
 
       {lessonReminder?.content && (
-        <LessonReminder title={lessonReminder.title} content={lessonReminder.content} lessonRef={lessonReminder.lessonRef} />
+        <LessonReminder
+          title={lessonReminder.title}
+          content={lessonReminder.content}
+          lessonRef={lessonReminder.lessonRef}
+          mode={lessonReminder.mode || 'full'}
+        />
       )}
 
       {errorMsg && (
@@ -621,7 +795,40 @@ export function ThemeSessionPage() {
                 <div className="small">Question {f.idx} • {f.correct ? <span className="badge">✔️ Bonne réponse</span> : <span className="badge">❌ Mauvaise réponse</span>}</div>
                 <div style={{ fontWeight: 700 }}>{f.prompt}</div>
                 <div className="small">Ta réponse : <strong>{f.userAnswer}</strong></div>
-                {!f.correct && <div className="small">Correction : <strong>{f.expected}</strong></div>}
+                {!f.correct && (
+                  <>
+                    <div className="small">Correction : <strong>{f.expected}</strong></div>
+                    {f.explanation && <div className="small" style={{ marginTop: 4 }}>Explication : {f.explanation}</div>}
+                    {f.packLesson && (
+                      <div className="small" style={{ marginTop: 6 }}>
+                        <button
+                          className="btn secondary"
+                          style={{ padding:'4px 8px', fontSize: '0.8rem' }}
+                          onClick={() => setOpenLessonByQuestion(prev => ({ ...prev, [f.id]: !prev[f.id] }))}
+                        >
+                          {openLessonByQuestion[f.id] ? 'Masquer le rappel' : 'Voir le rappel de leçon'}
+                        </button>
+                        {openLessonByQuestion[f.id] && (
+                          <div className="pill" style={{ marginTop: 6 }}>
+                            <div className="small" style={{ color:'var(--mc-muted)' }}>
+                              {f.packLessonTitle || 'Leçon'}
+                            </div>
+                            {(() => {
+                              const section = f.lessonRef ? extractLessonSection(f.packLesson || '', f.lessonRef) : null
+                              const html = markdownToHtml(section?.markdown || f.packLesson || '')
+                              return (
+                                <>
+                                  {section?.title && <div style={{ fontWeight: 700 }}>{section.title}</div>}
+                                  <div className="small" dangerouslySetInnerHTML={{ __html: html }} />
+                                </>
+                              )
+                            })()}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </>
+                )}
               </div>
             ))}
           </div>

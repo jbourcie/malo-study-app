@@ -8,7 +8,7 @@
 - `question` requis : `schemaVersion: 1`, `taxonomyVersion` (doit être identique à `pack.taxonomyVersion`), `id`, `blockId` (id “jeu”, ex: `block_coal_01`), `grade`, `lang`, `primaryTag` (tag taxonomie, ex: `fr_grammaire_fonction_cod`), `type` (`MCQ` | `FILL_BLANK` | `TRUE_FALSE` | `ERROR_SPOTTING`), `difficulty` (1-5), `statement`, `answer`, `quality.status`.
 - Règles métier :  
   - `secondaryTags` optionnels, `metaTags` optionnels mais doivent commencer par `meta_`.  
-  - `lessonRef` optionnel (ancre dans la leçon, ex: `cod_definition`, à placer sur un titre avec `{#cod_definition}`).  
+  - `lessonRef` optionnel (ancre dans la leçon, ex: `cod_definition`, à placer sur un **titre markdown** : `## Définition {#cod_definition}`). Si l’ancre est absente côté markdown, l’app retombe sur la leçon complète.  
   - `type === "MCQ"` ⇒ `choices` array obligatoire et `answer ∈ choices`.  
   - `type === "TRUE_FALSE"` ⇒ `answer` vaut `"true"` ou `"false"`.  
   - `type === "FILL_BLANK"` ⇒ `choices` peut être `null`.  
@@ -68,7 +68,7 @@ Statuts : `draft` → `reviewed` → `published` → (`rejected` ou `archived`).
 ## Consommation côté enfant
 
 - Les requêtes de jeu utilisent désormais uniquement `questions` où `quality.status == "published"` et `quality.deletedAt == null`. Si aucun résultat, l’UI affiche un message de fallback sans crash.
-- Si le pack contient une leçon (`lesson`/`lessonTitle`), un rappel est affiché avant la session. `lessonRef` peut être utilisé pour contextualiser la section de la leçon.
+- Si le pack contient une leçon (`lesson`/`lessonTitle`), un rappel est affiché avant la session. `lessonRef` peut être utilisé pour contextualiser la section de la leçon (lignes de titre avec `{#anchor}`), sinon la leçon complète est affichée par défaut.
 
 ## Firestore
 

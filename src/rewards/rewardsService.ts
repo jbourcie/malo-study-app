@@ -3,6 +3,7 @@ import { db } from '../firebase'
 import type { UserRewards } from './rewards'
 import { computeLevelFromXp, updateMasteryFromAttempt } from './rewards'
 import { BADGES } from './badgesCatalog'
+import { createFirestoreRewardStore, type RewardStore } from './rewardStore'
 
 export async function getOrInitRewards(uid: string): Promise<UserRewards> {
   const ref = doc(db, 'users', uid, 'meta', 'rewards')
@@ -14,6 +15,7 @@ export async function getOrInitRewards(uid: string): Promise<UserRewards> {
       level: data.level || 1,
       badges: Array.isArray(data.badges) ? data.badges : [],
       masteryByTag: typeof data.masteryByTag === 'object' && data.masteryByTag ? data.masteryByTag : {},
+      blockProgress: typeof data.blockProgress === 'object' && data.blockProgress ? data.blockProgress : {},
       collectibles: data.collectibles && Array.isArray(data.collectibles.owned)
         ? { owned: data.collectibles.owned, equippedAvatarId: data.collectibles.equippedAvatarId ?? null }
         : { owned: [], equippedAvatarId: null },
@@ -23,35 +25,30 @@ export async function getOrInitRewards(uid: string): Promise<UserRewards> {
       updatedAt: data.updatedAt,
     }
   }
-  const initial: UserRewards = { xp: 0, level: 1, badges: [], masteryByTag: {}, collectibles: { owned: [], equippedAvatarId: null }, malocraft: { ownedLootIds: [], equippedAvatarId: null, biomeMilestones: {} }, updatedAt: serverTimestamp() as any }
+  const initial: UserRewards = { xp: 0, level: 1, badges: [], masteryByTag: {}, blockProgress: {}, collectibles: { owned: [], equippedAvatarId: null }, malocraft: { ownedLootIds: [], equippedAvatarId: null, biomeMilestones: {} }, updatedAt: serverTimestamp() as any }
   await setDoc(ref, initial)
   return initial
 }
 
-export async function awardSessionRewards(uid: string, sessionId: string | null, deltaXp: number): Promise<UserRewards> {
+export async function awardSessionRewards(uid: string, sessionId: string | null, deltaXp: number, store: RewardStore = createFirestoreRewardStore()): Promise<UserRewards> {
   if (deltaXp <= 0) return await getOrInitRewards(uid)
-  const rewardsRef = doc(db, 'users', uid, 'meta', 'rewards')
-  const eventsRef = sessionId ? doc(db, 'users', uid, 'rewardEvents', sessionId) : null
-
   let result: UserRewards | null = null
 
-  await runTransaction(db, async (tx) => {
-    const [evSnap, rewardsSnap] = await Promise.all([
-      eventsRef ? tx.get(eventsRef) : Promise.resolve(null as any),
-      tx.get(rewardsRef),
-    ])
+  await store.runTransaction(async (tx) => {
+    const existing = await tx.getRewards(uid)
+    const eventAlreadyExists = sessionId ? await tx.getRewardEvent(uid, sessionId) : null
 
-    if (eventsRef && evSnap && evSnap.exists()) {
-      result = rewardsSnap.exists() ? (rewardsSnap.data() as UserRewards) : { xp: 0, level: 1 }
+    if (sessionId && eventAlreadyExists) {
+      result = existing || { xp: 0, level: 1 }
       return
     }
 
-    const existing = rewardsSnap.exists() ? (rewardsSnap.data() as any) : null
     const current: UserRewards = {
       xp: existing?.xp || 0,
       level: existing?.level || 1,
       badges: Array.isArray(existing?.badges) ? existing.badges : [],
       masteryByTag: typeof existing?.masteryByTag === 'object' && existing?.masteryByTag ? existing.masteryByTag : {},
+      blockProgress: typeof existing?.blockProgress === 'object' && existing?.blockProgress ? existing.blockProgress : {},
       collectibles: existing?.collectibles && Array.isArray(existing.collectibles.owned)
         ? { owned: existing.collectibles.owned, equippedAvatarId: existing.collectibles.equippedAvatarId ?? null }
         : { owned: [], equippedAvatarId: null },
@@ -67,19 +64,21 @@ export async function awardSessionRewards(uid: string, sessionId: string | null,
       level: levelInfo.level,
       badges: current.badges || [],
       masteryByTag: current.masteryByTag || {},
+      blockProgress: current.blockProgress || {},
       collectibles: {
         owned: current.collectibles?.owned || [],
         equippedAvatarId: current.collectibles?.equippedAvatarId ?? null,
       },
-      updatedAt: serverTimestamp() as any,
+      malocraft: current.malocraft || { ownedLootIds: [], equippedAvatarId: null, biomeMilestones: {} },
+      updatedAt: store.createTimestamp(),
     }
 
-    tx.set(rewardsRef, nextRewards, { merge: true })
-    if (eventsRef) {
-      tx.set(eventsRef, {
+    tx.setRewards(uid, nextRewards)
+    if (sessionId) {
+      tx.setRewardEvent(uid, sessionId, {
         sessionId,
         deltaXp,
-        awardedAt: serverTimestamp(),
+        awardedAt: store.createTimestamp(),
       })
     }
     result = nextRewards
@@ -92,33 +91,35 @@ export async function applyMasteryEvents(opts: {
   uid: string
   sessionId: string
   items: Array<{ exerciseId: string, tags?: string[], correct: boolean }>
-}) {
+}, store: RewardStore = createFirestoreRewardStore()) {
   const { uid, sessionId, items } = opts
-  const rewardsRef = doc(db, 'users', uid, 'meta', 'rewards')
+  const now = store.createTimestamp()
 
-  await runTransaction(db, async (tx) => {
-    const rewardsSnap = await tx.get(rewardsRef)
-    const existing = rewardsSnap.exists() ? (rewardsSnap.data() as any) : null
+  await store.runTransaction(async (tx) => {
+    const existing = await tx.getRewards(uid)
     const current: UserRewards = {
       xp: existing?.xp || 0,
       level: existing?.level || 1,
       badges: Array.isArray(existing?.badges) ? existing.badges : [],
       masteryByTag: typeof existing?.masteryByTag === 'object' && existing?.masteryByTag ? existing.masteryByTag : {},
+      blockProgress: typeof existing?.blockProgress === 'object' && existing?.blockProgress ? existing.blockProgress : {},
+      collectibles: existing?.collectibles,
+      malocraft: existing?.malocraft,
       updatedAt: existing?.updatedAt,
     }
 
-    const now = serverTimestamp() as any
     const events = items.map(item => ({
       item,
-      evRef: doc(db, 'users', uid, 'rewardEvents', `${sessionId}_${item.exerciseId}`)
+      id: `${sessionId}_${item.exerciseId}`,
     }))
 
-    const eventSnaps = await Promise.all(events.map(e => tx.get(e.evRef)))
+    const eventSnapshots = await Promise.all(events.map(e => tx.getRewardEvent(uid, e.id)))
 
     let mastery = current.masteryByTag || {}
+    let blockProgress = current.blockProgress || {}
     events.forEach((e, idx) => {
-      const evSnap = eventSnaps[idx]
-      if (evSnap.exists()) return
+      const existingEvent = eventSnapshots[idx]
+      if (existingEvent) return
       const tags = Array.isArray(e.item.tags) ? e.item.tags : []
       mastery = updateMasteryFromAttempt({
         masteryByTag: mastery,
@@ -126,20 +127,40 @@ export async function applyMasteryEvents(opts: {
         isCorrect: e.item.correct,
         timestamp: now,
       })
+      tags.forEach((tag) => {
+        const prev = blockProgress?.[tag] || { attempts: 0, correct: 0, successRate: 0, state: 'discovering', score: mastery?.[tag]?.score || 0 }
+        const masteryState = mastery?.[tag]?.state || 'discovering'
+        const masteryScore = mastery?.[tag]?.score ?? prev.score ?? 0
+        const attempts = (prev.attempts || 0) + 1
+        const correct = (prev.correct || 0) + (e.item.correct ? 1 : 0)
+        const successRate = attempts > 0 ? Math.round((correct / attempts) * 100) : 0
+        blockProgress = {
+          ...blockProgress,
+          [tag]: {
+            state: masteryState,
+            score: masteryScore,
+            attempts,
+            correct,
+            successRate,
+            updatedAt: now,
+          }
+        }
+      })
     })
 
     events.forEach((e, idx) => {
-      const evSnap = eventSnaps[idx]
-      if (evSnap.exists()) return
+      const existingEvent = eventSnapshots[idx]
+      if (existingEvent) return
       const tags = Array.isArray(e.item.tags) ? e.item.tags : []
-      tx.set(e.evRef, { sessionId, exerciseId: e.item.exerciseId, correct: e.item.correct, tags, createdAt: now })
+      tx.setRewardEvent(uid, e.id, { sessionId, exerciseId: e.item.exerciseId, correct: e.item.correct, tags, createdAt: now })
     })
 
-    tx.set(rewardsRef, {
+    tx.setRewards(uid, {
       ...current,
       masteryByTag: mastery,
-      updatedAt: serverTimestamp(),
-    }, { merge: true })
+      blockProgress,
+      updatedAt: store.createTimestamp(),
+    })
   })
 }
 

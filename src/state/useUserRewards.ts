@@ -8,6 +8,7 @@ const defaultRewards: UserRewards = {
   level: 1,
   badges: [],
   masteryByTag: {},
+  blockProgress: {},
   collectibles: { owned: [], equippedAvatarId: null },
   malocraft: { ownedLootIds: [], equippedAvatarId: null, biomeMilestones: {} },
 }
@@ -29,6 +30,7 @@ export function useUserRewards(uid: string | null) {
         setRewards({
           ...defaultRewards,
           ...data,
+          blockProgress: data.blockProgress || defaultRewards.blockProgress,
           collectibles: data.collectibles || defaultRewards.collectibles,
           malocraft: data.malocraft || defaultRewards.malocraft,
         })

@@ -1,10 +1,13 @@
 # Audit MaloCraft Rewards (existant)
 
 - **Doc Firestore récompenses** : `users/{uid}/meta/rewards`
-  - Champs actuels : `xp`, `level`, `badges?`, `masteryByTag? (Record<tag, {state, score, updatedAt}>`, `collectibles? { owned: string[], equippedAvatarId? }`, `updatedAt`
+  - Champs actuels : `xp`, `level`, `badges?`, `masteryByTag? (Record<tag, {state, score, updatedAt}> )`, `blockProgress? (Record<tag, {attempts, correct, successRate, state, score, updatedAt}> )`, `collectibles? { owned: string[], equippedAvatarId? }`, `updatedAt`
 - **Types** :
   - `src/rewards/rewards.ts` : `UserRewards` (xp/level/badges/masteryByTag/collectibles/updatedAt)
   - `src/rewards/rewardsService.ts` reconstruit les valeurs et initialise les défauts.
+- **mastery vs blockProgress** :
+  - `masteryByTag` reste la source d’état (discovering/progressing/mastered) utilisée par l’UI.
+  - `blockProgress` ne stocke que des métriques (attempts/correct/successRate) synchronisées sur l’état de maîtrise.
 - **Lecture en UI** :
   - `useUserRewards` (state hook) lit `users/{uid}/meta/rewards` en temps réel avec fallback `collectibles` vide.
 - **Fin de session** :
@@ -18,3 +21,5 @@
   - `awardSessionRewards` utilise `rewardEvents/{sessionId}` ; `applyMasteryEvents` utilise `{sessionId}_{exerciseId}` ; collectibles utilisent `eventId` explicite.
 
 👉 Extension MaloCraft doit donc réutiliser `users/{uid}/meta/rewards` (champ additionnel `malocraft`) + `rewardEvents` avec clé `malocraftLoot:{sessionId}` pour rester idempotent et compatible.
+
+- Suite de tests anti-régression (XP/idempotence/normalisation) : voir `tests/*.test.ts` et `TESTING.md`.

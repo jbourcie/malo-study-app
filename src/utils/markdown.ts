@@ -49,28 +49,36 @@ export function markdownToHtml(md: string): string {
  * Extrait une section d'un markdown en ciblant une ancre {#anchorId} sur un titre.
  * Retourne le bloc (titre + contenu jusqu'au prochain titre de même niveau) ou null.
  */
-export function extractLessonSection(markdown: string, anchorId: string): string | null {
+export function extractLessonSection(markdown: string, anchorId: string): { title?: string, markdown: string } | null {
   if (!markdown || !anchorId) return null
+  const anchor = anchorId.replace(/^#/, '').trim()
+  if (!anchor) return null
+
   const lines = markdown.split('\n')
   let start = -1
   let level = 0
+  let title: string | undefined
+
   for (let i = 0; i < lines.length; i++) {
     const m = lines[i].match(/^(\#{1,6})\s+(.*)$/)
     if (!m) continue
     const anchorMatch = m[2].match(/\{#([^\}]+)\}\s*$/)
-    if (anchorMatch && anchorMatch[1] === anchorId) {
+    if (anchorMatch && anchorMatch[1] === anchor) {
       start = i
       level = m[1].length
+      title = m[2].replace(/\s*\{#([^\}]+)\}\s*$/, '').trim()
       break
     }
   }
+
   if (start === -1) return null
-  const collected: string[] = []
-  collected.push(lines[start])
+  const collected: string[] = [lines[start]]
   for (let j = start + 1; j < lines.length; j++) {
     const m = lines[j].match(/^(\#{1,6})\s+(.*)$/)
     if (m && m[1].length <= level) break
     collected.push(lines[j])
   }
-  return collected.join('\n').trim() || null
+  const sectionMarkdown = collected.join('\n').trim()
+  if (!sectionMarkdown) return null
+  return { title, markdown: sectionMarkdown }
 }

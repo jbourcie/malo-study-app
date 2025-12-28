@@ -7,6 +7,14 @@ export type UserRewards = {
   level: number
   badges?: string[]
   masteryByTag?: Record<string, { state: MasteryState, score: number, updatedAt?: Timestamp }>
+  blockProgress?: Record<string, {
+    state: MasteryState
+    score: number
+    attempts?: number
+    correct?: number
+    successRate?: number
+    updatedAt?: Timestamp
+  }>
   collectibles?: {
     owned: string[]
     equippedAvatarId?: string
@@ -37,11 +45,58 @@ export function computeLevelFromXp(xp: number): { level: number, xpIntoLevel: nu
   }
 }
 
-export function computeSessionXp(args: { answeredCount: number, isCompleted: boolean }): number {
+export type SessionXpBreakdown = {
+  base: number
+  completion: number
+  streakBonus: number
+  comebackBonus: number
+}
+
+const XP_RULES = {
+  // Toggle bonuses quickly by flipping the enable* flags or zeroing basePerCorrect.
+  basePerCorrect: 4,
+  fallbackPerAnswer: 2,
+  completionBonus: 10,
+  streakBonusPerExtra: 1, // points when a streak >=3 continues
+  comebackBonus: 2, // small boost after an error + explanation
+  enableStreakBonus: true,
+  enableComebackBonus: true,
+}
+
+export function computeSessionXp(args: {
+  answeredCount: number
+  correctCount?: number
+  streaks?: number[]
+  comebackCount?: number
+  isCompleted: boolean
+}): { total: number, breakdown: SessionXpBreakdown } {
+  // completion bonus appliqué uniquement si la session est déclarée complète par l'appelant (toutes les questions répondues)
   const answered = Math.max(0, args.answeredCount)
-  const base = answered * 2
-  const completion = args.isCompleted ? 10 : 0
-  return base + completion
+  const correct = typeof args.correctCount === 'number'
+    ? Math.max(0, Math.min(answered, args.correctCount))
+    : null
+
+  const base = XP_RULES.basePerCorrect && correct !== null
+    ? correct * XP_RULES.basePerCorrect
+    : answered * XP_RULES.fallbackPerAnswer
+
+  const completion = args.isCompleted ? XP_RULES.completionBonus : 0
+
+  let streakBonus = 0
+  if (XP_RULES.enableStreakBonus && Array.isArray(args.streaks)) {
+    args.streaks.forEach((len) => {
+      if (len >= 3) {
+        streakBonus += (len - 2) * XP_RULES.streakBonusPerExtra
+      }
+    })
+  }
+
+  const comebackBonus = XP_RULES.enableComebackBonus
+    ? Math.max(0, args.comebackCount || 0) * XP_RULES.comebackBonus
+    : 0
+
+  const total = Math.max(0, Math.round(base + completion + streakBonus + comebackBonus))
+  return { total, breakdown: { base, completion, streakBonus, comebackBonus } }
 }
 
 function masteryStateFromScore(score: number): MasteryState {

@@ -10,11 +10,16 @@ type LessonReminderProps = {
 
 export function LessonReminder({ title, content, lessonRef, mode = 'full' }: LessonReminderProps) {
   const [showFull, setShowFull] = React.useState(mode === 'full')
+  React.useEffect(() => {
+    setShowFull(mode === 'full')
+  }, [mode, lessonRef])
   if (!content) return null
 
   const contextualSection = mode === 'contextual' && lessonRef ? extractLessonSection(content, lessonRef) : null
-  const effectiveContent = !showFull && contextualSection ? contextualSection : content
+  const effectiveContent = !showFull && contextualSection ? contextualSection.markdown : content
   const isContextualView = !showFull && !!contextualSection
+  const sectionTitle = contextualSection?.title
+  const hasContextualToggle = mode === 'contextual' && !!contextualSection
 
   return (
     <div className="card" style={{ background:'rgba(122,162,255,0.08)', border:'1px solid rgba(122,162,255,0.35)' }}>
@@ -23,14 +28,16 @@ export function LessonReminder({ title, content, lessonRef, mode = 'full' }: Les
           <div className="small" style={{ color:'var(--mc-muted)' }}>
             {isContextualView ? 'Section ciblée' : 'Rappel de leçon'}
           </div>
-          <div style={{ fontWeight:900 }}>{title || 'Leçon associée'}</div>
-          {lessonRef && <div className="small">Section : {lessonRef}</div>}
+          <div style={{ fontWeight:900 }}>{isContextualView && sectionTitle ? sectionTitle : (title || 'Leçon associée')}</div>
+          {lessonRef && (
+            <div className="small">Section : {sectionTitle || lessonRef}</div>
+          )}
         </div>
         <div className="row" style={{ gap:6 }}>
-          {contextualSection && showFull && mode === 'contextual' && (
+          {hasContextualToggle && showFull && (
             <button className="btn secondary" onClick={() => setShowFull(false)}>Voir la section</button>
           )}
-          {contextualSection && !showFull && (
+          {hasContextualToggle && !showFull && (
             <button className="btn secondary" onClick={() => setShowFull(true)}>Voir toute la leçon</button>
           )}
           <span className="badge">📘</span>
