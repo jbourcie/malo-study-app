@@ -4,6 +4,7 @@ import { getBlockDef } from '../blockCatalog'
 import { subjectToBiomeId } from '../biomeCatalog'
 import { shouldRepair } from '../../pedagogy/questionSelector'
 import { inferSubject } from '../../taxonomy/tagCatalog'
+import { getPriorityTags } from './priorities'
 
 export type ExpeditionType = 'mine' | 'repair' | 'craft'
 
@@ -20,18 +21,6 @@ export type NpcRecommendation = {
     estimatedMinutes: number
   }
 }
-
-export const PRIORITY_TAGS = [
-  'math_fractions_addition',
-  'math_fractions_soustraction',
-  'math_fractions_equivalentes',
-  'fr_grammaire_phrase_simple_complexe',
-  'fr_grammaire_proposition_relative',
-  'fr_grammaire_negation',
-  'fr_conjugaison_present',
-  'fr_comprehension_inference',
-  'fr_comprehension_idee_principale',
-]
 
 function formatDateKeyParis(ts: number): string {
   try {
@@ -88,12 +77,31 @@ export function buildNpcRecommendation(params: {
   nowTs: number
   excludeTagIds?: string[]
   availableTagIds?: string[]
+  priorityTagsOverride?: string[]
 }): NpcRecommendation | null {
-  const { npcId, masteryByTag, history, nowTs, excludeTagIds = [], availableTagIds } = params
+  const { npcId, masteryByTag, history, nowTs, excludeTagIds = [], availableTagIds, priorityTagsOverride } = params
+  const priorityTags = priorityTagsOverride && priorityTagsOverride.length ? priorityTagsOverride : getPriorityTags()
   const dateKey = formatDateKeyParis(nowTs)
   const tagIds = Object.keys(masteryByTag || {})
-  const poolSet = new Set([...tagIds, ...history.flatMap(h => h.tagIds || []), ...PRIORITY_TAGS].filter(t => !excludeTagIds.includes(t)))
-  const pool = Array.from(poolSet).filter(t => !availableTagIds || availableTagIds.includes(t))
+  const baseAvailable = availableTagIds || []
+  const poolSet = new Set([
+    ...baseAvailable,
+    ...tagIds,
+    ...history.flatMap(h => h.tagIds || []),
+    ...priorityTags,
+  ].filter(t => !excludeTagIds.includes(t)))
+  let pool = Array.from(poolSet).filter(t => !availableTagIds || availableTagIds.includes(t))
+  if ((!pool.length) && availableTagIds && availableTagIds.length) {
+    pool = availableTagIds.filter(t => !excludeTagIds.includes(t))
+  }
+  // Debug: trace la construction de la pool de tags
+  // eslint-disable-next-line no-console
+  console.info('[npc.buildNpcRecommendation.pool]', {
+    available: availableTagIds,
+    poolSize: pool.length,
+    pool,
+    priority: priorityTags.filter(t => pool.includes(t)),
+  })
   if (!pool.length) return null
 
   const availableSet = new Set(availableTagIds || pool)
@@ -102,7 +110,7 @@ export function buildNpcRecommendation(params: {
   const repairable = pool.filter(tag => shouldRepair(tag, history))
   if (repairable.length) {
     const bestRepair = pickWeighted(repairable, (tag) => {
-      const priorityBoost = PRIORITY_TAGS.includes(tag) ? 5 : 1
+      const priorityBoost = priorityTags.includes(tag) ? 5 : 1
       const recency = Math.max(1, (nowTs - lastIncorrectTs(history, tag)) / (24 * 60 * 60 * 1000))
       return priorityBoost + 2 / recency
     })
@@ -124,7 +132,7 @@ export function buildNpcRecommendation(params: {
   }
 
   // Step 2: priority mine
-  const priorityCandidates = PRIORITY_TAGS.filter(tag =>
+  const priorityCandidates = priorityTags.filter(tag =>
     !excludeTagIds.includes(tag)
     && (masteryByTag[tag]?.state || 'discovering') !== 'mastered'
     && availableSet.has(tag)

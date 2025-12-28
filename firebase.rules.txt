@@ -61,7 +61,7 @@ service cloud.firestore {
       }
       match /meta/{docId} {
         allow read: if isOwner(userId) || isParent();
-        allow write: if isOwner(userId);
+        allow write: if isOwner(userId) || isParent();
       }
       match /rewardEvents/{docId} {
         allow read: if isOwner(userId) || isParent();

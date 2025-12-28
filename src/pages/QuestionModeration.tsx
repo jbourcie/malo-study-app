@@ -5,6 +5,8 @@ import { fetchQuestionsForModeration, setQuestionStatus, updateQuestionContent, 
 import type { ModerationFilters } from '../data/questions'
 import type { QualityStatus, QuestionV1 } from '../domain/questions/types'
 import { useAuth } from '../state/useAuth'
+import { TAG_CATALOG, getTagMeta } from '../taxonomy/tagCatalog'
+import { loadNpcPriorityTags, saveNpcPriorityTags } from '../data/npcPriorities'
 
 const STATUS_OPTIONS: QualityStatus[] = ['draft', 'reviewed', 'published', 'rejected', 'archived']
 
@@ -29,6 +31,10 @@ export function QuestionModerationPage() {
   const isDevAdmin = import.meta.env.VITE_DEV_ADMIN === 'true'
   const [selectedIds, setSelectedIds] = React.useState<Set<string>>(new Set())
   const [bulkLoading, setBulkLoading] = React.useState(false)
+  const [priorityTags, setPriorityTagsState] = React.useState<string[]>([])
+  const [prioritySearch, setPrioritySearch] = React.useState<string>('')
+  const [children, setChildren] = React.useState<Array<{ id: string, displayName: string }>>([])
+  const [selectedChildPriority, setSelectedChildPriority] = React.useState<string>('default')
 
   const load = React.useCallback(async () => {
     setLoading(true)
@@ -52,6 +58,30 @@ export function QuestionModerationPage() {
   React.useEffect(() => {
     load()
   }, [load])
+
+  React.useEffect(() => {
+    (async () => {
+      try {
+        const snap = await getDocs(query(collection(db, 'users'), where('role', '==', 'child')))
+        const kids = snap.docs.map(d => ({ id: d.id, displayName: (d.data() as any).displayName || d.id }))
+        setChildren(kids)
+      } catch {
+        setChildren([])
+      }
+    })()
+    // charger priorités par défaut si pas d'enfant sélectionné
+    ;(async () => {
+      const tags = await loadNpcPriorityTags(null)
+      setPriorityTagsState(tags)
+    })()
+  }, [])
+
+  React.useEffect(() => {
+    ;(async () => {
+      const tags = await loadNpcPriorityTags(selectedChildPriority === 'default' ? null : selectedChildPriority)
+      setPriorityTagsState(tags)
+    })()
+  }, [selectedChildPriority])
 
   const selectQuestion = (q: QuestionV1) => {
     setSelectedId(q.id)
@@ -235,6 +265,64 @@ export function QuestionModerationPage() {
         </div>
         <div className="small" style={{ marginTop: 6 }}>
           {loading ? 'Chargement…' : `${questions.length} questions`} · sélection : {selectedIds.size}
+        </div>
+        <div className="card" style={{ marginTop:10 }}>
+          <div className="row" style={{ justifyContent:'space-between', alignItems:'center' }}>
+            <div>
+              <div style={{ fontWeight:700 }}>Priorités PNJ</div>
+              <div className="small" style={{ color:'var(--mc-muted)' }}>Ordre de priorité local pour les missions PNJ (par enfant).</div>
+            </div>
+            <div className="row" style={{ gap:6 }}>
+              <button className="btn secondary" onClick={() => setPriorityTagsState(Object.keys(TAG_CATALOG))}>Tout sélectionner</button>
+              <button className="btn secondary" onClick={() => setPriorityTagsState([])}>Vider</button>
+              <button
+                className="btn secondary"
+                disabled={selectedChildPriority === 'default'}
+                onClick={async () => {
+                  if (selectedChildPriority === 'default') return
+                  await saveNpcPriorityTags(selectedChildPriority, priorityTags)
+                }}
+              >
+                Enregistrer
+              </button>
+            </div>
+          </div>
+          <div className="row" style={{ gap:8, marginTop:8, flexWrap:'wrap' }}>
+            <label className="small">Enfant cible
+              <select className="input" value={selectedChildPriority} onChange={(e) => setSelectedChildPriority(e.target.value)}>
+                <option value="default">Tous (défaut local)</option>
+                {children.map(c => <option key={c.id} value={c.id}>{c.displayName}</option>)}
+              </select>
+            </label>
+          </div>
+          <label className="small" style={{ display:'block', marginTop:8 }}>
+            Recherche tag
+            <input className="input" value={prioritySearch} onChange={(e) => setPrioritySearch(e.target.value)} placeholder="id ou label" />
+          </label>
+          <div className="grid" style={{ marginTop:8, maxHeight:220, overflowY:'auto' }}>
+            {Object.keys(TAG_CATALOG).filter(id => {
+              const meta = getTagMeta(id)
+              const needle = prioritySearch.toLowerCase()
+              return meta.id.toLowerCase().includes(needle) || meta.label.toLowerCase().includes(needle)
+            }).map(id => {
+              const meta = getTagMeta(id)
+              const checked = priorityTags.includes(id)
+              return (
+                <label key={id} className="small row" style={{ gap:6, alignItems:'center' }}>
+                  <input type="checkbox" checked={checked} onChange={(e) => {
+                    setPriorityTagsState(prev => {
+                      const set = new Set(prev)
+                      if (e.target.checked) set.add(id)
+                      else set.delete(id)
+                      return Array.from(set)
+                    })
+                  }} />
+                  <span>{meta.label}</span>
+                  <span className="small" style={{ color:'var(--mc-muted)' }}>{meta.id}</span>
+                </label>
+              )
+            })}
+          </div>
         </div>
         <div className="row" style={{ gap:8, marginTop:6, flexWrap:'wrap' }}>
           <button className="btn secondary" onClick={selectAllVisible} disabled={loading}>Sélectionner tout</button>

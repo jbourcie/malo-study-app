@@ -93,7 +93,18 @@ export async function fetchPublishedQuestionsByTag(tagId: string, opts?: { diffi
   const q = query(collection(db, 'questions'), ...clauses, limit(opts?.limitTo || 200))
   const snap = await getDocs(q)
   const rows = snap.docs.map(d => ({ id: d.id, ...(d.data() as any) })) as QuestionV1[]
-  return rows.filter(r => !r.quality?.deletedAt)
+  const filtered = rows.filter(r => !r.quality?.deletedAt)
+  if (tagId === 'fr_comprehension_connecteurs_logiques') {
+    // Debug: suivi des questions publiées pour ce tag après import
+    // eslint-disable-next-line no-console
+    console.info('[questions.fetchPublishedQuestionsByTag] connecteurs_logiques', {
+      requestedLimit: opts?.limitTo || 200,
+      docsFetched: rows.length,
+      filteredCount: filtered.length,
+      ids: filtered.map(q => q.id),
+    })
+  }
+  return filtered
 }
 
 export function mapQuestionToExercise(q: QuestionV1): Exercise {
@@ -176,6 +187,15 @@ export async function fetchExercisesForPlay(tagId: string, opts?: { limitTo?: nu
     }
     return ex
   })
+  if (tagId === 'fr_comprehension_connecteurs_logiques') {
+    // eslint-disable-next-line no-console
+    console.info('[questions.fetchExercisesForPlay] connecteurs_logiques', {
+      totalQuestions: questions.length,
+      exercisesCount: mapped.length,
+      setIds: Array.from(new Set(questions.map(q => q.setId))),
+    })
+  }
+  return mapped
 }
 
 export async function softDeleteQuestion(questionId: string, opts?: { by?: string, notes?: string }) {

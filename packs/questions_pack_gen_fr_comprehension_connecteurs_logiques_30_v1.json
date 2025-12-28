@@ -1,0 +1,1247 @@
+{
+  "pack": {
+    "schemaVersion": 1,
+    "taxonomyVersion": "5e-1.0",
+    "setId": "pack_fr_comprehension_connecteurs_logiques_30q_v1",
+    "grade": "5e",
+    "lang": "fr",
+    "primaryTag": "fr_comprehension_connecteurs_logiques",
+    "blockId": "fr_comprehension_connecteurs_logiques",
+    "lessonTitle": "Rappel — Connecteurs logiques",
+    "lesson": "# Rappel — Connecteurs logiques\n\n## Définition {#definition}\nLes **connecteurs logiques** sont des mots ou expressions qui relient des idées et indiquent une relation : cause, conséquence, opposition, but, addition, choix…\n\n## Méthode {#methode}\n1. Repère le mot de liaison (ex : parce que, donc, mais, pourtant, afin de, de plus…).\n2. Demande-toi quel lien il exprime : **cause** ? **conséquence** ? **opposition** ? **but** ? **addition** ?\n3. Vérifie en reformulant : « X **parce que** Y » (cause), « X **donc** Y » (conséquence), « X **mais** Y » (opposition)…\n\n## Exemples {#exemples}\n- « Il reste à la maison **parce qu**’il pleut. » → cause.\n- « Il pleut, **donc** il reste à la maison. » → conséquence.\n- « Il veut sortir, **mais** il pleut. » → opposition.\n\n## Pièges fréquents {#pieges}\n- Confondre **cause** (parce que) et **conséquence** (donc).\n- Se fier au sens général sans regarder le connecteur.\n- Oublier que certains connecteurs marquent une opposition (mais, pourtant).\n",
+    "createdAt": "2025-12-28T00:00:00Z",
+    "promptDirectives": "30 questions. Compréhension: connecteurs logiques. Textes courts. Pas de texte à trou. Réponses non ambiguës. Tout en draft."
+  },
+  "questions": [
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0001",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Lis la phrase.\n\n« Tom veut sortir, mais il pleut. »\n\nQuel lien logique indique le connecteur « mais » ?",
+      "choices": [
+        "cause",
+        "conséquence",
+        "opposition",
+        "but"
+      ],
+      "answer": "opposition",
+      "lessonRef": "definition",
+      "explanation": "Le connecteur « mais » exprime une relation de **opposition**. Cela aide à comprendre la relation entre les idées.",
+      "commonMistake": "Confondre cause (parce que) et conséquence (donc).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0002",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Lis la phrase.\n\n« Tom prend un parapluie puisque il pleut. »\n\nQuel lien logique indique le connecteur « puisque » ?",
+      "choices": [
+        "but",
+        "cause",
+        "conséquence",
+        "opposition"
+      ],
+      "answer": "cause",
+      "lessonRef": "definition",
+      "explanation": "Le connecteur « puisque » exprime une relation de **cause**. Cela aide à comprendre la relation entre les idées.",
+      "commonMistake": "Confondre cause (parce que) et conséquence (donc).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0003",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Lis la phrase.\n\n« Tu peux venir soit tu peux rester à la maison. »\n\nQuel lien logique indique le connecteur « soit » ?",
+      "choices": [
+        "choix",
+        "addition",
+        "cause",
+        "opposition"
+      ],
+      "answer": "choix",
+      "lessonRef": "definition",
+      "explanation": "Le connecteur « soit » exprime une relation de **choix**. Cela aide à comprendre la relation entre les idées.",
+      "commonMistake": "Confondre cause (parce que) et conséquence (donc).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0004",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Lis la phrase.\n\n« Tu peux venir ou tu peux rester à la maison. »\n\nQuel lien logique indique le connecteur « ou » ?",
+      "choices": [
+        "opposition",
+        "choix",
+        "cause",
+        "addition"
+      ],
+      "answer": "choix",
+      "lessonRef": "definition",
+      "explanation": "Le connecteur « ou » exprime une relation de **choix**. Cela aide à comprendre la relation entre les idées.",
+      "commonMistake": "Confondre cause (parce que) et conséquence (donc).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0005",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Lis la phrase.\n\n« Tom prend un parapluie car il pleut. »\n\nQuel lien logique indique le connecteur « car » ?",
+      "choices": [
+        "opposition",
+        "cause",
+        "conséquence",
+        "but"
+      ],
+      "answer": "cause",
+      "lessonRef": "definition",
+      "explanation": "Le connecteur « car » exprime une relation de **cause**. Cela aide à comprendre la relation entre les idées.",
+      "commonMistake": "Confondre cause (parce que) et conséquence (donc).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0006",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Lis la phrase.\n\n« Il pleut, donc Tom prend un parapluie. »\n\nQuel lien logique indique le connecteur « donc » ?",
+      "choices": [
+        "opposition",
+        "cause",
+        "conséquence",
+        "but"
+      ],
+      "answer": "conséquence",
+      "lessonRef": "definition",
+      "explanation": "Le connecteur « donc » exprime une relation de **conséquence**. Cela aide à comprendre la relation entre les idées.",
+      "commonMistake": "Confondre cause (parce que) et conséquence (donc).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0007",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Lis la phrase.\n\n« Tu peux venir sinon tu peux rester à la maison. »\n\nQuel lien logique indique le connecteur « sinon » ?",
+      "choices": [
+        "opposition",
+        "addition",
+        "choix",
+        "cause"
+      ],
+      "answer": "choix",
+      "lessonRef": "definition",
+      "explanation": "Le connecteur « sinon » exprime une relation de **choix**. Cela aide à comprendre la relation entre les idées.",
+      "commonMistake": "Confondre cause (parce que) et conséquence (donc).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0008",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Lis la phrase.\n\n« Tom prend un parapluie parce que il pleut. »\n\nQuel lien logique indique le connecteur « parce que » ?",
+      "choices": [
+        "but",
+        "cause",
+        "opposition",
+        "conséquence"
+      ],
+      "answer": "cause",
+      "lessonRef": "definition",
+      "explanation": "Le connecteur « parce que » exprime une relation de **cause**. Cela aide à comprendre la relation entre les idées.",
+      "commonMistake": "Confondre cause (parce que) et conséquence (donc).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0009",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Lis la phrase.\n\n« Tom prend un parapluie puisque il pleut. »\n\nQuel lien logique indique le connecteur « puisque » ?",
+      "choices": [
+        "but",
+        "opposition",
+        "conséquence",
+        "cause"
+      ],
+      "answer": "cause",
+      "lessonRef": "definition",
+      "explanation": "Le connecteur « puisque » exprime une relation de **cause**. Cela aide à comprendre la relation entre les idées.",
+      "commonMistake": "Confondre cause (parce que) et conséquence (donc).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0010",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Lis la phrase.\n\n« Tom prend un parapluie car il pleut. »\n\nQuel lien logique indique le connecteur « car » ?",
+      "choices": [
+        "cause",
+        "opposition",
+        "but",
+        "conséquence"
+      ],
+      "answer": "cause",
+      "lessonRef": "definition",
+      "explanation": "Le connecteur « car » exprime une relation de **cause**. Cela aide à comprendre la relation entre les idées.",
+      "commonMistake": "Confondre cause (parce que) et conséquence (donc).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0011",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Lis la phrase.\n\n« Tu peux venir sinon tu peux rester à la maison. »\n\nQuel lien logique indique le connecteur « sinon » ?",
+      "choices": [
+        "cause",
+        "choix",
+        "opposition",
+        "addition"
+      ],
+      "answer": "choix",
+      "lessonRef": "definition",
+      "explanation": "Le connecteur « sinon » exprime une relation de **choix**. Cela aide à comprendre la relation entre les idées.",
+      "commonMistake": "Confondre cause (parce que) et conséquence (donc).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0012",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Lis la phrase.\n\n« Lina travaille pour réussir son contrôle. »\n\nQuel lien logique indique le connecteur « pour » ?",
+      "choices": [
+        "but",
+        "conséquence",
+        "cause",
+        "opposition"
+      ],
+      "answer": "but",
+      "lessonRef": "definition",
+      "explanation": "Le connecteur « pour » exprime une relation de **but**. Cela aide à comprendre la relation entre les idées.",
+      "commonMistake": "Confondre cause (parce que) et conséquence (donc).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0013",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Lis la phrase.\n\n« Il a fait ses devoirs en outre il a relu sa leçon. »\n\nQuel lien logique indique le connecteur « en outre » ?",
+      "choices": [
+        "opposition",
+        "cause",
+        "addition",
+        "conséquence"
+      ],
+      "answer": "addition",
+      "lessonRef": "definition",
+      "explanation": "Le connecteur « en outre » exprime une relation de **addition**. Cela aide à comprendre la relation entre les idées.",
+      "commonMistake": "Confondre cause (parce que) et conséquence (donc).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0014",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Lis la phrase.\n\n« Il a fait ses devoirs en outre il a relu sa leçon. »\n\nQuel lien logique indique le connecteur « en outre » ?",
+      "choices": [
+        "cause",
+        "conséquence",
+        "opposition",
+        "addition"
+      ],
+      "answer": "addition",
+      "lessonRef": "definition",
+      "explanation": "Le connecteur « en outre » exprime une relation de **addition**. Cela aide à comprendre la relation entre les idées.",
+      "commonMistake": "Confondre cause (parce que) et conséquence (donc).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0015",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Lis la phrase.\n\n« Tu peux venir soit tu peux rester à la maison. »\n\nQuel lien logique indique le connecteur « soit » ?",
+      "choices": [
+        "addition",
+        "opposition",
+        "cause",
+        "choix"
+      ],
+      "answer": "choix",
+      "lessonRef": "definition",
+      "explanation": "Le connecteur « soit » exprime une relation de **choix**. Cela aide à comprendre la relation entre les idées.",
+      "commonMistake": "Confondre cause (parce que) et conséquence (donc).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0016",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Lis la phrase.\n\n« Tom veut sortir, pourtant il pleut. »\n\nQuel lien logique indique le connecteur « pourtant » ?",
+      "choices": [
+        "conséquence",
+        "but",
+        "opposition",
+        "cause"
+      ],
+      "answer": "opposition",
+      "lessonRef": "definition",
+      "explanation": "Le connecteur « pourtant » exprime une relation de **opposition**. Cela aide à comprendre la relation entre les idées.",
+      "commonMistake": "Confondre cause (parce que) et conséquence (donc).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0017",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Lis la phrase.\n\n« Tom veut sortir, pourtant il pleut. »\n\nQuel lien logique indique le connecteur « pourtant » ?",
+      "choices": [
+        "opposition",
+        "conséquence",
+        "but",
+        "cause"
+      ],
+      "answer": "opposition",
+      "lessonRef": "definition",
+      "explanation": "Le connecteur « pourtant » exprime une relation de **opposition**. Cela aide à comprendre la relation entre les idées.",
+      "commonMistake": "Confondre cause (parce que) et conséquence (donc).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0018",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Lis la phrase.\n\n« Tu peux venir sinon tu peux rester à la maison. »\n\nQuel lien logique indique le connecteur « sinon » ?",
+      "choices": [
+        "choix",
+        "cause",
+        "addition",
+        "opposition"
+      ],
+      "answer": "choix",
+      "lessonRef": "definition",
+      "explanation": "Le connecteur « sinon » exprime une relation de **choix**. Cela aide à comprendre la relation entre les idées.",
+      "commonMistake": "Confondre cause (parce que) et conséquence (donc).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0019",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Choisis le connecteur qui exprime une **cause**.",
+      "choices": [
+        "pour",
+        "car",
+        "en outre",
+        "cependant"
+      ],
+      "answer": "car",
+      "lessonRef": "methode",
+      "explanation": "« car » est un connecteur de **cause**. On repère le lien entre les deux idées.",
+      "commonMistake": "Choisir un connecteur qui sonne bien sans vérifier la relation.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0020",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Choisis le connecteur qui exprime une **opposition**.",
+      "choices": [
+        "sinon",
+        "puisque",
+        "pourtant",
+        "pour que"
+      ],
+      "answer": "pourtant",
+      "lessonRef": "methode",
+      "explanation": "« pourtant » est un connecteur de **opposition**. On repère le lien entre les deux idées.",
+      "commonMistake": "Choisir un connecteur qui sonne bien sans vérifier la relation.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0021",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Choisis le connecteur qui exprime un **choix**.",
+      "choices": [
+        "afin de",
+        "sinon",
+        "ainsi",
+        "puisque"
+      ],
+      "answer": "sinon",
+      "lessonRef": "methode",
+      "explanation": "« sinon » est un connecteur de **choix**. On repère le lien entre les deux idées.",
+      "commonMistake": "Choisir un connecteur qui sonne bien sans vérifier la relation.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0022",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Choisis le connecteur qui exprime une **opposition**.",
+      "choices": [
+        "puisque",
+        "pour",
+        "pourtant",
+        "ou"
+      ],
+      "answer": "pourtant",
+      "lessonRef": "methode",
+      "explanation": "« pourtant » est un connecteur de **opposition**. On repère le lien entre les deux idées.",
+      "commonMistake": "Choisir un connecteur qui sonne bien sans vérifier la relation.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0023",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Choisis le connecteur qui exprime une **opposition**.",
+      "choices": [
+        "pour",
+        "en outre",
+        "cependant",
+        "parce que"
+      ],
+      "answer": "cependant",
+      "lessonRef": "methode",
+      "explanation": "« cependant » est un connecteur de **opposition**. On repère le lien entre les deux idées.",
+      "commonMistake": "Choisir un connecteur qui sonne bien sans vérifier la relation.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0024",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Choisis le connecteur qui exprime une **opposition**.",
+      "choices": [
+        "ou",
+        "pour que",
+        "cependant",
+        "ainsi"
+      ],
+      "answer": "cependant",
+      "lessonRef": "methode",
+      "explanation": "« cependant » est un connecteur de **opposition**. On repère le lien entre les deux idées.",
+      "commonMistake": "Choisir un connecteur qui sonne bien sans vérifier la relation.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0025",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Choisis le connecteur qui exprime un **choix**.",
+      "choices": [
+        "car",
+        "soit",
+        "de plus",
+        "cependant"
+      ],
+      "answer": "soit",
+      "lessonRef": "methode",
+      "explanation": "« soit » est un connecteur de **choix**. On repère le lien entre les deux idées.",
+      "commonMistake": "Choisir un connecteur qui sonne bien sans vérifier la relation.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0026",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Choisis le connecteur qui exprime une **addition**.",
+      "choices": [
+        "pour",
+        "cependant",
+        "sinon",
+        "et"
+      ],
+      "answer": "et",
+      "lessonRef": "methode",
+      "explanation": "« et » est un connecteur de **addition**. On repère le lien entre les deux idées.",
+      "commonMistake": "Choisir un connecteur qui sonne bien sans vérifier la relation.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0027",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Choisis le connecteur qui exprime une **conséquence**.",
+      "choices": [
+        "afin de",
+        "alors",
+        "sinon",
+        "pourtant"
+      ],
+      "answer": "alors",
+      "lessonRef": "methode",
+      "explanation": "« alors » est un connecteur de **conséquence**. On repère le lien entre les deux idées.",
+      "commonMistake": "Choisir un connecteur qui sonne bien sans vérifier la relation.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0028",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "ERROR_SPOTTING",
+      "difficulty": 2,
+      "statement": "Lis la phrase.\n\n« Tom prend un parapluie alors il pleut. »\n\nLe connecteur est-il bien choisi ?",
+      "choices": [
+        "Oui : tous les connecteurs veulent dire la même chose.",
+        "Oui : le connecteur est correct.",
+        "Non : il faut supprimer le connecteur « alors ».",
+        "Non : il faudrait plutôt « parce que »."
+      ],
+      "answer": "Non : il faudrait plutôt « parce que ».",
+      "lessonRef": "pieges",
+      "explanation": "Ici, on veut une relation de **cause** : « alors » ne convient pas. On choisit le connecteur qui correspond au lien logique.",
+      "commonMistake": "Confondre conséquence et cause.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0029",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "ERROR_SPOTTING",
+      "difficulty": 3,
+      "statement": "Lis la phrase.\n\n« Lina travaille car réussir son contrôle. »\n\nLe connecteur est-il bien choisi ?",
+      "choices": [
+        "Oui : tous les connecteurs veulent dire la même chose.",
+        "Non : il faudrait plutôt « afin de ».",
+        "Non : il faut supprimer le connecteur « car ».",
+        "Oui : le connecteur est correct."
+      ],
+      "answer": "Non : il faudrait plutôt « afin de ».",
+      "lessonRef": "pieges",
+      "explanation": "Ici, on veut une relation de **but** : « car » ne convient pas. On choisit le connecteur qui correspond au lien logique.",
+      "commonMistake": "Confondre conséquence et cause.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_connecteurs_logiques_0030",
+      "blockId": "fr_comprehension_connecteurs_logiques",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_connecteurs_logiques",
+      "type": "ERROR_SPOTTING",
+      "difficulty": 4,
+      "statement": "Lis la phrase.\n\n« Lina travaille parce que réussir son contrôle. »\n\nLe connecteur est-il bien choisi ?",
+      "choices": [
+        "Oui : tous les connecteurs veulent dire la même chose.",
+        "Non : il faut supprimer le connecteur « parce que ».",
+        "Oui : le connecteur est correct.",
+        "Non : il faudrait plutôt « pour que »."
+      ],
+      "answer": "Non : il faudrait plutôt « pour que ».",
+      "lessonRef": "pieges",
+      "explanation": "Ici, on veut une relation de **but** : « parce que » ne convient pas. On choisit le connecteur qui correspond au lien logique.",
+      "commonMistake": "Confondre conséquence et cause.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    }
+  ]
+}

@@ -9,13 +9,14 @@ import { useNavigate } from 'react-router-dom'
 import { getPreferredNpcId, setPreferredNpcId, getOrCreateDailyRecommendation, setDailyRecommendation, setDailyRerollUsed, getDailyRerollUsed, clearDailyRecommendation, getDailyRecommendation, getDailyRerollCount, incrementDailyRerollCount } from '../game/npc/npcStorage'
 import { NpcPickerModal } from '../components/game/NpcPickerModal'
 import { NpcGuideCard } from '../components/game/NpcGuideCard'
-import { buildNpcRecommendation, formatDateKeyParis, PRIORITY_TAGS } from '../game/npc/npcRecommendation'
+import { buildNpcRecommendation, formatDateKeyParis } from '../game/npc/npcRecommendation'
 import type { NpcRecommendation } from '../game/npc/npcRecommendation'
 import { BIOMES_SORTED } from '../game/biomeCatalog'
 import { getBlocksForBiome } from '../game/blockCatalog'
 import { listExercisesByTag } from '../data/firestore'
 import { TAG_CATALOG } from '../taxonomy/tagCatalog'
 import { getBlockDef } from '../game/blockCatalog'
+import { loadNpcPriorityTags } from '../data/npcPriorities'
 
 export function HomePage() {
   const { user, role } = useAuth()
@@ -30,6 +31,9 @@ export function HomePage() {
   const [npcMessage, setNpcMessage] = React.useState<string>('')
   const [loadingTags, setLoadingTags] = React.useState<boolean>(true)
   const [showRerollModal, setShowRerollModal] = React.useState(false)
+  const [excludedTag, setExcludedTag] = React.useState<string | null>(null)
+  const [lastRerollTs, setLastRerollTs] = React.useState<number>(0)
+  const [priorityTags, setPriorityTags] = React.useState<string[]>([])
   const streakFlames = React.useMemo(() => {
     const sorted = [...days].sort((a, b) => (b.dateKey || '').localeCompare(a.dateKey || ''))
     let streak = 0
@@ -48,6 +52,9 @@ export function HomePage() {
   const rerollLimit = role === 'parent' ? 100 : 1
 
   const onReroll = () => {
+    // Réinitialise la mission du jour avant de tirer
+    clearDailyRecommendation(dateKey)
+    setLastRerollTs(Date.now())
     const currentCount = getDailyRerollCount(dateKey)
     const limit = rerollLimit
     if (currentCount >= limit || (role !== 'parent' && getDailyRerollUsed(dateKey))) {
@@ -56,14 +63,24 @@ export function HomePage() {
       return
     }
     const masteryByTag = rewards?.masteryByTag || {}
-    const history: Array<{ tagIds: string[], correct: boolean, ts: number }> = []
     const previousTag = recommendation?.expedition.targetTagId
+    if (previousTag) setExcludedTag(previousTag)
+    const usableTags = previousTag ? availableTags.filter(t => t !== previousTag) : (excludedTag ? availableTags.filter(t => t !== excludedTag) : availableTags)
+    const history: Array<{ tagIds: string[], correct: boolean, ts: number }> = []
     const filteredMastery = { ...masteryByTag }
     if (previousTag) delete (filteredMastery as any)[previousTag]
-    const rec = buildNpcRecommendation({ npcId, masteryByTag: filteredMastery, history, nowTs: Date.now(), excludeTagIds: previousTag ? [previousTag] : [], availableTagIds: availableTags })
+    const rec = buildNpcRecommendation({
+      npcId,
+      masteryByTag: filteredMastery,
+      history,
+      nowTs: Date.now(),
+      excludeTagIds: previousTag ? [previousTag] : (excludedTag ? [excludedTag] : []),
+      availableTagIds: usableTags,
+      priorityTagsOverride: priorityTags,
+    })
     if (rec) {
       const target = rec.expedition.targetTagId
-      const inAvailable = availableTags.includes(target)
+      const inAvailable = usableTags.includes(target)
       if (!inAvailable) {
         setNpcMessage('Mission indisponible pour ce bloc. Essaie encore.')
         return
@@ -76,6 +93,7 @@ export function HomePage() {
         setDailyRerollUsed(dateKey)
         incrementDailyRerollCount(dateKey)
       }
+      setExcludedTag(null)
       setNpcMessage('')
     } else {
       setNpcMessage('Aucune autre mission disponible pour l’instant.')
@@ -139,6 +157,9 @@ export function HomePage() {
         }
       }))
       const valid = results.filter(Boolean) as string[]
+      // Debug: trace la liste des tags disponibles
+      // eslint-disable-next-line no-console
+      console.info('[home.availableTags]', { count: valid.length, tags: valid })
       setAvailableTags(valid)
       setLoadingTags(false)
       if (!valid.length) {
@@ -148,7 +169,26 @@ export function HomePage() {
       }
     }
     loadAvailable()
+    // Charger les priorités PNJ pour l'utilisateur courant (enfant)
+    ;(async () => {
+      const tags = await loadNpcPriorityTags(user?.uid || null)
+      setPriorityTags(tags)
+    })()
   }, [rewards, user])
+
+  React.useEffect(() => {
+    if (!recommendation && availableTags.length && !loadingTags) {
+      const masteryByTag = rewards?.masteryByTag || {}
+      const history: Array<{ tagIds: string[], correct: boolean, ts: number }> = []
+      const rec = buildNpcRecommendation({ npcId, masteryByTag, history, nowTs: Date.now(), availableTagIds: availableTags })
+      if (rec) {
+        const dk = formatDateKeyParis(Date.now())
+        setDailyRecommendation(dk, rec)
+        setRecommendation(rec)
+        setNpcMessage('')
+      }
+    }
+  }, [recommendation, availableTags, loadingTags, rewards, npcId])
 
   React.useEffect(() => {
     if (loadingTags) {
@@ -164,34 +204,65 @@ export function HomePage() {
     }
     const dateKey = formatDateKeyParis(Date.now())
     const masteryByTag = rewards?.masteryByTag || {}
+    const usableTags = excludedTag ? availableTags.filter(t => t !== excludedTag) : availableTags
     const history: Array<{ tagIds: string[], correct: boolean, ts: number }> = [] // TODO: branch to real history si disponible
     const stored = getDailyRecommendation(dateKey)
     let rec = stored && stored.npcId === npcId ? stored : null
-    if (rec && availableTags.length && !availableTags.includes(rec.expedition.targetTagId)) {
+    if (rec && usableTags.length && !usableTags.includes(rec.expedition.targetTagId)) {
       rec = null
       clearDailyRecommendation(dateKey)
     }
-    if (!rec && availableTags.length) {
+    if (!rec && usableTags.length) {
       clearDailyRecommendation(dateKey)
       rec = getOrCreateDailyRecommendation({
         npcId,
         masteryByTag,
         history,
         nowTs: Date.now(),
-        availableTagIds: availableTags.length ? availableTags : undefined,
+        availableTagIds: usableTags.length ? usableTags : undefined,
+        priorityTagsOverride: priorityTags,
       })
     }
-    if (!rec && availableTags.length) {
-      rec = buildNpcRecommendation({ npcId, masteryByTag, history, nowTs: Date.now(), availableTagIds: availableTags })
+    if (!rec && usableTags.length) {
+      rec = buildNpcRecommendation({
+        npcId,
+        masteryByTag,
+        history,
+        nowTs: Date.now(),
+        availableTagIds: usableTags,
+        excludeTagIds: excludedTag ? [excludedTag] : [],
+        priorityTagsOverride: priorityTags,
+      })
       if (rec) setDailyRecommendation(dateKey, rec)
     }
+    // Retry sans exclusion si rien trouvé
+    if (!rec && excludedTag && availableTags.length) {
+      rec = buildNpcRecommendation({ npcId, masteryByTag, history, nowTs: Date.now(), availableTagIds: availableTags })
+      if (rec) {
+        setExcludedTag(null)
+        setDailyRecommendation(dateKey, rec)
+      }
+    }
+    // Debug : trace la recommandation ou son absence
+    // eslint-disable-next-line no-console
+    console.info('[home.recommendation]', {
+      availableTags: usableTags,
+      excludedTag,
+      rec: rec ? {
+        npcId: rec.npcId,
+        target: rec.expedition.targetTagId,
+        type: rec.expedition.type,
+      } : null,
+      stored: !!stored,
+      lastRerollTs,
+    })
     setRecommendation(rec)
     if (!rec && availableTags.length === 0 && !loadingTags) {
       setNpcMessage('Pas de mission disponible (aucun exercice trouvé).')
     } else {
       setNpcMessage('')
     }
-  }, [npcId, rewards, availableTags, loadingTags])
+  }, [npcId, rewards, availableTags, excludedTag, loadingTags])
 
   return (
     <div className="container grid">

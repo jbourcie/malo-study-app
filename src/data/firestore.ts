@@ -91,6 +91,14 @@ export async function listExercisesByTag(tagId: string, opts?: { uid?: string, i
   const { includeHidden = false } = opts || {}
   // Nouveau flux : on lit les questions publiées (collection "questions")
   const exercises = await fetchExercisesForPlay(tagId, { includeLessons: true })
+  // Debug ciblé pour suivre les exclusions éventuelles
+  if (tagId === 'fr_comprehension_connecteurs_logiques') {
+    // eslint-disable-next-line no-console
+    console.info('[listExercisesByTag] connecteurs_logiques', {
+      count: exercises.length,
+      sample: exercises.slice(0, 3).map(ex => ex.id),
+    })
+  }
   if (includeHidden) return exercises
   return exercises
 }
