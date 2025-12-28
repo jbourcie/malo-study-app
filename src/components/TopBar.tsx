@@ -9,6 +9,7 @@ export function TopBar() {
   const { rewards } = useUserRewards(user?.uid || null)
   const avatarId = rewards?.collectibles?.equippedAvatarId
   const avatar = avatarId ? COLLECTIBLES.find(c => c.id === avatarId) : null
+  const isAdmin = role === 'parent' || import.meta.env.VITE_DEV_ADMIN === 'true'
   return (
     <div className="card" style={{ marginBottom: 14 }}>
       <div className="row" style={{ justifyContent: 'space-between' }}>
@@ -26,10 +27,12 @@ export function TopBar() {
           {user && <Link className="btn secondary" to="/chest">Coffre</Link>}
           {user && <Link className="btn secondary" to="/world">Carte du monde</Link>}
           {user && <Link className="btn secondary" to="/collection">Ma collection</Link>}
-          {role === 'parent' && (
+          {isAdmin && (
             <>
               <Link className="btn secondary" to="/admin/import">Import (parent)</Link>
               <Link className="btn secondary" to="/admin/moderation">Modération</Link>
+              <Link className="btn secondary" to="/admin/questions">Questions</Link>
+              <Link className="btn secondary" to="/admin/pack-request">Pack request</Link>
               <Link className="btn secondary" to="/admin/progression">Progression enfant</Link>
             </>
           )}

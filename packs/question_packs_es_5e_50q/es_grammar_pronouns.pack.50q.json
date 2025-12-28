@@ -1,0 +1,1967 @@
+{
+  "pack": {
+    "schemaVersion": 1,
+    "taxonomyVersion": "5e-1.0",
+    "setId": "pack_es_grammar_pronouns_50q_v1",
+    "grade": "5e",
+    "lang": "es",
+    "primaryTag": "es_grammar_pronouns",
+    "blockId": "es_grammar_pronouns",
+    "biomeId": "es",
+    "lessonTitle": "Rappel — es grammar pronouns",
+    "lesson": "# Rappel — es_grammar_pronouns\n\n## Définition {#definition}\nÀ compléter.\n\n## Méthode {#methode}\nÀ compléter.\n\n## Exemples {#exemples}\nÀ compléter.\n\n## Pièges fréquents {#pieges}\nÀ compléter.\n",
+    "createdAt": "2025-12-27T00:00:00Z"
+  },
+  "questions": [
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0001",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0002",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0003",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0004",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0005",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0006",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0007",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0008",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0009",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0010",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0011",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0012",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0013",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0014",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0015",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0016",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0017",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0018",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0019",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0020",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0021",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0022",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0023",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0024",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0025",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0026",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0027",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0028",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0029",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0030",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0031",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0032",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0033",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0034",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0035",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0036",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0037",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0038",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0039",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0040",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0041",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0042",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0043",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0044",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0045",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0046",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0047",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0048",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0049",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_es_grammar_pronouns_0050",
+      "blockId": "es_grammar_pronouns",
+      "grade": "5e",
+      "lang": "es",
+      "primaryTag": "es_grammar_pronouns",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « es grammar pronouns ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    }
+  ]
+}

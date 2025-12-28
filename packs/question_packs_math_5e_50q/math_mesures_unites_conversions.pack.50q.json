@@ -1,0 +1,1967 @@
+{
+  "pack": {
+    "schemaVersion": 1,
+    "taxonomyVersion": "5e-1.0",
+    "setId": "pack_math_mesures_unites_conversions_50q_v1",
+    "grade": "5e",
+    "lang": "fr",
+    "primaryTag": "math_mesures_unites_conversions",
+    "blockId": "math_mesures_unites_conversions",
+    "biomeId": "math",
+    "lessonTitle": "Rappel — math mesures unites conversions",
+    "lesson": "# Rappel — math_mesures_unites_conversions\n\n## Définition {#definition}\nÀ compléter.\n\n## Méthode {#methode}\nÀ compléter.\n\n## Exemples {#exemples}\nÀ compléter.\n\n## Pièges fréquents {#pieges}\nÀ compléter.\n",
+    "createdAt": "2025-12-27T00:00:00Z"
+  },
+  "questions": [
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0001",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0002",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0003",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0004",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0005",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0006",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0007",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0008",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0009",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0010",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0011",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0012",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0013",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0014",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0015",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0016",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0017",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0018",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0019",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0020",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0021",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0022",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0023",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0024",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0025",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0026",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0027",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0028",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0029",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0030",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0031",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0032",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0033",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0034",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0035",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0036",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0037",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0038",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0039",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0040",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0041",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0042",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0043",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0044",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0045",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0046",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0047",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0048",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0049",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_unites_conversions_0050",
+      "blockId": "math_mesures_unites_conversions",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_unites_conversions",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures unites conversions ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    }
+  ]
+}

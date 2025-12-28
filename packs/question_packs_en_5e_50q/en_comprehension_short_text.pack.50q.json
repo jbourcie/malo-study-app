@@ -1,0 +1,1967 @@
+{
+  "pack": {
+    "schemaVersion": 1,
+    "taxonomyVersion": "5e-1.0",
+    "setId": "pack_en_comprehension_short_text_50q_v1",
+    "grade": "5e",
+    "lang": "en",
+    "primaryTag": "en_comprehension_short_text",
+    "blockId": "en_comprehension_short_text",
+    "biomeId": "en",
+    "lessonTitle": "Rappel — en comprehension short text",
+    "lesson": "# Rappel — en_comprehension_short_text\n\n## Définition {#definition}\nÀ compléter.\n\n## Méthode {#methode}\nÀ compléter.\n\n## Exemples {#exemples}\nÀ compléter.\n\n## Pièges fréquents {#pieges}\nÀ compléter.\n",
+    "createdAt": "2025-12-27T00:00:00Z"
+  },
+  "questions": [
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0001",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0002",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0003",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0004",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0005",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0006",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0007",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0008",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0009",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0010",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0011",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0012",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0013",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0014",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0015",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0016",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0017",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0018",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0019",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0020",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0021",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0022",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0023",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0024",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0025",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0026",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0027",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0028",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0029",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0030",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0031",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0032",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0033",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0034",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0035",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0036",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0037",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0038",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0039",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0040",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0041",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0042",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0043",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0044",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0045",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0046",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0047",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0048",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0049",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_en_comprehension_short_text_0050",
+      "blockId": "en_comprehension_short_text",
+      "grade": "5e",
+      "lang": "en",
+      "primaryTag": "en_comprehension_short_text",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « en comprehension short text ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    }
+  ]
+}

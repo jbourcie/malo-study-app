@@ -12,6 +12,8 @@ import { computeSessionXp, computeLevelFromXp, updateMasteryFromAttempt } from '
 import { awardSessionRewards, applyMasteryEvents, evaluateBadges } from '../rewards/rewardsService'
 import { useUserRewards } from '../state/useUserRewards'
 import { RewardsHeader } from '../components/RewardsHeader'
+import { LessonReminder } from '../components/LessonReminder'
+import { markdownToHtml } from '../utils/markdown'
 import { getSessionFeedback } from '../utils/sessionFeedback'
 import { rollCollectible } from '../rewards/collectibles'
 import { equipAvatar, unlockCollectible } from '../rewards/collectiblesService'
@@ -77,6 +79,7 @@ export function ThemeSessionPage() {
   const [errorMsg, setErrorMsg] = React.useState<string>('')
   const [searchParams] = useSearchParams()
   const [isSubmitting, setIsSubmitting] = React.useState(false)
+  const [lessonReminder, setLessonReminder] = React.useState<{ title?: string | null, content?: string | null, lessonRef?: string | null, mode?: 'full' | 'contextual' } | null>(null)
 
   React.useEffect(() => {
     (async () => {
@@ -114,6 +117,16 @@ export function ThemeSessionPage() {
 
       const content = flattenThemeContent({ exercises, readings })
       const desiredCount = 10
+      if (!content.length) {
+        setExos([])
+        setErrorMsg('Aucune question publiée pour ce bloc pour le moment.')
+        setFeedback([])
+        setShowCorrections(false)
+        setLessonReminder(null)
+        return
+      } else {
+        setErrorMsg('')
+      }
 
       const tagFrequency: Record<string, number> = {}
       content.forEach((c: any) => (c.tags || []).forEach((t: string) => { tagFrequency[t] = (tagFrequency[t] || 0) + 1 }))
@@ -147,6 +160,17 @@ export function ThemeSessionPage() {
       }
 
       setExos(picked.slice(0, desiredCount))
+      const lessonSource = picked.find((ex: any) => (ex as any).packLesson)
+      if (lessonSource && (lessonSource as any).packLesson) {
+        setLessonReminder({
+          title: (lessonSource as any).packLessonTitle || null,
+          content: (lessonSource as any).packLesson,
+          lessonRef: (lessonSource as any).lessonRef || null,
+          mode: 'full',
+        })
+      } else {
+        setLessonReminder(null)
+      }
       setAnswers({})
       setResult(null)
       setFeedback([])
@@ -492,6 +516,22 @@ export function ThemeSessionPage() {
 
       <RewardsHeader rewards={liveRewards} />
 
+      {lessonReminder?.content && (
+        <LessonReminder title={lessonReminder.title} content={lessonReminder.content} lessonRef={lessonReminder.lessonRef} />
+      )}
+
+      {errorMsg && (
+        <div className="card" style={{ background:'rgba(255,90,111,0.08)', border:'1px solid rgba(255,90,111,0.4)' }}>
+          <div className="small">{errorMsg}</div>
+        </div>
+      )}
+
+      {exos.length === 0 && (
+        <div className="card">
+          <div className="small">Aucune question publiée pour ce bloc. Essaie un autre bloc ou reviens après la modération.</div>
+        </div>
+      )}
+
       {exos.map((ex, idx) => {
         const readingCtx = (ex as any).readingContext
         const showReading = readingCtx && (idx === 0 || (exos[idx - 1] as any).readingContext?.readingId !== readingCtx.readingId)
@@ -500,12 +540,12 @@ export function ThemeSessionPage() {
             {showReading && readingCtx && (
               <div style={{ marginBottom: 10 }}>
                 <div className="small" style={{ marginBottom: 4 }}>Lecture : {readingCtx.title}</div>
-                <div className="small" style={{ whiteSpace: 'pre-wrap' }}>{renderUnderlined(readingCtx.text)}</div>
+                <div className="small" dangerouslySetInnerHTML={{ __html: markdownToHtml(readingCtx.text || '') }} />
                 <hr />
               </div>
             )}
             <div className="small">Question {idx + 1} / {exos.length} <span className="badge">Difficulté {ex.difficulty}</span></div>
-            <div style={{ fontWeight: 800, marginTop: 6 }}>{renderUnderlined(ex.prompt)}</div>
+            <div style={{ fontWeight: 800, marginTop: 6 }} dangerouslySetInnerHTML={{ __html: markdownToHtml(ex.prompt || '') }} />
 
             {ex.type === 'mcq' && (
               <div className="grid" style={{ marginTop: 10 }}>
@@ -518,7 +558,7 @@ export function ThemeSessionPage() {
                     style={{ textAlign: 'left', opacity: answers[ex.id] === i ? 1 : 0.85 }}
                     aria-pressed={answers[ex.id] === i}
                   >
-                    {renderUnderlined(c)}
+                    <span dangerouslySetInnerHTML={{ __html: markdownToHtml(c || '') }} />
                   </button>
                 ))}
               </div>
@@ -537,7 +577,7 @@ export function ThemeSessionPage() {
 
             {(ex.type === 'fill_blank') && (
               <div style={{ marginTop: 10 }}>
-                <div className="small">{renderUnderlined((ex as ExerciseFillBlank).text)}</div>
+                <div className="small" dangerouslySetInnerHTML={{ __html: markdownToHtml((ex as ExerciseFillBlank).text || '') }} />
                 <input
                   className="input"
                   placeholder="Le mot manquant…"

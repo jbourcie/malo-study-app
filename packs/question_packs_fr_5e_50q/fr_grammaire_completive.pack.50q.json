@@ -1,0 +1,1967 @@
+{
+  "pack": {
+    "schemaVersion": 1,
+    "taxonomyVersion": "5e-1.0",
+    "setId": "pack_fr_grammaire_completive_50q_v1",
+    "grade": "5e",
+    "lang": "fr",
+    "primaryTag": "fr_grammaire_completive",
+    "blockId": "fr_grammaire_completive",
+    "biomeId": "fr",
+    "lessonTitle": "Rappel — fr grammaire completive",
+    "lesson": "# Rappel — fr_grammaire_completive\n\n## Définition {#definition}\nÀ compléter.\n\n## Méthode {#methode}\nÀ compléter.\n\n## Exemples {#exemples}\nÀ compléter.\n\n## Pièges fréquents {#pieges}\nÀ compléter.\n",
+    "createdAt": "2025-12-27T00:00:00Z"
+  },
+  "questions": [
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0001",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0002",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0003",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0004",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0005",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0006",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0007",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0008",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0009",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0010",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0011",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0012",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0013",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0014",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0015",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0016",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0017",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0018",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0019",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0020",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0021",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0022",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0023",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0024",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0025",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0026",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0027",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0028",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0029",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0030",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0031",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0032",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0033",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0034",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0035",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0036",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0037",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0038",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0039",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0040",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0041",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0042",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0043",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0044",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0045",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0046",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0047",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0048",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0049",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_grammaire_completive_0050",
+      "blockId": "fr_grammaire_completive",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_completive",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « fr grammaire completive ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    }
+  ]
+}

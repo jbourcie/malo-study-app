@@ -1,0 +1,1967 @@
+{
+  "pack": {
+    "schemaVersion": 1,
+    "taxonomyVersion": "5e-1.0",
+    "setId": "pack_math_mesures_perimetre_50q_v1",
+    "grade": "5e",
+    "lang": "fr",
+    "primaryTag": "math_mesures_perimetre",
+    "blockId": "math_mesures_perimetre",
+    "biomeId": "math",
+    "lessonTitle": "Rappel — math mesures perimetre",
+    "lesson": "# Rappel — math_mesures_perimetre\n\n## Définition {#definition}\nÀ compléter.\n\n## Méthode {#methode}\nÀ compléter.\n\n## Exemples {#exemples}\nÀ compléter.\n\n## Pièges fréquents {#pieges}\nÀ compléter.\n",
+    "createdAt": "2025-12-27T00:00:00Z"
+  },
+  "questions": [
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0001",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0002",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0003",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0004",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0005",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0006",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0007",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0008",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0009",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0010",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0011",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0012",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0013",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0014",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0015",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0016",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0017",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0018",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0019",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0020",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0021",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0022",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0023",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0024",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0025",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0026",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0027",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0028",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0029",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0030",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0031",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0032",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0033",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0034",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0035",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0036",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0037",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0038",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0039",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0040",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0041",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0042",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0043",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0044",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0045",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0046",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0047",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0048",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0049",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_math_mesures_perimetre_0050",
+      "blockId": "math_mesures_perimetre",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "math_mesures_perimetre",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Question d’entraînement sur la notion « math mesures perimetre ».",
+      "choices": [
+        "Réponse correcte",
+        "Distracteur 1",
+        "Distracteur 2",
+        "Distracteur 3"
+      ],
+      "answer": "Réponse correcte",
+      "lessonRef": "definition",
+      "explanation": "Cette question vérifie la compréhension de la notion.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    }
+  ]
+}

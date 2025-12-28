@@ -1,0 +1,5337 @@
+{
+  "pack": {
+    "schemaVersion": 1,
+    "taxonomyVersion": "5e-1.0",
+    "setId": "gen_fr_grammaire_fonction_cod_v1_120",
+    "grade": "5e",
+    "lang": "fr",
+    "primaryTag": "fr_grammaire_fonction_cod",
+    "blockId": "block_coal_01",
+    "lessonTitle": "Rappel : le COD (complément d’objet direct)",
+    "lesson": "# COD : repérer le complément d’objet direct\n\n## cod_definition\nLe **COD** (complément d’objet direct) complète un **verbe**. Il répond le plus souvent à la question **« quoi ? »** (ou **« qui ? »**) posée **après** le verbe.\n\n## cod_test_quoi_qui\nPour le trouver :\n1. Repère le **verbe**.\n2. Pose la question : **verbe + qui ? / quoi ?**\n3. La réponse est le **COD**.\n\n## cod_attention_pieges\nPièges fréquents :\n- Confondre le COD avec le **sujet** (qui fait l’action).\n- Confondre COD et **COI** : le COI répond à « à qui ? / à quoi ? / de qui ? / de quoi ? ».\n- Prendre le **verbe** pour un complément.\n\n## cod_pronoms\nLe COD peut être un **groupe nominal** (une pomme), un **pronom** (le, la, les, l’), ou une **proposition**.\n\n## cod_revisions\nEn 5e, on consolide la méthode : **verbe + quoi/qui** → COD.\n",
+    "promptDirectives": "70% QCM, 20% V/F, 20% texte à trou, 10% correction d'erreur. Explication obligatoire. Niveau 5e.",
+    "createdAt": "2025-12-27T00:00:00Z"
+  },
+  "questions": [
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0001",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Dans la phrase « Tu écoutes la musique. », quel est le COD ?",
+      "choices": [
+        "Tu",
+        "écoutes",
+        "la",
+        "à son ami",
+        "la musique"
+      ],
+      "answer": "la musique",
+      "lessonRef": "cod_pronoms",
+      "explanation": "On pose la question après le verbe : écoutes quoi/qui ? → la musique. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0002",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_revision"
+      ],
+      "type": "TRUE_FALSE",
+      "difficulty": 1,
+      "statement": "Vrai ou faux : Dans « Le chien attrape la balle. », le COD est « la balle ».",
+      "choices": null,
+      "answer": "true",
+      "lessonRef": "cod_pronoms",
+      "explanation": "On demande : attrape quoi/qui ? → la balle. La proposition est vraie.",
+      "commonMistake": "Penser que le COD est toujours le premier mot de la phrase.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0003",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "FILL_BLANK",
+      "difficulty": 2,
+      "statement": "Complète : « Si je demande « à qui ? », je cherche plutôt un ____. »",
+      "choices": null,
+      "answer": "COI",
+      "lessonRef": "cod_definition",
+      "explanation": "La méthode : repérer le verbe puis poser la question « qui ? / quoi ? ». On obtient le COD. (Rappel : COD = verbe + qui/quoi.)",
+      "commonMistake": "Confondre la question du COD avec celle du COI.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0004",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "ERROR_SPOTTING",
+      "difficulty": 3,
+      "statement": "Phrase : « Le chat poursuit la souris. ». Un élève dit : « Le COD est « dans la cour ». » Corrige : quel est le COD ?",
+      "choices": null,
+      "answer": "la souris",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On pose poursuit quoi/qui ? → la souris. L’élève n’a pas appliqué le test « verbe + qui/quoi ».",
+      "commonMistake": "Choisir le sujet ou le verbe au lieu du complément.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0005",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "FILL_BLANK",
+      "difficulty": 4,
+      "statement": "Complète : « Le COD peut répondre à ____ ou à ____ après le verbe. »",
+      "choices": null,
+      "answer": "qui / quoi",
+      "lessonRef": "cod_definition",
+      "explanation": "La méthode : repérer le verbe puis poser la question « qui ? / quoi ? ». On obtient le COD. (Rappel : COD = verbe + qui/quoi.)",
+      "commonMistake": "Confondre la question du COD avec celle du COI.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0006",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Dans la phrase « On admire le paysage. », quel est le COD ?",
+      "choices": [
+        "le",
+        "le paysage",
+        "dans la cour",
+        "On",
+        "admire"
+      ],
+      "answer": "le paysage",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On pose la question après le verbe : admire quoi/qui ? → le paysage. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0007",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "FILL_BLANK",
+      "difficulty": 3,
+      "statement": "Complète : « Pour trouver le COD, je repère le ____ puis je demande : ____ ? »",
+      "choices": null,
+      "answer": "verbe / quoi",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "La méthode : repérer le verbe puis poser la question « qui ? / quoi ? ». On obtient le COD. (Rappel : COD = verbe + qui/quoi.)",
+      "commonMistake": "Confondre la question du COD avec celle du COI.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0008",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_revision"
+      ],
+      "type": "TRUE_FALSE",
+      "difficulty": 3,
+      "statement": "Vrai ou faux : Dans « Ils ont réparé le vélo. », le COD est « Ils ».",
+      "choices": null,
+      "answer": "false",
+      "lessonRef": "cod_definition",
+      "explanation": "Le COD répond à « ont réparé quoi/qui ? ». Ici, c’est « le vélo », pas « Ils ».",
+      "commonMistake": "Penser que le COD est toujours le premier mot de la phrase.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0009",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "FILL_BLANK",
+      "difficulty": 2,
+      "statement": "Complète : « Le COD répond à la question ____ posée après le verbe. »",
+      "choices": null,
+      "answer": "quoi",
+      "lessonRef": "cod_definition",
+      "explanation": "La méthode : repérer le verbe puis poser la question « qui ? / quoi ? ». On obtient le COD. (Rappel : COD = verbe + qui/quoi.)",
+      "commonMistake": "Confondre la question du COD avec celle du COI.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0010",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "FILL_BLANK",
+      "difficulty": 4,
+      "statement": "Complète : « Le COD peut répondre à ____ ou à ____ après le verbe. »",
+      "choices": null,
+      "answer": "qui / quoi",
+      "lessonRef": "cod_test_quoi_qui",
+      "explanation": "La méthode : repérer le verbe puis poser la question « qui ? / quoi ? ». On obtient le COD. (Rappel : COD = verbe + qui/quoi.)",
+      "commonMistake": "Confondre la question du COD avec celle du COI.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0011",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Dans la phrase « Marie mange une pomme. », quel est le COD ?",
+      "choices": [
+        "une",
+        "Marie",
+        "mange",
+        "dans la cour",
+        "une pomme"
+      ],
+      "answer": "une pomme",
+      "lessonRef": "cod_definition",
+      "explanation": "On pose la question après le verbe : mange quoi/qui ? → une pomme. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0012",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_revision"
+      ],
+      "type": "TRUE_FALSE",
+      "difficulty": 4,
+      "statement": "Vrai ou faux : Dans « Elle boit un chocolat chaud. », le COD est « un chocolat chaud ».",
+      "choices": null,
+      "answer": "true",
+      "lessonRef": "cod_pronoms",
+      "explanation": "On demande : boit quoi/qui ? → un chocolat chaud. La proposition est vraie.",
+      "commonMistake": "Penser que le COD est toujours le premier mot de la phrase.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0013",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_revision"
+      ],
+      "type": "TRUE_FALSE",
+      "difficulty": 2,
+      "statement": "Vrai ou faux : Dans « Elle boit un chocolat chaud. », le COD est « un chocolat chaud ».",
+      "choices": null,
+      "answer": "true",
+      "lessonRef": "cod_revisions",
+      "explanation": "On demande : boit quoi/qui ? → un chocolat chaud. La proposition est vraie.",
+      "commonMistake": "Penser que le COD est toujours le premier mot de la phrase.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0014",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "MCQ",
+      "difficulty": 5,
+      "statement": "Dans la phrase « Nous lisons un roman. », quel est le COD ?",
+      "choices": [
+        "un roman",
+        "un",
+        "dans la cour",
+        "lisons",
+        "Nous"
+      ],
+      "answer": "un roman",
+      "lessonRef": "cod_revisions",
+      "explanation": "On pose la question après le verbe : lisons quoi/qui ? → un roman. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0015",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Dans la phrase « Tu écris une lettre. », quel est le COD ?",
+      "choices": [
+        "Tu",
+        "une",
+        "à son ami",
+        "une lettre",
+        "écris"
+      ],
+      "answer": "une lettre",
+      "lessonRef": "cod_revisions",
+      "explanation": "On pose la question après le verbe : écris quoi/qui ? → une lettre. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0016",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Dans la phrase « Je range ma chambre. », quel est le COD ?",
+      "choices": [
+        "ma",
+        "range",
+        "dans la cour",
+        "Je",
+        "ma chambre"
+      ],
+      "answer": "ma chambre",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On pose la question après le verbe : range quoi/qui ? → ma chambre. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0017",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_revision"
+      ],
+      "type": "TRUE_FALSE",
+      "difficulty": 3,
+      "statement": "Vrai ou faux : Dans « Nous avons choisi un livre. », le COD est « un livre ».",
+      "choices": null,
+      "answer": "true",
+      "lessonRef": "cod_pronoms",
+      "explanation": "On demande : avons choisi quoi/qui ? → un livre. La proposition est vraie.",
+      "commonMistake": "Penser que le COD est toujours le premier mot de la phrase.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0018",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "FILL_BLANK",
+      "difficulty": 3,
+      "statement": "Complète : « Si je demande « à qui ? », je cherche plutôt un ____. »",
+      "choices": null,
+      "answer": "COI",
+      "lessonRef": "cod_revisions",
+      "explanation": "La méthode : repérer le verbe puis poser la question « qui ? / quoi ? ». On obtient le COD. (Rappel : COD = verbe + qui/quoi.)",
+      "commonMistake": "Confondre la question du COD avec celle du COI.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0019",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Dans la phrase « Ils regardent une série. », quel est le COD ?",
+      "choices": [
+        "dans la cour",
+        "regardent",
+        "une série",
+        "Ils",
+        "une"
+      ],
+      "answer": "une série",
+      "lessonRef": "cod_pronoms",
+      "explanation": "On pose la question après le verbe : regardent quoi/qui ? → une série. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0020",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Dans la phrase « Ils visitent le musée. », quel est le COD ?",
+      "choices": [
+        "visitent",
+        "Ils",
+        "le",
+        "dans la cour",
+        "le musée"
+      ],
+      "answer": "le musée",
+      "lessonRef": "cod_definition",
+      "explanation": "On pose la question après le verbe : visitent quoi/qui ? → le musée. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0021",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Dans la phrase « Je range ma chambre. », quel est le COD ?",
+      "choices": [
+        "range",
+        "dans la cour",
+        "ma chambre",
+        "ma",
+        "Je"
+      ],
+      "answer": "ma chambre",
+      "lessonRef": "cod_pronoms",
+      "explanation": "On pose la question après le verbe : range quoi/qui ? → ma chambre. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0022",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Dans la phrase « Je range ma chambre. », quel est le COD ?",
+      "choices": [
+        "Je",
+        "range",
+        "ma",
+        "ma chambre",
+        "à son ami"
+      ],
+      "answer": "ma chambre",
+      "lessonRef": "cod_test_quoi_qui",
+      "explanation": "On pose la question après le verbe : range quoi/qui ? → ma chambre. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0023",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "FILL_BLANK",
+      "difficulty": 3,
+      "statement": "Complète : « Le sujet répond à « qui est-ce qui ? », le COD répond à « ____ ? » »",
+      "choices": null,
+      "answer": "quoi",
+      "lessonRef": "cod_test_quoi_qui",
+      "explanation": "La méthode : repérer le verbe puis poser la question « qui ? / quoi ? ». On obtient le COD. (Rappel : COD = verbe + qui/quoi.)",
+      "commonMistake": "Confondre la question du COD avec celle du COI.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0024",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "FILL_BLANK",
+      "difficulty": 5,
+      "statement": "Complète : « Pour trouver le COD, je repère le ____ puis je demande : ____ ? »",
+      "choices": null,
+      "answer": "verbe / quoi",
+      "lessonRef": "cod_pronoms",
+      "explanation": "La méthode : repérer le verbe puis poser la question « qui ? / quoi ? ». On obtient le COD. (Rappel : COD = verbe + qui/quoi.)",
+      "commonMistake": "Confondre la question du COD avec celle du COI.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0025",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "MCQ",
+      "difficulty": 5,
+      "statement": "Dans la phrase « Paul regarde le film. », quel est le COD ?",
+      "choices": [
+        "le film",
+        "à son ami",
+        "Paul",
+        "regarde",
+        "le"
+      ],
+      "answer": "le film",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On pose la question après le verbe : regarde quoi/qui ? → le film. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0026",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "MCQ",
+      "difficulty": 5,
+      "statement": "Dans la phrase « Elle aime les mathématiques. », quel est le COD ?",
+      "choices": [
+        "les",
+        "Elle",
+        "aime",
+        "les mathématiques",
+        "dans la cour"
+      ],
+      "answer": "les mathématiques",
+      "lessonRef": "cod_revisions",
+      "explanation": "On pose la question après le verbe : aime quoi/qui ? → les mathématiques. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0027",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_revision"
+      ],
+      "type": "TRUE_FALSE",
+      "difficulty": 3,
+      "statement": "Vrai ou faux : Dans « Ils regardent une série. », le COD est « regardent ».",
+      "choices": null,
+      "answer": "false",
+      "lessonRef": "cod_revisions",
+      "explanation": "Le COD répond à « regardent quoi/qui ? ». Ici, c’est « une série », pas « regardent ».",
+      "commonMistake": "Penser que le COD est toujours le premier mot de la phrase.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0028",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_revision"
+      ],
+      "type": "TRUE_FALSE",
+      "difficulty": 4,
+      "statement": "Vrai ou faux : Dans « Nous avons choisi un livre. », le COD est « un livre ».",
+      "choices": null,
+      "answer": "true",
+      "lessonRef": "cod_definition",
+      "explanation": "On demande : avons choisi quoi/qui ? → un livre. La proposition est vraie.",
+      "commonMistake": "Penser que le COD est toujours le premier mot de la phrase.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0029",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Dans la phrase « Je range ma chambre. », quel est le COD ?",
+      "choices": [
+        "ma",
+        "ma chambre",
+        "range",
+        "Je",
+        "dans la cour"
+      ],
+      "answer": "ma chambre",
+      "lessonRef": "cod_pronoms",
+      "explanation": "On pose la question après le verbe : range quoi/qui ? → ma chambre. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0030",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_revision"
+      ],
+      "type": "TRUE_FALSE",
+      "difficulty": 3,
+      "statement": "Vrai ou faux : Dans « Le vent pousse les feuilles. », le COD est « les feuilles ».",
+      "choices": null,
+      "answer": "true",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On demande : pousse quoi/qui ? → les feuilles. La proposition est vraie.",
+      "commonMistake": "Penser que le COD est toujours le premier mot de la phrase.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0031",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Dans la phrase « Elle aime les mathématiques. », quel est le COD ?",
+      "choices": [
+        "à son ami",
+        "Elle",
+        "les mathématiques",
+        "les",
+        "aime"
+      ],
+      "answer": "les mathématiques",
+      "lessonRef": "cod_definition",
+      "explanation": "On pose la question après le verbe : aime quoi/qui ? → les mathématiques. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0032",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Dans la phrase « Paul regarde le film. », quel est le COD ?",
+      "choices": [
+        "Paul",
+        "le",
+        "regarde",
+        "dans la cour",
+        "le film"
+      ],
+      "answer": "le film",
+      "lessonRef": "cod_test_quoi_qui",
+      "explanation": "On pose la question après le verbe : regarde quoi/qui ? → le film. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0033",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Dans la phrase « Ils visitent le musée. », quel est le COD ?",
+      "choices": [
+        "le",
+        "Ils",
+        "le musée",
+        "dans la cour",
+        "visitent"
+      ],
+      "answer": "le musée",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On pose la question après le verbe : visitent quoi/qui ? → le musée. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0034",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 5,
+      "statement": "Dans la phrase « Le chien attrape la balle. », quel est le COD ?",
+      "choices": [
+        "la",
+        "Le",
+        "attrape",
+        "la balle",
+        "dans la cour"
+      ],
+      "answer": "la balle",
+      "lessonRef": "cod_definition",
+      "explanation": "On pose la question après le verbe : attrape quoi/qui ? → la balle. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0035",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Dans la phrase « Tu écoutes la musique. », quel est le COD ?",
+      "choices": [
+        "la musique",
+        "écoutes",
+        "la",
+        "Tu",
+        "dans la cour"
+      ],
+      "answer": "la musique",
+      "lessonRef": "cod_revisions",
+      "explanation": "On pose la question après le verbe : écoutes quoi/qui ? → la musique. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0036",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Dans la phrase « Elle aime les mathématiques. », quel est le COD ?",
+      "choices": [
+        "à son ami",
+        "les mathématiques",
+        "Elle",
+        "les",
+        "aime"
+      ],
+      "answer": "les mathématiques",
+      "lessonRef": "cod_pronoms",
+      "explanation": "On pose la question après le verbe : aime quoi/qui ? → les mathématiques. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0037",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Dans la phrase « Vous préparez le dîner. », quel est le COD ?",
+      "choices": [
+        "le",
+        "à son ami",
+        "le dîner",
+        "préparez",
+        "Vous"
+      ],
+      "answer": "le dîner",
+      "lessonRef": "cod_revisions",
+      "explanation": "On pose la question après le verbe : préparez quoi/qui ? → le dîner. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0038",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Dans la phrase « Nous lisons un roman. », quel est le COD ?",
+      "choices": [
+        "lisons",
+        "un",
+        "à son ami",
+        "un roman",
+        "Nous"
+      ],
+      "answer": "un roman",
+      "lessonRef": "cod_definition",
+      "explanation": "On pose la question après le verbe : lisons quoi/qui ? → un roman. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0039",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Dans la phrase « On admire le paysage. », quel est le COD ?",
+      "choices": [
+        "On",
+        "le",
+        "dans la cour",
+        "admire",
+        "le paysage"
+      ],
+      "answer": "le paysage",
+      "lessonRef": "cod_definition",
+      "explanation": "On pose la question après le verbe : admire quoi/qui ? → le paysage. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0040",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Dans la phrase « Ils visitent le musée. », quel est le COD ?",
+      "choices": [
+        "dans la cour",
+        "visitent",
+        "le musée",
+        "Ils",
+        "le"
+      ],
+      "answer": "le musée",
+      "lessonRef": "cod_test_quoi_qui",
+      "explanation": "On pose la question après le verbe : visitent quoi/qui ? → le musée. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0041",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Dans la phrase « Nous lisons un roman. », quel est le COD ?",
+      "choices": [
+        "Nous",
+        "un roman",
+        "dans la cour",
+        "un",
+        "lisons"
+      ],
+      "answer": "un roman",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On pose la question après le verbe : lisons quoi/qui ? → un roman. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0042",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Dans la phrase « Ils ont réparé le vélo. », quel est le COD ?",
+      "choices": [
+        "Ils",
+        "ont réparé",
+        "à son ami",
+        "le",
+        "le vélo"
+      ],
+      "answer": "le vélo",
+      "lessonRef": "cod_pronoms",
+      "explanation": "On pose la question après le verbe : ont réparé quoi/qui ? → le vélo. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0043",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_revision"
+      ],
+      "type": "TRUE_FALSE",
+      "difficulty": 2,
+      "statement": "Vrai ou faux : Dans « Ils visitent le musée. », le COD est « visitent ».",
+      "choices": null,
+      "answer": "false",
+      "lessonRef": "cod_definition",
+      "explanation": "Le COD répond à « visitent quoi/qui ? ». Ici, c’est « le musée », pas « visitent ».",
+      "commonMistake": "Penser que le COD est toujours le premier mot de la phrase.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0044",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Dans la phrase « Elle aime les mathématiques. », quel est le COD ?",
+      "choices": [
+        "à son ami",
+        "les",
+        "Elle",
+        "aime",
+        "les mathématiques"
+      ],
+      "answer": "les mathématiques",
+      "lessonRef": "cod_revisions",
+      "explanation": "On pose la question après le verbe : aime quoi/qui ? → les mathématiques. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0045",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "MCQ",
+      "difficulty": 5,
+      "statement": "Dans la phrase « Le professeur explique la leçon. », quel est le COD ?",
+      "choices": [
+        "la leçon",
+        "la",
+        "à son ami",
+        "Le",
+        "explique"
+      ],
+      "answer": "la leçon",
+      "lessonRef": "cod_revisions",
+      "explanation": "On pose la question après le verbe : explique quoi/qui ? → la leçon. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0046",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Dans la phrase « Nous lisons un roman. », quel est le COD ?",
+      "choices": [
+        "lisons",
+        "dans la cour",
+        "Nous",
+        "un roman",
+        "un"
+      ],
+      "answer": "un roman",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On pose la question après le verbe : lisons quoi/qui ? → un roman. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0047",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Dans la phrase « Marie mange une pomme. », quel est le COD ?",
+      "choices": [
+        "une pomme",
+        "mange",
+        "une",
+        "Marie",
+        "à son ami"
+      ],
+      "answer": "une pomme",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On pose la question après le verbe : mange quoi/qui ? → une pomme. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0048",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Dans la phrase « Le chien attrape la balle. », quel est le COD ?",
+      "choices": [
+        "la balle",
+        "Le",
+        "la",
+        "dans la cour",
+        "attrape"
+      ],
+      "answer": "la balle",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On pose la question après le verbe : attrape quoi/qui ? → la balle. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0049",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "FILL_BLANK",
+      "difficulty": 3,
+      "statement": "Complète : « Si je demande « à qui ? », je cherche plutôt un ____. »",
+      "choices": null,
+      "answer": "COI",
+      "lessonRef": "cod_test_quoi_qui",
+      "explanation": "La méthode : repérer le verbe puis poser la question « qui ? / quoi ? ». On obtient le COD. (Rappel : COD = verbe + qui/quoi.)",
+      "commonMistake": "Confondre la question du COD avec celle du COI.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0050",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "ERROR_SPOTTING",
+      "difficulty": 3,
+      "statement": "Phrase : « Elle aime les mathématiques. ». Un élève dit : « Le COD est « aime ». » Corrige : quel est le COD ?",
+      "choices": null,
+      "answer": "les mathématiques",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On pose aime quoi/qui ? → les mathématiques. L’élève n’a pas appliqué le test « verbe + qui/quoi ».",
+      "commonMistake": "Choisir le sujet ou le verbe au lieu du complément.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0051",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Dans la phrase « Ils ont réparé le vélo. », quel est le COD ?",
+      "choices": [
+        "le",
+        "ont réparé",
+        "Ils",
+        "le vélo",
+        "à son ami"
+      ],
+      "answer": "le vélo",
+      "lessonRef": "cod_revisions",
+      "explanation": "On pose la question après le verbe : ont réparé quoi/qui ? → le vélo. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0052",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Dans la phrase « Le chien attrape la balle. », quel est le COD ?",
+      "choices": [
+        "la balle",
+        "dans la cour",
+        "attrape",
+        "Le",
+        "la"
+      ],
+      "answer": "la balle",
+      "lessonRef": "cod_test_quoi_qui",
+      "explanation": "On pose la question après le verbe : attrape quoi/qui ? → la balle. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0053",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Dans la phrase « Nous avons choisi un livre. », quel est le COD ?",
+      "choices": [
+        "Nous",
+        "un",
+        "un livre",
+        "avons choisi",
+        "dans la cour"
+      ],
+      "answer": "un livre",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On pose la question après le verbe : avons choisi quoi/qui ? → un livre. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0054",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "FILL_BLANK",
+      "difficulty": 4,
+      "statement": "Complète : « Pour trouver le COD, je repère le ____ puis je demande : ____ ? »",
+      "choices": null,
+      "answer": "verbe / quoi",
+      "lessonRef": "cod_definition",
+      "explanation": "La méthode : repérer le verbe puis poser la question « qui ? / quoi ? ». On obtient le COD. (Rappel : COD = verbe + qui/quoi.)",
+      "commonMistake": "Confondre la question du COD avec celle du COI.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0055",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Dans la phrase « Marie mange une pomme. », quel est le COD ?",
+      "choices": [
+        "mange",
+        "dans la cour",
+        "Marie",
+        "une",
+        "une pomme"
+      ],
+      "answer": "une pomme",
+      "lessonRef": "cod_pronoms",
+      "explanation": "On pose la question après le verbe : mange quoi/qui ? → une pomme. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0056",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Dans la phrase « Ils regardent une série. », quel est le COD ?",
+      "choices": [
+        "regardent",
+        "une",
+        "Ils",
+        "à son ami",
+        "une série"
+      ],
+      "answer": "une série",
+      "lessonRef": "cod_test_quoi_qui",
+      "explanation": "On pose la question après le verbe : regardent quoi/qui ? → une série. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0057",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "ERROR_SPOTTING",
+      "difficulty": 3,
+      "statement": "Phrase : « Je porte un manteau. ». Un élève dit : « Le COD est « dans la cour ». » Corrige : quel est le COD ?",
+      "choices": null,
+      "answer": "un manteau",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On pose porte quoi/qui ? → un manteau. L’élève n’a pas appliqué le test « verbe + qui/quoi ».",
+      "commonMistake": "Choisir le sujet ou le verbe au lieu du complément.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0058",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 5,
+      "statement": "Dans la phrase « Je range ma chambre. », quel est le COD ?",
+      "choices": [
+        "ma chambre",
+        "à son ami",
+        "range",
+        "ma",
+        "Je"
+      ],
+      "answer": "ma chambre",
+      "lessonRef": "cod_pronoms",
+      "explanation": "On pose la question après le verbe : range quoi/qui ? → ma chambre. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0059",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Dans la phrase « Le chien attrape la balle. », quel est le COD ?",
+      "choices": [
+        "attrape",
+        "Le",
+        "la balle",
+        "dans la cour",
+        "la"
+      ],
+      "answer": "la balle",
+      "lessonRef": "cod_test_quoi_qui",
+      "explanation": "On pose la question après le verbe : attrape quoi/qui ? → la balle. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0060",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "FILL_BLANK",
+      "difficulty": 4,
+      "statement": "Complète : « Si je demande « à qui ? », je cherche plutôt un ____. »",
+      "choices": null,
+      "answer": "COI",
+      "lessonRef": "cod_pronoms",
+      "explanation": "La méthode : repérer le verbe puis poser la question « qui ? / quoi ? ». On obtient le COD. (Rappel : COD = verbe + qui/quoi.)",
+      "commonMistake": "Confondre la question du COD avec celle du COI.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0061",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_revision"
+      ],
+      "type": "TRUE_FALSE",
+      "difficulty": 2,
+      "statement": "Vrai ou faux : Dans « Je range ma chambre. », le COD est « ma chambre ».",
+      "choices": null,
+      "answer": "true",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On demande : range quoi/qui ? → ma chambre. La proposition est vraie.",
+      "commonMistake": "Penser que le COD est toujours le premier mot de la phrase.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0062",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_revision"
+      ],
+      "type": "TRUE_FALSE",
+      "difficulty": 2,
+      "statement": "Vrai ou faux : Dans « Je range ma chambre. », le COD est « ma chambre ».",
+      "choices": null,
+      "answer": "true",
+      "lessonRef": "cod_revisions",
+      "explanation": "On demande : range quoi/qui ? → ma chambre. La proposition est vraie.",
+      "commonMistake": "Penser que le COD est toujours le premier mot de la phrase.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0063",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Dans la phrase « Nous avons choisi un livre. », quel est le COD ?",
+      "choices": [
+        "avons choisi",
+        "un",
+        "un livre",
+        "à son ami",
+        "Nous"
+      ],
+      "answer": "un livre",
+      "lessonRef": "cod_pronoms",
+      "explanation": "On pose la question après le verbe : avons choisi quoi/qui ? → un livre. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0064",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Dans la phrase « Le professeur explique la leçon. », quel est le COD ?",
+      "choices": [
+        "explique",
+        "la leçon",
+        "dans la cour",
+        "la",
+        "Le"
+      ],
+      "answer": "la leçon",
+      "lessonRef": "cod_revisions",
+      "explanation": "On pose la question après le verbe : explique quoi/qui ? → la leçon. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0065",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Dans la phrase « Elle a acheté des fleurs. », quel est le COD ?",
+      "choices": [
+        "dans la cour",
+        "des fleurs",
+        "Elle",
+        "des",
+        "a acheté"
+      ],
+      "answer": "des fleurs",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On pose la question après le verbe : a acheté quoi/qui ? → des fleurs. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0066",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Dans la phrase « Nous lisons un roman. », quel est le COD ?",
+      "choices": [
+        "lisons",
+        "un roman",
+        "à son ami",
+        "Nous",
+        "un"
+      ],
+      "answer": "un roman",
+      "lessonRef": "cod_revisions",
+      "explanation": "On pose la question après le verbe : lisons quoi/qui ? → un roman. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0067",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_revision"
+      ],
+      "type": "TRUE_FALSE",
+      "difficulty": 5,
+      "statement": "Vrai ou faux : Dans « Paul regarde le film. », le COD est « Paul ».",
+      "choices": null,
+      "answer": "false",
+      "lessonRef": "cod_definition",
+      "explanation": "Le COD répond à « regarde quoi/qui ? ». Ici, c’est « le film », pas « Paul ».",
+      "commonMistake": "Penser que le COD est toujours le premier mot de la phrase.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0068",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Dans la phrase « Nous lisons un roman. », quel est le COD ?",
+      "choices": [
+        "dans la cour",
+        "un",
+        "Nous",
+        "lisons",
+        "un roman"
+      ],
+      "answer": "un roman",
+      "lessonRef": "cod_test_quoi_qui",
+      "explanation": "On pose la question après le verbe : lisons quoi/qui ? → un roman. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0069",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Dans la phrase « Tu écris une lettre. », quel est le COD ?",
+      "choices": [
+        "une lettre",
+        "dans la cour",
+        "Tu",
+        "écris",
+        "une"
+      ],
+      "answer": "une lettre",
+      "lessonRef": "cod_definition",
+      "explanation": "On pose la question après le verbe : écris quoi/qui ? → une lettre. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0070",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Dans la phrase « Ils regardent une série. », quel est le COD ?",
+      "choices": [
+        "une",
+        "une série",
+        "dans la cour",
+        "Ils",
+        "regardent"
+      ],
+      "answer": "une série",
+      "lessonRef": "cod_definition",
+      "explanation": "On pose la question après le verbe : regardent quoi/qui ? → une série. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0071",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "MCQ",
+      "difficulty": 5,
+      "statement": "Dans la phrase « Paul regarde le film. », quel est le COD ?",
+      "choices": [
+        "le",
+        "regarde",
+        "à son ami",
+        "Paul",
+        "le film"
+      ],
+      "answer": "le film",
+      "lessonRef": "cod_definition",
+      "explanation": "On pose la question après le verbe : regarde quoi/qui ? → le film. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0072",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 5,
+      "statement": "Dans la phrase « Le vent pousse les feuilles. », quel est le COD ?",
+      "choices": [
+        "Le",
+        "les",
+        "les feuilles",
+        "dans la cour",
+        "pousse"
+      ],
+      "answer": "les feuilles",
+      "lessonRef": "cod_test_quoi_qui",
+      "explanation": "On pose la question après le verbe : pousse quoi/qui ? → les feuilles. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0073",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Dans la phrase « On admire le paysage. », quel est le COD ?",
+      "choices": [
+        "à son ami",
+        "le paysage",
+        "On",
+        "le",
+        "admire"
+      ],
+      "answer": "le paysage",
+      "lessonRef": "cod_definition",
+      "explanation": "On pose la question après le verbe : admire quoi/qui ? → le paysage. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0074",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Dans la phrase « Le vent pousse les feuilles. », quel est le COD ?",
+      "choices": [
+        "Le",
+        "dans la cour",
+        "les",
+        "pousse",
+        "les feuilles"
+      ],
+      "answer": "les feuilles",
+      "lessonRef": "cod_revisions",
+      "explanation": "On pose la question après le verbe : pousse quoi/qui ? → les feuilles. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0075",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Dans la phrase « Marie mange une pomme. », quel est le COD ?",
+      "choices": [
+        "une",
+        "Marie",
+        "dans la cour",
+        "une pomme",
+        "mange"
+      ],
+      "answer": "une pomme",
+      "lessonRef": "cod_definition",
+      "explanation": "On pose la question après le verbe : mange quoi/qui ? → une pomme. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0076",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "FILL_BLANK",
+      "difficulty": 4,
+      "statement": "Complète : « Le COD répond à la question ____ posée après le verbe. »",
+      "choices": null,
+      "answer": "quoi",
+      "lessonRef": "cod_pronoms",
+      "explanation": "La méthode : repérer le verbe puis poser la question « qui ? / quoi ? ». On obtient le COD. (Rappel : COD = verbe + qui/quoi.)",
+      "commonMistake": "Confondre la question du COD avec celle du COI.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0077",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "ERROR_SPOTTING",
+      "difficulty": 3,
+      "statement": "Phrase : « Ils visitent le musée. ». Un élève dit : « Le COD est « visitent ». » Corrige : quel est le COD ?",
+      "choices": null,
+      "answer": "le musée",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On pose visitent quoi/qui ? → le musée. L’élève n’a pas appliqué le test « verbe + qui/quoi ».",
+      "commonMistake": "Choisir le sujet ou le verbe au lieu du complément.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0078",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "ERROR_SPOTTING",
+      "difficulty": 3,
+      "statement": "Phrase : « Tu écoutes la musique. ». Un élève dit : « Le COD est « dans la cour ». » Corrige : quel est le COD ?",
+      "choices": null,
+      "answer": "la musique",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On pose écoutes quoi/qui ? → la musique. L’élève n’a pas appliqué le test « verbe + qui/quoi ».",
+      "commonMistake": "Choisir le sujet ou le verbe au lieu du complément.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0079",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "FILL_BLANK",
+      "difficulty": 5,
+      "statement": "Complète : « Le COD peut répondre à ____ ou à ____ après le verbe. »",
+      "choices": null,
+      "answer": "qui / quoi",
+      "lessonRef": "cod_revisions",
+      "explanation": "La méthode : repérer le verbe puis poser la question « qui ? / quoi ? ». On obtient le COD. (Rappel : COD = verbe + qui/quoi.)",
+      "commonMistake": "Confondre la question du COD avec celle du COI.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0080",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Dans la phrase « Elle boit un chocolat chaud. », quel est le COD ?",
+      "choices": [
+        "un",
+        "un chocolat chaud",
+        "Elle",
+        "boit",
+        "dans la cour"
+      ],
+      "answer": "un chocolat chaud",
+      "lessonRef": "cod_definition",
+      "explanation": "On pose la question après le verbe : boit quoi/qui ? → un chocolat chaud. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0081",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_revision"
+      ],
+      "type": "TRUE_FALSE",
+      "difficulty": 4,
+      "statement": "Vrai ou faux : Dans « Vous préparez le dîner. », le COD est « le dîner ».",
+      "choices": null,
+      "answer": "true",
+      "lessonRef": "cod_pronoms",
+      "explanation": "On demande : préparez quoi/qui ? → le dîner. La proposition est vraie.",
+      "commonMistake": "Penser que le COD est toujours le premier mot de la phrase.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0082",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Dans la phrase « Le vent pousse les feuilles. », quel est le COD ?",
+      "choices": [
+        "pousse",
+        "à son ami",
+        "Le",
+        "les",
+        "les feuilles"
+      ],
+      "answer": "les feuilles",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On pose la question après le verbe : pousse quoi/qui ? → les feuilles. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0083",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "FILL_BLANK",
+      "difficulty": 2,
+      "statement": "Complète : « Si je demande « à qui ? », je cherche plutôt un ____. »",
+      "choices": null,
+      "answer": "COI",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "La méthode : repérer le verbe puis poser la question « qui ? / quoi ? ». On obtient le COD. (Rappel : COD = verbe + qui/quoi.)",
+      "commonMistake": "Confondre la question du COD avec celle du COI.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0084",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Dans la phrase « Elle boit un chocolat chaud. », quel est le COD ?",
+      "choices": [
+        "dans la cour",
+        "un",
+        "boit",
+        "Elle",
+        "un chocolat chaud"
+      ],
+      "answer": "un chocolat chaud",
+      "lessonRef": "cod_pronoms",
+      "explanation": "On pose la question après le verbe : boit quoi/qui ? → un chocolat chaud. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0085",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Dans la phrase « Elle boit un chocolat chaud. », quel est le COD ?",
+      "choices": [
+        "Elle",
+        "boit",
+        "un chocolat chaud",
+        "dans la cour",
+        "un"
+      ],
+      "answer": "un chocolat chaud",
+      "lessonRef": "cod_pronoms",
+      "explanation": "On pose la question après le verbe : boit quoi/qui ? → un chocolat chaud. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0086",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "ERROR_SPOTTING",
+      "difficulty": 2,
+      "statement": "Phrase : « Je range ma chambre. ». Un élève dit : « Le COD est « dans la cour ». » Corrige : quel est le COD ?",
+      "choices": null,
+      "answer": "ma chambre",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On pose range quoi/qui ? → ma chambre. L’élève n’a pas appliqué le test « verbe + qui/quoi ».",
+      "commonMistake": "Choisir le sujet ou le verbe au lieu du complément.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0087",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "FILL_BLANK",
+      "difficulty": 3,
+      "statement": "Complète : « Si je demande « à qui ? », je cherche plutôt un ____. »",
+      "choices": null,
+      "answer": "COI",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "La méthode : repérer le verbe puis poser la question « qui ? / quoi ? ». On obtient le COD. (Rappel : COD = verbe + qui/quoi.)",
+      "commonMistake": "Confondre la question du COD avec celle du COI.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0088",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "MCQ",
+      "difficulty": 5,
+      "statement": "Dans la phrase « Nous lisons un roman. », quel est le COD ?",
+      "choices": [
+        "un roman",
+        "dans la cour",
+        "Nous",
+        "un",
+        "lisons"
+      ],
+      "answer": "un roman",
+      "lessonRef": "cod_definition",
+      "explanation": "On pose la question après le verbe : lisons quoi/qui ? → un roman. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0089",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "ERROR_SPOTTING",
+      "difficulty": 2,
+      "statement": "Phrase : « Elle aime les mathématiques. ». Un élève dit : « Le COD est « dans la cour ». » Corrige : quel est le COD ?",
+      "choices": null,
+      "answer": "les mathématiques",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On pose aime quoi/qui ? → les mathématiques. L’élève n’a pas appliqué le test « verbe + qui/quoi ».",
+      "commonMistake": "Choisir le sujet ou le verbe au lieu du complément.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0090",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "MCQ",
+      "difficulty": 5,
+      "statement": "Dans la phrase « Elle boit un chocolat chaud. », quel est le COD ?",
+      "choices": [
+        "un chocolat chaud",
+        "un",
+        "boit",
+        "dans la cour",
+        "Elle"
+      ],
+      "answer": "un chocolat chaud",
+      "lessonRef": "cod_revisions",
+      "explanation": "On pose la question après le verbe : boit quoi/qui ? → un chocolat chaud. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0091",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "FILL_BLANK",
+      "difficulty": 3,
+      "statement": "Complète : « Le COD répond à la question ____ posée après le verbe. »",
+      "choices": null,
+      "answer": "quoi",
+      "lessonRef": "cod_test_quoi_qui",
+      "explanation": "La méthode : repérer le verbe puis poser la question « qui ? / quoi ? ». On obtient le COD. (Rappel : COD = verbe + qui/quoi.)",
+      "commonMistake": "Confondre la question du COD avec celle du COI.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0092",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_revision"
+      ],
+      "type": "TRUE_FALSE",
+      "difficulty": 2,
+      "statement": "Vrai ou faux : Dans « On admire le paysage. », le COD est « le paysage ».",
+      "choices": null,
+      "answer": "true",
+      "lessonRef": "cod_definition",
+      "explanation": "On demande : admire quoi/qui ? → le paysage. La proposition est vraie.",
+      "commonMistake": "Penser que le COD est toujours le premier mot de la phrase.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0093",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_revision"
+      ],
+      "type": "TRUE_FALSE",
+      "difficulty": 2,
+      "statement": "Vrai ou faux : Dans « Elle boit un chocolat chaud. », le COD est « un chocolat chaud ».",
+      "choices": null,
+      "answer": "true",
+      "lessonRef": "cod_definition",
+      "explanation": "On demande : boit quoi/qui ? → un chocolat chaud. La proposition est vraie.",
+      "commonMistake": "Penser que le COD est toujours le premier mot de la phrase.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0094",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "FILL_BLANK",
+      "difficulty": 2,
+      "statement": "Complète : « Pour trouver le COD, je repère le ____ puis je demande : ____ ? »",
+      "choices": null,
+      "answer": "verbe / quoi",
+      "lessonRef": "cod_pronoms",
+      "explanation": "La méthode : repérer le verbe puis poser la question « qui ? / quoi ? ». On obtient le COD. (Rappel : COD = verbe + qui/quoi.)",
+      "commonMistake": "Confondre la question du COD avec celle du COI.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0095",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Dans la phrase « Le chat poursuit la souris. », quel est le COD ?",
+      "choices": [
+        "la souris",
+        "poursuit",
+        "Le",
+        "dans la cour",
+        "la"
+      ],
+      "answer": "la souris",
+      "lessonRef": "cod_definition",
+      "explanation": "On pose la question après le verbe : poursuit quoi/qui ? → la souris. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0096",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_revision"
+      ],
+      "type": "TRUE_FALSE",
+      "difficulty": 5,
+      "statement": "Vrai ou faux : Dans « Vous préparez le dîner. », le COD est « le dîner ».",
+      "choices": null,
+      "answer": "true",
+      "lessonRef": "cod_definition",
+      "explanation": "On demande : préparez quoi/qui ? → le dîner. La proposition est vraie.",
+      "commonMistake": "Penser que le COD est toujours le premier mot de la phrase.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0097",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "FILL_BLANK",
+      "difficulty": 3,
+      "statement": "Complète : « Si je demande « à qui ? », je cherche plutôt un ____. »",
+      "choices": null,
+      "answer": "COI",
+      "lessonRef": "cod_definition",
+      "explanation": "La méthode : repérer le verbe puis poser la question « qui ? / quoi ? ». On obtient le COD. (Rappel : COD = verbe + qui/quoi.)",
+      "commonMistake": "Confondre la question du COD avec celle du COI.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0098",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_revision"
+      ],
+      "type": "TRUE_FALSE",
+      "difficulty": 2,
+      "statement": "Vrai ou faux : Dans « Tu écoutes la musique. », le COD est « écoutes ».",
+      "choices": null,
+      "answer": "false",
+      "lessonRef": "cod_test_quoi_qui",
+      "explanation": "Le COD répond à « écoutes quoi/qui ? ». Ici, c’est « la musique », pas « écoutes ».",
+      "commonMistake": "Penser que le COD est toujours le premier mot de la phrase.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0099",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Dans la phrase « Le chat poursuit la souris. », quel est le COD ?",
+      "choices": [
+        "la souris",
+        "la",
+        "poursuit",
+        "Le",
+        "dans la cour"
+      ],
+      "answer": "la souris",
+      "lessonRef": "cod_pronoms",
+      "explanation": "On pose la question après le verbe : poursuit quoi/qui ? → la souris. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0100",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Dans la phrase « On admire le paysage. », quel est le COD ?",
+      "choices": [
+        "On",
+        "le",
+        "dans la cour",
+        "le paysage",
+        "admire"
+      ],
+      "answer": "le paysage",
+      "lessonRef": "cod_test_quoi_qui",
+      "explanation": "On pose la question après le verbe : admire quoi/qui ? → le paysage. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0101",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Dans la phrase « Elle aime les mathématiques. », quel est le COD ?",
+      "choices": [
+        "les",
+        "les mathématiques",
+        "aime",
+        "à son ami",
+        "Elle"
+      ],
+      "answer": "les mathématiques",
+      "lessonRef": "cod_test_quoi_qui",
+      "explanation": "On pose la question après le verbe : aime quoi/qui ? → les mathématiques. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0102",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "FILL_BLANK",
+      "difficulty": 3,
+      "statement": "Complète : « Si je demande « à qui ? », je cherche plutôt un ____. »",
+      "choices": null,
+      "answer": "COI",
+      "lessonRef": "cod_pronoms",
+      "explanation": "La méthode : repérer le verbe puis poser la question « qui ? / quoi ? ». On obtient le COD. (Rappel : COD = verbe + qui/quoi.)",
+      "commonMistake": "Confondre la question du COD avec celle du COI.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0103",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "ERROR_SPOTTING",
+      "difficulty": 1,
+      "statement": "Phrase : « On admire le paysage. ». Un élève dit : « Le COD est « admire ». » Corrige : quel est le COD ?",
+      "choices": null,
+      "answer": "le paysage",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On pose admire quoi/qui ? → le paysage. L’élève n’a pas appliqué le test « verbe + qui/quoi ».",
+      "commonMistake": "Choisir le sujet ou le verbe au lieu du complément.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0104",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Dans la phrase « On admire le paysage. », quel est le COD ?",
+      "choices": [
+        "dans la cour",
+        "le paysage",
+        "le",
+        "admire",
+        "On"
+      ],
+      "answer": "le paysage",
+      "lessonRef": "cod_revisions",
+      "explanation": "On pose la question après le verbe : admire quoi/qui ? → le paysage. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0105",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Dans la phrase « Je range ma chambre. », quel est le COD ?",
+      "choices": [
+        "dans la cour",
+        "range",
+        "ma",
+        "ma chambre",
+        "Je"
+      ],
+      "answer": "ma chambre",
+      "lessonRef": "cod_revisions",
+      "explanation": "On pose la question après le verbe : range quoi/qui ? → ma chambre. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0106",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_revision"
+      ],
+      "type": "TRUE_FALSE",
+      "difficulty": 5,
+      "statement": "Vrai ou faux : Dans « Le vent pousse les feuilles. », le COD est « les feuilles ».",
+      "choices": null,
+      "answer": "true",
+      "lessonRef": "cod_pronoms",
+      "explanation": "On demande : pousse quoi/qui ? → les feuilles. La proposition est vraie.",
+      "commonMistake": "Penser que le COD est toujours le premier mot de la phrase.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0107",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Dans la phrase « On admire le paysage. », quel est le COD ?",
+      "choices": [
+        "admire",
+        "le paysage",
+        "On",
+        "le",
+        "dans la cour"
+      ],
+      "answer": "le paysage",
+      "lessonRef": "cod_pronoms",
+      "explanation": "On pose la question après le verbe : admire quoi/qui ? → le paysage. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0108",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Dans la phrase « Le professeur explique la leçon. », quel est le COD ?",
+      "choices": [
+        "la",
+        "à son ami",
+        "explique",
+        "la leçon",
+        "Le"
+      ],
+      "answer": "la leçon",
+      "lessonRef": "cod_test_quoi_qui",
+      "explanation": "On pose la question après le verbe : explique quoi/qui ? → la leçon. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0109",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "ERROR_SPOTTING",
+      "difficulty": 3,
+      "statement": "Phrase : « Ils regardent une série. ». Un élève dit : « Le COD est « regardent ». » Corrige : quel est le COD ?",
+      "choices": null,
+      "answer": "une série",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On pose regardent quoi/qui ? → une série. L’élève n’a pas appliqué le test « verbe + qui/quoi ».",
+      "commonMistake": "Choisir le sujet ou le verbe au lieu du complément.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0110",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_revision"
+      ],
+      "type": "TRUE_FALSE",
+      "difficulty": 2,
+      "statement": "Vrai ou faux : Dans « Vous préparez le dîner. », le COD est « Vous ».",
+      "choices": null,
+      "answer": "false",
+      "lessonRef": "cod_pronoms",
+      "explanation": "Le COD répond à « préparez quoi/qui ? ». Ici, c’est « le dîner », pas « Vous ».",
+      "commonMistake": "Penser que le COD est toujours le premier mot de la phrase.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0111",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Dans la phrase « Nous avons choisi un livre. », quel est le COD ?",
+      "choices": [
+        "dans la cour",
+        "Nous",
+        "un",
+        "un livre",
+        "avons choisi"
+      ],
+      "answer": "un livre",
+      "lessonRef": "cod_pronoms",
+      "explanation": "On pose la question après le verbe : avons choisi quoi/qui ? → un livre. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0112",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "ERROR_SPOTTING",
+      "difficulty": 3,
+      "statement": "Phrase : « On admire le paysage. ». Un élève dit : « Le COD est « admire ». » Corrige : quel est le COD ?",
+      "choices": null,
+      "answer": "le paysage",
+      "lessonRef": "cod_attention_pieges",
+      "explanation": "On pose admire quoi/qui ? → le paysage. L’élève n’a pas appliqué le test « verbe + qui/quoi ».",
+      "commonMistake": "Choisir le sujet ou le verbe au lieu du complément.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0113",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Dans la phrase « Elle boit un chocolat chaud. », quel est le COD ?",
+      "choices": [
+        "un",
+        "Elle",
+        "un chocolat chaud",
+        "à son ami",
+        "boit"
+      ],
+      "answer": "un chocolat chaud",
+      "lessonRef": "cod_revisions",
+      "explanation": "On pose la question après le verbe : boit quoi/qui ? → un chocolat chaud. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0114",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Dans la phrase « Paul regarde le film. », quel est le COD ?",
+      "choices": [
+        "regarde",
+        "Paul",
+        "dans la cour",
+        "le film",
+        "le"
+      ],
+      "answer": "le film",
+      "lessonRef": "cod_pronoms",
+      "explanation": "On pose la question après le verbe : regarde quoi/qui ? → le film. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0115",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Dans la phrase « Tu écris une lettre. », quel est le COD ?",
+      "choices": [
+        "une lettre",
+        "écris",
+        "une",
+        "Tu",
+        "à son ami"
+      ],
+      "answer": "une lettre",
+      "lessonRef": "cod_pronoms",
+      "explanation": "On pose la question après le verbe : écris quoi/qui ? → une lettre. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0116",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Dans la phrase « Le chat poursuit la souris. », quel est le COD ?",
+      "choices": [
+        "poursuit",
+        "la souris",
+        "la",
+        "dans la cour",
+        "Le"
+      ],
+      "answer": "la souris",
+      "lessonRef": "cod_revisions",
+      "explanation": "On pose la question après le verbe : poursuit quoi/qui ? → la souris. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0117",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "FILL_BLANK",
+      "difficulty": 1,
+      "statement": "Complète : « Le COD répond à la question ____ posée après le verbe. »",
+      "choices": null,
+      "answer": "quoi",
+      "lessonRef": "cod_pronoms",
+      "explanation": "La méthode : repérer le verbe puis poser la question « qui ? / quoi ? ». On obtient le COD. (Rappel : COD = verbe + qui/quoi.)",
+      "commonMistake": "Confondre la question du COD avec celle du COI.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0118",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Dans la phrase « Le chat poursuit la souris. », quel est le COD ?",
+      "choices": [
+        "la souris",
+        "la",
+        "Le",
+        "à son ami",
+        "poursuit"
+      ],
+      "answer": "la souris",
+      "lessonRef": "cod_test_quoi_qui",
+      "explanation": "On pose la question après le verbe : poursuit quoi/qui ? → la souris. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0119",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Dans la phrase « Tu écris une lettre. », quel est le COD ?",
+      "choices": [
+        "écris",
+        "une",
+        "une lettre",
+        "Tu",
+        "à son ami"
+      ],
+      "answer": "une lettre",
+      "lessonRef": "cod_pronoms",
+      "explanation": "On pose la question après le verbe : écris quoi/qui ? → une lettre. C’est donc le COD.",
+      "commonMistake": "Confondre le COD avec le sujet ou choisir le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0120",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_revision"
+      ],
+      "type": "TRUE_FALSE",
+      "difficulty": 5,
+      "statement": "Vrai ou faux : Dans « Le professeur explique la leçon. », le COD est « la leçon ».",
+      "choices": null,
+      "answer": "true",
+      "lessonRef": "cod_definition",
+      "explanation": "On demande : explique quoi/qui ? → la leçon. La proposition est vraie.",
+      "commonMistake": "Penser que le COD est toujours le premier mot de la phrase.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    }
+  ]
+}

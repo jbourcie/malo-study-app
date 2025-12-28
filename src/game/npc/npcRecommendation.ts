@@ -81,13 +81,6 @@ function pickWeighted<T>(items: T[], weightFn: (item: T) => number): T | null {
   return weighted[0]?.item || null
 }
 
-function logDebug(...args: any[]) {
-  if (typeof window === 'undefined') return
-  if (typeof process !== 'undefined' && process.env.NODE_ENV === 'production') return
-  // eslint-disable-next-line no-console
-  console.debug(...args)
-}
-
 export function buildNpcRecommendation(params: {
   npcId: NpcId
   masteryByTag: Record<string, { state: 'discovering' | 'progressing' | 'mastered' }>
@@ -102,7 +95,8 @@ export function buildNpcRecommendation(params: {
   const poolSet = new Set([...tagIds, ...history.flatMap(h => h.tagIds || []), ...PRIORITY_TAGS].filter(t => !excludeTagIds.includes(t)))
   const pool = Array.from(poolSet).filter(t => !availableTagIds || availableTagIds.includes(t))
   if (!pool.length) return null
-  logDebug('[npc.pool]', { npcId, poolSize: pool.length, sample: pool.slice(0, 10) })
+
+  const availableSet = new Set(availableTagIds || pool)
 
   // Step 1: repair
   const repairable = pool.filter(tag => shouldRepair(tag, history))
@@ -114,7 +108,6 @@ export function buildNpcRecommendation(params: {
     })
     if (bestRepair) {
       const biomeId = getBlockDef(bestRepair).biomeId || subjectToBiomeId(inferSubject(bestRepair))
-      logDebug('[npc.choice]', { npcId, reason: 'repair', tag: bestRepair, pool: repairable })
       return {
         npcId,
         title: `Mission de ${NPC_CATALOG[npcId].name}`,
@@ -131,14 +124,17 @@ export function buildNpcRecommendation(params: {
   }
 
   // Step 2: priority mine
-  const priorityCandidates = PRIORITY_TAGS.filter(tag => !excludeTagIds.includes(tag) && (masteryByTag[tag]?.state || 'discovering') !== 'mastered')
+  const priorityCandidates = PRIORITY_TAGS.filter(tag =>
+    !excludeTagIds.includes(tag)
+    && (masteryByTag[tag]?.state || 'discovering') !== 'mastered'
+    && availableSet.has(tag)
+  )
   const discovering = pool.filter(tag => (masteryByTag[tag]?.state || 'discovering') === 'discovering')
   const mineTag = priorityCandidates.length
     ? pickWeighted(priorityCandidates, (tag) => (masteryByTag[tag]?.state === 'discovering' ? 3 : 1))
     : (discovering.length ? pickWeighted(discovering, () => 1) : null)
   if (mineTag) {
     const biomeId = getBlockDef(mineTag).biomeId || subjectToBiomeId(inferSubject(mineTag))
-    logDebug('[npc.choice]', { npcId, reason: 'priority', tag: mineTag, candidates: priorityCandidates, available: pool.length })
     return {
       npcId,
       title: `Mission de ${NPC_CATALOG[npcId].name}`,
@@ -168,7 +164,6 @@ export function buildNpcRecommendation(params: {
     : null
   if (spacedTag) {
     const biomeId = getBlockDef(spacedTag.tag).biomeId || subjectToBiomeId(inferSubject(spacedTag.tag))
-    logDebug('[npc.choice]', { npcId, reason: 'spaced', tag: spacedTag.tag, candidates: spaced.map(s => s.tag) })
     return {
       npcId,
       title: `Mission de ${NPC_CATALOG[npcId].name}`,
@@ -202,7 +197,6 @@ export function buildNpcRecommendation(params: {
   let craftPair: string[] | null = craftPairs.length ? craftPairs[Math.floor(Math.random() * craftPairs.length)] : null
   if (craftPair) {
     const biomeId = getBlockDef(craftPair[0]).biomeId || subjectToBiomeId(inferSubject(craftPair[0]))
-    logDebug('[npc.choice]', { npcId, reason: 'craft', tags: craftPair })
     return {
       npcId,
       title: `Mission de ${NPC_CATALOG[npcId].name}`,

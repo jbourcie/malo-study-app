@@ -16,3 +16,12 @@ export function RequireParent({ children }: { children: React.ReactNode }) {
   if (role !== 'parent') return <Navigate to="/" replace />
   return <>{children}</>
 }
+
+export function RequireAdmin({ children }: { children: React.ReactNode }) {
+  const { user, role, loading } = useAuth()
+  const devAdmin = import.meta.env.VITE_DEV_ADMIN === 'true'
+  if (loading) return <div className="card">Chargement…</div>
+  if (!user) return <Navigate to="/connexion" replace />
+  if (role !== 'parent' && !devAdmin) return <Navigate to="/" replace />
+  return <>{children}</>
+}

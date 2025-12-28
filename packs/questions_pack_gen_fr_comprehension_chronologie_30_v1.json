@@ -1,0 +1,1247 @@
+{
+  "pack": {
+    "schemaVersion": 1,
+    "taxonomyVersion": "5e-1.0",
+    "setId": "pack_fr_comprehension_chronologie_30q_v1",
+    "grade": "5e",
+    "lang": "fr",
+    "primaryTag": "fr_comprehension_chronologie",
+    "blockId": "fr_comprehension_chronologie",
+    "lessonTitle": "Rappel — Chronologie",
+    "lesson": "# Rappel — Chronologie\n\n## Définition {#definition}\nLa **chronologie** consiste à repérer et remettre dans le bon ordre les événements d’un texte.\n\n## Méthode {#methode}\n1. Repère les **connecteurs temporels** : d’abord, puis, ensuite, avant, après, pendant, enfin…\n2. Identifie les **actions** (verbes) et **qui fait quoi**.\n3. Place les actions sur une **ligne du temps** (du plus ancien au plus récent).\n4. Attention aux mots **avant / après** : ils peuvent inverser l’ordre apparent des phrases.\n\n## Exemples {#exemples}\n- « D’abord, Tom met son manteau. Ensuite, il sort. » → manteau → sortie.\n- « Après le déjeuner, elle fait ses devoirs. » → déjeuner → devoirs.\n\n## Pièges fréquents {#pieges}\n- Confondre l’ordre des phrases avec l’ordre des événements.\n- Oublier que « avant » indique un événement **plus tôt**.\n- Ne pas relier correctement un pronom (il/elle/ils) à la bonne personne.\n",
+    "createdAt": "2025-12-28T00:00:00Z",
+    "promptDirectives": "30 questions. Thème compréhension/chronologie. Textes courts (3–5 phrases). Pas de texte à trou. Réponses non ambiguës. Tout en draft."
+  },
+  "questions": [
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0001",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Lis le texte.\n\nD’abord, le ciel devient gris. Puis le vent se lève. Ensuite, la pluie commence. Enfin, un arc-en-ciel apparaît.\n\nQuel événement se passe **juste après** : « La pluie commence » ?",
+      "choices": [
+        "Le vent se lève",
+        "Un arc-en-ciel apparaît",
+        "Le ciel devient gris",
+        "La pluie commence"
+      ],
+      "answer": "Un arc-en-ciel apparaît",
+      "lessonRef": "methode",
+      "explanation": "On repère l’événement demandé et on regarde ce qui arrive juste avant/après sur la ligne du temps. Cela permet de remettre les actions dans l’ordre.",
+      "commonMistake": "Répondre selon l’ordre des phrases sans tenir compte des mots « avant / après ».",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0002",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Lis le texte puis réponds.\n\nZoé prépare la table. Ensuite, elle appelle sa famille. Après le dîner, elle débarrasse et lance le lave-vaisselle.\n\nQuel événement se passe **en dernier** ?",
+      "choices": [
+        "Elle appelle sa famille",
+        "Elle débarrasse et lance le lave-vaisselle",
+        "Elle prépare la table",
+        "Aucune de ces réponses"
+      ],
+      "answer": "Elle débarrasse et lance le lave-vaisselle",
+      "lessonRef": "methode",
+      "explanation": "On repère la fin grâce aux connecteurs (ex : enfin, à l’arrivée, après…). Cela permet de remettre les actions dans l’ordre.",
+      "commonMistake": "Répondre selon l’ordre des phrases sans tenir compte des mots « avant / après ».",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0003",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Lis le texte.\n\nLe soir, Nora nourrit le chat. Ensuite, elle prend une douche. Puis, elle lit quelques pages. Enfin, elle éteint la lumière.\n\nQuel enchaînement est correct ?",
+      "choices": [
+        "Elle éteint la lumière → Elle lit",
+        "Elle prend une douche → Elle nourrit le chat",
+        "Elle éteint la lumière → Elle nourrit le chat",
+        "Elle nourrit le chat → Elle prend une douche"
+      ],
+      "answer": "Elle nourrit le chat → Elle prend une douche",
+      "lessonRef": "methode",
+      "explanation": "On vérifie l’ordre en s’aidant des connecteurs temporels et de la logique des actions. Cela permet de remettre les actions dans l’ordre.",
+      "commonMistake": "Répondre selon l’ordre des phrases sans tenir compte des mots « avant / après ».",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0004",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Lis le texte.\n\nMila finit ses exercices. Puis elle relit ses réponses. Après cela, elle corrige une erreur. Enfin, elle rend sa copie.\n\nQuel enchaînement est correct ?",
+      "choices": [
+        "Elle corrige une erreur → Elle relit ses réponses",
+        "Elle rend sa copie → Elle corrige une erreur",
+        "Elle rend sa copie → Elle relit ses réponses",
+        "Elle corrige une erreur → Elle rend sa copie"
+      ],
+      "answer": "Elle corrige une erreur → Elle rend sa copie",
+      "lessonRef": "methode",
+      "explanation": "On vérifie l’ordre en s’aidant des connecteurs temporels et de la logique des actions. Cela permet de remettre les actions dans l’ordre.",
+      "commonMistake": "Répondre selon l’ordre des phrases sans tenir compte des mots « avant / après ».",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0005",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Lis le texte puis réponds.\n\nAvant le match, l’équipe s’échauffe. Pendant la rencontre, les joueurs restent concentrés. Après la victoire, ils saluent le public.\n\nQuel événement se passe **en dernier** ?",
+      "choices": [
+        "L’équipe s’échauffe",
+        "Le match se joue",
+        "Aucune de ces réponses",
+        "Les joueurs saluent le public"
+      ],
+      "answer": "Les joueurs saluent le public",
+      "lessonRef": "methode",
+      "explanation": "On repère la fin grâce aux connecteurs (ex : enfin, à l’arrivée, après…). Cela permet de remettre les actions dans l’ordre.",
+      "commonMistake": "Répondre selon l’ordre des phrases sans tenir compte des mots « avant / après ».",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0006",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Lis le texte puis réponds.\n\nD’abord, le cuisinier coupe les légumes. Ensuite, il les fait cuire. Puis il ajoute les épices. Enfin, il sert le plat.\n\nQuel événement se passe **en premier** ?",
+      "choices": [
+        "Il coupe les légumes",
+        "Aucune de ces réponses",
+        "Il sert le plat",
+        "Il ajoute les épices"
+      ],
+      "answer": "Il coupe les légumes",
+      "lessonRef": "methode",
+      "explanation": "On repère le début grâce aux connecteurs (ex : d’abord, le matin, avant…). Cela permet de remettre les actions dans l’ordre.",
+      "commonMistake": "Répondre selon l’ordre des phrases sans tenir compte des mots « avant / après ».",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0007",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Lis le texte puis réponds.\n\nZoé prépare la table. Ensuite, elle appelle sa famille. Après le dîner, elle débarrasse et lance le lave-vaisselle.\n\nQuel événement se passe **en premier** ?",
+      "choices": [
+        "Elle débarrasse et lance le lave-vaisselle",
+        "Aucune de ces réponses",
+        "Elle prépare la table",
+        "Elle appelle sa famille"
+      ],
+      "answer": "Elle prépare la table",
+      "lessonRef": "methode",
+      "explanation": "On repère le début grâce aux connecteurs (ex : d’abord, le matin, avant…). Cela permet de remettre les actions dans l’ordre.",
+      "commonMistake": "Répondre selon l’ordre des phrases sans tenir compte des mots « avant / après ».",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0008",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Lis le texte.\n\nZoé prépare la table. Ensuite, elle appelle sa famille. Après le dîner, elle débarrasse et lance le lave-vaisselle.\n\nQuel événement se passe **juste après** : « Elle appelle sa famille » ?",
+      "choices": [
+        "Aucune de ces réponses",
+        "Elle appelle sa famille",
+        "Elle débarrasse et lance le lave-vaisselle",
+        "Elle prépare la table"
+      ],
+      "answer": "Elle débarrasse et lance le lave-vaisselle",
+      "lessonRef": "methode",
+      "explanation": "On repère l’événement demandé et on regarde ce qui arrive juste avant/après sur la ligne du temps. Cela permet de remettre les actions dans l’ordre.",
+      "commonMistake": "Répondre selon l’ordre des phrases sans tenir compte des mots « avant / après ».",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0009",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Lis le texte.\n\nAvant la récréation, la maîtresse distribue les feuilles. Après la lecture, les élèves répondent aux questions. Enfin, la cloche sonne.\n\nQuel enchaînement est correct ?",
+      "choices": [
+        "Les élèves répondent aux questions → La maîtresse distribue les feuilles",
+        "La maîtresse distribue les feuilles → Les élèves répondent aux questions",
+        "La cloche sonne → Les élèves répondent aux questions",
+        "La cloche sonne → La maîtresse distribue les feuilles"
+      ],
+      "answer": "La maîtresse distribue les feuilles → Les élèves répondent aux questions",
+      "lessonRef": "methode",
+      "explanation": "On vérifie l’ordre en s’aidant des connecteurs temporels et de la logique des actions. Cela permet de remettre les actions dans l’ordre.",
+      "commonMistake": "Répondre selon l’ordre des phrases sans tenir compte des mots « avant / après ».",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0010",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Lis le texte puis réponds.\n\nD’abord, le cuisinier coupe les légumes. Ensuite, il les fait cuire. Puis il ajoute les épices. Enfin, il sert le plat.\n\nQuel événement se passe **en dernier** ?",
+      "choices": [
+        "Aucune de ces réponses",
+        "Il sert le plat",
+        "Il coupe les légumes",
+        "Il ajoute les épices"
+      ],
+      "answer": "Il sert le plat",
+      "lessonRef": "methode",
+      "explanation": "On repère la fin grâce aux connecteurs (ex : enfin, à l’arrivée, après…). Cela permet de remettre les actions dans l’ordre.",
+      "commonMistake": "Répondre selon l’ordre des phrases sans tenir compte des mots « avant / après ».",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0011",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Lis le texte.\n\nD’abord, le cuisinier coupe les légumes. Ensuite, il les fait cuire. Puis il ajoute les épices. Enfin, il sert le plat.\n\nQuel enchaînement est correct ?",
+      "choices": [
+        "Il les fait cuire → Il coupe les légumes",
+        "Il sert le plat → Il ajoute les épices",
+        "Il les fait cuire → Il ajoute les épices",
+        "Il ajoute les épices → Il coupe les légumes"
+      ],
+      "answer": "Il les fait cuire → Il ajoute les épices",
+      "lessonRef": "methode",
+      "explanation": "On vérifie l’ordre en s’aidant des connecteurs temporels et de la logique des actions. Cela permet de remettre les actions dans l’ordre.",
+      "commonMistake": "Répondre selon l’ordre des phrases sans tenir compte des mots « avant / après ».",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0012",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Lis le texte puis réponds.\n\nMila finit ses exercices. Puis elle relit ses réponses. Après cela, elle corrige une erreur. Enfin, elle rend sa copie.\n\nQuel événement se passe **en dernier** ?",
+      "choices": [
+        "Elle rend sa copie",
+        "Aucune de ces réponses",
+        "Elle corrige une erreur",
+        "Elle finit ses exercices"
+      ],
+      "answer": "Elle rend sa copie",
+      "lessonRef": "methode",
+      "explanation": "On repère la fin grâce aux connecteurs (ex : enfin, à l’arrivée, après…). Cela permet de remettre les actions dans l’ordre.",
+      "commonMistake": "Répondre selon l’ordre des phrases sans tenir compte des mots « avant / après ».",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0013",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Lis le texte.\n\nD’abord, le ciel devient gris. Puis le vent se lève. Ensuite, la pluie commence. Enfin, un arc-en-ciel apparaît.\n\nQuel enchaînement est correct ?",
+      "choices": [
+        "Un arc-en-ciel apparaît → La pluie commence",
+        "La pluie commence → Le vent se lève",
+        "Le vent se lève → La pluie commence",
+        "La pluie commence → Le ciel devient gris"
+      ],
+      "answer": "Le vent se lève → La pluie commence",
+      "lessonRef": "methode",
+      "explanation": "On vérifie l’ordre en s’aidant des connecteurs temporels et de la logique des actions. Cela permet de remettre les actions dans l’ordre.",
+      "commonMistake": "Répondre selon l’ordre des phrases sans tenir compte des mots « avant / après ».",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0014",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Lis le texte.\n\nD’abord, le cuisinier coupe les légumes. Ensuite, il les fait cuire. Puis il ajoute les épices. Enfin, il sert le plat.\n\nQuel enchaînement est correct ?",
+      "choices": [
+        "Il ajoute les épices → Il coupe les légumes",
+        "Il ajoute les épices → Il les fait cuire",
+        "Il ajoute les épices → Il sert le plat",
+        "Il sert le plat → Il coupe les légumes"
+      ],
+      "answer": "Il ajoute les épices → Il sert le plat",
+      "lessonRef": "methode",
+      "explanation": "On vérifie l’ordre en s’aidant des connecteurs temporels et de la logique des actions. Cela permet de remettre les actions dans l’ordre.",
+      "commonMistake": "Répondre selon l’ordre des phrases sans tenir compte des mots « avant / après ».",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0015",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Lis le texte puis réponds.\n\nZoé prépare la table. Ensuite, elle appelle sa famille. Après le dîner, elle débarrasse et lance le lave-vaisselle.\n\nQuel événement se passe **en dernier** ?",
+      "choices": [
+        "Aucune de ces réponses",
+        "Elle prépare la table",
+        "Elle appelle sa famille",
+        "Elle débarrasse et lance le lave-vaisselle"
+      ],
+      "answer": "Elle débarrasse et lance le lave-vaisselle",
+      "lessonRef": "methode",
+      "explanation": "On repère la fin grâce aux connecteurs (ex : enfin, à l’arrivée, après…). Cela permet de remettre les actions dans l’ordre.",
+      "commonMistake": "Répondre selon l’ordre des phrases sans tenir compte des mots « avant / après ».",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0016",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Lis le texte puis réponds.\n\nLe soir, Nora nourrit le chat. Ensuite, elle prend une douche. Puis, elle lit quelques pages. Enfin, elle éteint la lumière.\n\nQuel événement se passe **en dernier** ?",
+      "choices": [
+        "Elle nourrit le chat",
+        "Elle éteint la lumière",
+        "Elle lit",
+        "Elle prend une douche"
+      ],
+      "answer": "Elle éteint la lumière",
+      "lessonRef": "methode",
+      "explanation": "On repère la fin grâce aux connecteurs (ex : enfin, à l’arrivée, après…). Cela permet de remettre les actions dans l’ordre.",
+      "commonMistake": "Répondre selon l’ordre des phrases sans tenir compte des mots « avant / après ».",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0017",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Lis le texte.\n\nD’abord, Lina ferme son cahier. Ensuite, elle range son sac. Puis, elle enfile sa veste. Enfin, elle sort de la classe.\n\nQuel enchaînement est correct ?",
+      "choices": [
+        "Elle enfile sa veste → Elle ferme son cahier",
+        "Elle sort de la classe → Elle range son sac",
+        "Elle enfile sa veste → Elle range son sac",
+        "Elle ferme son cahier → Elle range son sac"
+      ],
+      "answer": "Elle ferme son cahier → Elle range son sac",
+      "lessonRef": "methode",
+      "explanation": "On vérifie l’ordre en s’aidant des connecteurs temporels et de la logique des actions. Cela permet de remettre les actions dans l’ordre.",
+      "commonMistake": "Répondre selon l’ordre des phrases sans tenir compte des mots « avant / après ».",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0018",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 1,
+      "statement": "Lis le texte puis réponds.\n\nD’abord, le cuisinier coupe les légumes. Ensuite, il les fait cuire. Puis il ajoute les épices. Enfin, il sert le plat.\n\nQuel événement se passe **en premier** ?",
+      "choices": [
+        "Il les fait cuire",
+        "Il ajoute les épices",
+        "Il coupe les légumes",
+        "Il sert le plat"
+      ],
+      "answer": "Il coupe les légumes",
+      "lessonRef": "methode",
+      "explanation": "On repère le début grâce aux connecteurs (ex : d’abord, le matin, avant…). Cela permet de remettre les actions dans l’ordre.",
+      "commonMistake": "Répondre selon l’ordre des phrases sans tenir compte des mots « avant / après ».",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0019",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Lis le texte.\n\nD’abord, Lina ferme son cahier. Ensuite, elle range son sac. Puis, elle enfile sa veste. Enfin, elle sort de la classe.\n\nLe mot « pendant » indique que les actions se passent…",
+      "choices": [
+        "sans ordre",
+        "avant",
+        "en même temps",
+        "après"
+      ],
+      "answer": "en même temps",
+      "lessonRef": "definition",
+      "explanation": "« pendant » exprime la simultanéité : une action se déroule durant une autre. C’est utile pour reconstruire la chronologie.",
+      "commonMistake": "Confondre « pendant » (en même temps) avec « après » (plus tard).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0020",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Lis le texte.\n\nAvant de partir, Paul vérifie son ticket. Ensuite, il monte dans le bus. Pendant le trajet, il écoute de la musique. À l’arrivée, il descend.\n\nQuel événement a lieu **le plus tôt** ?",
+      "choices": [
+        "Il monte dans le bus",
+        "Il écoute de la musique",
+        "Paul vérifie son ticket",
+        "Il descend"
+      ],
+      "answer": "Paul vérifie son ticket",
+      "lessonRef": "definition",
+      "explanation": "On compare les actions en utilisant les connecteurs et la logique du texte. C’est utile pour reconstruire la chronologie.",
+      "commonMistake": "Confondre « pendant » (en même temps) avec « après » (plus tard).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0021",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Lis le texte.\n\nZoé prépare la table. Ensuite, elle appelle sa famille. Après le dîner, elle débarrasse et lance le lave-vaisselle.\n\nLe mot « pendant » indique que les actions se passent…",
+      "choices": [
+        "avant",
+        "sans ordre",
+        "en même temps",
+        "après"
+      ],
+      "answer": "en même temps",
+      "lessonRef": "definition",
+      "explanation": "« pendant » exprime la simultanéité : une action se déroule durant une autre. C’est utile pour reconstruire la chronologie.",
+      "commonMistake": "Confondre « pendant » (en même temps) avec « après » (plus tard).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0022",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Lis le texte.\n\nLe matin, Amir se lève tôt. Après s’être lavé, il prend son petit-déjeuner. Puis il attrape son vélo et part au collège.\n\nLe mot « pendant » indique que les actions se passent…",
+      "choices": [
+        "en même temps",
+        "avant",
+        "après",
+        "sans ordre"
+      ],
+      "answer": "en même temps",
+      "lessonRef": "definition",
+      "explanation": "« pendant » exprime la simultanéité : une action se déroule durant une autre. C’est utile pour reconstruire la chronologie.",
+      "commonMistake": "Confondre « pendant » (en même temps) avec « après » (plus tard).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0023",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Lis le texte.\n\nMila finit ses exercices. Puis elle relit ses réponses. Après cela, elle corrige une erreur. Enfin, elle rend sa copie.\n\nLe mot « pendant » indique que les actions se passent…",
+      "choices": [
+        "avant",
+        "sans ordre",
+        "après",
+        "en même temps"
+      ],
+      "answer": "en même temps",
+      "lessonRef": "definition",
+      "explanation": "« pendant » exprime la simultanéité : une action se déroule durant une autre. C’est utile pour reconstruire la chronologie.",
+      "commonMistake": "Confondre « pendant » (en même temps) avec « après » (plus tard).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0024",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Lis le texte.\n\nLe matin, Amir se lève tôt. Après s’être lavé, il prend son petit-déjeuner. Puis il attrape son vélo et part au collège.\n\nQuel événement a lieu **le plus tôt** ?",
+      "choices": [
+        "Il se lave",
+        "Il prend son petit-déjeuner",
+        "Il se lève",
+        "Il part au collège"
+      ],
+      "answer": "Il se lave",
+      "lessonRef": "definition",
+      "explanation": "On compare les actions en utilisant les connecteurs et la logique du texte. C’est utile pour reconstruire la chronologie.",
+      "commonMistake": "Confondre « pendant » (en même temps) avec « après » (plus tard).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0025",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Lis le texte.\n\nD’abord, Lina ferme son cahier. Ensuite, elle range son sac. Puis, elle enfile sa veste. Enfin, elle sort de la classe.\n\nQuel mot indique le mieux qu’un événement arrive **après** un autre ?",
+      "choices": [
+        "pendant",
+        "aujourd’hui",
+        "d’abord",
+        "ensuite"
+      ],
+      "answer": "ensuite",
+      "lessonRef": "definition",
+      "explanation": "« ensuite » signale une action qui vient après une autre. C’est utile pour reconstruire la chronologie.",
+      "commonMistake": "Confondre « pendant » (en même temps) avec « après » (plus tard).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0026",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 3,
+      "statement": "Lis le texte.\n\nLe matin, Amir se lève tôt. Après s’être lavé, il prend son petit-déjeuner. Puis il attrape son vélo et part au collège.\n\nQuel événement a lieu **le plus tôt** ?",
+      "choices": [
+        "Il se lave",
+        "Il se lève",
+        "Il prend son petit-déjeuner",
+        "Il part au collège"
+      ],
+      "answer": "Il se lève",
+      "lessonRef": "definition",
+      "explanation": "On compare les actions en utilisant les connecteurs et la logique du texte. C’est utile pour reconstruire la chronologie.",
+      "commonMistake": "Confondre « pendant » (en même temps) avec « après » (plus tard).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0027",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Lis le texte.\n\nAvant la récréation, la maîtresse distribue les feuilles. Après la lecture, les élèves répondent aux questions. Enfin, la cloche sonne.\n\nLe mot « pendant » indique que les actions se passent…",
+      "choices": [
+        "sans ordre",
+        "en même temps",
+        "avant",
+        "après"
+      ],
+      "answer": "en même temps",
+      "lessonRef": "definition",
+      "explanation": "« pendant » exprime la simultanéité : une action se déroule durant une autre. C’est utile pour reconstruire la chronologie.",
+      "commonMistake": "Confondre « pendant » (en même temps) avec « après » (plus tard).",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0028",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "ERROR_SPOTTING",
+      "difficulty": 3,
+      "statement": "Lis le texte.\n\nAvant de partir, Paul vérifie son ticket. Ensuite, il monte dans le bus. Pendant le trajet, il écoute de la musique. À l’arrivée, il descend.\n\nUn élève propose l’ordre suivant : « Paul vérifie son ticket → Il monte dans le bus → Il descend → Il écoute de la musique ».\nQue faut-il corriger ?",
+      "choices": [
+        "Il n’y a rien à corriger : l’ordre est bon.",
+        "L’ordre correct est : Paul vérifie son ticket → Il monte dans le bus → Il écoute de la musique → Il descend.",
+        "Il faut supprimer les connecteurs temporels.",
+        "Il faut inverser le premier et le dernier événement."
+      ],
+      "answer": "L’ordre correct est : Paul vérifie son ticket → Il monte dans le bus → Il écoute de la musique → Il descend.",
+      "lessonRef": "pieges",
+      "explanation": "On corrige en respectant les connecteurs temporels et la logique des actions. Cela aide à éviter les erreurs de chronologie.",
+      "commonMistake": "Suivre l’ordre des phrases sans vérifier les mots « avant / après ».",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0029",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "ERROR_SPOTTING",
+      "difficulty": 4,
+      "statement": "Lis le texte.\n\nD’abord, le ciel devient gris. Puis le vent se lève. Ensuite, la pluie commence. Enfin, un arc-en-ciel apparaît.\n\nUn élève propose l’ordre suivant : « Le vent se lève → Le ciel devient gris → La pluie commence → Un arc-en-ciel apparaît ».\nQue faut-il corriger ?",
+      "choices": [
+        "Il faut inverser le premier et le dernier événement.",
+        "Il faut supprimer les connecteurs temporels.",
+        "Il n’y a rien à corriger : l’ordre est bon.",
+        "L’ordre correct est : Le ciel devient gris → Le vent se lève → La pluie commence → Un arc-en-ciel apparaît."
+      ],
+      "answer": "L’ordre correct est : Le ciel devient gris → Le vent se lève → La pluie commence → Un arc-en-ciel apparaît.",
+      "lessonRef": "pieges",
+      "explanation": "On corrige en respectant les connecteurs temporels et la logique des actions. Cela aide à éviter les erreurs de chronologie.",
+      "commonMistake": "Suivre l’ordre des phrases sans vérifier les mots « avant / après ».",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_fr_comprehension_chronologie_0030",
+      "blockId": "fr_comprehension_chronologie",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_comprehension_chronologie",
+      "type": "ERROR_SPOTTING",
+      "difficulty": 4,
+      "statement": "Lis le texte.\n\nMila finit ses exercices. Puis elle relit ses réponses. Après cela, elle corrige une erreur. Enfin, elle rend sa copie.\n\nUn élève propose l’ordre suivant : « Elle finit ses exercices → Elle relit ses réponses → Elle rend sa copie → Elle corrige une erreur ».\nQue faut-il corriger ?",
+      "choices": [
+        "Il n’y a rien à corriger : l’ordre est bon.",
+        "L’ordre correct est : Elle finit ses exercices → Elle relit ses réponses → Elle corrige une erreur → Elle rend sa copie.",
+        "Il faut supprimer les connecteurs temporels.",
+        "Il faut inverser le premier et le dernier événement."
+      ],
+      "answer": "L’ordre correct est : Elle finit ses exercices → Elle relit ses réponses → Elle corrige une erreur → Elle rend sa copie.",
+      "lessonRef": "pieges",
+      "explanation": "On corrige en respectant les connecteurs temporels et la logique des actions. Cela aide à éviter les erreurs de chronologie.",
+      "commonMistake": "Suivre l’ordre des phrases sans vérifier les mots « avant / après ».",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-28T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-from-pack-request"
+          }
+        ],
+        "deletedAt": null,
+        "deletedBy": null
+      }
+    }
+  ]
+}

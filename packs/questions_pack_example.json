@@ -1,0 +1,203 @@
+{
+  "pack": {
+    "schemaVersion": 1,
+    "taxonomyVersion": "5e-1.0",
+    "setId": "gen_fr_grammaire_fonction_cod_v1",
+    "grade": "5e",
+    "lang": "fr",
+    "primaryTag": "fr_grammaire_fonction_cod",
+    "blockId": "block_coal_01",
+    "promptDirectives": "MCQ majoritaire + quelques V/F et texte à trou. Phrases courtes. Niveau 5e. Explication obligatoire.",
+    "createdAt": "2025-12-27T00:00:00Z"
+  },
+  "questions": [
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0001",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "MCQ",
+      "difficulty": 2,
+      "statement": "Dans la phrase « Paul regarde le film », quel est le COD ?",
+      "choices": [
+        "Paul",
+        "regarde",
+        "le film",
+        "le"
+      ],
+      "answer": "le film",
+      "explanation": "Le COD répond à la question « quoi ? » posée après le verbe : Paul regarde quoi ? → le film.",
+      "commonMistake": "Confondre le COD avec le sujet.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ]
+      },
+      "generator": {
+        "source": "assistant",
+        "setId": "gen_fr_grammaire_fonction_cod_v1"
+      },
+      "createdAt": "2025-12-27T00:00:00Z",
+      "updatedAt": "2025-12-27T00:00:00Z"
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0002",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [],
+      "type": "FILL_BLANK",
+      "difficulty": 3,
+      "statement": "Complète : « Le COD répond à la question ____ posée après le verbe. »",
+      "choices": null,
+      "answer": "quoi",
+      "explanation": "Pour trouver le COD, on demande « qui ? » ou « quoi ? » après le verbe. Le plus souvent, c’est « quoi ? ».",
+      "commonMistake": "Chercher le COD avant le verbe.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ]
+      },
+      "generator": {
+        "source": "assistant",
+        "setId": "gen_fr_grammaire_fonction_cod_v1"
+      },
+      "createdAt": "2025-12-27T00:00:00Z",
+      "updatedAt": "2025-12-27T00:00:00Z"
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0003",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_revision"
+      ],
+      "type": "TRUE_FALSE",
+      "difficulty": 2,
+      "statement": "Vrai ou faux : Dans « Marie mange une pomme », le COD est « une pomme ».",
+      "choices": null,
+      "answer": "true",
+      "explanation": "On pose la question après le verbe : Marie mange quoi ? → une pomme, c’est bien le COD.",
+      "commonMistake": "Penser que le COD doit être un pronom.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ]
+      },
+      "generator": {
+        "source": "assistant",
+        "setId": "gen_fr_grammaire_fonction_cod_v1"
+      },
+      "createdAt": "2025-12-27T00:00:00Z",
+      "updatedAt": "2025-12-27T00:00:00Z"
+    },
+    {
+      "schemaVersion": 1,
+      "taxonomyVersion": "5e-1.0",
+      "id": "q_block_coal_01_fr_grammaire_fonction_cod_0004",
+      "blockId": "block_coal_01",
+      "grade": "5e",
+      "lang": "fr",
+      "primaryTag": "fr_grammaire_fonction_cod",
+      "secondaryTags": [
+        "fr_grammaire_phrase_simple"
+      ],
+      "metaTags": [
+        "meta_piege_frequent"
+      ],
+      "type": "MCQ",
+      "difficulty": 4,
+      "statement": "Dans « Elle a acheté des fleurs », quel groupe est COD ?",
+      "choices": [
+        "Elle",
+        "a acheté",
+        "des fleurs",
+        "acheté"
+      ],
+      "answer": "des fleurs",
+      "explanation": "On demande : elle a acheté quoi ? → des fleurs. C’est le COD.",
+      "commonMistake": "Prendre « acheté » pour un complément.",
+      "quality": {
+        "status": "draft",
+        "review": {
+          "reviewedBy": null,
+          "reviewedAt": null,
+          "decision": null,
+          "notes": null
+        },
+        "history": [
+          {
+            "at": "2025-12-27T00:00:00Z",
+            "by": "import",
+            "action": "created",
+            "details": "generated-with-assistant"
+          }
+        ]
+      },
+      "generator": {
+        "source": "assistant",
+        "setId": "gen_fr_grammaire_fonction_cod_v1"
+      },
+      "createdAt": "2025-12-27T00:00:00Z",
+      "updatedAt": "2025-12-27T00:00:00Z"
+    }
+  ]
+}

@@ -14,6 +14,11 @@ service cloud.firestore {
     match /themes/{id}    { allow read: if signedIn(); allow write: if isParent(); }
     match /exercises/{id} { allow read: if signedIn(); allow write: if isParent(); }
     match /readings/{id}  { allow read: if signedIn(); allow write: if isParent(); }
+    match /questionPacks/{id} { allow read: if signedIn(); allow write: if isParent(); }
+    match /questions/{id} {
+      allow read: if signedIn() && (isParent() || (resource.data != null && resource.data.quality.status == 'published'));
+      allow write: if isParent();
+    }
 
     // Profils utilisateurs
     match /users/{userId} {

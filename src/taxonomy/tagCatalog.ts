@@ -211,6 +211,14 @@ export const TAG_CATALOG: Record<string, TagMeta> = {
     theme: "Grammaire",
     order: 220,
   },
+  fr_grammaire_fonction_cod: {
+    id: "fr_grammaire_fonction_cod",
+    label: "Fonction : COD",
+    description: "Repérer le complément d’objet direct (quoi/qui).",
+    subject: "fr",
+    theme: "Grammaire",
+    order: 225,
+  },
   fr_grammaire_gn_gv: {
     id: "fr_grammaire_gn_gv",
     label: "Groupe nominal / verbal",

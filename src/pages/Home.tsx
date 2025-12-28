@@ -44,11 +44,13 @@ export function HomePage() {
   }, [days])
 
   const dateKey = formatDateKeyParis(Date.now())
+  const rerollCount = getDailyRerollCount(dateKey)
+  const rerollLimit = role === 'parent' ? 100 : 1
 
   const onReroll = () => {
-    const rerollCount = getDailyRerollCount(dateKey)
-    const limit = role === 'parent' ? 100 : 1
-    if (rerollCount >= limit || (role !== 'parent' && getDailyRerollUsed(dateKey))) {
+    const currentCount = getDailyRerollCount(dateKey)
+    const limit = rerollLimit
+    if (currentCount >= limit || (role !== 'parent' && getDailyRerollUsed(dateKey))) {
       setNpcMessage(role === 'parent' ? 'Limite de changements atteinte pour aujourd’hui.' : 'Tu as déjà changé de mission aujourd’hui.')
       setShowRerollModal(true)
       return
@@ -60,6 +62,12 @@ export function HomePage() {
     if (previousTag) delete (filteredMastery as any)[previousTag]
     const rec = buildNpcRecommendation({ npcId, masteryByTag: filteredMastery, history, nowTs: Date.now(), excludeTagIds: previousTag ? [previousTag] : [], availableTagIds: availableTags })
     if (rec) {
+      const target = rec.expedition.targetTagId
+      const inAvailable = availableTags.includes(target)
+      if (!inAvailable) {
+        setNpcMessage('Mission indisponible pour ce bloc. Essaie encore.')
+        return
+      }
       setRecommendation(rec)
       setDailyRecommendation(dateKey, rec)
       if (role === 'parent') {
@@ -74,10 +82,21 @@ export function HomePage() {
     }
   }
 
-  const onStartMission = () => {
+  const onStartMission = async () => {
     if (!recommendation) return
-    if (availableTags.length && !availableTags.includes(recommendation.expedition.targetTagId)) {
+    const targetTag = recommendation.expedition.targetTagId
+    if (availableTags.length && !availableTags.includes(targetTag)) {
       setNpcMessage('Mission indisponible (aucune question pour ce bloc). Change de mission.')
+      return
+    }
+    try {
+      const list = await listExercisesByTag(targetTag, { uid: user?.uid })
+      if (!list.length) {
+        setNpcMessage('Aucune question pour ce bloc. Change de mission.')
+        return
+      }
+    } catch {
+      setNpcMessage('Impossible de vérifier les questions pour ce bloc.')
       return
     }
     const exp = recommendation.expedition
@@ -96,13 +115,13 @@ export function HomePage() {
         const inv = await listInventory(user.uid)
         setInventory(inv)
       } catch (e) {
-        console.error('stats/inventory failed', e)
+        // ignore inventory errors for now
       }
       try {
         const last = await listLast7Days(user.uid)
         setDays(last)
       } catch (e) {
-        console.warn('days stats indisponibles', e)
+        // ignore streak errors for now
       }
     })()
   }, [user])
@@ -132,6 +151,17 @@ export function HomePage() {
   }, [rewards, user])
 
   React.useEffect(() => {
+    if (loadingTags) {
+      setRecommendation(null)
+      return
+    }
+    if (availableTags.length === 0) {
+      const dateKey = formatDateKeyParis(Date.now())
+      clearDailyRecommendation(dateKey)
+      setRecommendation(null)
+      setNpcMessage('Pas de mission disponible (aucun exercice trouvé).')
+      return
+    }
     const dateKey = formatDateKeyParis(Date.now())
     const masteryByTag = rewards?.masteryByTag || {}
     const history: Array<{ tagIds: string[], correct: boolean, ts: number }> = [] // TODO: branch to real history si disponible
@@ -160,9 +190,6 @@ export function HomePage() {
       setNpcMessage('Pas de mission disponible (aucun exercice trouvé).')
     } else {
       setNpcMessage('')
-    }
-    if (process.env.NODE_ENV !== 'production' && rec) {
-      console.debug('[npc.mission]', { npcId, reason: rec.reasonCode, tag: rec.expedition.targetTagId, type: rec.expedition.type })
     }
   }, [npcId, rewards, availableTags, loadingTags])
 
@@ -196,7 +223,7 @@ export function HomePage() {
         {npcMessage && <div className="small" style={{ marginTop:8, color:'#ffb347' }}>{npcMessage}</div>}
       </div>
 
-      {recommendation && (
+      {recommendation ? (
         <NpcGuideCard
           recommendation={recommendation}
           dateKey={dateKey}
@@ -206,6 +233,24 @@ export function HomePage() {
           rerollCount={getDailyRerollCount(dateKey)}
           rerollLimit={role === 'parent' ? 100 : 1}
         />
+      ) : (
+        <div className="card mc-card">
+          <div className="row" style={{ justifyContent:'space-between', alignItems:'center', gap:10 }}>
+            <div>
+              <div className="small" style={{ color:'var(--mc-muted)' }}>Guide Malo</div>
+              <div style={{ fontWeight:900 }}>Choisis un guide pour ta prochaine mission</div>
+              <div className="small" style={{ color:'var(--mc-muted)', marginTop:4 }}>
+                Aucune mission générée pour l’instant. Vérifie qu’il y a des questions publiées pour tes blocs.
+              </div>
+            </div>
+            <button className="mc-button secondary" onClick={() => setShowNpcPicker(true)}>Changer de guide</button>
+          </div>
+          <div className="mc-card" style={{ marginTop:12, border:'2px solid var(--mc-border)' }}>
+            <div className="small" style={{ color:'var(--mc-muted)' }}>
+              Dès qu’une mission est disponible, elle apparaîtra ici.
+            </div>
+          </div>
+        </div>
       )}
 
       {/* Carte du monde déjà accessible, on conserve juste les biomes */}
@@ -291,7 +336,7 @@ export function HomePage() {
         <div style={{ position:'fixed', inset:0, background:'rgba(0,0,0,0.55)', display:'flex', alignItems:'center', justifyContent:'center', zIndex:999 }}>
           <div className="card mc-card" style={{ maxWidth:360 }}>
             <h3 className="mc-title">Mission déjà changée</h3>
-            <div className="small" style={{ color:'var(--mc-muted)' }}>Tu ne peux changer la mission qu’une fois par jour.</div>
+            <div className="small" style={{ color:'var(--mc-muted)' }}>Tu ne peux plus changer la mission aujourd’hui.</div>
             <div className="row" style={{ marginTop:12, justifyContent:'flex-end', gap:8 }}>
               <button className="mc-button" onClick={() => setShowRerollModal(false)}>OK</button>
             </div>

@@ -3,6 +3,7 @@ import { db } from '../firebase'
 import type { Exercise, PackJSON, Reading, SubjectId, Theme } from '../types'
 import type { TagMasteryBucket } from '../typesProgress'
 import { normalize } from '../utils/normalize'
+import { fetchExercisesForPlay } from './questions'
 
 export type AttemptItemInput = {
   exerciseId: string
@@ -87,27 +88,11 @@ export async function listReadings(themeId: string) {
 }
 
 export async function listExercisesByTag(tagId: string, opts?: { uid?: string, includeHidden?: boolean }) {
-  const { uid, includeHidden = false } = opts || {}
-  const q = query(collection(db, 'exercises'), where('tags', 'array-contains', tagId))
-  const snap = await getDocs(q)
-  const exercises = snap.docs.map(d => ({ id: d.id, ...(d.data() as any) })) as Exercise[]
-
-  let visibility = new Map<string, boolean>()
-  if (uid) {
-    try {
-      const visSnap = await getDocs(collection(db, 'users', uid, 'visibilityExercises'))
-      visibility = new Map(visSnap.docs.map(d => [d.id, !!d.data().visible]))
-    } catch {
-      visibility = new Map()
-    }
-  }
-
-  return exercises.filter(ex => {
-    const override = visibility.get(ex.id)
-    if (!includeHidden && (ex as any).hidden) return false
-    if (!includeHidden && override === false) return false
-    return true
-  })
+  const { includeHidden = false } = opts || {}
+  // Nouveau flux : on lit les questions publiées (collection "questions")
+  const exercises = await fetchExercisesForPlay(tagId, { includeLessons: true })
+  if (includeHidden) return exercises
+  return exercises
 }
 
 export async function importPack(pack: PackJSON) {
