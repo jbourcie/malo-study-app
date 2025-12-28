@@ -53,11 +53,7 @@ Exemple minimal :
 
 ## Importer un pack
 
-- UI : `/admin/import` (parent ou `VITE_DEV_ADMIN=true`). Drag & drop ou input fichier, validation intégrée, option dry-run. Les questions sont écrites en `draft` dans `questionPacks/{setId}` et `questions/{questionId}` avec `setId` + timestamps.
-- Script Node : `npx ts-node scripts/importQuestionPack.ts --file ./packs/mon_pack.json [--dry-run]`.  
-  - Nécessite `firebase-admin` avec un compte de service : `GOOGLE_APPLICATION_CREDENTIALS=./serviceAccount.json`.  
-  - Ne fait rien en dry-run, sinon upsert le pack et les questions en `draft`.
-  - Le pack stocke aussi `schemaVersion`, `taxonomyVersion`, `lesson`, `lessonTitle`. Les questions importées ont `quality.review` initialisé et `deletedAt/deletedBy` à `null`.
+- UI : `/admin/import` (parent ou `VITE_DEV_ADMIN=true`). Drag & drop ou input fichier, validation intégrée, option dry-run. Les questions sont écrites en `draft` dans `questionPacks/{setId}` et `questions/{questionId}` avec `setId` + timestamps. Les IDs du pack sont vérifiés : doublons internes ou déjà présents en base bloquent l’import (le dry-run signale l’erreur sans écrire).
 
 ## Workflow de modération
 

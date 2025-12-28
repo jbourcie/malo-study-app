@@ -157,9 +157,6 @@ export function HomePage() {
         }
       }))
       const valid = results.filter(Boolean) as string[]
-      // Debug: trace la liste des tags disponibles
-      // eslint-disable-next-line no-console
-      console.info('[home.availableTags]', { count: valid.length, tags: valid })
       setAvailableTags(valid)
       setLoadingTags(false)
       if (!valid.length) {
@@ -243,19 +240,6 @@ export function HomePage() {
         setDailyRecommendation(dateKey, rec)
       }
     }
-    // Debug : trace la recommandation ou son absence
-    // eslint-disable-next-line no-console
-    console.info('[home.recommendation]', {
-      availableTags: usableTags,
-      excludedTag,
-      rec: rec ? {
-        npcId: rec.npcId,
-        target: rec.expedition.targetTagId,
-        type: rec.expedition.type,
-      } : null,
-      stored: !!stored,
-      lastRerollTs,
-    })
     setRecommendation(rec)
     if (!rec && availableTags.length === 0 && !loadingTags) {
       setNpcMessage('Pas de mission disponible (aucun exercice trouvé).')

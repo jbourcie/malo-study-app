@@ -30,7 +30,6 @@ export function TopBar() {
           {isAdmin && (
             <>
               <Link className="btn secondary" to="/admin/import">Import (parent)</Link>
-              <Link className="btn secondary" to="/admin/moderation">Modération</Link>
               <Link className="btn secondary" to="/admin/questions">Questions</Link>
               <Link className="btn secondary" to="/admin/pack-request">Pack request</Link>
               <Link className="btn secondary" to="/admin/progression">Progression enfant</Link>

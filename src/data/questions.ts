@@ -1,6 +1,6 @@
 import { arrayUnion, collection, deleteDoc, doc, getDoc, getDocs, limit, orderBy, query, serverTimestamp, setDoc, updateDoc, where, writeBatch } from 'firebase/firestore'
 import { db } from '../firebase'
-import { validateQuestionPack, type PackMetaV1, type QualityStatus, type QuestionPackV1, type QuestionV1 } from '../domain/questions/types'
+import { validateQuestionPack, type ImportReport, type PackMetaV1, type QualityStatus, type QuestionPackV1, type QuestionV1 } from '../domain/questions/types'
 import type { Exercise, ExerciseFillBlank, ExerciseMCQ, ExerciseShortText } from '../types'
 
 export type ModerationFilters = {
@@ -13,10 +13,58 @@ export type ModerationFilters = {
   includeDeleted?: boolean
 }
 
-export async function importQuestionPackClient(pack: QuestionPackV1, opts?: { dryRun?: boolean }) {
+export async function importQuestionPackClient(pack: QuestionPackV1, opts?: { dryRun?: boolean }): Promise<{ ok: boolean, errors: string[], warnings?: string[], report?: ImportReport }> {
   const validation = validateQuestionPack(pack)
   if (!validation.ok) return validation
-  if (opts?.dryRun) return { ok: true, errors: [] }
+
+  // Vérifie les doublons d'ID dans le pack lui-même
+  const ids = Array.isArray(pack.questions) ? pack.questions.map(q => q.id) : []
+  const seen = new Set<string>()
+  const dupIds: string[] = []
+  ids.forEach((id) => {
+    if (seen.has(id)) dupIds.push(id)
+    else seen.add(id)
+  })
+  if (dupIds.length) {
+    return {
+      ok: false,
+      errors: [`IDs en double dans le pack: ${Array.from(new Set(dupIds)).join(', ')}`],
+      warnings: validation.warnings || [],
+      report: {
+        packImported: false,
+        questions: { created: 0, updated: 0, ignored: ids.length },
+      },
+    }
+  }
+
+  // Vérifie les IDs déjà présents en base avant d'écrire
+  const existingIds: string[] = []
+  await Promise.all(Array.from(new Set(ids)).map(async (id) => {
+    const snap = await getDoc(doc(db, 'questions', id))
+    if (snap.exists()) existingIds.push(id)
+  }))
+  if (existingIds.length) {
+    return {
+      ok: false,
+      errors: [`Questions déjà présentes en base (ids): ${existingIds.join(', ')}`],
+      warnings: validation.warnings || [],
+      report: {
+        packImported: false,
+        questions: { created: 0, updated: 0, ignored: existingIds.length },
+      },
+    }
+  }
+
+  const baseReport: ImportReport = {
+    packImported: !opts?.dryRun,
+    questions: {
+      created: pack.questions.length,
+      updated: 0,
+      ignored: 0,
+    },
+  }
+
+  if (opts?.dryRun) return { ok: true, errors: [], warnings: validation.warnings || [], report: baseReport }
 
   const batch = writeBatch(db)
   const nowIso = new Date().toISOString()
@@ -32,9 +80,11 @@ export async function importQuestionPackClient(pack: QuestionPackV1, opts?: { dr
   pack.questions.forEach((q) => {
     const history = Array.isArray(q.quality?.history) ? q.quality.history : []
     const questionRef = doc(db, 'questions', q.id)
+    const difficulty = Number.isFinite(q.difficulty) ? q.difficulty : 2
     const payload: QuestionV1 & { setId: string, createdAt: any, updatedAt: any } = {
       ...q,
       setId: pack.pack.setId,
+      difficulty,
       quality: {
         ...q.quality,
         status: 'draft',
@@ -53,7 +103,7 @@ export async function importQuestionPackClient(pack: QuestionPackV1, opts?: { dr
   })
 
   await batch.commit()
-  return { ok: true, errors: [] }
+  return { ok: true, errors: [], warnings: validation.warnings || [], report: baseReport }
 }
 
 export async function listQuestionPacksMeta() {
@@ -94,16 +144,6 @@ export async function fetchPublishedQuestionsByTag(tagId: string, opts?: { diffi
   const snap = await getDocs(q)
   const rows = snap.docs.map(d => ({ id: d.id, ...(d.data() as any) })) as QuestionV1[]
   const filtered = rows.filter(r => !r.quality?.deletedAt)
-  if (tagId === 'fr_comprehension_connecteurs_logiques') {
-    // Debug: suivi des questions publiées pour ce tag après import
-    // eslint-disable-next-line no-console
-    console.info('[questions.fetchPublishedQuestionsByTag] connecteurs_logiques', {
-      requestedLimit: opts?.limitTo || 200,
-      docsFetched: rows.length,
-      filteredCount: filtered.length,
-      ids: filtered.map(q => q.id),
-    })
-  }
   return filtered
 }
 
@@ -187,15 +227,6 @@ export async function fetchExercisesForPlay(tagId: string, opts?: { limitTo?: nu
     }
     return ex
   })
-  if (tagId === 'fr_comprehension_connecteurs_logiques') {
-    // eslint-disable-next-line no-console
-    console.info('[questions.fetchExercisesForPlay] connecteurs_logiques', {
-      totalQuestions: questions.length,
-      exercisesCount: mapped.length,
-      setIds: Array.from(new Set(questions.map(q => q.setId))),
-    })
-  }
-  return mapped
 }
 
 export async function softDeleteQuestion(questionId: string, opts?: { by?: string, notes?: string }) {

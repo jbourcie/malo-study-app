@@ -76,12 +76,43 @@ export type QuestionPackV1 = {
   questions: QuestionV1[]
 }
 
+export type PackValidationResult = {
+  ok: boolean
+  errors: string[]
+  warnings: string[]
+}
+
+export type ImportReport = {
+  packImported: boolean
+  questions: {
+    created: number
+    updated: number
+    ignored: number
+  }
+}
+
 function isNonEmptyString(v: unknown): v is string {
   return typeof v === 'string' && v.trim().length > 0
 }
 
-function validateQuestion(q: any, idx: number): string[] {
+function extractLessonAnchors(lesson?: string): Set<string> {
+  const anchors = new Set<string>()
+  if (!lesson || typeof lesson !== 'string') return anchors
+  const regex = /{#([a-zA-Z0-9_-]+)}/g
+  let m: RegExpExecArray | null
+  while ((m = regex.exec(lesson)) !== null) {
+    anchors.add(m[1])
+  }
+  return anchors
+}
+
+function validateQuestion(q: any, idx: number, anchors: Set<string>): { errors: string[], warnings: string[] } {
   const errors: string[] = []
+  const warnings: string[] = []
+  const lessonRefNormalized = (typeof q.lessonRef === 'string')
+    ? q.lessonRef.trim().replace(/^#/, '')
+    : q.lessonRef
+
   if (q.schemaVersion !== 1) errors.push(`question[${idx}].schemaVersion doit valoir 1`)
   if (!isNonEmptyString(q.taxonomyVersion)) errors.push(`question[${idx}].taxonomyVersion requis`)
   if (!isNonEmptyString(q.id)) errors.push(`question[${idx}].id manquant ou vide`)
@@ -90,7 +121,9 @@ function validateQuestion(q: any, idx: number): string[] {
   if (!isNonEmptyString(q.lang)) errors.push(`question[${idx}].lang manquant ou vide`)
   if (!isNonEmptyString(q.primaryTag)) errors.push(`question[${idx}].primaryTag manquant ou vide`)
   if (!isNonEmptyString(q.type)) errors.push(`question[${idx}].type manquant ou vide`)
-  if (!Number.isFinite(q.difficulty)) errors.push(`question[${idx}].difficulty manquant ou invalide`)
+  if (!Number.isFinite(q.difficulty)) {
+    warnings.push(`question[${idx}].difficulty manquante ou invalide (défaut = 2)`)
+  }
   if (!isNonEmptyString(q.statement)) errors.push(`question[${idx}].statement manquant ou vide`)
   if (!isNonEmptyString(q.answer)) errors.push(`question[${idx}].answer manquant ou vide`)
 
@@ -111,8 +144,14 @@ function validateQuestion(q: any, idx: number): string[] {
   if (q.type === 'MCQ') {
     if (!Array.isArray(q.choices) || q.choices.length < 2) {
       errors.push(`question[${idx}].choices requis pour MCQ (au moins 2)`)
-    } else if (!q.choices.includes(q.answer)) {
-      errors.push(`question[${idx}].answer doit appartenir à choices pour MCQ`)
+    } else {
+      if (!q.choices.includes(q.answer)) {
+        errors.push(`question[${idx}].answer doit appartenir à choices pour MCQ`)
+      }
+      const dup = new Set(q.choices)
+      if (dup.size !== q.choices.length) {
+        errors.push(`question[${idx}].choices doit contenir des réponses distinctes (MCQ)`)
+      }
     }
   }
 
@@ -132,6 +171,11 @@ function validateQuestion(q: any, idx: number): string[] {
   if (q.lessonRef !== undefined && q.lessonRef !== null && !isNonEmptyString(q.lessonRef)) {
     errors.push(`question[${idx}].lessonRef doit être une string non vide ou null`)
   }
+  if (isNonEmptyString(lessonRefNormalized)) {
+    if (!anchors.has(lessonRefNormalized)) {
+      warnings.push(`question[${idx}].lessonRef "${q.lessonRef}" introuvable dans la leçon (ancre {#...})`)
+    }
+  }
 
   if (Array.isArray(q.metaTags)) {
     const invalidMeta = q.metaTags.filter((t: any) => !isNonEmptyString(t) || !t.startsWith('meta_'))
@@ -140,13 +184,18 @@ function validateQuestion(q: any, idx: number): string[] {
     }
   }
 
-  return errors
+  if (q.explanation && q.explanation.trim().length > 0 && q.explanation.trim().length < 20) {
+    warnings.push(`question[${idx}].explanation trop courte (<20 caractères)`)
+  }
+
+  return { errors, warnings }
 }
 
-export function validateQuestionPack(pack: any): { ok: boolean, errors: string[] } {
+export function validateQuestionPack(pack: any): PackValidationResult {
   const errors: string[] = []
+  const warnings: string[] = []
   if (!pack || typeof pack !== 'object') {
-    return { ok: false, errors: ['Pack inexistant ou non-objet'] }
+    return { ok: false, errors: ['Pack inexistant ou non-objet'], warnings }
   }
 
   if (!pack.pack || typeof pack.pack !== 'object') {
@@ -161,17 +210,20 @@ export function validateQuestionPack(pack: any): { ok: boolean, errors: string[]
     if (pack.pack.lessonTitle !== undefined && typeof pack.pack.lessonTitle !== 'string') errors.push('pack.lessonTitle doit être une string si présent')
   }
 
+  const anchors = extractLessonAnchors(pack.pack?.lesson)
+
   if (!Array.isArray(pack.questions) || pack.questions.length === 0) {
     errors.push('questions[] manquant ou vide')
   } else {
     pack.questions.forEach((q: any, idx: number) => {
-      const qErrors = validateQuestion(q, idx)
+      const { errors: qErrors, warnings: qWarnings } = validateQuestion(q, idx, anchors)
       if (pack.pack?.taxonomyVersion && q.taxonomyVersion && q.taxonomyVersion !== pack.pack.taxonomyVersion) {
         qErrors.push(`question[${idx}].taxonomyVersion doit égaler pack.taxonomyVersion`)
       }
       errors.push(...qErrors)
+      warnings.push(...qWarnings)
     })
   }
 
-  return { ok: errors.length === 0, errors }
+  return { ok: errors.length === 0, errors, warnings }
 }

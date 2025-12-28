@@ -94,14 +94,6 @@ export function buildNpcRecommendation(params: {
   if ((!pool.length) && availableTagIds && availableTagIds.length) {
     pool = availableTagIds.filter(t => !excludeTagIds.includes(t))
   }
-  // Debug: trace la construction de la pool de tags
-  // eslint-disable-next-line no-console
-  console.info('[npc.buildNpcRecommendation.pool]', {
-    available: availableTagIds,
-    poolSize: pool.length,
-    pool,
-    priority: priorityTags.filter(t => pool.includes(t)),
-  })
   if (!pool.length) return null
 
   const availableSet = new Set(availableTagIds || pool)
