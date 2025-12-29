@@ -280,16 +280,6 @@ function weightedRandom(options: AdviceOption[], weights: Map<string, number>, r
   return entries[entries.length - 1].opt
 }
 
-function pickMessage(code: string, variants: string[], previousKey?: string | null): { messageKey: string, message: string } {
-  if (variants.length === 0) return { messageKey: `${code}:0`, message: '' }
-  let idx = 0
-  if (previousKey?.startsWith(`${code}:`)) {
-    const prev = Number(previousKey.split(':')[1] || 0)
-    if (Number.isFinite(prev) && prev >= 0) idx = (prev + 1) % variants.length
-  }
-  return { messageKey: `${code}:${idx}`, message: variants[idx] }
-}
-
 function withAntiRepeatPenalty(options: AdviceOption[], weights: Map<string, number>, lastAdvice?: LastAdvice | null): Map<string, number> {
   if (!lastAdvice) return weights
   const penalized = new Map(weights)
@@ -326,8 +316,25 @@ export function adviseNpcAction(input: NpcGuideAdvisorInput): NpcGuideDecision {
   const seedValue = hashSeed(input.seed)
   const rng = mulberry32(seedValue || 1)
   const chosen = weightedPick(options, weights, rng, input.lastAdvice)
-  const lastMessageKey = input.lastAdvice?.messageKey || null
-  const { messageKey, message } = pickMessage(chosen.messageCode, chosen.messageVariants, lastMessageKey)
+  const previousKey = input.lastAdvice?.messageKey || null
+
+  const messageFromKey = (key: string | null | undefined) => {
+    if (!key || !key.startsWith(`${chosen.messageCode}:`)) return null
+    const idx = Number(key.split(':')[1] || 0)
+    if (!Number.isFinite(idx) || idx < 0 || idx >= chosen.messageVariants.length) return null
+    return { messageKey: key, message: chosen.messageVariants[idx] }
+  }
+
+  const reuseSameAdvice = input.lastAdvice?.adviceId === chosen.adviceId ? messageFromKey(previousKey) : null
+  const { messageKey, message } = reuseSameAdvice || (() => {
+    if (chosen.messageVariants.length === 0) return { messageKey: `${chosen.messageCode}:0`, message: '' }
+    let idx = 0
+    if (previousKey?.startsWith(`${chosen.messageCode}:`)) {
+      const prev = Number(previousKey.split(':')[1] || 0)
+      if (Number.isFinite(prev) && prev >= 0) idx = (prev + 1) % chosen.messageVariants.length
+    }
+    return { messageKey: `${chosen.messageCode}:${idx}`, message: chosen.messageVariants[idx] }
+  })()
   return {
     adviceId: chosen.adviceId,
     messageKey,

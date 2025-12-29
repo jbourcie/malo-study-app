@@ -103,4 +103,12 @@ describe('npcGuideAdvisor', () => {
     const picked = weightedPick(options as any, weights, rng, last)
     expect(picked.adviceId).toBe(fallbackOption.adviceId)
   })
+
+  it('keeps the same message for the same advice to avoid flicker', () => {
+    const input = makeInput()
+    const decision1 = adviseNpcAction(input)
+    const decision2 = adviseNpcAction({ ...input, lastAdvice: { adviceId: decision1.adviceId, actionType: decision1.actionType, messageKey: decision1.messageKey } })
+    expect(decision1.messageKey).toBe(decision2.messageKey)
+    expect(decision1.message).toBe(decision2.message)
+  })
 })
