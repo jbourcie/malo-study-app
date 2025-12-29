@@ -70,6 +70,11 @@
   color:var(--mc-accent);
 }
 
+.malocraft .mc-chip.muted{
+  opacity:0.78;
+  border-style:dashed;
+}
+
 .malocraft .mc-chip.gold{
   border-color:var(--mc-accent2);
   color:var(--mc-accent2);
@@ -100,4 +105,21 @@
   border-color:var(--mc-accent2);
   background:linear-gradient(180deg,rgba(241,198,109,0.25),rgba(241,198,109,0.08)),var(--mc-surface2);
   box-shadow:0 0 10px rgba(241,198,109,0.45),var(--mc-shadow);
+}
+
+.malocraft .block-weathered{
+  position:relative;
+  overflow:hidden;
+}
+
+.malocraft .block-weathered::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,0.06),rgba(0,0,0,0.02)),
+    repeating-linear-gradient(45deg,rgba(255,255,255,0.06) 0,rgba(255,255,255,0.06) 10px,transparent 10px,transparent 16px);
+  opacity:0.35;
+  pointer-events:none;
+  mix-blend-mode:screen;
 }

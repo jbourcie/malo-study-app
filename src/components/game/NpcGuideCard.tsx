@@ -1,31 +1,28 @@
 import React from 'react'
 import { NPC_CATALOG } from '../../game/npc/npcCatalog'
-import type { NpcRecommendation } from '../../game/npc/npcRecommendation'
-import { getBlockDef } from '../../game/blockCatalog'
-import { getDailyRerollUsed } from '../../game/npc/npcStorage'
+import type { NpcId } from '../../game/npc/npcCatalog'
+import type { DailyQuest } from '../../rewards/daily'
+import { DAILY_QUEST_CONFIG } from '../../rewards/daily'
 
 type Props = {
-  recommendation: NpcRecommendation
-  dateKey: string
-  onStart: () => void
-  onReroll: () => void
+  npcId: NpcId
+  quests: (DailyQuest & { npcLine?: string | null })[]
+  onStart?: (quest?: DailyQuest | null) => void
   onChangeNpc: () => void
-  rerollCount?: number
-  rerollLimit?: number
+  loading?: boolean
+  bonusAwarded?: boolean
 }
 
-const expeditionLabels: Record<string, string> = {
-  mine: '⛏️ Miner',
-  repair: '🔧 Réparer',
-  craft: '🛠️ Crafter',
+const questIcons: Record<string, string> = {
+  session: '📅',
+  remediation: '🛠️',
+  progress: '🚀',
 }
 
-export function NpcGuideCard({ recommendation, dateKey, onStart, onReroll, onChangeNpc, rerollCount = 0, rerollLimit = 1 }: Props) {
-  const npc = NPC_CATALOG[recommendation.npcId]
-  const rerollUsed = getDailyRerollUsed(dateKey)
-  const targetBlock = getBlockDef(recommendation.expedition.targetTagId)
-  const secondaryLabels = (recommendation.expedition.secondaryTagIds || []).map(id => getBlockDef(id).blockName)
-  const remaining = Math.max(0, rerollLimit - rerollCount)
+export function NpcGuideCard({ npcId, quests, onStart, onChangeNpc, loading = false, bonusAwarded = false }: Props) {
+  const npc = NPC_CATALOG[npcId]
+  const allCompleted = quests.length > 0 && quests.every(q => q.completed)
+  const primaryQuest = quests.find(q => q.tagId) || quests[0]
 
   return (
     <div className="card mc-card">
@@ -40,31 +37,53 @@ export function NpcGuideCard({ recommendation, dateKey, onStart, onReroll, onCha
         <button className="mc-button secondary" onClick={onChangeNpc}>Changer de guide</button>
       </div>
 
-      <div style={{ marginTop:10 }}>
-        <div className="small" style={{ color:'var(--mc-muted)' }}>{recommendation.title}</div>
-        <div style={{ fontWeight:800, marginTop:4 }}>{recommendation.message}</div>
-      </div>
+      {loading ? (
+        <div className="mc-card" style={{ marginTop:12, border:'2px solid var(--mc-border)' }}>
+          <div className="small" style={{ color:'var(--mc-muted)' }}>Chargement des quêtes du jour…</div>
+        </div>
+      ) : (
+        <div className="mc-card" style={{ marginTop:12, border:'2px solid var(--mc-border)', display:'flex', flexDirection:'column', gap:10 }}>
+          {quests.map((q) => {
+            const pct = q.target ? Math.min(100, Math.round(((q.progress || 0) / q.target) * 100)) : 0
+            return (
+              <div key={q.id} className="mc-card" style={{ border:'1px solid var(--mc-border)', background:'rgba(255,255,255,0.03)' }}>
+                <div className="row" style={{ justifyContent:'space-between', alignItems:'center', gap:8 }}>
+                  <div style={{ display:'flex', alignItems:'center', gap:8 }}>
+                    <div style={{ fontSize:'1.2rem' }}>{questIcons[q.type || 'session'] || '🎯'}</div>
+                    <div>
+                      <div style={{ fontWeight:800 }}>{q.title}</div>
+                      <div className="small" style={{ color:'var(--mc-muted)' }}>{q.tagHint || q.description}</div>
+                    </div>
+                  </div>
+                  <div className="mc-chip">
+                    <span style={{ fontWeight:700 }}>+{DAILY_QUEST_CONFIG.xpRewards[q.type || 'progress']} XP</span>
+                  </div>
+                </div>
+                <div className="small" style={{ marginTop:6 }}>{q.npcLine || q.description}</div>
+                <div style={{ height:8, background:'rgba(255,255,255,0.08)', borderRadius:999, overflow:'hidden', marginTop:8 }}>
+                  <div style={{ height:'100%', width:`${pct}%`, background:q.completed ? 'linear-gradient(90deg,#7fffb2,#2ecc71)' : 'linear-gradient(90deg,#7aa2ff,#2ecc71)', transition:'width 0.4s ease' }} />
+                </div>
+              </div>
+            )
+          })}
 
-      <div className="mc-card" style={{ marginTop:12, border:'2px solid var(--mc-border)' }}>
-        <div className="row" style={{ justifyContent:'space-between', alignItems:'center' }}>
-          <div>
-            <div style={{ fontWeight:800 }}>{expeditionLabels[recommendation.expedition.type]}</div>
-            <div className="small" style={{ color:'var(--mc-muted)' }}>
-              Bloc : {targetBlock.blockName}{secondaryLabels.length ? ` + ${secondaryLabels.join(', ')}` : ''}
+          {allCompleted ? (
+            <div className="pill" style={{ background:'rgba(126, 220, 134, 0.15)', border:'1px solid rgba(126,220,134,0.4)' }}>
+              🎉 Quêtes terminées {bonusAwarded ? `• Bonus du jour +${DAILY_QUEST_CONFIG.xpRewards.dailyBonus} XP obtenu` : `• Bonus prêt (+${DAILY_QUEST_CONFIG.xpRewards.dailyBonus} XP)`}
             </div>
-          </div>
-          <div className="mc-chip">{recommendation.expedition.estimatedMinutes} min</div>
+          ) : (
+            <div className="small" style={{ color:'var(--mc-muted)' }}>Complète les 3 quêtes pour déclencher le bonus du jour.</div>
+          )}
+
+          {onStart ? (
+            <div className="row" style={{ gap:8, marginTop:4 }}>
+              <button className="mc-button" onClick={() => onStart(primaryQuest || null)}>
+                Lancer une session
+              </button>
+            </div>
+          ) : null}
         </div>
-        <div className="row" style={{ gap:8, marginTop:10, flexWrap:'wrap' }}>
-          <button className="mc-button" onClick={onStart}>Lancer la mission</button>
-          <button className="mc-button secondary" onClick={onReroll}>
-            {remaining <= 0 || rerollUsed ? 'Mission déjà changée' : 'Changer de mission'}
-          </button>
-        </div>
-        <div className="small" style={{ marginTop:6, color:'var(--mc-muted)' }}>
-          Changements restants : {remaining}
-        </div>
-      </div>
+      )}
     </div>
   )
 }

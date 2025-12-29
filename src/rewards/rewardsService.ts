@@ -22,10 +22,12 @@ export async function getOrInitRewards(uid: string): Promise<UserRewards> {
       malocraft: data.malocraft && Array.isArray(data.malocraft.ownedLootIds)
         ? { ownedLootIds: data.malocraft.ownedLootIds, equippedAvatarId: data.malocraft.equippedAvatarId ?? null, biomeMilestones: data.malocraft.biomeMilestones || {} }
         : { ownedLootIds: [], equippedAvatarId: null, biomeMilestones: {} },
+      zoneRebuildProgress: typeof data.zoneRebuildProgress === 'object' && data.zoneRebuildProgress ? data.zoneRebuildProgress : {},
+      biomeRebuildProgress: typeof data.biomeRebuildProgress === 'object' && data.biomeRebuildProgress ? data.biomeRebuildProgress : {},
       updatedAt: data.updatedAt,
     }
   }
-  const initial: UserRewards = { xp: 0, level: 1, badges: [], masteryByTag: {}, blockProgress: {}, collectibles: { owned: [], equippedAvatarId: null }, malocraft: { ownedLootIds: [], equippedAvatarId: null, biomeMilestones: {} }, updatedAt: serverTimestamp() as any }
+  const initial: UserRewards = { xp: 0, level: 1, badges: [], masteryByTag: {}, blockProgress: {}, collectibles: { owned: [], equippedAvatarId: null }, malocraft: { ownedLootIds: [], equippedAvatarId: null, biomeMilestones: {} }, zoneRebuildProgress: {}, biomeRebuildProgress: {}, updatedAt: serverTimestamp() as any }
   await setDoc(ref, initial)
   return initial
 }
@@ -55,6 +57,8 @@ export async function awardSessionRewards(uid: string, sessionId: string | null,
       malocraft: existing?.malocraft && Array.isArray(existing.malocraft.ownedLootIds)
         ? { ownedLootIds: existing.malocraft.ownedLootIds, equippedAvatarId: existing.malocraft.equippedAvatarId ?? null, biomeMilestones: existing.malocraft.biomeMilestones || {} }
         : { ownedLootIds: [], equippedAvatarId: null, biomeMilestones: {} },
+      zoneRebuildProgress: typeof existing?.zoneRebuildProgress === 'object' && existing.zoneRebuildProgress ? existing.zoneRebuildProgress : {},
+      biomeRebuildProgress: typeof existing?.biomeRebuildProgress === 'object' && existing.biomeRebuildProgress ? existing.biomeRebuildProgress : {},
       updatedAt: existing?.updatedAt,
     }
     const newXp = Math.max(0, (current.xp || 0) + deltaXp)
@@ -70,6 +74,8 @@ export async function awardSessionRewards(uid: string, sessionId: string | null,
         equippedAvatarId: current.collectibles?.equippedAvatarId ?? null,
       },
       malocraft: current.malocraft || { ownedLootIds: [], equippedAvatarId: null, biomeMilestones: {} },
+      zoneRebuildProgress: current.zoneRebuildProgress || {},
+      biomeRebuildProgress: current.biomeRebuildProgress || {},
       updatedAt: store.createTimestamp(),
     }
 
@@ -105,6 +111,8 @@ export async function applyMasteryEvents(opts: {
       blockProgress: typeof existing?.blockProgress === 'object' && existing?.blockProgress ? existing.blockProgress : {},
       collectibles: existing?.collectibles,
       malocraft: existing?.malocraft,
+      zoneRebuildProgress: existing?.zoneRebuildProgress,
+      biomeRebuildProgress: existing?.biomeRebuildProgress,
       updatedAt: existing?.updatedAt,
     }
 
@@ -159,6 +167,8 @@ export async function applyMasteryEvents(opts: {
       ...current,
       masteryByTag: mastery,
       blockProgress,
+      zoneRebuildProgress: current.zoneRebuildProgress || {},
+      biomeRebuildProgress: current.biomeRebuildProgress || {},
       updatedAt: store.createTimestamp(),
     })
   })

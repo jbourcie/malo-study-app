@@ -23,8 +23,12 @@ import { upsertDayStat } from '../stats/dayLog'
 import { selectQuestionsFromPool, shouldRepair, type ExpeditionType } from '../pedagogy/questionSelector'
 import { awardMalocraftLoot } from '../rewards/awardMalocraftLoot'
 import { subjectToBiomeId } from '../game/biomeCatalog'
-import { getTagMeta, inferSubject } from '../taxonomy/tagCatalog'
+import { TAG_CATALOG, getTagMeta, inferSubject } from '../taxonomy/tagCatalog'
 import { MALLOOT_CATALOG } from '../rewards/malocraftLootCatalog'
+import { getNpcLine, type NpcDialogueLine } from '../game/npc/npcDialogue'
+import { getPreferredNpcId } from '../game/npc/npcStorage'
+import { NPC_CATALOG, type NpcId } from '../game/npc/npcCatalog'
+import { applyZoneRebuildProgress, applyBiomeRebuildProgress } from '../game/rebuildService'
 
 type AnswerState = Record<string, any>
 type LessonReminderState = {
@@ -44,6 +48,7 @@ type FeedbackItem = {
   lessonRef?: string | null
   packLesson?: string | null
   packLessonTitle?: string | null
+  npcLine?: NpcDialogueLine | null
 }
 
 function isCorrect(ex: Exercise, ans: any): boolean {
@@ -66,6 +71,99 @@ function renderUnderlined(text: string) {
   }
   if (lastIndex < text.length) parts.push(text.slice(lastIndex))
   return parts
+}
+
+function getTagsForZone(subject: SubjectId | null, theme: string | null): string[] {
+  if (!subject || !theme) return []
+  return Object.values(TAG_CATALOG)
+    .filter(meta => meta.subject === subject && meta.theme === theme)
+    .map(meta => meta.id)
+}
+
+function getTagsForSubject(subject: SubjectId | null): Record<string, string[]> {
+  if (!subject) return {}
+  const byTheme: Record<string, string[]> = {}
+  Object.values(TAG_CATALOG).forEach(meta => {
+    if (meta.subject !== subject) return
+    if (!byTheme[meta.theme]) byTheme[meta.theme] = []
+    byTheme[meta.theme].push(meta.id)
+  })
+  return byTheme
+}
+
+function shuffleArray<T>(arr: T[]): T[] {
+  const copy = [...arr]
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[copy[i], copy[j]] = [copy[j], copy[i]]
+  }
+  return copy
+}
+
+function selectRebuildZoneQuestions(content: any[], zoneTags: string[], desiredCount: number, allowHarder: boolean) {
+  const pools = new Map<string, any[]>()
+  content.forEach((q) => {
+    const tag = (q.tags || []).find((t: string) => zoneTags.includes(t))
+    if (!tag) return
+    if (!pools.has(tag)) pools.set(tag, [])
+    pools.get(tag)!.push(q)
+  })
+  zoneTags.forEach((tag) => {
+    if (pools.has(tag)) {
+      pools.set(tag, shuffleArray(pools.get(tag)!))
+    }
+  })
+
+  const unique = new Set<string>()
+  const picked: any[] = []
+  const diff3Limit = allowHarder ? Math.max(2, Math.floor(desiredCount * 0.2)) : 0
+  let diff3Count = 0
+  let idx = 0
+  const order = zoneTags.filter((t) => pools.get(t)?.length)
+
+  while (picked.length < desiredCount && order.length) {
+    const tag = order[idx % order.length]
+    const pool = pools.get(tag) || []
+    let candidate = pool.shift()
+    while (candidate && unique.has(candidate.id)) {
+      candidate = pool.shift()
+    }
+    if (candidate) {
+      const diff = candidate.difficulty || 1
+      if (diff > 2 && diff3Count >= diff3Limit) {
+        // remiser si trop de diff3 déjà prises
+        pool.push(candidate)
+      } else {
+        picked.push(candidate)
+        unique.add(candidate.id || candidate.questionId)
+        if (diff > 2) diff3Count += 1
+      }
+    }
+    if (!pool.length) {
+      const idxToRemove = order.indexOf(tag)
+      if (idxToRemove >= 0) order.splice(idxToRemove, 1)
+    } else {
+      pools.set(tag, pool)
+    }
+    idx++
+    if (!order.length || idx > desiredCount * 5) break
+  }
+
+  if (picked.length < desiredCount) {
+    const leftovers = Array.from(pools.values()).flat()
+    shuffleArray(leftovers).forEach((q) => {
+      if (picked.length >= desiredCount) return
+      const diff = q.difficulty || 1
+      if (diff > 2 && diff3Count >= diff3Limit) return
+      const id = q.id || q.questionId
+      if (unique.has(id)) return
+      picked.push(q)
+      unique.add(id)
+      if (diff > 2) diff3Count += 1
+    })
+  }
+
+  return picked.slice(0, desiredCount)
 }
 
 export function ThemeSessionPage() {
@@ -101,6 +199,25 @@ export function ThemeSessionPage() {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const [lessonReminder, setLessonReminder] = React.useState<LessonReminderState | null>(null)
   const [openLessonByQuestion, setOpenLessonByQuestion] = React.useState<Record<string, boolean>>({})
+  const [npcId, setNpcId] = React.useState<NpcId>(getPreferredNpcId())
+  const [npcStartLine, setNpcStartLine] = React.useState<NpcDialogueLine | null>(null)
+  const [npcEndLine, setNpcEndLine] = React.useState<NpcDialogueLine | null>(null)
+  const [sessionKind, setSessionKind] = React.useState<string | null>(null)
+  const [zoneMeta, setZoneMeta] = React.useState<{ subject: SubjectId | null, theme: string | null }>({ subject: null, theme: null })
+  const npcGuide = NPC_CATALOG[npcId]
+  const npcStartShownRef = React.useRef(false)
+  const streakPraiseShownRef = React.useRef(false)
+
+  React.useEffect(() => {
+    setNpcId(getPreferredNpcId())
+  }, [])
+
+  React.useEffect(() => {
+    npcStartShownRef.current = false
+    streakPraiseShownRef.current = false
+    setNpcStartLine(null)
+    setNpcEndLine(null)
+  }, [themeId])
 
   React.useEffect(() => {
     (async () => {
@@ -108,14 +225,159 @@ export function ThemeSessionPage() {
       if (showCorrections || isSubmitting) return // ne pas relancer une nouvelle session pendant l’écran de correction ou en soumission
       const targetTagFromQuery = searchParams.get('targetTagId') || searchParams.get('tagId')
       const expeditionType = (searchParams.get('expeditionType') as ExpeditionType) || 'mine'
+      const sessionKindParam = searchParams.get('sessionKind')
+      const subjectFromQuery = (searchParams.get('subjectId') as SubjectId) || null
+      const themeFromQuery = searchParams.get('theme') || null
+      setSessionKind(sessionKindParam)
+      setZoneMeta({ subject: subjectFromQuery, theme: themeFromQuery })
       setSessionExpeditionType(expeditionType)
 
-      const tSnap = await getDoc(doc(db, 'themes', themeId))
-      const tData = tSnap.exists() ? { id: themeId, ...tSnap.data() } : null
+      const tSnap = sessionKindParam === 'reconstruction_theme' ? null : await getDoc(doc(db, 'themes', themeId))
+      const tData = tSnap && tSnap.exists() ? { id: themeId, ...tSnap.data() } : null
 
-      let exercises = await listExercises(themeId, { uid: user?.uid })
-      let readingsFromTheme = Array.isArray((tData as any)?.readings) ? (tData as any).readings : []
-      let readings = readingsFromTheme
+      let exercises: any[] = []
+      let readings: any[] = []
+
+      if (sessionKindParam === 'reconstruction_theme') {
+        const subject = subjectFromQuery || (tData as any)?.subjectId || null
+        const zoneTags = getTagsForZone(subject, themeFromQuery)
+        if (!zoneTags.length) {
+          setErrorMsg('Aucun bloc pour cette zone.')
+          setExos([])
+          setFeedback([])
+          setShowCorrections(false)
+          setOpenLessonByQuestion({})
+          setLessonReminder(null)
+          return
+        }
+        const exercisesByTag = await Promise.all(zoneTags.map(tag => listExercisesByTag(tag, { uid: user?.uid })))
+        exercises = exercisesByTag.flat()
+        const resolvedSubject = subject || inferSubject(zoneTags[0])
+        setZoneMeta({ subject: resolvedSubject, theme: themeFromQuery })
+        const effectiveTheme = {
+          id: themeId,
+          subjectId: resolvedSubject,
+          title: `Reconstruction · ${themeFromQuery || 'Zone'}`,
+        }
+        setTheme(effectiveTheme)
+
+        const contentRaw = flattenThemeContent({ exercises, readings })
+        const allowHarder = zoneTags.some(tag => ((liveRewards?.masteryByTag || {}) as any)?.[tag]?.score >= 70)
+        const content = allowHarder
+          ? contentRaw.filter((c: any) => ((c as any).difficulty || 1) <= 3)
+          : contentRaw.filter((c: any) => ((c as any).difficulty || 1) <= 2)
+        const desiredCount = 18
+        if (!content.length) {
+          setErrorMsg('Aucune question publiée pour cette zone pour le moment.')
+          setExos([])
+          setFeedback([])
+          setShowCorrections(false)
+          setOpenLessonByQuestion({})
+          setLessonReminder(null)
+          return
+        } else {
+          setErrorMsg('')
+        }
+
+        const picked = selectRebuildZoneQuestions(content, zoneTags, desiredCount, allowHarder)
+        setSessionTargetTagId(zoneTags[0] || null)
+        setExos(picked.slice(0, desiredCount))
+        setLessonReminder(null)
+        setAnswers({})
+        setResult(null)
+        setFeedback([])
+        setOpenLessonByQuestion({})
+        return
+      } else if (sessionKindParam === 'reconstruction_biome') {
+        const subject = subjectFromQuery || (tData as any)?.subjectId || null
+        if (!subject) {
+          setErrorMsg('Biome introuvable.')
+          setExos([])
+          setFeedback([])
+          setShowCorrections(false)
+          setOpenLessonByQuestion({})
+          setLessonReminder(null)
+          return
+        }
+        const tagsByTheme = getTagsForSubject(subject)
+        const zoneEntries = Object.entries(tagsByTheme)
+        if (!zoneEntries.length) {
+          setErrorMsg('Aucune zone pour ce biome.')
+          setExos([])
+          setFeedback([])
+          setShowCorrections(false)
+          setOpenLessonByQuestion({})
+          setLessonReminder(null)
+          return
+        }
+        const zoneProgress = liveRewards?.zoneRebuildProgress || {}
+        const rebuiltZones = zoneEntries.filter(([theme]) => {
+          const key = `${subject}__${theme}`
+          const entry = zoneProgress[key]
+          const target = entry?.target || 35
+          return (entry?.correctCount || 0) >= target
+        }).length
+        const readyForBiome = (rebuiltZones / zoneEntries.length) >= 0.6
+        if (!readyForBiome) {
+          setErrorMsg('Reconstruis au moins 60% des zones avant de lancer le biome.')
+          setExos([])
+          setFeedback([])
+          setShowCorrections(false)
+          setOpenLessonByQuestion({})
+          setLessonReminder(null)
+          return
+        }
+
+        setZoneMeta({ subject, theme: null })
+        const orderedZones = [...zoneEntries].sort((a, b) => {
+          const keyA = `${subject}__${a[0]}`
+          const keyB = `${subject}__${b[0]}`
+          const pa = zoneProgress[keyA]?.correctCount || 0
+          const pb = zoneProgress[keyB]?.correctCount || 0
+          return pb - pa
+        })
+        const orderedTags = orderedZones.flatMap(([, tags]) => tags)
+        const limitedTags = orderedTags.slice(0, 12) // éviter de charger trop de packs
+        const exercisesByTag = await Promise.all(limitedTags.map(tag => listExercisesByTag(tag, { uid: user?.uid })))
+        const exercises = exercisesByTag.flat()
+        const allowHarder = limitedTags.some(tag => ((liveRewards?.masteryByTag || {}) as any)?.[tag]?.score >= 70)
+        const contentRaw = flattenThemeContent({ exercises, readings: [] })
+        const content = contentRaw.filter((c: any) => {
+          const diff = (c as any).difficulty || 1
+          return diff <= (allowHarder ? 3 : 2)
+        })
+        const desiredCount = 22
+        if (!content.length) {
+          setErrorMsg('Aucune question disponible pour ce biome.')
+          setExos([])
+          setFeedback([])
+          setShowCorrections(false)
+          setOpenLessonByQuestion({})
+          setLessonReminder(null)
+          return
+        } else {
+          setErrorMsg('')
+        }
+        const picked = selectRebuildZoneQuestions(content, limitedTags, desiredCount, allowHarder)
+        const effectiveTheme = {
+          id: themeId,
+          subjectId: subject,
+          title: 'Reconstruction du biome',
+        }
+        setSessionTargetTagId(limitedTags[0] || null)
+        setTheme(effectiveTheme)
+        setExos(picked.slice(0, desiredCount))
+        setLessonReminder(null)
+        setAnswers({})
+        setResult(null)
+        setFeedback([])
+        setOpenLessonByQuestion({})
+        return
+      }
+
+      exercises = await listExercises(themeId, { uid: user?.uid })
+      const readingsFromTheme = Array.isArray((tData as any)?.readings) ? (tData as any).readings : []
+      readings = readingsFromTheme
       // fallback : si expédition et aucune question, charger par tag
       if ((!exercises.length || !tData) && targetTagFromQuery) {
         exercises = await listExercisesByTag(targetTagFromQuery, { uid: user?.uid })
@@ -201,6 +463,19 @@ export function ThemeSessionPage() {
     })()
   }, [themeId, user, searchParams, liveRewards])
 
+  React.useEffect(() => {
+    if (!sessionTargetTagId || !exos.length || npcStartShownRef.current || showCorrections) return
+    const blockMeta = getTagMeta(sessionTargetTagId)
+    const line = getNpcLine(npcId, 'session_start', {
+      blockId: sessionTargetTagId,
+      blockLabel: blockMeta?.label || null,
+      lessonAvailable: !!lessonReminder?.content,
+      lessonRef: lessonReminder?.lessonRef || null,
+    })
+    setNpcStartLine(line)
+    npcStartShownRef.current = true
+  }, [sessionTargetTagId, exos.length, npcId, lessonReminder?.content, lessonReminder?.lessonRef, showCorrections])
+
   const submit = async () => {
     if (!user || !themeId || !theme) return
     setIsSubmitting(true)
@@ -255,6 +530,15 @@ export function ThemeSessionPage() {
       let currentStreak = 0
       let comebackCount = 0
       let previousIncorrect = false
+      const tagStats: Record<string, { answered: number, correct: number }> = {}
+      items.forEach(item => {
+        (item.tags || []).forEach(tag => {
+          const stats = tagStats[tag] || { answered: 0, correct: 0 }
+          stats.answered += item.answered ? 1 : 0
+          stats.correct += item.answered && item.correct ? 1 : 0
+          tagStats[tag] = stats
+        })
+      })
       items.forEach((item) => {
         if (!item.answered) {
           if (currentStreak >= 2) streaks.push(currentStreak)
@@ -288,6 +572,12 @@ export function ThemeSessionPage() {
       const newMasteredTagCount = Object.entries(masteryAfter)
         .filter(([tag, val]) => val?.state === 'mastered' && (masteryBefore as any)?.[tag]?.state !== 'mastered')
         .length
+      const maxStreak = streaks.length ? Math.max(...streaks) : 0
+      if (!streakPraiseShownRef.current && maxStreak >= 3) {
+        const praise = getNpcLine(npcId, 'streak_praise', { streak: maxStreak, sessionId: progress.attemptId || themeId })
+        setNpcEndLine(prev => prev ?? praise)
+        streakPraiseShownRef.current = true
+      }
 
       const xpOutcome = computeSessionXp({
         answeredCount,
@@ -350,23 +640,87 @@ export function ThemeSessionPage() {
         }
 
         // Daily quests update (idempotent via event)
-        updateDailyProgress({
+        const dailyRes = await updateDailyProgress({
           uid: user.uid,
           sessionId: progress.attemptId || themeId,
           answeredCount,
           tagsUsed: items.flatMap(i => i.tags || []),
-        }).catch(err => console.error('updateDailyProgress failed', err))
-        upsertDayStat({
-          uid: user.uid,
-          sessionsDelta: 1,
-          xpDelta: deltaXp,
-        }).catch(err => console.error('upsertDayStat failed', err))
+          tagStats,
+        }).catch(err => {
+          console.error('updateDailyProgress failed', err)
+          return { allCompleted: false }
+        })
+        if (dailyRes?.allCompleted) {
+          upsertDayStat({
+            uid: user.uid,
+            sessionsDelta: 1,
+            xpDelta: deltaXp,
+          }).catch(err => console.error('upsertDayStat failed', err))
+        } else {
+          // sessions non comptées pour le streak si quêtes non terminées
+          upsertDayStat({
+            uid: user.uid,
+            sessionsDelta: 0,
+            xpDelta: deltaXp,
+          }).catch(err => console.error('upsertDayStat failed', err))
+        }
+        if (sessionKind === 'reconstruction_theme' && zoneMeta.subject && zoneMeta.theme) {
+          try {
+            const rebuildRes = await applyZoneRebuildProgress({
+              uid: user.uid,
+              sessionId: progress.attemptId || themeId,
+              subject: zoneMeta.subject as SubjectId,
+              theme: zoneMeta.theme,
+              tagStats,
+            })
+            if (rebuildRes.progress?.rebuiltAt) {
+              setNpcEndLine(prev => prev ?? getNpcLine(npcId, 'streak_praise', {
+                sessionId: progress.attemptId || themeId,
+                streak: rebuildRes.progress.correctCount,
+              }))
+            }
+          } catch (e) {
+            console.warn('applyZoneRebuildProgress failed', e)
+          }
+        } else if (sessionKind === 'reconstruction_biome' && zoneMeta.subject) {
+          try {
+            const rebuildRes = await applyBiomeRebuildProgress({
+              uid: user.uid,
+              sessionId: progress.attemptId || themeId,
+              subject: zoneMeta.subject as SubjectId,
+              tagStats,
+            })
+            if (rebuildRes.progress?.rebuiltAt) {
+              setNpcEndLine(prev => prev ?? getNpcLine(npcId, 'streak_praise', {
+                sessionId: progress.attemptId || themeId,
+                streak: rebuildRes.progress.correctCount,
+              }))
+            }
+          } catch (e) {
+            console.warn('applyBiomeRebuildProgress failed', e)
+          }
+        }
         // TODO: branch here for futures (quests journalières v2, PNJ réactions, stats parents) without changing rewardEvents idempotence.
       } catch (e) {
         console.error('awardSessionRewards failed', e)
         // fallback: do not block UX
       }
       setSessionRewards({ deltaXp, levelUp, newRewards, prevRewards, unlockedBadges, collectibleId: rolledCollectibleId, xpBreakdown: xpOutcome.breakdown, blockProgress })
+      const blockLabel = blockProgress?.tagId ? getTagMeta(blockProgress.tagId)?.label || null : (sessionTargetTagId ? getTagMeta(sessionTargetTagId)?.label || null : null)
+      setNpcEndLine(prev => {
+        const endLine = getNpcLine(npcId, 'session_end', {
+          blockId: blockProgress?.tagId || sessionTargetTagId,
+          blockLabel,
+          successRate: blockProgress?.successRate ?? null,
+          masteryState: blockProgress?.state ?? null,
+          xpBreakdown: xpOutcome.breakdown,
+          sessionId: progress.attemptId || themeId,
+        })
+        if (prev && prev.text) {
+          return { ...endLine, text: `${endLine.text} ${prev.text}` }
+        }
+        return endLine
+      })
 
       const sessionTags = new Set<string>(exos.flatMap(ex => ex.tags || []))
       const sortedWeak = Object.values(progress.tagsUpdated || {})
@@ -403,6 +757,8 @@ export function ThemeSessionPage() {
         const correct = isCorrect(ex, userAns)
         let expected = ''
         let userAnswer = ''
+        const packLesson = (ex as any).packLesson || lessonReminder?.content || null
+        const packLessonTitle = (ex as any).packLessonTitle || lessonReminder?.title || null
         if (ex.type === 'mcq') {
           const mcq = ex as ExerciseMCQ
           expected = mcq.choices[mcq.answerIndex] || ''
@@ -414,6 +770,15 @@ export function ThemeSessionPage() {
           expected = (ex as ExerciseFillBlank).expected[0] || ''
           userAnswer = userAns || ''
         }
+        const blockLabel = (ex.tags || []).map(t => getTagMeta(t)?.label).find(Boolean) || (sessionTargetTagId ? getTagMeta(sessionTargetTagId)?.label : null)
+        const npcLine = !correct ? getNpcLine(npcId, 'wrong_answer', {
+          blockId: (ex.tags || [])[0] || sessionTargetTagId,
+          blockLabel: blockLabel || null,
+          lessonRef: (ex as any).lessonRef || lessonReminder?.lessonRef || null,
+          lessonAvailable: !!packLesson,
+          sessionId: progress.attemptId || themeId,
+          questionId: ex.id,
+        }) : null
         return {
           id: ex.id,
           prompt: ex.prompt,
@@ -423,8 +788,9 @@ export function ThemeSessionPage() {
           idx: idx + 1,
           explanation: (ex as any).explanation || null,
           lessonRef: (ex as any).lessonRef || null,
-          packLesson: (ex as any).packLesson || lessonReminder?.content || null,
-          packLessonTitle: (ex as any).packLessonTitle || lessonReminder?.title || null,
+          packLesson,
+          packLessonTitle,
+          npcLine,
         }
       })
       const firstIncorrectWithLesson = exos.find((ex, idx) => {
@@ -451,6 +817,18 @@ export function ThemeSessionPage() {
       setErrorMsg(e?.message || 'Enregistrement impossible. Vérifie la connexion ou les droits.')
     }
     setIsSubmitting(false)
+  }
+
+  const resetSessionView = () => {
+    setShowCorrections(false)
+    setFeedback([])
+    setResult(null)
+    setAnswers({})
+    setOpenLessonByQuestion({})
+    npcStartShownRef.current = false
+    streakPraiseShownRef.current = false
+    setNpcStartLine(null)
+    setNpcEndLine(null)
   }
 
   if (!themeId) return <div className="container"><div className="card">Thème introuvable.</div></div>
@@ -576,6 +954,16 @@ export function ThemeSessionPage() {
           {message && <div className="small" style={{ marginTop: 8 }}>{message}</div>}
         </div>
 
+        {npcEndLine && (
+          <div className="card mc-card" style={{ display:'flex', gap:10, alignItems:'flex-start' }}>
+            <div style={{ fontSize:'2rem' }}>{npcGuide.avatar}</div>
+            <div>
+              <div className="small" style={{ color:'var(--mc-muted)' }}>{npcGuide.name}</div>
+              <div style={{ fontWeight:800 }}>{npcEndLine.text}</div>
+            </div>
+          </div>
+        )}
+
         {lessonReminder?.content && (
           <LessonReminder
             title={lessonReminder.title}
@@ -603,6 +991,31 @@ export function ThemeSessionPage() {
                     <div className="small">Correction : <strong>{f.expected}</strong></div>
                     {f.explanation && (
                       <div className="small" style={{ marginTop: 4 }}>Explication : {f.explanation}</div>
+                    )}
+                    {f.npcLine && (
+                      <div className="pill" style={{
+                        marginTop: 6,
+                        display: 'flex',
+                        gap: 8,
+                        alignItems: 'flex-start',
+                        background: 'rgba(122,162,255,0.08)',
+                        border: '1px solid rgba(122,162,255,0.35)'
+                      }}>
+                        <div style={{ fontSize:'1.4rem' }}>{npcGuide.avatar}</div>
+                        <div>
+                          <div className="small" style={{ color:'var(--mc-muted)' }}>{npcGuide.name}</div>
+                          <div className="small" style={{ fontWeight:700 }}>{f.npcLine.text}</div>
+                          {f.npcLine.cta?.action === 'open_lesson' && f.packLesson && (
+                            <button
+                              className="mc-button secondary"
+                              style={{ marginTop: 6, padding:'4px 8px', fontSize:'0.8rem' }}
+                              onClick={() => setOpenLessonByQuestion(prev => ({ ...prev, [f.id]: true }))}
+                            >
+                              {f.npcLine.cta.label}
+                            </button>
+                          )}
+                        </div>
+                      </div>
                     )}
                     {f.packLesson && (
                       <div className="small" style={{ marginTop: 6 }}>
@@ -639,7 +1052,7 @@ export function ThemeSessionPage() {
           </div>
           <div className="row" style={{ marginTop: 16 }}>
             <button className="btn" onClick={() => nav('/')}>Retour à l’accueil</button>
-            <button className="btn secondary" onClick={() => { setShowCorrections(false); setFeedback([]); setResult(null); setAnswers({}); setOpenLessonByQuestion({}); }}>Refaire une session</button>
+            <button className="btn secondary" onClick={resetSessionView}>Refaire une session</button>
           </div>
         </div>
 
@@ -685,12 +1098,31 @@ export function ThemeSessionPage() {
 
       <RewardsHeader rewards={liveRewards} />
 
+      {npcStartLine && !lessonReminder?.content && (
+        <div className="card mc-card" style={{ display:'flex', gap:10, alignItems:'flex-start' }}>
+          <div style={{ fontSize:'2rem' }}>{npcGuide.avatar}</div>
+          <div>
+            <div className="small" style={{ color:'var(--mc-muted)' }}>{npcGuide.name}</div>
+            <div style={{ fontWeight:800 }}>{npcStartLine.text}</div>
+          </div>
+        </div>
+      )}
+
       {lessonReminder?.content && (
         <LessonReminder
           title={lessonReminder.title}
           content={lessonReminder.content}
           lessonRef={lessonReminder.lessonRef}
           mode={lessonReminder.mode || 'full'}
+          npcGuide={npcStartLine ? {
+            avatar: npcGuide.avatar,
+            name: npcGuide.name,
+            line: npcStartLine.text,
+            ctaLabel: npcStartLine.cta?.action === 'open_lesson' ? npcStartLine.cta.label : undefined,
+            onCta: npcStartLine.cta?.action === 'open_lesson'
+              ? () => setLessonReminder(prev => prev ? { ...prev, mode: 'contextual' } : prev)
+              : undefined,
+          } : null}
         />
       )}
 
@@ -798,6 +1230,31 @@ export function ThemeSessionPage() {
                 {!f.correct && (
                   <>
                     <div className="small">Correction : <strong>{f.expected}</strong></div>
+                    {f.npcLine && (
+                      <div className="pill" style={{
+                        marginTop: 6,
+                        display:'flex',
+                        gap:8,
+                        alignItems:'flex-start',
+                        background:'rgba(122,162,255,0.08)',
+                        border:'1px solid rgba(122,162,255,0.35)'
+                      }}>
+                        <div style={{ fontSize:'1.4rem' }}>{npcGuide.avatar}</div>
+                        <div>
+                          <div className="small" style={{ color:'var(--mc-muted)' }}>{npcGuide.name}</div>
+                          <div className="small" style={{ fontWeight:700 }}>{f.npcLine.text}</div>
+                          {f.npcLine.cta?.action === 'open_lesson' && f.packLesson && (
+                            <button
+                              className="mc-button secondary"
+                              style={{ marginTop: 6, padding:'4px 8px', fontSize:'0.8rem' }}
+                              onClick={() => setOpenLessonByQuestion(prev => ({ ...prev, [f.id]: true }))}
+                            >
+                              {f.npcLine.cta.label}
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    )}
                     {f.explanation && <div className="small" style={{ marginTop: 4 }}>Explication : {f.explanation}</div>}
                     {f.packLesson && (
                       <div className="small" style={{ marginTop: 6 }}>

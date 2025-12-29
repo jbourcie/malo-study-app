@@ -1,39 +1,29 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { listInventory } from '../data/rewards'
 import { useAuth } from '../state/useAuth'
 import { useUserRewards } from '../state/useUserRewards'
+import { useDailyQuests } from '../state/useDailyQuests'
+import type { DailyQuest } from '../rewards/daily'
 import { BADGES } from '../rewards/badgesCatalog'
 import { listLast7Days } from '../stats/dayLog'
 import { useNavigate } from 'react-router-dom'
-import { getPreferredNpcId, setPreferredNpcId, getOrCreateDailyRecommendation, setDailyRecommendation, setDailyRerollUsed, getDailyRerollUsed, clearDailyRecommendation, getDailyRecommendation, getDailyRerollCount, incrementDailyRerollCount } from '../game/npc/npcStorage'
+import { getPreferredNpcId, setPreferredNpcId } from '../game/npc/npcStorage'
 import { NpcPickerModal } from '../components/game/NpcPickerModal'
 import { NpcGuideCard } from '../components/game/NpcGuideCard'
-import { buildNpcRecommendation, formatDateKeyParis } from '../game/npc/npcRecommendation'
-import type { NpcRecommendation } from '../game/npc/npcRecommendation'
 import { BIOMES_SORTED } from '../game/biomeCatalog'
 import { getBlocksForBiome } from '../game/blockCatalog'
-import { listExercisesByTag } from '../data/firestore'
-import { TAG_CATALOG } from '../taxonomy/tagCatalog'
-import { getBlockDef } from '../game/blockCatalog'
-import { loadNpcPriorityTags } from '../data/npcPriorities'
+import { getNpcLine } from '../game/npc/npcDialogue'
 
 export function HomePage() {
-  const { user, role } = useAuth()
+  const { user } = useAuth()
   const { rewards } = useUserRewards(user?.uid || null)
+  const { daily, loading: loadingDaily } = useDailyQuests(user?.uid || null)
   const nav = useNavigate()
   const [showNpcPicker, setShowNpcPicker] = React.useState(false)
   const [npcId, setNpcId] = React.useState(getPreferredNpcId())
-  const [recommendation, setRecommendation] = React.useState<NpcRecommendation | null>(null)
   const [inventory, setInventory] = React.useState<any[]>([])
   const [days, setDays] = React.useState<any[]>([])
-  const [availableTags, setAvailableTags] = React.useState<string[]>([])
   const [npcMessage, setNpcMessage] = React.useState<string>('')
-  const [loadingTags, setLoadingTags] = React.useState<boolean>(true)
-  const [showRerollModal, setShowRerollModal] = React.useState(false)
-  const [excludedTag, setExcludedTag] = React.useState<string | null>(null)
-  const [lastRerollTs, setLastRerollTs] = React.useState<number>(0)
-  const [priorityTags, setPriorityTags] = React.useState<string[]>([])
   const streakFlames = React.useMemo(() => {
     const sorted = [...days].sort((a, b) => (b.dateKey || '').localeCompare(a.dateKey || ''))
     let streak = 0
@@ -47,83 +37,29 @@ export function HomePage() {
     return streak
   }, [days])
 
-  const dateKey = formatDateKeyParis(Date.now())
-  const rerollCount = getDailyRerollCount(dateKey)
-  const rerollLimit = role === 'parent' ? 100 : 1
-
-  const onReroll = () => {
-    // Réinitialise la mission du jour avant de tirer
-    clearDailyRecommendation(dateKey)
-    setLastRerollTs(Date.now())
-    const currentCount = getDailyRerollCount(dateKey)
-    const limit = rerollLimit
-    if (currentCount >= limit || (role !== 'parent' && getDailyRerollUsed(dateKey))) {
-      setNpcMessage(role === 'parent' ? 'Limite de changements atteinte pour aujourd’hui.' : 'Tu as déjà changé de mission aujourd’hui.')
-      setShowRerollModal(true)
-      return
-    }
-    const masteryByTag = rewards?.masteryByTag || {}
-    const previousTag = recommendation?.expedition.targetTagId
-    if (previousTag) setExcludedTag(previousTag)
-    const usableTags = previousTag ? availableTags.filter(t => t !== previousTag) : (excludedTag ? availableTags.filter(t => t !== excludedTag) : availableTags)
-    const history: Array<{ tagIds: string[], correct: boolean, ts: number }> = []
-    const filteredMastery = { ...masteryByTag }
-    if (previousTag) delete (filteredMastery as any)[previousTag]
-    const rec = buildNpcRecommendation({
-      npcId,
-      masteryByTag: filteredMastery,
-      history,
-      nowTs: Date.now(),
-      excludeTagIds: previousTag ? [previousTag] : (excludedTag ? [excludedTag] : []),
-      availableTagIds: usableTags,
-      priorityTagsOverride: priorityTags,
+  const questsWithLines = React.useMemo(() => {
+    if (!daily) return []
+    return (daily.quests || []).map((q) => {
+      const reason = q.type === 'remediation' ? 'repair' : q.type === 'progress' ? 'priority' : 'spaced'
+      const line = getNpcLine(npcId, 'daily_quest', { reasonCode: reason }).text
+      return { ...q, npcLine: line }
     })
-    if (rec) {
-      const target = rec.expedition.targetTagId
-      const inAvailable = usableTags.includes(target)
-      if (!inAvailable) {
-        setNpcMessage('Mission indisponible pour ce bloc. Essaie encore.')
-        return
-      }
-      setRecommendation(rec)
-      setDailyRecommendation(dateKey, rec)
-      if (role === 'parent') {
-        incrementDailyRerollCount(dateKey)
-      } else {
-        setDailyRerollUsed(dateKey)
-        incrementDailyRerollCount(dateKey)
-      }
-      setExcludedTag(null)
-      setNpcMessage('')
-    } else {
-      setNpcMessage('Aucune autre mission disponible pour l’instant.')
-    }
-  }
+  }, [daily?.dateKey, npcId])
 
-  const onStartMission = async () => {
-    if (!recommendation) return
-    const targetTag = recommendation.expedition.targetTagId
-    if (availableTags.length && !availableTags.includes(targetTag)) {
-      setNpcMessage('Mission indisponible (aucune question pour ce bloc). Change de mission.')
-      return
+  const allDailyCompleted = React.useMemo(() => (daily?.quests || []).every(q => q.completed), [daily?.quests])
+
+  const onStartMission = (quest?: DailyQuest | null) => {
+    const targetQuest = quest || questsWithLines.find(q => q.tagId) || null
+    const targetTag = targetQuest?.tagId
+    if (targetTag) {
+      const params = new URLSearchParams()
+      params.set('expeditionType', targetQuest?.type === 'remediation' ? 'repair' : 'mine')
+      params.set('targetTagId', targetTag)
+      nav(`/theme/expedition?${params.toString()}`)
+    } else {
+      setNpcMessage('On s’entraîne un peu aujourd’hui, puis on reviendra sur des notions plus ciblées.')
+      nav('/world')
     }
-    try {
-      const list = await listExercisesByTag(targetTag, { uid: user?.uid })
-      if (!list.length) {
-        setNpcMessage('Aucune question pour ce bloc. Change de mission.')
-        return
-      }
-    } catch {
-      setNpcMessage('Impossible de vérifier les questions pour ce bloc.')
-      return
-    }
-    const exp = recommendation.expedition
-    const params = new URLSearchParams()
-    params.set('expeditionType', exp.type)
-    params.set('targetTagId', exp.targetTagId)
-    params.set('biomeId', exp.biomeId)
-    if (exp.secondaryTagIds?.length) params.set('secondaryTagIds', exp.secondaryTagIds.join(','))
-    nav(`/theme/expedition?${params.toString()}`)
   }
 
   React.useEffect(() => {
@@ -145,108 +81,13 @@ export function HomePage() {
   }, [user])
 
   React.useEffect(() => {
-    const loadAvailable = async () => {
-      setLoadingTags(true)
-      const candidates = Object.keys(TAG_CATALOG || {})
-      const results = await Promise.all(candidates.map(async (tag) => {
-        try {
-          const list = await listExercisesByTag(tag, { uid: user?.uid })
-          return list.length ? tag : null
-        } catch {
-          return null
-        }
-      }))
-      const valid = results.filter(Boolean) as string[]
-      setAvailableTags(valid)
-      setLoadingTags(false)
-      if (!valid.length) {
-        setNpcMessage('Pas de mission disponible (aucune question trouvée).')
-      } else {
-        setNpcMessage('')
-      }
-    }
-    loadAvailable()
-    // Charger les priorités PNJ pour l'utilisateur courant (enfant)
-    ;(async () => {
-      const tags = await loadNpcPriorityTags(user?.uid || null)
-      setPriorityTags(tags)
-    })()
-  }, [rewards, user])
-
-  React.useEffect(() => {
-    if (!recommendation && availableTags.length && !loadingTags) {
-      const masteryByTag = rewards?.masteryByTag || {}
-      const history: Array<{ tagIds: string[], correct: boolean, ts: number }> = []
-      const rec = buildNpcRecommendation({ npcId, masteryByTag, history, nowTs: Date.now(), availableTagIds: availableTags })
-      if (rec) {
-        const dk = formatDateKeyParis(Date.now())
-        setDailyRecommendation(dk, rec)
-        setRecommendation(rec)
-        setNpcMessage('')
-      }
-    }
-  }, [recommendation, availableTags, loadingTags, rewards, npcId])
-
-  React.useEffect(() => {
-    if (loadingTags) {
-      setRecommendation(null)
-      return
-    }
-    if (availableTags.length === 0) {
-      const dateKey = formatDateKeyParis(Date.now())
-      clearDailyRecommendation(dateKey)
-      setRecommendation(null)
-      setNpcMessage('Pas de mission disponible (aucun exercice trouvé).')
-      return
-    }
-    const dateKey = formatDateKeyParis(Date.now())
-    const masteryByTag = rewards?.masteryByTag || {}
-    const usableTags = excludedTag ? availableTags.filter(t => t !== excludedTag) : availableTags
-    const history: Array<{ tagIds: string[], correct: boolean, ts: number }> = [] // TODO: branch to real history si disponible
-    const stored = getDailyRecommendation(dateKey)
-    let rec = stored && stored.npcId === npcId ? stored : null
-    if (rec && usableTags.length && !usableTags.includes(rec.expedition.targetTagId)) {
-      rec = null
-      clearDailyRecommendation(dateKey)
-    }
-    if (!rec && usableTags.length) {
-      clearDailyRecommendation(dateKey)
-      rec = getOrCreateDailyRecommendation({
-        npcId,
-        masteryByTag,
-        history,
-        nowTs: Date.now(),
-        availableTagIds: usableTags.length ? usableTags : undefined,
-        priorityTagsOverride: priorityTags,
-      })
-    }
-    if (!rec && usableTags.length) {
-      rec = buildNpcRecommendation({
-        npcId,
-        masteryByTag,
-        history,
-        nowTs: Date.now(),
-        availableTagIds: usableTags,
-        excludeTagIds: excludedTag ? [excludedTag] : [],
-        priorityTagsOverride: priorityTags,
-      })
-      if (rec) setDailyRecommendation(dateKey, rec)
-    }
-    // Retry sans exclusion si rien trouvé
-    if (!rec && excludedTag && availableTags.length) {
-      rec = buildNpcRecommendation({ npcId, masteryByTag, history, nowTs: Date.now(), availableTagIds: availableTags })
-      if (rec) {
-        setExcludedTag(null)
-        setDailyRecommendation(dateKey, rec)
-      }
-    }
-    setRecommendation(rec)
-    if (!rec && availableTags.length === 0 && !loadingTags) {
-      setNpcMessage('Pas de mission disponible (aucun exercice trouvé).')
+    if (loadingDaily) return
+    if (!daily) {
+      setNpcMessage('Quêtes indisponibles pour le moment.')
     } else {
       setNpcMessage('')
     }
-  }, [npcId, rewards, availableTags, excludedTag, loadingTags])
+  }, [daily, loadingDaily])
 
   return (
     <div className="container grid">
@@ -278,24 +119,38 @@ export function HomePage() {
         {npcMessage && <div className="small" style={{ marginTop:8, color:'#ffb347' }}>{npcMessage}</div>}
       </div>
 
-      {recommendation ? (
-        <NpcGuideCard
-          recommendation={recommendation}
-          dateKey={dateKey}
-          onStart={onStartMission}
-          onReroll={onReroll}
-          onChangeNpc={() => setShowNpcPicker(true)}
-          rerollCount={getDailyRerollCount(dateKey)}
-          rerollLimit={role === 'parent' ? 100 : 1}
-        />
+      {daily ? (
+        allDailyCompleted ? (
+          <div className="card mc-card">
+            <div className="row" style={{ justifyContent:'space-between', alignItems:'center', gap:10 }}>
+              <div>
+                <div className="small" style={{ color:'var(--mc-muted)' }}>Quêtes du jour</div>
+                <div style={{ fontWeight:900 }}>Quêtes journalières terminées</div>
+                <div className="small" style={{ color:'var(--mc-muted)', marginTop:4 }}>
+                  Tu as déjà complété les 3 quêtes aujourd’hui. Reviens demain pour de nouvelles missions !
+                </div>
+              </div>
+              <button className="mc-button secondary" onClick={() => setShowNpcPicker(true)}>Changer de guide</button>
+            </div>
+          </div>
+        ) : (
+          <NpcGuideCard
+            npcId={npcId}
+            quests={questsWithLines}
+            bonusAwarded={daily.bonusAwarded}
+            loading={loadingDaily}
+            onStart={onStartMission}
+            onChangeNpc={() => setShowNpcPicker(true)}
+          />
+        )
       ) : (
         <div className="card mc-card">
           <div className="row" style={{ justifyContent:'space-between', alignItems:'center', gap:10 }}>
             <div>
               <div className="small" style={{ color:'var(--mc-muted)' }}>Guide Malo</div>
-              <div style={{ fontWeight:900 }}>Choisis un guide pour ta prochaine mission</div>
+              <div style={{ fontWeight:900 }}>Quêtes du jour</div>
               <div className="small" style={{ color:'var(--mc-muted)', marginTop:4 }}>
-                Aucune mission générée pour l’instant. Vérifie qu’il y a des questions publiées pour tes blocs.
+                {loadingDaily ? 'Chargement…' : 'Aucune quête du jour disponible pour l’instant.'}
               </div>
             </div>
             <button className="mc-button secondary" onClick={() => setShowNpcPicker(true)}>Changer de guide</button>
@@ -372,32 +227,9 @@ export function HomePage() {
         onPicked={(id) => {
           setNpcId(id)
           setPreferredNpcId(id)
-          const masteryByTag = rewards?.masteryByTag || {}
-          const history: Array<{ tagIds: string[], correct: boolean, ts: number }> = []
-          const rec = buildNpcRecommendation({ npcId: id, masteryByTag, history, nowTs: Date.now(), availableTagIds: availableTags })
-          if (rec) {
-            setDailyRecommendation(dateKey, rec)
-            setRecommendation(rec)
-            setNpcMessage('')
-          } else {
-            clearDailyRecommendation(dateKey)
-            setRecommendation(null)
-            setNpcMessage('Pas de mission disponible (aucun exercice trouvé).')
-          }
+          setShowNpcPicker(false)
         }}
       />
-
-      {showRerollModal && (
-        <div style={{ position:'fixed', inset:0, background:'rgba(0,0,0,0.55)', display:'flex', alignItems:'center', justifyContent:'center', zIndex:999 }}>
-          <div className="card mc-card" style={{ maxWidth:360 }}>
-            <h3 className="mc-title">Mission déjà changée</h3>
-            <div className="small" style={{ color:'var(--mc-muted)' }}>Tu ne peux plus changer la mission aujourd’hui.</div>
-            <div className="row" style={{ marginTop:12, justifyContent:'flex-end', gap:8 }}>
-              <button className="mc-button" onClick={() => setShowRerollModal(false)}>OK</button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   )
 }

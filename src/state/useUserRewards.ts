@@ -11,6 +11,8 @@ const defaultRewards: UserRewards = {
   blockProgress: {},
   collectibles: { owned: [], equippedAvatarId: null },
   malocraft: { ownedLootIds: [], equippedAvatarId: null, biomeMilestones: {} },
+  zoneRebuildProgress: {},
+  biomeRebuildProgress: {},
 }
 
 export function useUserRewards(uid: string | null) {
@@ -33,6 +35,8 @@ export function useUserRewards(uid: string | null) {
           blockProgress: data.blockProgress || defaultRewards.blockProgress,
           collectibles: data.collectibles || defaultRewards.collectibles,
           malocraft: data.malocraft || defaultRewards.malocraft,
+          zoneRebuildProgress: data.zoneRebuildProgress || defaultRewards.zoneRebuildProgress,
+          biomeRebuildProgress: data.biomeRebuildProgress || defaultRewards.biomeRebuildProgress,
         })
       } else {
         setRewards(defaultRewards)

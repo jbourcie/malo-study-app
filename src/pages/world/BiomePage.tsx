@@ -10,6 +10,8 @@ import { getTagMeta } from '../../taxonomy/tagCatalog'
 import { getAvailableExpeditionsForBlock, type Expedition } from '../../game/expeditions'
 import { shouldRepair } from '../../pedagogy/questionSelector'
 import { listExercisesByTag } from '../../data/firestore'
+import { getBlockVisualState, getZoneVisualState, getBiomeVisualState } from '../../game/visualProgress'
+import { zoneKey } from '../../game/rebuildService'
 
 export function BiomePage() {
   const { biomeId } = useParams<{ biomeId: BiomeId }>()
@@ -32,12 +34,17 @@ export function BiomePage() {
   }
 
   const masteryByTag = rewards.masteryByTag || {}
+  const blockProgress = rewards.blockProgress || {}
+  const zoneRebuildProgress = rewards.zoneRebuildProgress || {}
+  const biomeRebuildProgress = rewards.biomeRebuildProgress || {}
   const stateOrder: Record<MasteryState, number> = { mastered: 0, progressing: 1, discovering: 2 }
   const blocks = getBlocksForBiome(biomeId)
     .map((block) => {
       const meta = getTagMeta(block.tagId)
       const masteryState = getMasteryState(masteryByTag, block.tagId)
-      return { ...block, masteryState, description: meta.description }
+      const progressEntry = blockProgress[block.tagId]
+      const visual = getBlockVisualState({ ...(progressEntry || {}), score: progressEntry?.score ?? masteryByTag?.[block.tagId]?.score ?? 0 })
+      return { ...block, masteryState, visual, description: meta.description }
     })
     .sort((a, b) => {
       const stateDiff = (stateOrder[a.masteryState] ?? 2) - (stateOrder[b.masteryState] ?? 2)
@@ -78,6 +85,63 @@ export function BiomePage() {
     return () => { canceled = true }
   }, [blocks, user])
 
+  const zones = React.useMemo(() => {
+    const byTheme: Record<string, typeof blocks> = {}
+    blocks.forEach((block) => {
+      if (!byTheme[block.theme]) byTheme[block.theme] = []
+      byTheme[block.theme].push(block)
+    })
+    return Object.entries(byTheme).map(([theme, themeBlocks]) => ({
+      theme,
+      tagIds: themeBlocks.map((b) => b.tagId),
+      visual: getZoneVisualState(
+        biome.subject,
+        theme,
+        themeBlocks.map((b) => b.tagId),
+        { blockProgress, masteryByTag },
+        zoneRebuildProgress[zoneKey(biome.subject, theme)]
+      ),
+      blocks: themeBlocks,
+    }))
+  }, [blocks, blockProgress, masteryByTag, biome.subject, zoneRebuildProgress])
+
+  const biomeVisual = React.useMemo(() => {
+    return getBiomeVisualState(
+      biome.subject,
+      zones.map(z => ({ theme: z.theme, tagIds: z.tagIds })),
+      { blockProgress, masteryByTag },
+      {
+        zoneRebuildProgress,
+        biomeRebuild: biomeRebuildProgress[biome.subject],
+      }
+    )
+  }, [biome.subject, zones, blockProgress, masteryByTag, zoneRebuildProgress, biomeRebuildProgress])
+
+  const zoneLabel: Record<string, string> = {
+    ruins: 'Ruines',
+    building: 'En chantier',
+    rebuilt_ready: 'Prête à reconstruire',
+    rebuilding: 'Reconstruction en cours',
+    rebuilt: 'Reconstruite',
+  }
+
+  const zoneTone: Record<string, string> = {
+    ruins: '',
+    building: 'accent',
+    rebuilt_ready: 'gold',
+    rebuilding: 'accent',
+    rebuilt: 'gold',
+  }
+
+  const biomeRebuildLabel: Record<string, string> = {
+    not_ready: 'Pré-requis manquants',
+    ready: 'Biome prêt',
+    rebuilding: 'Reconstruction en cours',
+    rebuilt: 'Biome reconstruit',
+  }
+
+  const canRebuildBiome = biomeVisual.rebuild?.status === 'ready' || biomeVisual.rebuild?.status === 'rebuilding'
+
   return (
     <div className="container grid">
       <div className="card mc-card">
@@ -87,6 +151,99 @@ export function BiomePage() {
         </div>
         <h2 className="mc-title" style={{ marginTop: 10 }}>{biome.icon} {biome.name}</h2>
         <div className="small" style={{ color:'var(--mc-muted)' }}>{biome.description}</div>
+      </div>
+
+      <div className="card mc-card">
+        <div className="row" style={{ justifyContent:'space-between', alignItems:'center' }}>
+          <div>
+            <div className="small" style={{ color:'var(--mc-muted)' }}>Biome</div>
+            <div style={{ fontWeight: 800 }}>Reconstruction du biome</div>
+            <div className="small" style={{ color:'var(--mc-muted)' }}>
+              Zones reconstruites : {biomeVisual.rebuild?.rebuiltZones || 0}/{biomeVisual.rebuild?.totalZones || 0} (seuil 60%)
+            </div>
+          </div>
+          <div className="row" style={{ gap: 8, alignItems:'center' }}>
+            <span className="mc-chip">
+              {biomeRebuildLabel[biomeVisual.rebuild?.status || 'not_ready']}
+            </span>
+            <button
+              className="mc-button"
+              disabled={!canRebuildBiome}
+              title={canRebuildBiome ? 'Lancer la reconstruction du biome' : 'Reconstruis d’abord 60% des zones'}
+              onClick={() => {
+                if (!canRebuildBiome) return
+                navigate(`/theme/reconstruction_biome_${biome.subject}?sessionKind=reconstruction_biome&subjectId=${biome.subject}`)
+              }}
+            >
+              Reconstruire le biome
+            </button>
+          </div>
+        </div>
+        <div style={{ marginTop: 10 }}>
+          <div className="small">Jauge : {biomeVisual.rebuild?.correctCount || 0}/{biomeVisual.rebuild?.target || 100}</div>
+          <div style={{ background:'rgba(255,255,255,0.08)', border:'1px solid var(--mc-border)', borderRadius:6, height:12, overflow:'hidden' }}>
+            <div style={{ width: `${Math.min(100, Math.round(((biomeVisual.rebuild?.correctCount || 0) / (biomeVisual.rebuild?.target || 100)) * 100))}%`, background:'var(--mc-accent)', height:'100%' }} />
+          </div>
+        </div>
+      </div>
+
+      <div className="card mc-card">
+        <div className="row" style={{ justifyContent:'space-between', alignItems:'center' }}>
+          <div>
+            <div className="small" style={{ color:'var(--mc-muted)' }}>Zones du biome</div>
+            <div style={{ fontWeight: 800 }}>État des zones ({zones.length})</div>
+          </div>
+        </div>
+        {loading ? (
+          <div className="grid2" style={{ marginTop: 10 }}>
+            {[1,2,3].map(i => <div key={i} className="mc-card skeleton" style={{ height:82 }} />)}
+          </div>
+        ) : (
+          <div className="grid2" style={{ marginTop: 10 }}>
+            {zones.map((zone) => (
+              <div
+                key={zone.theme}
+                className="mc-card"
+                role="button"
+                tabIndex={0}
+                onClick={() => navigate(`/world/${biomeId}/zone/${encodeURIComponent(zone.theme)}`)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    navigate(`/world/${biomeId}/zone/${encodeURIComponent(zone.theme)}`)
+                  }
+                }}
+              >
+                <div className="row" style={{ justifyContent:'space-between', alignItems:'center' }}>
+                  <div>
+                    <div style={{ fontWeight: 800 }}>{zone.theme}</div>
+                    <div className="small" style={{ color:'var(--mc-muted)' }}>
+                      {zone.blocks.length} blocs · stables {zone.visual.breakdown.stablePct}%
+                    </div>
+                  </div>
+                  <span className={`mc-chip ${zoneTone[zone.visual.state] || ''}`}>
+                    {zoneLabel[zone.visual.state] || zone.visual.state}
+                  </span>
+                </div>
+                {zone.visual.rebuild && (
+                  <div style={{ marginTop: 6 }}>
+                    <div className="small" style={{ color:'var(--mc-muted)' }}>
+                      Reconstruction : {zone.visual.rebuild.correctCount}/{zone.visual.rebuild.target}
+                    </div>
+                    <div style={{ background:'rgba(255,255,255,0.08)', border:'1px solid var(--mc-border)', borderRadius:6, height:8, overflow:'hidden' }}>
+                      <div style={{ width: `${Math.min(100, Math.round((zone.visual.rebuild.correctCount / zone.visual.rebuild.target) * 100))}%`, background:'var(--mc-accent)', height:'100%' }} />
+                    </div>
+                  </div>
+                )}
+                {zone.visual.weatheredPct > 0 && (
+                  <div className="small" style={{ marginTop: 6, color:'var(--mc-muted)' }}>
+                    {zone.visual.weatheredPct}% des blocs patinés (14j+ sans activité)
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {loading ? (

@@ -24,6 +24,18 @@ export type UserRewards = {
     equippedAvatarId?: string
     biomeMilestones?: Record<string, number>
   }
+  zoneRebuildProgress?: Record<string, {
+    correctCount: number
+    target: number
+    updatedAt?: Timestamp
+    rebuiltAt?: Timestamp
+  }>
+  biomeRebuildProgress?: Record<string, {
+    correctCount: number
+    target: number
+    updatedAt?: Timestamp
+    rebuiltAt?: Timestamp
+  }>
   updatedAt?: Timestamp
 }
 

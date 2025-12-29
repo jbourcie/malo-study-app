@@ -14,6 +14,7 @@ import { NotFoundPage } from './pages/NotFound'
 import { CollectionPage } from './pages/Collection'
 import { WorldMapPage } from './pages/world/WorldMapPage'
 import { BiomePage } from './pages/world/BiomePage'
+import { ZonePage } from './pages/world/ZonePage'
 import { ChestPage } from './pages/ChestPage'
 
 export function App() {
@@ -36,6 +37,7 @@ export function App() {
         <Route path="/chest" element={<RequireAuth><ChestPage /></RequireAuth>} />
         <Route path="/world" element={<RequireAuth><WorldMapPage /></RequireAuth>} />
         <Route path="/world/:biomeId" element={<RequireAuth><BiomePage /></RequireAuth>} />
+        <Route path="/world/:biomeId/zone/:themeId" element={<RequireAuth><ZonePage /></RequireAuth>} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </HashRouter>
