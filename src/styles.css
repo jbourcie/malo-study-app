@@ -53,6 +53,15 @@ hr{ border:none; border-top:1px solid rgba(255,255,255,.10); margin:14px 0; }
   border-color:rgba(122,162,255,.5);
   outline:none;
 }
+.zone-card{
+  transition:transform .12s ease,border-color .12s ease;
+  cursor:pointer;
+}
+.zone-card:hover, .zone-card:focus-visible{
+  transform:translateY(-2px);
+  border-color:rgba(122,162,255,.5);
+  outline:none;
+}
 
 .block-card{
   background:#0e1530;

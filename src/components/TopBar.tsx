@@ -10,6 +10,11 @@ export function TopBar() {
   const avatarId = rewards?.collectibles?.equippedAvatarId
   const avatar = avatarId ? COLLECTIBLES.find(c => c.id === avatarId) : null
   const isAdmin = role === 'parent' || import.meta.env.VITE_DEV_ADMIN === 'true'
+  const playerLinks = [
+    { to: '/', label: 'Monde', icon: '🗺️' },
+    { to: '/chest', label: 'Coffre', icon: '🎒', requireUser: true },
+    { to: '/collection', label: 'Collection', icon: '🏅', requireUser: true },
+  ]
   return (
     <div className="card" style={{ marginBottom: 14 }}>
       <div className="row" style={{ justifyContent: 'space-between' }}>
@@ -23,10 +28,14 @@ export function TopBar() {
           </div>
         </div>
         <div className="row" style={{ gap: 8 }}>
-          <Link className="btn secondary" to="/">Accueil</Link>
-          {user && <Link className="btn secondary" to="/chest">Coffre</Link>}
-          {user && <Link className="btn secondary" to="/world">Carte du monde</Link>}
-          {user && <Link className="btn secondary" to="/collection">Ma collection</Link>}
+          {playerLinks.map(link => {
+            if (link.requireUser && !user) return null
+            return (
+              <Link key={link.to} className="btn secondary" to={link.to} aria-label={link.label}>
+                {link.icon} {link.label}
+              </Link>
+            )
+          })}
           {isAdmin && (
             <>
               <Link className="btn secondary" to="/admin/import">Import (parent)</Link>

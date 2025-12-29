@@ -10,7 +10,7 @@ const rarityLabel: Record<CollectibleDef['rarity'], string> = {
   epic: 'Épique',
 }
 
-export function CollectionPage() {
+export function CollectionContent() {
   const { user } = useAuth()
   const { rewards } = useUserRewards(user?.uid || null)
   const [tab, setTab] = React.useState<'sticker' | 'avatar'>('sticker')
@@ -29,7 +29,7 @@ export function CollectionPage() {
   const list = COLLECTIBLES.filter(c => c.type === tab)
 
   return (
-    <div className="container">
+    <div>
       <div className="card">
         <h2 style={{ marginTop: 0 }}>Collection</h2>
         <div className="row" style={{ gap: 8 }}>
@@ -65,6 +65,14 @@ export function CollectionPage() {
           )
         })}
       </div>
+    </div>
+  )
+}
+
+export function CollectionPage() {
+  return (
+    <div className="container">
+      <CollectionContent />
     </div>
   )
 }

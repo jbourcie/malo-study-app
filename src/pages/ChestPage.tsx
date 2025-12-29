@@ -7,7 +7,7 @@ import { equipAvatar } from '../rewards/collectiblesService'
 const rarityLabel: Record<string, string> = { common: 'Commun', rare: 'Rare', epic: 'Épique' }
 const typeLabel: Record<LootType, string> = { sticker: 'Sticker', fragment: 'Fragment', trophy: 'Trophée', avatar: 'Avatar' }
 
-export function ChestPage() {
+export function ChestContent() {
   const { user } = useAuth()
   const { rewards } = useUserRewards(user?.uid || null)
   const owned = new Set(rewards.malocraft?.ownedLootIds || [])
@@ -26,7 +26,7 @@ export function ChestPage() {
     .sort((a, b) => (a.biomeId || '').localeCompare(b.biomeId || '') || a.title.localeCompare(b.title))
 
   return (
-    <div className="container grid">
+    <div className="grid">
       <div className="card mc-card">
         <h2 className="mc-title">Coffre MaloCraft</h2>
         <div className="small" style={{ color:'var(--mc-muted)' }}>Tous les loots gagnés en expéditions.</div>
@@ -67,6 +67,14 @@ export function ChestPage() {
           )
         })}
       </div>
+    </div>
+  )
+}
+
+export function ChestPage() {
+  return (
+    <div className="container grid">
+      <ChestContent />
     </div>
   )
 }

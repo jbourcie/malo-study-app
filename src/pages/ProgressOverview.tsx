@@ -20,7 +20,7 @@ function extractSubject(tagId: string | undefined): SubjectId | null {
   return null
 }
 
-export function ProgressOverviewPage() {
+export function ProgressOverviewContent() {
   const { user } = useAuth()
   const { rewards } = useUserRewards(user?.uid || null)
   const [subject, setSubject] = React.useState<SubjectId | 'all'>('all')
@@ -41,7 +41,7 @@ export function ProgressOverviewPage() {
     })
 
   return (
-    <div className="container">
+    <div>
       <div className="card">
         <h2 style={{ marginTop: 0 }}>Progression</h2>
         <div className="row" style={{ alignItems:'center', gap: 8 }}>
@@ -88,6 +88,14 @@ export function ProgressOverviewPage() {
           })
         )}
       </div>
+    </div>
+  )
+}
+
+export function ProgressOverviewPage() {
+  return (
+    <div className="container">
+      <ProgressOverviewContent />
     </div>
   )
 }
