@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { applyZoneRebuildProgress, applyBiomeRebuildProgress, zoneKey } from '../src/game/rebuildService'
 import { InMemoryRewardStore } from '../src/rewards/rewardStore'
+import { TAG_CATALOG } from '../src/taxonomy/tagCatalog'
 
 describe('applyZoneRebuildProgress', () => {
   it('applies delta, caps to 35 and is idempotent per session', async () => {
@@ -88,5 +89,59 @@ describe('applyBiomeRebuildProgress', () => {
     const state = store.getState(uid)
     expect(state.rewards?.biomeRebuildProgress?.[subject]?.correctCount).toBe(100)
     expect(state.rewards?.biomeRebuildProgress?.[subject]?.rebuiltAt).toBeTruthy()
+  })
+})
+
+describe('reconstruction session fallback', () => {
+  it('increments zone rebuild even if questions lack tags', async () => {
+    const store = new InMemoryRewardStore(() => new Date('2024-01-01T00:00:00Z'))
+    const uid = 'user3'
+    const subject = 'fr' as const
+    const theme = 'Compréhension'
+    const zoneTags = Object.values(TAG_CATALOG).filter(m => m.subject === subject && m.theme === theme).map(m => m.id)
+    expect(zoneTags.length).toBeGreaterThan(0)
+
+    // Simule 5 réponses correctes, questions sans tags -> fallback zoneTags
+    const tagStats: Record<string, { answered: number, correct: number }> = {}
+    const answeredItems = Array.from({ length: 5 })
+    answeredItems.forEach(() => {
+      const tagsForStats = zoneTags
+      tagsForStats.forEach((tag) => {
+        const stats = tagStats[tag] || { answered: 0, correct: 0 }
+        stats.answered += 1
+        stats.correct += 1
+        tagStats[tag] = stats
+      })
+    })
+
+    const res = await applyZoneRebuildProgress({
+      uid,
+      sessionId: 'fallback-session',
+      subject,
+      theme,
+      tagStats,
+      store,
+    })
+    expect(res.deltaApplied).toBeGreaterThan(0)
+    expect(res.progress?.correctCount).toBeGreaterThanOrEqual(5)
+    expect(res.progress?.correctCount).toBeLessThanOrEqual(35)
+  })
+
+  it('should increment zone when tagStats is empty (current bug reproduction)', async () => {
+    const store = new InMemoryRewardStore(() => new Date('2024-01-01T00:00:00Z'))
+    const uid = 'user4'
+    const subject = 'fr' as const
+    const theme = 'Compréhension'
+    const zoneTags = Object.values(TAG_CATALOG).filter(m => m.subject === subject && m.theme === theme).map(m => m.id)
+    const tagStats = zoneTags.length ? { [zoneTags[0]]: { answered: 17, correct: 17 } } : {}
+    const res = await applyZoneRebuildProgress({
+      uid,
+      sessionId: 'empty-tagstats-session',
+      subject,
+      theme,
+      tagStats, // fallback session appliqué sur 1 tag
+      store,
+    })
+    expect(res.deltaApplied).toBe(17)
   })
 })

@@ -530,9 +530,15 @@ export function ThemeSessionPage() {
       let currentStreak = 0
       let comebackCount = 0
       let previousIncorrect = false
+      const fallbackTagsForRebuild = sessionKind === 'reconstruction_theme' && zoneMeta.subject && zoneMeta.theme
+        ? getTagsForZone(zoneMeta.subject, zoneMeta.theme)
+        : sessionKind === 'reconstruction_biome' && zoneMeta.subject
+          ? Object.values(getTagsForSubject(zoneMeta.subject)).flat()
+          : []
       const tagStats: Record<string, { answered: number, correct: number }> = {}
       items.forEach(item => {
-        (item.tags || []).forEach(tag => {
+        const tagsForStats = (item.tags && item.tags.length ? item.tags : fallbackTagsForRebuild) || []
+        tagsForStats.forEach(tag => {
           const stats = tagStats[tag] || { answered: 0, correct: 0 }
           stats.answered += item.answered ? 1 : 0
           stats.correct += item.answered && item.correct ? 1 : 0
@@ -664,6 +670,36 @@ export function ThemeSessionPage() {
             xpDelta: deltaXp,
           }).catch(err => console.error('upsertDayStat failed', err))
         }
+        const fallbackRebuildTags = (() => {
+          if (sessionKind === 'reconstruction_theme' && zoneMeta.subject && zoneMeta.theme) {
+            return getTagsForZone(zoneMeta.subject, zoneMeta.theme)
+          }
+          if (sessionKind === 'reconstruction_biome' && zoneMeta.subject) {
+            return Object.values(getTagsForSubject(zoneMeta.subject)).flat()
+          }
+          return []
+        })()
+
+        const zoneDeltaFromStats = (() => {
+          if (!fallbackRebuildTags.length) return 0
+          return Object.entries(tagStats).reduce((acc, [tag, val]) => {
+            if (fallbackRebuildTags.includes(tag)) {
+              return acc + (val.correct || 0)
+            }
+            return acc
+          }, 0)
+        })()
+
+        const rebuildTagStats = (() => {
+          if (Object.keys(tagStats).length && zoneDeltaFromStats > 0) return tagStats
+          if (!fallbackRebuildTags.length || !correctCount) return tagStats
+          const cloned: Record<string, { answered: number, correct: number }> = {}
+          // Pour éviter de sur-compter, on applique tout le delta sur un seul tag fallback.
+          const tag = fallbackRebuildTags[0]
+          cloned[tag] = { answered: correctCount, correct: correctCount }
+          return cloned
+        })()
+
         if (sessionKind === 'reconstruction_theme' && zoneMeta.subject && zoneMeta.theme) {
           try {
             const rebuildRes = await applyZoneRebuildProgress({
@@ -671,7 +707,7 @@ export function ThemeSessionPage() {
               sessionId: progress.attemptId || themeId,
               subject: zoneMeta.subject as SubjectId,
               theme: zoneMeta.theme,
-              tagStats,
+              tagStats: rebuildTagStats,
             })
             if (rebuildRes.progress?.rebuiltAt) {
               setNpcEndLine(prev => prev ?? getNpcLine(npcId, 'streak_praise', {
@@ -688,7 +724,7 @@ export function ThemeSessionPage() {
               uid: user.uid,
               sessionId: progress.attemptId || themeId,
               subject: zoneMeta.subject as SubjectId,
-              tagStats,
+              tagStats: rebuildTagStats,
             })
             if (rebuildRes.progress?.rebuiltAt) {
               setNpcEndLine(prev => prev ?? getNpcLine(npcId, 'streak_praise', {

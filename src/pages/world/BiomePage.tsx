@@ -4,6 +4,7 @@ import { getBiome } from '../../game/biomeCatalog'
 import { getBlocksForBiome, type BiomeId } from '../../game/blockCatalog'
 import { useAuth } from '../../state/useAuth'
 import { useUserRewards } from '../../state/useUserRewards'
+import { useDailyQuests } from '../../state/useDailyQuests'
 import { getMasteryState, stateToUiLabel } from '../../game/worldHelpers'
 import type { MasteryState } from '../../rewards/rewards'
 import { getTagMeta } from '../../taxonomy/tagCatalog'
@@ -12,15 +13,51 @@ import { shouldRepair } from '../../pedagogy/questionSelector'
 import { listExercisesByTag } from '../../data/firestore'
 import { getBlockVisualState, getZoneVisualState, getBiomeVisualState } from '../../game/visualProgress'
 import { zoneKey } from '../../game/rebuildService'
+import { adviseNpcAction, type LastAdvice } from '../../game/npc/npcGuideAdvisor'
+import { NPC_CATALOG } from '../../game/npc/npcCatalog'
+import { getPreferredNpcId, setPreferredNpcId } from '../../game/npc/npcStorage'
+import { NpcPickerModal } from '../../components/game/NpcPickerModal'
+import { loadNpcPriorityTags } from '../../data/npcPriorities'
+
+function getParisDateKeyLocal(): string {
+  const now = new Date()
+  const formatter = new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', year: 'numeric', month: '2-digit', day: '2-digit' })
+  const parts = formatter.formatToParts(now)
+  const y = parts.find(p => p.type === 'year')?.value
+  const m = parts.find(p => p.type === 'month')?.value
+  const d = parts.find(p => p.type === 'day')?.value
+  return `${y}-${m}-${d}`
+}
 
 export function BiomePage() {
   const { biomeId } = useParams<{ biomeId: BiomeId }>()
   const biome = biomeId ? getBiome(biomeId) : null
   const { user } = useAuth()
   const { rewards, loading } = useUserRewards(user?.uid || null)
+  const { daily } = useDailyQuests(user?.uid || null)
   const navigate = useNavigate()
   const [selectedBlockId, setSelectedBlockId] = React.useState<string | null>(null)
   const [availability, setAvailability] = React.useState<Record<string, boolean>>({})
+  const [npcId, setNpcId] = React.useState(getPreferredNpcId())
+  const [showNpcPicker, setShowNpcPicker] = React.useState(false)
+  const [allowedTags, setAllowedTags] = React.useState<Set<string> | null>(null)
+  const initialLastAdvice: LastAdvice | null = (() => {
+    try {
+      if (typeof window === 'undefined') return null
+      const raw = localStorage.getItem(`npcGuide:last:${biomeId || ''}`)
+      if (!raw) return null
+      try {
+        const parsed = JSON.parse(raw)
+        if (parsed && parsed.adviceId && parsed.actionType) return parsed as LastAdvice
+      } catch {
+        // legacy string storage
+        return { adviceId: 'legacy', actionType: 'explore', messageKey: raw }
+      }
+    } catch {
+      return null
+    }
+  })()
+  const lastAdviceRef = React.useRef<LastAdvice | null>(initialLastAdvice)
 
   if (!biomeId || !biome) {
     return (
@@ -85,6 +122,46 @@ export function BiomePage() {
     return () => { canceled = true }
   }, [blocks, user])
 
+  React.useEffect(() => {
+    try {
+      if (typeof window === 'undefined') return
+      const raw = localStorage.getItem(`npcGuide:last:${biomeId || ''}`)
+      if (!raw) {
+        lastAdviceRef.current = null
+        return
+      }
+      const parsed = JSON.parse(raw)
+      if (parsed && parsed.adviceId && parsed.actionType) {
+        lastAdviceRef.current = parsed as LastAdvice
+      } else {
+        lastAdviceRef.current = { adviceId: 'legacy', actionType: 'explore', messageKey: raw }
+      }
+    } catch {
+      lastAdviceRef.current = null
+    }
+  }, [biomeId])
+
+  React.useEffect(() => {
+    let canceled = false
+    if (!user?.uid) {
+      setAllowedTags(null)
+      return
+    }
+    loadNpcPriorityTags(user.uid)
+      .then((tags) => {
+        if (canceled) return
+        setAllowedTags(new Set(tags))
+      })
+      .catch(() => {
+        if (!canceled) setAllowedTags(null)
+      })
+    return () => { canceled = true }
+  }, [user?.uid])
+
+  React.useEffect(() => {
+    setNpcId(getPreferredNpcId())
+  }, [biomeId])
+
   const zones = React.useMemo(() => {
     const byTheme: Record<string, typeof blocks> = {}
     blocks.forEach((block) => {
@@ -117,6 +194,39 @@ export function BiomePage() {
     )
   }, [biome.subject, zones, blockProgress, masteryByTag, zoneRebuildProgress, biomeRebuildProgress])
 
+  const dailyDateKey = daily?.dateKey || getParisDateKeyLocal()
+
+  const npcAdvice = React.useMemo(() => {
+    if (!biomeId) return null
+    const seed = `${user?.uid || 'anon'}|${biomeId}|${dailyDateKey}`
+    return adviseNpcAction({
+      biomeId,
+      subjectId: biome.subject,
+      zones,
+      biomeVisual,
+      masteryByTag,
+      blockProgress,
+      allowedTags: allowedTags || undefined,
+      seed,
+      lastAdvice: lastAdviceRef.current,
+    })
+  }, [allowedTags, biome.subject, biomeId, biomeVisual, blockProgress, dailyDateKey, masteryByTag, user?.uid, zones])
+
+  React.useEffect(() => {
+    if (!npcAdvice || !biomeId) return
+    if (lastAdviceRef.current?.adviceId === npcAdvice.adviceId && lastAdviceRef.current?.messageKey === npcAdvice.messageKey) return
+    lastAdviceRef.current = {
+      adviceId: npcAdvice.adviceId,
+      actionType: npcAdvice.actionType,
+      messageKey: npcAdvice.messageKey,
+    }
+    try {
+      localStorage.setItem(`npcGuide:last:${biomeId}`, JSON.stringify(lastAdviceRef.current))
+    } catch {
+      // storage best effort only
+    }
+  }, [biomeId, npcAdvice])
+
   const zoneLabel: Record<string, string> = {
     ruins: 'Ruines',
     building: 'En chantier',
@@ -141,6 +251,31 @@ export function BiomePage() {
   }
 
   const canRebuildBiome = biomeVisual.rebuild?.status === 'ready' || biomeVisual.rebuild?.status === 'rebuilding'
+  const npc = NPC_CATALOG[npcId]
+
+  const handleNpcAction = React.useCallback(() => {
+    if (!npcAdvice) return
+    if (npcAdvice.actionType === 'reconstruction_theme' && npcAdvice.payload?.theme) {
+      navigate(`/theme/reconstruction_${encodeURIComponent(npcAdvice.payload.theme)}?sessionKind=reconstruction_theme&subjectId=${biome.subject}&theme=${encodeURIComponent(npcAdvice.payload.theme)}`)
+      return
+    }
+    if (npcAdvice.actionType === 'reconstruction_biome') {
+      navigate(`/theme/reconstruction_biome_${biome.subject}?sessionKind=reconstruction_biome&subjectId=${biome.subject}`)
+      return
+    }
+    if (npcAdvice.actionType === 'tag_session') {
+      const tagId = npcAdvice.payload?.tagId
+      if (tagId) {
+        const params = new URLSearchParams()
+        params.set('expeditionType', npcAdvice.payload?.expeditionType || 'mine')
+        params.set('targetTagId', tagId)
+        params.set('biomeId', biomeId)
+        navigate(`/theme/expedition?${params.toString()}`)
+        return
+      }
+    }
+    navigate(`/world/${biomeId}`)
+  }, [biome.subject, biomeId, navigate, npcAdvice])
 
   return (
     <div className="container grid">
@@ -152,6 +287,32 @@ export function BiomePage() {
         <h2 className="mc-title" style={{ marginTop: 10 }}>{biome.icon} {biome.name}</h2>
         <div className="small" style={{ color:'var(--mc-muted)' }}>{biome.description}</div>
       </div>
+
+      {npcAdvice && (
+        <div className="card mc-card">
+          <div className="row" style={{ justifyContent:'space-between', alignItems:'center', gap:10 }}>
+            <div style={{ display:'flex', alignItems:'center', gap:10 }}>
+              <div style={{ fontSize:'2rem' }}>{npc.avatar}</div>
+              <div>
+                <div style={{ fontWeight:900 }}>{npc.name}</div>
+                <div className="small" style={{ color:'var(--mc-muted)' }}>{npc.shortTagline}</div>
+              </div>
+            </div>
+            <button className="mc-button secondary" onClick={() => setShowNpcPicker(true)}>Changer de guide</button>
+          </div>
+          <div className="mc-card" style={{ marginTop:10, border:'2px solid var(--mc-border)' }}>
+            <div style={{ display:'flex', alignItems:'center', gap:10, justifyContent:'space-between' }}>
+              <div style={{ flex:1 }}>
+                <div className="small" style={{ color:'var(--mc-muted)' }}>Guide MaloCraft</div>
+                <div style={{ fontWeight: 800 }}>{npcAdvice.message}</div>
+              </div>
+              <button className="mc-button" onClick={handleNpcAction}>
+                {npcAdvice.ctaLabel}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="card mc-card">
         <div className="row" style={{ justifyContent:'space-between', alignItems:'center' }}>
@@ -339,6 +500,16 @@ export function BiomePage() {
           </div>
         </div>
       )}
+
+      <NpcPickerModal
+        open={showNpcPicker}
+        onClose={() => setShowNpcPicker(false)}
+        onPicked={(id) => {
+          setNpcId(id)
+          setPreferredNpcId(id)
+          setShowNpcPicker(false)
+        }}
+      />
     </div>
   )
 }

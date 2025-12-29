@@ -65,7 +65,9 @@ export async function applyZoneRebuildProgress(opts: {
       correctCount: nextCount,
       target: prev.target || target,
       updatedAt: now,
-      rebuiltAt: rebuilt,
+    }
+    if (rebuilt) {
+      nextEntry.rebuiltAt = rebuilt
     }
 
     zoneProgress[zKey] = nextEntry
@@ -124,7 +126,9 @@ export async function applyBiomeRebuildProgress(opts: {
       correctCount: nextCount,
       target: prev.target || target,
       updatedAt: now,
-      rebuiltAt: rebuilt,
+    }
+    if (rebuilt) {
+      nextEntry.rebuiltAt = rebuilt
     }
 
     biomeProgress[biomeKey] = nextEntry
