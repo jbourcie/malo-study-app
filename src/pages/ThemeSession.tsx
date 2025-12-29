@@ -91,7 +91,7 @@ function getTagsForSubject(subject: SubjectId | null): Record<string, string[]> 
   return byTheme
 }
 
-function shuffleArray<T>(arr: T[]): T[] {
+export function shuffleArray<T>(arr: T[]): T[] {
   const copy = [...arr]
   for (let i = copy.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
@@ -100,7 +100,7 @@ function shuffleArray<T>(arr: T[]): T[] {
   return copy
 }
 
-function selectRebuildZoneQuestions(content: any[], zoneTags: string[], desiredCount: number, allowHarder: boolean) {
+export function selectRebuildZoneQuestions(content: any[], zoneTags: string[], desiredCount: number, allowHarder: boolean) {
   const pools = new Map<string, any[]>()
   content.forEach((q) => {
     const tag = (q.tags || []).find((t: string) => zoneTags.includes(t))
