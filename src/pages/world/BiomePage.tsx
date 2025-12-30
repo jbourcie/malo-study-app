@@ -211,6 +211,7 @@ export function BiomePage() {
   const npcAdvice = React.useMemo(() => {
     if (!biomeId) return null
     const seed = `${playerUid || 'anon'}|${biomeId}|${dailyDateKey}`
+    const availableSet = new Set(Object.entries(availability).filter(([, ok]) => ok !== false).map(([tagId]) => tagId))
     return adviseNpcAction({
       biomeId,
       subjectId: biome.subject,
@@ -219,10 +220,11 @@ export function BiomePage() {
       masteryByTag,
       blockProgress,
       allowedTags: allowedTags || undefined,
+      availableTags: availableSet,
       seed,
       lastAdvice: lastAdviceRef.current,
     })
-  }, [allowedTags, biome.subject, biomeId, biomeVisual, blockProgress, dailyDateKey, masteryByTag, playerUid, zones])
+  }, [allowedTags, availability, biome.subject, biomeId, biomeVisual, blockProgress, dailyDateKey, masteryByTag, playerUid, zones])
 
   React.useEffect(() => {
     if (!npcAdvice || !biomeId) return

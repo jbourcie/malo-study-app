@@ -46,6 +46,23 @@ describe('npcGuideAdvisor', () => {
     expect(tagOptions.every(o => o.adviceId.includes('fr_tag_a'))).toBe(true)
   })
 
+  it('skips tags without available questions', () => {
+    const zones = [{
+      theme: 'Grammaire',
+      tagIds: ['fr_tag_a', 'fr_tag_b'],
+      visual: baseZoneVisual,
+      blocks: [],
+    }]
+    const input = makeInput({
+      zones,
+      masteryByTag: { fr_tag_a: { score: 20 } as any, fr_tag_b: { score: 20 } as any },
+      availableTags: new Set(['fr_tag_b']),
+    })
+    const options = buildEligibleOptions(input)
+    const tagOptions = options.filter(o => o.adviceId.startsWith('remediate_') || o.adviceId.startsWith('progress_'))
+    expect(tagOptions.every(o => o.adviceId.includes('fr_tag_b'))).toBe(true)
+  })
+
   it('picks the only eligible option consistently', () => {
     const input = makeInput()
     const decision = adviseNpcAction(input)

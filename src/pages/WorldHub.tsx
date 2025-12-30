@@ -29,6 +29,7 @@ import { stateToUiLabel, getMasteryState } from '../game/worldHelpers'
 import { getBlocksForBiome as getBlocks } from '../game/blockCatalog'
 import { COSMETICS_CATALOG, type Cosmetic } from '../game/cosmeticsCatalog'
 import { equipCosmetic, isCosmeticOwned, purchaseCosmetic } from '../rewards/cosmeticsService'
+import { listExercisesByTag } from '../data/firestore'
 
 function getParisDateKeyLocal(): string {
   const now = new Date()
@@ -69,6 +70,7 @@ export function WorldHubPage() {
   const zoneRebuildProgress = rewards.zoneRebuildProgress || {}
   const biomeRebuildProgress = rewards.biomeRebuildProgress || {}
   const equippedAvatarId = rewards.collectibles?.equippedAvatarId || null
+  const [availableTags, setAvailableTags] = React.useState<Set<string> | null>(null)
 
   React.useEffect(() => {
     if (!playerUid) return
@@ -173,6 +175,29 @@ export function WorldHubPage() {
     )
   }, [blockProgress, masteryByTag, zoneRebuildProgress, biomeRebuildProgress, focusBiome, zonesForFocusBiome])
 
+  React.useEffect(() => {
+    let canceled = false
+    const tags = zonesForFocusBiome.flatMap(z => z.tagIds)
+    if (!playerUid || !tags.length) {
+      setAvailableTags(null)
+      return
+    }
+    ;(async () => {
+      const entries = await Promise.all(tags.map(async (tagId) => {
+        try {
+          const list = await listExercisesByTag(tagId, { uid: playerUid })
+          return list.length > 0 ? tagId : null
+        } catch {
+          return null
+        }
+      }))
+      if (canceled) return
+      const set = new Set(entries.filter(Boolean) as string[])
+      setAvailableTags(set)
+    })()
+    return () => { canceled = true }
+  }, [playerUid, zonesForFocusBiome])
+
   const lastAdviceRef = React.useRef<LastAdvice | null>(null)
   React.useEffect(() => {
     try {
@@ -204,10 +229,11 @@ export function WorldHubPage() {
       masteryByTag,
       blockProgress,
       allowedTags: undefined,
+      availableTags: availableTags || undefined,
       seed,
       lastAdvice: lastAdviceRef.current,
     })
-  }, [blockProgress, dailyDateKey, focusBiome, focusBiomeVisual, masteryByTag, playerUid, zonesForFocusBiome])
+  }, [availableTags, blockProgress, dailyDateKey, focusBiome, focusBiomeVisual, masteryByTag, playerUid, zonesForFocusBiome])
 
   if (!playerUid) {
     return (

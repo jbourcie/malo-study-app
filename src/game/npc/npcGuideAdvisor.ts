@@ -39,6 +39,7 @@ export type NpcGuideAdvisorInput = {
   masteryByTag: UserRewards['masteryByTag']
   blockProgress: UserRewards['blockProgress']
   allowedTags?: Set<string>
+  availableTags?: Set<string>
   seed: string
   lastAdvice?: LastAdvice | null
 }
@@ -94,11 +95,17 @@ function isZoneAllowed(zoneTags: string[], allowed: Set<string> | undefined): bo
   return zoneTags.some(t => allowed.has(t))
 }
 
-function findTagChoices(zones: NpcGuideAdvisorInput['zones'], rewards: Pick<NpcGuideAdvisorInput, 'masteryByTag' | 'blockProgress'>, allowed: Set<string> | undefined): TagChoice[] {
+function findTagChoices(
+  zones: NpcGuideAdvisorInput['zones'],
+  rewards: Pick<NpcGuideAdvisorInput, 'masteryByTag' | 'blockProgress'>,
+  allowed: Set<string> | undefined,
+  available?: Set<string>
+): TagChoice[] {
   const tags: TagChoice[] = []
   zones.forEach((zone) => {
     zone.tagIds.forEach((tagId) => {
       if (allowed && allowed.size && !allowed.has(tagId)) return
+      if (available && available.size && !available.has(tagId)) return
       const score = pickScore(tagId, rewards.masteryByTag, rewards.blockProgress)
       tags.push({ tagId, score, zoneTheme: zone.theme, zoneState: zone.visual.state })
     })
@@ -108,7 +115,7 @@ function findTagChoices(zones: NpcGuideAdvisorInput['zones'], rewards: Pick<NpcG
 
 export function buildEligibleOptions(input: NpcGuideAdvisorInput): AdviceOption[] {
   const allowed = input.allowedTags && input.allowedTags.size ? input.allowedTags : undefined
-  const tagChoices = findTagChoices(input.zones, input, allowed)
+  const tagChoices = findTagChoices(input.zones, input, allowed, input.availableTags)
   const options: AdviceOption[] = []
 
   input.zones.forEach((z) => {
