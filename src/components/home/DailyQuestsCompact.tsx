@@ -79,14 +79,6 @@ export function DailyQuestsCompact({ npcId, quests, loading = false, bonusAwarde
           })}
 
           <div className="small" style={{ color: 'var(--mc-muted)' }}>Complète les 3 quêtes pour déclencher le bonus du jour.</div>
-
-          {onStart ? (
-            <div className="row" style={{ gap: 8, marginTop: 4 }}>
-              <button className="mc-button" onClick={() => onStart(primaryQuest || null)}>
-                Lancer une session
-              </button>
-            </div>
-          ) : null}
         </div>
       )}
     </div>
