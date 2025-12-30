@@ -15,9 +15,10 @@ import { getBlocksForBiome } from '../game/blockCatalog'
 import { getNpcLine } from '../game/npc/npcDialogue'
 
 export function HomePage() {
-  const { user } = useAuth()
-  const { rewards } = useUserRewards(user?.uid || null)
-  const { daily, loading: loadingDaily } = useDailyQuests(user?.uid || null)
+  const { user, activeChild } = useAuth()
+  const playerUid = activeChild?.id || user?.uid || null
+  const { rewards } = useUserRewards(playerUid)
+  const { daily, loading: loadingDaily } = useDailyQuests(playerUid)
   const nav = useNavigate()
   const [showNpcPicker, setShowNpcPicker] = React.useState(false)
   const [npcId, setNpcId] = React.useState(getPreferredNpcId())
@@ -63,22 +64,22 @@ export function HomePage() {
   }
 
   React.useEffect(() => {
-    if (!user) return
+    if (!playerUid) return
     (async () => {
       try {
-        const inv = await listInventory(user.uid)
+        const inv = await listInventory(playerUid)
         setInventory(inv)
       } catch (e) {
         // ignore inventory errors for now
       }
       try {
-        const last = await listLast7Days(user.uid)
+        const last = await listLast7Days(playerUid)
         setDays(last)
       } catch (e) {
         // ignore streak errors for now
       }
     })()
-  }, [user])
+  }, [playerUid])
 
   React.useEffect(() => {
     if (loadingDaily) return
@@ -89,12 +90,20 @@ export function HomePage() {
     }
   }, [daily, loadingDaily])
 
+  if (!playerUid) {
+    return (
+      <div className="container">
+        <div className="card">Sélectionnez un enfant rattaché pour accéder à l’accueil.</div>
+      </div>
+    )
+  }
+
   return (
     <div className="container grid">
       <div className="card">
         <div className="row" style={{ justifyContent:'space-between' }}>
           <div>
-            <h2 style={{ margin: 0 }}>Salut Malo 👋</h2>
+            <h2 style={{ margin: 0 }}>Salut {activeChild?.displayName || 'Malo'} 👋</h2>
             <div className="small">Pars sur la carte du monde, choisis un biome et progresse bloc par bloc.</div>
             <div className="small" style={{ marginTop: 6 }}>Niveau {rewards.level || 1} · XP {rewards.xp || 0}</div>
             {(rewards.badges || []).length ? (

@@ -4,30 +4,31 @@ import { getOrInitStats } from '../data/firestore'
 import { listInventory, listRewardItems, purchaseReward, RewardItem } from '../data/rewards'
 
 export function RewardPage() {
-  const { user } = useAuth()
+  const { user, activeChild } = useAuth()
+  const playerUid = activeChild?.id || user?.uid || null
   const [stats, setStats] = React.useState<any | null>(null)
   const [inventory, setInventory] = React.useState<Record<string, any>>({})
   const [error, setError] = React.useState<string>('')
   const [loading, setLoading] = React.useState(false)
 
   React.useEffect(() => {
-    if (!user) return
+    if (!playerUid) return
     ;(async () => {
-      const st = await getOrInitStats(user.uid)
+      const st = await getOrInitStats(playerUid)
       setStats(st)
-      const inv = await listInventory(user.uid)
+      const inv = await listInventory(playerUid)
       const map: Record<string, any> = {}
       inv.forEach(i => { map[i.id] = i })
       setInventory(map)
     })()
-  }, [user])
+  }, [playerUid])
 
   const onBuy = async (item: RewardItem) => {
-    if (!user) return
+    if (!playerUid) return
     setError('')
     setLoading(true)
     try {
-      const res = await purchaseReward(user.uid, item.id)
+      const res = await purchaseReward(playerUid, item.id)
       setStats((s: any) => ({ ...(s || {}), coins: res.coins, xp: res.xp }))
       setInventory(inv => ({ ...inv, [item.id]: { acquiredAt: new Date().toISOString() } }))
     } catch (e: any) {
@@ -38,6 +39,10 @@ export function RewardPage() {
   }
 
   const items = listRewardItems()
+
+  if (!playerUid) {
+    return <div className="container"><div className="card">Sélectionnez un enfant pour accéder aux récompenses.</div></div>
+  }
 
   return (
     <div className="container">

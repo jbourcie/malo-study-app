@@ -32,9 +32,10 @@ function getParisDateKeyLocal(): string {
 export function BiomePage() {
   const { biomeId } = useParams<{ biomeId: BiomeId }>()
   const biome = biomeId ? getBiome(biomeId) : null
-  const { user } = useAuth()
-  const { rewards, loading } = useUserRewards(user?.uid || null)
-  const { daily } = useDailyQuests(user?.uid || null)
+  const { user, activeChild } = useAuth()
+  const playerUid = activeChild?.id || user?.uid || null
+  const { rewards, loading } = useUserRewards(playerUid)
+  const { daily } = useDailyQuests(playerUid)
   const navigate = useNavigate()
   const [selectedBlockId, setSelectedBlockId] = React.useState<string | null>(null)
   const [availability, setAvailability] = React.useState<Record<string, boolean>>({})
@@ -64,6 +65,17 @@ export function BiomePage() {
       <div className="container grid">
         <div className="card mc-card">
           <div className="small">Biome introuvable.</div>
+          <button className="mc-button secondary" style={{ marginTop: 10 }} onClick={() => navigate('/world')}>← Retour carte</button>
+        </div>
+      </div>
+    )
+  }
+
+  if (!playerUid) {
+    return (
+      <div className="container grid">
+        <div className="card mc-card">
+          <div className="small">Sélectionnez un enfant rattaché pour accéder au biome.</div>
           <button className="mc-button secondary" style={{ marginTop: 10 }} onClick={() => navigate('/world')}>← Retour carte</button>
         </div>
       </div>
@@ -106,7 +118,7 @@ export function BiomePage() {
     const check = async () => {
       const entries = await Promise.all(blocks.map(async (b) => {
         try {
-          const list = await listExercisesByTag(b.tagId, { uid: user?.uid })
+          const list = await listExercisesByTag(b.tagId, { uid: playerUid })
           return [b.tagId, list.length > 0] as const
         } catch {
           return [b.tagId, false] as const
@@ -120,7 +132,7 @@ export function BiomePage() {
     }
     check()
     return () => { canceled = true }
-  }, [blocks, user])
+  }, [blocks, playerUid])
 
   React.useEffect(() => {
     try {
@@ -143,11 +155,11 @@ export function BiomePage() {
 
   React.useEffect(() => {
     let canceled = false
-    if (!user?.uid) {
+    if (!playerUid) {
       setAllowedTags(null)
       return
     }
-    loadNpcPriorityTags(user.uid)
+    loadNpcPriorityTags(playerUid)
       .then((tags) => {
         if (canceled) return
         setAllowedTags(new Set(tags))
@@ -156,7 +168,7 @@ export function BiomePage() {
         if (!canceled) setAllowedTags(null)
       })
     return () => { canceled = true }
-  }, [user?.uid])
+  }, [playerUid])
 
   React.useEffect(() => {
     setNpcId(getPreferredNpcId())
@@ -198,7 +210,7 @@ export function BiomePage() {
 
   const npcAdvice = React.useMemo(() => {
     if (!biomeId) return null
-    const seed = `${user?.uid || 'anon'}|${biomeId}|${dailyDateKey}`
+    const seed = `${playerUid || 'anon'}|${biomeId}|${dailyDateKey}`
     return adviseNpcAction({
       biomeId,
       subjectId: biome.subject,
@@ -210,7 +222,7 @@ export function BiomePage() {
       seed,
       lastAdvice: lastAdviceRef.current,
     })
-  }, [allowedTags, biome.subject, biomeId, biomeVisual, blockProgress, dailyDateKey, masteryByTag, user?.uid, zones])
+  }, [allowedTags, biome.subject, biomeId, biomeVisual, blockProgress, dailyDateKey, masteryByTag, playerUid, zones])
 
   React.useEffect(() => {
     if (!npcAdvice || !biomeId) return

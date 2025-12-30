@@ -21,8 +21,9 @@ function extractSubject(tagId: string | undefined): SubjectId | null {
 }
 
 export function ProgressOverviewContent() {
-  const { user } = useAuth()
-  const { rewards } = useUserRewards(user?.uid || null)
+  const { user, activeChild } = useAuth()
+  const playerUid = activeChild?.id || user?.uid || null
+  const { rewards } = useUserRewards(playerUid)
   const [subject, setSubject] = React.useState<SubjectId | 'all'>('all')
   const [search, setSearch] = React.useState<string>('')
 
@@ -39,6 +40,10 @@ export function ProgressOverviewContent() {
       if ((a.meta.order || 9999) !== (b.meta.order || 9999)) return (a.meta.order || 9999) - (b.meta.order || 9999)
       return a.meta.label.localeCompare(b.meta.label)
     })
+
+  if (!playerUid) {
+    return <div className="card">Sélectionnez un enfant pour voir la progression.</div>
+  }
 
   return (
     <div>

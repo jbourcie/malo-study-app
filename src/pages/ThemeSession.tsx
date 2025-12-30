@@ -168,8 +168,9 @@ export function selectRebuildZoneQuestions(content: any[], zoneTags: string[], d
 
 export function ThemeSessionPage() {
   const { themeId } = useParams()
-  const { user } = useAuth()
-  const { rewards: liveRewards } = useUserRewards(user?.uid || null)
+  const { user, activeChild } = useAuth()
+  const playerUid = activeChild?.id || user?.uid || null
+  const { rewards: liveRewards } = useUserRewards(playerUid)
   const [theme, setTheme] = React.useState<any | null>(null)
   const [exos, setExos] = React.useState<PlayableExercise[]>([])
   const [answers, setAnswers] = React.useState<AnswerState>({})
@@ -250,7 +251,7 @@ export function ThemeSessionPage() {
           setLessonReminder(null)
           return
         }
-        const exercisesByTag = await Promise.all(zoneTags.map(tag => listExercisesByTag(tag, { uid: user?.uid })))
+        const exercisesByTag = await Promise.all(zoneTags.map(tag => listExercisesByTag(tag, { uid: playerUid })))
         exercises = exercisesByTag.flat()
         const resolvedSubject = subject || inferSubject(zoneTags[0])
         setZoneMeta({ subject: resolvedSubject, theme: themeFromQuery })
@@ -338,7 +339,7 @@ export function ThemeSessionPage() {
         })
         const orderedTags = orderedZones.flatMap(([, tags]) => tags)
         const limitedTags = orderedTags.slice(0, 12) // éviter de charger trop de packs
-        const exercisesByTag = await Promise.all(limitedTags.map(tag => listExercisesByTag(tag, { uid: user?.uid })))
+        const exercisesByTag = await Promise.all(limitedTags.map(tag => listExercisesByTag(tag, { uid: playerUid })))
         const exercises = exercisesByTag.flat()
         const allowHarder = limitedTags.some(tag => ((liveRewards?.masteryByTag || {}) as any)?.[tag]?.score >= 70)
         const contentRaw = flattenThemeContent({ exercises, readings: [] })
@@ -375,12 +376,12 @@ export function ThemeSessionPage() {
         return
       }
 
-      exercises = await listExercises(themeId, { uid: user?.uid })
+      exercises = await listExercises(themeId, { uid: playerUid })
       const readingsFromTheme = Array.isArray((tData as any)?.readings) ? (tData as any).readings : []
       readings = readingsFromTheme
       // fallback : si expédition et aucune question, charger par tag
       if ((!exercises.length || !tData) && targetTagFromQuery) {
-        exercises = await listExercisesByTag(targetTagFromQuery, { uid: user?.uid })
+        exercises = await listExercisesByTag(targetTagFromQuery, { uid: playerUid })
         readings = []
       } else {
         try {
@@ -477,7 +478,7 @@ export function ThemeSessionPage() {
   }, [sessionTargetTagId, exos.length, npcId, lessonReminder?.content, lessonReminder?.lessonRef, showCorrections])
 
   const submit = async () => {
-    if (!user || !themeId || !theme) return
+    if (!playerUid || !themeId || !theme) return
     setIsSubmitting(true)
     setErrorMsg('')
     const durationSec = Math.max(1, Math.round((Date.now() - startedAt) / 1000))
@@ -507,7 +508,7 @@ export function ThemeSessionPage() {
       })
 
       const progress = await saveSessionWithProgress({
-        uid: user.uid,
+        uid: playerUid,
         subjectId: theme.subjectId as SubjectId,
         themeId,
         answers,
@@ -516,7 +517,7 @@ export function ThemeSessionPage() {
       })
 
       const rewards = await saveAttemptAndRewards({
-        uid: user.uid,
+        uid: playerUid,
         subjectId: theme.subjectId as SubjectId,
         themeId,
         items,
@@ -608,15 +609,15 @@ export function ThemeSessionPage() {
       let unlockedBadges: string[] = []
       let rolledCollectibleId: string | null = null
       try {
-        const res = await awardSessionRewards(user.uid, progress.attemptId || null, deltaXp)
+        const res = await awardSessionRewards(playerUid, progress.attemptId || null, deltaXp)
         newRewards = res
         levelUp = (res?.level || 1) > (liveRewards?.level || 1)
         await applyMasteryEvents({
-          uid: user.uid,
+          uid: playerUid,
           sessionId: progress.attemptId || themeId,
           items: items,
         })
-        unlockedBadges = await evaluateBadges({ uid: user.uid, rewards: res || liveRewards }) || []
+        unlockedBadges = await evaluateBadges({ uid: playerUid, rewards: res || liveRewards }) || []
 
         const shouldRollCollectible = deltaXp >= 20 || levelUp || newMasteredTagCount > 0
         if (shouldRollCollectible) {
@@ -624,7 +625,7 @@ export function ThemeSessionPage() {
           rolledCollectibleId = rollCollectible(owned)
           if (rolledCollectibleId) {
             const evId = progress.attemptId ? `collectible_${progress.attemptId}` : undefined
-            await unlockCollectible(user.uid, rolledCollectibleId, evId)
+            await unlockCollectible(playerUid, rolledCollectibleId, evId)
           }
         }
         // MaloCraft loot (idempotent)
@@ -633,7 +634,7 @@ export function ThemeSessionPage() {
           const targetTag = items[0]?.tags?.[0] || sessionTargetTagId || ''
           const biomeId = subjectToBiomeId(theme.subjectId as any)
           const resLoot = await awardMalocraftLoot({
-            uid: user.uid,
+            uid: playerUid,
             sessionId: progress.attemptId || themeId,
             biomeId,
             targetTagId: targetTag,
@@ -647,7 +648,7 @@ export function ThemeSessionPage() {
 
         // Daily quests update (idempotent via event)
         const dailyRes = await updateDailyProgress({
-          uid: user.uid,
+          uid: playerUid,
           sessionId: progress.attemptId || themeId,
           answeredCount,
           tagsUsed: items.flatMap(i => i.tags || []),
@@ -658,14 +659,14 @@ export function ThemeSessionPage() {
         })
         if (dailyRes?.allCompleted) {
           upsertDayStat({
-            uid: user.uid,
+            uid: playerUid,
             sessionsDelta: 1,
             xpDelta: deltaXp,
           }).catch(err => console.error('upsertDayStat failed', err))
         } else {
           // sessions non comptées pour le streak si quêtes non terminées
           upsertDayStat({
-            uid: user.uid,
+            uid: playerUid,
             sessionsDelta: 0,
             xpDelta: deltaXp,
           }).catch(err => console.error('upsertDayStat failed', err))
@@ -703,7 +704,7 @@ export function ThemeSessionPage() {
         if (sessionKind === 'reconstruction_theme' && zoneMeta.subject && zoneMeta.theme) {
           try {
             const rebuildRes = await applyZoneRebuildProgress({
-              uid: user.uid,
+              uid: playerUid,
               sessionId: progress.attemptId || themeId,
               subject: zoneMeta.subject as SubjectId,
               theme: zoneMeta.theme,
@@ -721,7 +722,7 @@ export function ThemeSessionPage() {
         } else if (sessionKind === 'reconstruction_biome' && zoneMeta.subject) {
           try {
             const rebuildRes = await applyBiomeRebuildProgress({
-              uid: user.uid,
+              uid: playerUid,
               sessionId: progress.attemptId || themeId,
               subject: zoneMeta.subject as SubjectId,
               tagStats: rebuildTagStats,
@@ -868,6 +869,7 @@ export function ThemeSessionPage() {
   }
 
   if (!themeId) return <div className="container"><div className="card">Thème introuvable.</div></div>
+  if (!playerUid) return <div className="container"><div className="card">Sélectionnez un enfant rattaché pour lancer une session.</div></div>
 
   if (showCorrections && feedback.length) {
     const prevXp = sessionRewards?.prevRewards?.xp ?? liveRewards?.xp ?? 0
@@ -897,7 +899,7 @@ export function ThemeSessionPage() {
     const onEquip = async () => {
       if (!user || !collectibleDef || collectibleDef.type !== 'avatar') return
       try {
-        await equipAvatar(user.uid, collectibleDef.id)
+        if (playerUid) await equipAvatar(playerUid, collectibleDef.id)
       } catch (e) {
         console.error('equipAvatar failed', e)
       }

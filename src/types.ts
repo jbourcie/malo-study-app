@@ -1,4 +1,31 @@
-export type Role = 'parent' | 'child'
+export type Role = 'parent' | 'child' | 'admin'
+
+export type UserProfile = {
+  uid: string
+  role: Role
+  displayName: string
+  email?: string | null
+  parents?: string[]
+  childrenIds?: string[]
+  recoveryCode?: string | null
+}
+
+export type PairingCodeRecord = {
+  code: string
+  childUid: string
+  createdAt?: any
+  expiresAt: any
+  used?: boolean
+  usedBy?: string | null
+  consumedAt?: any
+}
+
+export type FamilyLink = {
+  parentId: string
+  childId: string
+  pairingCode: string
+  createdAt?: any
+}
 
 export type SubjectId = 'fr' | 'math' | 'en' | 'es' | 'hist'
 

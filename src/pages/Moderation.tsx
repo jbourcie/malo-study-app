@@ -1,8 +1,7 @@
 import React from 'react'
-import { collection, getDocs, query, where } from 'firebase/firestore'
-import { db } from '../firebase'
 import { deleteTheme, listExercises, listThemes, setExerciseHidden, setExerciseVisibilityForChild, setThemeHidden, setThemeVisibilityForChild } from '../data/firestore'
 import type { SubjectId } from '../types'
+import { useAuth } from '../state/useAuth'
 
 const SUBJECTS: Array<{ id: SubjectId | 'all', label: string }> = [
   { id: 'all', label: 'Toutes' },
@@ -16,6 +15,7 @@ const SUBJECTS: Array<{ id: SubjectId | 'all', label: string }> = [
 type Child = { id: string, displayName: string }
 
 export function ModerationPage() {
+  const { linkedChildren, activeChild, setActiveChildId, role } = useAuth()
   const [children, setChildren] = React.useState<Child[]>([])
   const [selectedChild, setSelectedChild] = React.useState<string>('')
   const [subject, setSubject] = React.useState<SubjectId | 'all'>('all')
@@ -25,13 +25,13 @@ export function ModerationPage() {
   const [loadingExercises, setLoadingExercises] = React.useState<string | null>(null)
 
   React.useEffect(() => {
-    ;(async () => {
-      const snap = await getDocs(query(collection(db, 'users'), where('role', '==', 'child')))
-      const kids = snap.docs.map(d => ({ id: d.id, displayName: d.data().displayName || 'Enfant' }))
-      setChildren(kids)
-      if (kids[0]) setSelectedChild(kids[0].id)
-    })()
-  }, [])
+    setChildren(linkedChildren)
+    if (linkedChildren.length) {
+      setSelectedChild(activeChild?.id || linkedChildren[0].id)
+    } else {
+      setSelectedChild('')
+    }
+  }, [activeChild?.id, linkedChildren])
 
   React.useEffect(() => {
     if (!selectedChild) return
@@ -105,15 +105,23 @@ export function ModerationPage() {
 
   return (
     <div className="container">
+      {!selectedChild && (
+        <div className="card">Aucun enfant rattaché. Demandez un code dans l’app enfant puis rattachez-le depuis la page Connexion.</div>
+      )}
       <div className="card">
         <h2 style={{ marginTop: 0 }}>Modération contenus</h2>
         <div className="row" style={{ gap: 10 }}>
-          <div className="row" style={{ gap: 6 }}>
-            <span className="small">Enfant</span>
-            <select className="input" value={selectedChild} onChange={(e) => setSelectedChild(e.target.value)}>
-              {children.map(c => <option key={c.id} value={c.id}>{c.displayName}</option>)}
-            </select>
-          </div>
+          {(role === 'parent' || role === 'admin') && (
+            <div className="row" style={{ gap: 6 }}>
+              <span className="small">Enfant</span>
+              <select className="input" value={selectedChild} onChange={(e) => {
+                setSelectedChild(e.target.value)
+                setActiveChildId(e.target.value)
+              }}>
+                {children.map(c => <option key={c.id} value={c.id}>{c.displayName}</option>)}
+              </select>
+            </div>
+          )}
           <div className="row" style={{ gap: 6 }}>
             <span className="small">Matière</span>
             <select className="input" value={subject} onChange={(e) => setSubject(e.target.value as SubjectId | 'all')}>

@@ -11,22 +11,27 @@ const rarityLabel: Record<CollectibleDef['rarity'], string> = {
 }
 
 export function CollectionContent() {
-  const { user } = useAuth()
-  const { rewards } = useUserRewards(user?.uid || null)
+  const { user, activeChild } = useAuth()
+  const playerUid = activeChild?.id || user?.uid || null
+  const { rewards } = useUserRewards(playerUid)
   const [tab, setTab] = React.useState<'sticker' | 'avatar'>('sticker')
   const owned = new Set(rewards?.collectibles?.owned || [])
   const equipped = rewards?.collectibles?.equippedAvatarId
 
   const onEquip = async (id: string) => {
-    if (!user) return
+    if (!playerUid) return
     try {
-      await equipAvatar(user.uid, id)
+      await equipAvatar(playerUid, id)
     } catch (e) {
       console.error('equipAvatar', e)
     }
   }
 
   const list = COLLECTIBLES.filter(c => c.type === tab)
+
+  if (!playerUid) {
+    return <div className="card">Sélectionnez un enfant pour voir sa collection.</div>
+  }
 
   return (
     <div>

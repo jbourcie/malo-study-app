@@ -34,7 +34,8 @@ function computeLast7(t: TagProgress) {
 }
 
 export function ProgressPage() {
-  const { user, role } = useAuth()
+  const { user, role, linkedChildren, activeChild, setActiveChildId } = useAuth()
+  const playerUid = activeChild?.id || user?.uid || ''
   const [children, setChildren] = React.useState<Array<{ id: string, displayName: string }>>([])
   const [selectedChild, setSelectedChild] = React.useState<string>('')
   const [tags, setTags] = React.useState<Array<TagProgress & { id: string }>>([])
@@ -45,18 +46,18 @@ export function ProgressPage() {
   const [tagDetails, setTagDetails] = React.useState<Record<string, { loading: boolean, items: any[] }>>({})
 
   React.useEffect(() => {
-    if (!user) return
-    if (role === 'parent') {
-      (async () => {
-        const snap = await getDocs(query(collection(db, 'users'), where('role', '==', 'child')))
-        const kids = snap.docs.map(d => ({ id: d.id, displayName: d.data().displayName || 'Enfant' }))
-        setChildren(kids)
-        if (kids[0]) setSelectedChild(kids[0].id)
-      })()
-    } else {
-      setSelectedChild(user.uid)
+    if (role === 'parent' || role === 'admin') {
+      setChildren(linkedChildren)
+      if (linkedChildren.length) {
+        setSelectedChild(activeChild?.id || linkedChildren[0].id)
+      } else {
+        setSelectedChild('')
+      }
+    } else if (user) {
+      setChildren([{ id: playerUid, displayName: user.displayName || 'Enfant' }])
+      setSelectedChild(playerUid)
     }
-  }, [user, role])
+  }, [activeChild?.id, linkedChildren, playerUid, role, user])
 
   const loadData = React.useCallback(async (uid: string) => {
     setLoading(true)
@@ -158,13 +159,19 @@ export function ProgressPage() {
 
   return (
     <div className="container">
+      {!selectedChild && (
+        <div className="card">Aucun enfant rattaché. Génère un code dans l’app enfant puis rattache-le.</div>
+      )}
       <div className="card">
         <h2 style={{ marginTop: 0 }}>Progression par tag</h2>
         <div className="row" style={{ gap: 8, alignItems:'center' }}>
-          {role === 'parent' && (
+          {(role === 'parent' || role === 'admin') && (
             <>
               <label className="small">Enfant</label>
-              <select className="input" value={selectedChild} onChange={(e) => setSelectedChild(e.target.value)}>
+              <select className="input" value={selectedChild} onChange={(e) => {
+                setSelectedChild(e.target.value)
+                setActiveChildId(e.target.value)
+              }}>
                 {children.map(c => <option key={c.id} value={c.id}>{c.displayName}</option>)}
               </select>
             </>

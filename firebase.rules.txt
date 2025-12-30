@@ -3,74 +3,138 @@ service cloud.firestore {
   match /databases/{database}/documents {
 
     function signedIn() { return request.auth != null; }
-    function role() {
-      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
-    }
-    function isParent() { return signedIn() && role() == 'parent'; }
+    function role() { return signedIn() ? get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role : null; }
+    function isAdmin() { return signedIn() && role() == 'admin'; }
+    function isParent() { return signedIn() && (role() == 'parent' || role() == 'admin'); }
     function isOwner(userId) { return signedIn() && request.auth.uid == userId; }
+    function isLinkedParent(userId) {
+      return isParent() && exists(/databases/$(database)/documents/familyLinks/$(request.auth.uid + '_' + userId));
+    }
+    function isLinkedChild(userId) {
+      return signedIn() && exists(/databases/$(database)/documents/familyLinks/$(userId + '_' + request.auth.uid));
+    }
+    function canReadUser(userId) { return isOwner(userId) || isLinkedParent(userId) || isLinkedChild(userId) || isAdmin(); }
+    function canWriteVisibility(userId) { return isOwner(userId) || isLinkedParent(userId) || isAdmin(); }
 
-    // Bibliothèque d'exercices: lecture pour connectés
-    match /subjects/{id} { allow read: if signedIn(); allow write: if isParent(); }
-    match /themes/{id}    { allow read: if signedIn(); allow write: if isParent(); }
-    match /exercises/{id} { allow read: if signedIn(); allow write: if isParent(); }
-    match /readings/{id}  { allow read: if signedIn(); allow write: if isParent(); }
-    match /questionPacks/{id} { allow read: if signedIn(); allow write: if isParent(); }
+    // Codes de rattachement (créés par l'enfant, consommés par le parent)
+    match /pairingCodes/{code} {
+      // Lecture restreinte : enfant propriétaire ou parent (code valide non expiré)
+      allow read: if signedIn() && (
+        request.auth.uid == resource.data.childUid ||
+        (isParent() && resource.data.expiresAt > request.time && resource.data.used != true)
+      );
+      allow create: if signedIn()
+        && request.auth.uid == request.resource.data.childUid
+        && request.resource.id.size() == 8
+        && request.resource.data.used == false
+        && request.resource.data.expiresAt > request.time
+        && request.resource.data.expiresAt <= request.time + duration.value(10, 'm');
+      allow update: if isParent()
+        && resource.data.used != true
+        && request.resource.data.used == true
+        && request.resource.data.usedBy == request.auth.uid
+        && resource.data.childUid == request.resource.data.childUid
+        && resource.data.expiresAt > request.time;
+    }
+
+    // Liens parent-enfant (créés par le parent après saisie du code)
+    match /familyLinks/{linkId} {
+      // Lecture stricte : uniquement parent propriétaire, admin, ou l'enfant concerné
+      allow read: if isAdmin() || request.auth.uid == resource.data.parentId || request.auth.uid == resource.data.childId;
+      allow create: if isParent()
+        && request.resource.data.parentId == request.auth.uid
+        && linkId == request.auth.uid + '_' + request.resource.data.childId;
+      allow delete: if isParent() && request.auth.uid == resource.data.parentId;
+    }
+
+    // Bibliothèque d'exercices: écriture réservée à l'admin (import/modération)
+    match /subjects/{id} { allow read: if signedIn(); allow write: if isAdmin(); }
+    match /themes/{id}    { allow read: if signedIn(); allow write: if isAdmin(); }
+    match /exercises/{id} { allow read: if signedIn(); allow write: if isAdmin(); }
+    match /readings/{id}  { allow read: if signedIn(); allow write: if isAdmin(); }
+    match /questionPacks/{id} { allow read: if signedIn(); allow write: if isAdmin(); }
     match /questions/{id} {
-      allow read: if signedIn() && (isParent() || (resource.data != null && resource.data.quality.status == 'published'));
-      allow write: if isParent();
+      allow read: if signedIn() && (
+        isAdmin() ||
+        (resource.data != null && resource.data.quality.status == 'published')
+      );
+      allow write: if isAdmin();
     }
 
     // Profils utilisateurs
     match /users/{userId} {
-      allow read: if isOwner(userId) || isParent();
+      allow read: if canReadUser(userId);
       allow create: if isOwner(userId);
-      allow update: if isOwner(userId) || isParent();
+      allow update: if isOwner(userId) || isAdmin() || isLinkedParent(userId) || (
+        isParent() && request.auth.uid in request.resource.data.parents
+      );
 
       match /attempts/{attemptId} {
-        allow read: if isOwner(userId) || isParent();
-        allow write: if isOwner(userId);
+        allow read: if canReadUser(userId);
+        allow write: if isOwner(userId) || isAdmin();
       }
       match /attemptItems/{itemId} {
-        allow read: if isOwner(userId) || isParent();
-        allow write: if isOwner(userId);
+        allow read: if canReadUser(userId);
+        allow write: if isOwner(userId) || isAdmin();
       }
       match /stats/{docId} {
-        allow read: if isOwner(userId) || isParent();
-        allow write: if isOwner(userId);
+        allow read: if canReadUser(userId);
+        allow write: if isOwner(userId) || isAdmin();
       }
       // Journaux journaliers (chemin : statsDays/{dateKey})
       match /statsDays/{dateKey} {
-        allow read: if isOwner(userId) || isParent();
-        allow write: if isOwner(userId);
+        allow read: if canReadUser(userId);
+        allow write: if isOwner(userId) || isAdmin();
       }
       match /tagProgress/{tagId} {
-        allow read: if isOwner(userId) || isParent();
-        allow write: if isOwner(userId);
+        allow read: if canReadUser(userId);
+        allow write: if isOwner(userId) || isAdmin();
       }
       match /progressSummary/{docId} {
-        allow read: if isOwner(userId) || isParent();
-        allow write: if isOwner(userId);
+        allow read: if canReadUser(userId);
+        allow write: if isOwner(userId) || isAdmin();
       }
       match /visibilityThemes/{docId} {
-        allow read: if isOwner(userId) || isParent();
-        allow write: if isOwner(userId) || isParent();
+        allow read: if canReadUser(userId);
+        allow write: if canWriteVisibility(userId);
       }
       match /visibilityExercises/{docId} {
-        allow read: if isOwner(userId) || isParent();
-        allow write: if isOwner(userId) || isParent();
+        allow read: if canReadUser(userId);
+        allow write: if canWriteVisibility(userId);
       }
       match /meta/{docId} {
-        allow read: if isOwner(userId) || isParent();
-        allow write: if isOwner(userId) || isParent();
+        allow read: if canReadUser(userId);
+        allow write: if isOwner(userId) || isAdmin() || isLinkedParent(userId);
       }
       match /rewardEvents/{docId} {
-        allow read: if isOwner(userId) || isParent();
-        allow write: if isOwner(userId);
+        allow read: if canReadUser(userId);
+        allow write: if isOwner(userId) || isAdmin();
       }
       match /inventory/{docId} {
-        allow read: if isOwner(userId) || isParent();
-        allow write: if isOwner(userId);
+        allow read: if canReadUser(userId);
+        allow write: if isOwner(userId) || isAdmin();
       }
+    }
+
+    // Codes de reprise enfant (permettent de recharger un compte enfant sur un autre appareil)
+    match /childRecoveryCodes/{code} {
+      // Lecture uniquement pour utilisateurs authentifiés (pas de lecture publique ni listage)
+      allow read: if signedIn() && resource != null;
+      allow create: if signedIn()
+        && request.auth.uid == request.resource.data.childUid
+        && request.resource.id.size() >= 16 && request.resource.id.size() <= 24
+        && (request.resource.data.revoked == null || request.resource.data.revoked == false)
+        && request.resource.data.expiresAt > request.time
+        && request.resource.data.expiresAt <= request.time + duration.value(30, 'd');
+      allow update: if signedIn()
+        && resource.data.childUid == request.auth.uid
+        && (
+          (request.resource.data.revoked == true && resource.data.revoked != true) ||
+          (resource.data.revoked != true
+            && request.resource.data.expiresAt > request.time
+            && request.resource.data.expiresAt <= request.time + duration.value(30, 'd'))
+        );
+      allow delete: if isAdmin() || (signedIn() && request.auth.uid == resource.data.childUid);
     }
   }
 }

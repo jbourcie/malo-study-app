@@ -17,6 +17,7 @@ import { BiomePage } from './pages/world/BiomePage'
 import { ZonePage } from './pages/world/ZonePage'
 import { ChestPage } from './pages/ChestPage'
 import { WorldHubPage } from './pages/WorldHub'
+import { PrioritySettingsPage } from './pages/PrioritySettings'
 
 export function App() {
   return (
@@ -26,14 +27,16 @@ export function App() {
       </div>
 
       <Routes>
+        <Route path="/" element={<LoginPage />} />
         <Route path="/connexion" element={<LoginPage />} />
-        <Route path="/" element={<RequireAuth><WorldHubPage /></RequireAuth>} />
-        <Route path="/home" element={<RequireAuth><HomePage /></RequireAuth>} />
+        <Route path="/home" element={<RequireAuth><WorldHubPage /></RequireAuth>} />
+        <Route path="/hub" element={<RequireAuth><WorldHubPage /></RequireAuth>} />
         <Route path="/theme/:themeId" element={<RequireAuth><ThemeSessionPage /></RequireAuth>} />
-        <Route path="/admin/import" element={<RequireParent><AdminImportPage /></RequireParent>} />
-        <Route path="/admin/progression" element={<RequireParent><ProgressPage /></RequireParent>} />
+        <Route path="/admin/import" element={<RequireAdmin><AdminImportPage /></RequireAdmin>} />
+        <Route path="/admin/progression" element={<RequireAdmin><ProgressPage /></RequireAdmin>} />
         <Route path="/admin/questions" element={<RequireAdmin><QuestionModerationPage /></RequireAdmin>} />
         <Route path="/admin/pack-request" element={<RequireAdmin><PackRequestBuilderPage /></RequireAdmin>} />
+        <Route path="/parent/priorites" element={<RequireParent><PrioritySettingsPage /></RequireParent>} />
         <Route path="/collection" element={<RequireAuth><CollectionPage /></RequireAuth>} />
         <Route path="/progression" element={<RequireAuth><ProgressOverviewPage /></RequireAuth>} />
         <Route path="/chest" element={<RequireAuth><ChestPage /></RequireAuth>} />

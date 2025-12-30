@@ -22,6 +22,6 @@ export function RequireAdmin({ children }: { children: React.ReactNode }) {
   const devAdmin = import.meta.env.VITE_DEV_ADMIN === 'true'
   if (loading) return <div className="card">Chargement…</div>
   if (!user) return <Navigate to="/connexion" replace />
-  if (role !== 'parent' && !devAdmin) return <Navigate to="/" replace />
+  if (role !== 'parent' && role !== 'admin' && !devAdmin) return <Navigate to="/" replace />
   return <>{children}</>
 }

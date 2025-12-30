@@ -7,8 +7,9 @@ import { useUserRewards } from '../../state/useUserRewards'
 import { getBiomeVisualState } from '../../game/visualProgress'
 
 export function WorldMapPage() {
-  const { user } = useAuth()
-  const { rewards, loading } = useUserRewards(user?.uid || null)
+  const { user, activeChild } = useAuth()
+  const playerUid = activeChild?.id || user?.uid || null
+  const { rewards, loading } = useUserRewards(playerUid)
   const navigate = useNavigate()
   const blockProgress = rewards.blockProgress || {}
   const masteryByTag = rewards.masteryByTag || {}
@@ -19,6 +20,14 @@ export function WorldMapPage() {
     ready: 'Prêt',
     rebuilding: 'En reconstruction',
     rebuilt: 'Reconstruit',
+  }
+
+  if (!playerUid) {
+    return (
+      <div className="container grid">
+        <div className="card">Sélectionnez un enfant rattaché pour accéder à la carte du monde.</div>
+      </div>
+    )
   }
 
   return (

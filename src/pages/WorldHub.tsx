@@ -39,9 +39,11 @@ function getParisDateKeyLocal(): string {
 }
 
 export function WorldHubPage() {
-  const { user } = useAuth()
-  const { rewards } = useUserRewards(user?.uid || null)
-  const { daily, loading: loadingDaily } = useDailyQuests(user?.uid || null)
+  const { user, role, activeChild, recoveryCode } = useAuth()
+  const isObserver = role === 'parent' || role === 'admin'
+  const playerUid = activeChild?.id || user?.uid || null
+  const { rewards } = useUserRewards(playerUid)
+  const { daily, loading: loadingDaily } = useDailyQuests(playerUid)
   const nav = useNavigate()
   const [npcId, setNpcId] = React.useState(getPreferredNpcId())
   const [showNpcPicker, setShowNpcPicker] = React.useState(false)
@@ -62,10 +64,10 @@ export function WorldHubPage() {
   const equippedAvatarId = rewards.collectibles?.equippedAvatarId || null
 
   React.useEffect(() => {
-    if (!user) return
+    if (!playerUid) return
     ;(async () => {
       try {
-        const last = await listLast7Days(user.uid)
+        const last = await listLast7Days(playerUid)
         const sorted = [...last].sort((a, b) => (b.dateKey || '').localeCompare(a.dateKey || ''))
         let s = 0
         for (const d of sorted) {
@@ -77,7 +79,7 @@ export function WorldHubPage() {
         setStreak(0)
       }
     })()
-  }, [user])
+  }, [playerUid])
 
   const questsWithLines = React.useMemo(() => {
     if (!daily) return []
@@ -91,6 +93,7 @@ export function WorldHubPage() {
   const allDailyCompleted = React.useMemo(() => (daily?.quests || []).every(q => q.completed), [daily?.quests])
 
   const onStartMission = (quest?: DailyQuest | null) => {
+    if (isObserver) return
     const targetQuest = quest || questsWithLines.find(q => q.tagId) || null
     const targetTag = targetQuest?.tagId
     if (targetTag) {
@@ -185,7 +188,7 @@ export function WorldHubPage() {
 
   const npcAdvice = React.useMemo(() => {
     if (!focusBiome || !focusBiomeVisual) return null
-    const seed = `${user?.uid || 'anon'}|${focusBiome.id}|${dailyDateKey}`
+    const seed = `${playerUid || 'anon'}|${focusBiome.id}|${dailyDateKey}`
     return adviseNpcAction({
       biomeId: focusBiome.id,
       subjectId: focusBiome.subject,
@@ -197,7 +200,15 @@ export function WorldHubPage() {
       seed,
       lastAdvice: lastAdviceRef.current,
     })
-  }, [blockProgress, dailyDateKey, focusBiome, focusBiomeVisual, masteryByTag, user?.uid, zonesForFocusBiome])
+  }, [blockProgress, dailyDateKey, focusBiome, focusBiomeVisual, masteryByTag, playerUid, zonesForFocusBiome])
+
+  if (!playerUid) {
+    return (
+      <div className="container">
+        <div className="card">Sélectionnez un enfant rattaché pour accéder au monde.</div>
+      </div>
+    )
+  }
 
   React.useEffect(() => {
     if (!npcAdvice || !focusBiome) {
@@ -311,70 +322,84 @@ export function WorldHubPage() {
           onOpenCollection={() => setOpenCollection(true)}
           onChangeNpc={() => setShowNpcPicker(true)}
         />
-        <div className="card mc-card">
-          <div className="row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <div style={{ fontSize: '2rem' }}>{npcGuide.avatar}</div>
-              <div>
-                <div style={{ fontWeight: 900 }}>{npcGuide.name}</div>
-                <div className="small" style={{ color: 'var(--mc-muted)' }}>{npcGuide.shortTagline}</div>
+        {!isObserver && (
+          <div className="card mc-card">
+            <div className="row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <div style={{ fontSize: '2rem' }}>{npcGuide.avatar}</div>
+                <div>
+                  <div style={{ fontWeight: 900 }}>{npcGuide.name}</div>
+                  <div className="small" style={{ color: 'var(--mc-muted)' }}>{npcGuide.shortTagline}</div>
+                </div>
+              </div>
+              <button className="mc-button secondary" onClick={() => setShowNpcPicker(true)}>Changer</button>
+            </div>
+            <div className="mc-card" style={{ marginTop: 10, border: '2px solid var(--mc-border)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, justifyContent: 'space-between' }}>
+                  <div style={{ flex: 1 }}>
+                    <div className="small" style={{ color: 'var(--mc-muted)' }}>Guide MaloCraft</div>
+                    <div style={{ fontWeight: 800 }}>{npcAdvice?.message || npcLine?.text || 'Choisis un biome pour commencer.'}</div>
+                  </div>
+                {npcAdvice?.ctaLabel && (
+                  <button className="mc-button" onClick={() => {
+                    if (npcAdvice.actionType === 'reconstruction_theme' && npcAdvice.payload?.theme && focusBiome) {
+                      setOpenBiomeId(focusBiome.id)
+                      setOpenZone({ biomeId: focusBiome.id, theme: npcAdvice.payload.theme })
+                      setHighlightBiomeId(focusBiome.id)
+                      setHighlightZoneTheme(npcAdvice.payload.theme)
+                    } else if (npcAdvice.actionType === 'reconstruction_biome' && focusBiome) {
+                      setOpenBiomeId(focusBiome.id)
+                      setHighlightBiomeId(focusBiome.id)
+                      setHighlightZoneTheme(null)
+                    } else if (npcAdvice.actionType === 'tag_session' && npcAdvice.payload?.tagId && focusBiome) {
+                      const blocks = getBlocks(focusBiome.id)
+                      const block = blocks.find(b => b.tagId === npcAdvice.payload?.tagId)
+                      const theme = block?.theme
+                      setOpenBiomeId(focusBiome.id)
+                      if (theme) {
+                        setOpenZone({ biomeId: focusBiome.id, theme })
+                        setHighlightZoneTheme(theme)
+                        setOpenBlock({ tagId: block!.tagId, biomeId: focusBiome.id })
+                      } else {
+                        setHighlightZoneTheme(null)
+                      }
+                      setHighlightBiomeId(focusBiome.id)
+                    }
+                  }}>
+                    {npcAdvice.ctaLabel}
+                  </button>
+                )}
               </div>
             </div>
-            <button className="mc-button secondary" onClick={() => setShowNpcPicker(true)}>Changer</button>
           </div>
-          <div className="mc-card" style={{ marginTop: 10, border: '2px solid var(--mc-border)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 10, justifyContent: 'space-between' }}>
-                <div style={{ flex: 1 }}>
-                  <div className="small" style={{ color: 'var(--mc-muted)' }}>Guide MaloCraft</div>
-                  <div style={{ fontWeight: 800 }}>{npcAdvice?.message || npcLine?.text || 'Choisis un biome pour commencer.'}</div>
-                </div>
-              {npcAdvice?.ctaLabel && (
-                <button className="mc-button" onClick={() => {
-                  if (npcAdvice.actionType === 'reconstruction_theme' && npcAdvice.payload?.theme && focusBiome) {
-                    setOpenBiomeId(focusBiome.id)
-                    setOpenZone({ biomeId: focusBiome.id, theme: npcAdvice.payload.theme })
-                    setHighlightBiomeId(focusBiome.id)
-                    setHighlightZoneTheme(npcAdvice.payload.theme)
-                  } else if (npcAdvice.actionType === 'reconstruction_biome' && focusBiome) {
-                    setOpenBiomeId(focusBiome.id)
-                    setHighlightBiomeId(focusBiome.id)
-                    setHighlightZoneTheme(null)
-                  } else if (npcAdvice.actionType === 'tag_session' && npcAdvice.payload?.tagId && focusBiome) {
-                    const blocks = getBlocks(focusBiome.id)
-                    const block = blocks.find(b => b.tagId === npcAdvice.payload?.tagId)
-                    const theme = block?.theme
-                    setOpenBiomeId(focusBiome.id)
-                    if (theme) {
-                      setOpenZone({ biomeId: focusBiome.id, theme })
-                      setHighlightZoneTheme(theme)
-                      setOpenBlock({ tagId: block!.tagId, biomeId: focusBiome.id })
-                    } else {
-                      setHighlightZoneTheme(null)
-                    }
-                    setHighlightBiomeId(focusBiome.id)
-                  }
-                }}>
-                  {npcAdvice.ctaLabel}
-                </button>
-              )}
-            </div>
+        )}
+        {isObserver && activeChild && (
+          <div className="card mc-card">
+            <div style={{ fontWeight: 900, marginBottom: 6 }}>Profil enfant</div>
+            <div className="small">Nom : <strong>{activeChild.displayName}</strong></div>
+            {recoveryCode && <div className="small">Code de reprise : <span className="badge">{recoveryCode}</span></div>}
+            <div className="small" style={{ color: 'var(--mc-muted)', marginTop: 6 }}>Mode parent : visualisation uniquement (pas de PNJ guide).</div>
           </div>
+        )}
+      </div>
+
+      {!isObserver && (
+        <DailyQuestsCompact
+          npcId={npcId}
+          quests={questsWithLines}
+          loading={loadingDaily}
+          bonusAwarded={daily?.bonusAwarded}
+          onStart={onStartMission}
+          onChangeNpc={() => setShowNpcPicker(true)}
+        />
+      )}
+
+      {!isObserver && (
+        <div className="row" style={{ gap: 10, flexWrap: 'wrap' }}>
+          <button className="mc-button secondary" onClick={() => setOpenChest(true)}>🎒 Inventaire</button>
+          <button className="mc-button secondary" onClick={() => setOpenCollection(true)}>🏅 Collection</button>
         </div>
-      </div>
-
-      <DailyQuestsCompact
-        npcId={npcId}
-        quests={questsWithLines}
-        loading={loadingDaily}
-        bonusAwarded={daily?.bonusAwarded}
-        onStart={onStartMission}
-        onChangeNpc={() => setShowNpcPicker(true)}
-      />
-
-      <div className="row" style={{ gap: 10, flexWrap: 'wrap' }}>
-        <button className="mc-button secondary" onClick={() => setOpenChest(true)}>🎒 Inventaire</button>
-        <button className="mc-button secondary" onClick={() => setOpenCollection(true)}>🏅 Collection</button>
-      </div>
+      )}
 
       <div className="grid2">
         {biomeTiles.map(({ biome, masteredCount, total, biomeVisual }) => (
@@ -391,15 +416,17 @@ export function WorldHubPage() {
         ))}
       </div>
 
-      <NpcPickerModal
-        open={showNpcPicker}
-        onClose={() => setShowNpcPicker(false)}
-        onPicked={(id) => {
-          setNpcId(id)
-          setPreferredNpcId(id)
-          setShowNpcPicker(false)
-        }}
-      />
+      {!isObserver && (
+        <NpcPickerModal
+          open={showNpcPicker}
+          onClose={() => setShowNpcPicker(false)}
+          onPicked={(id) => {
+            setNpcId(id)
+            setPreferredNpcId(id)
+            setShowNpcPicker(false)
+          }}
+        />
+      )}
 
       <Drawer
         open={!!openBiomeId}
@@ -443,8 +470,9 @@ export function WorldHubPage() {
               rebuild={{ correctCount: selectedZoneData.visual.rebuild?.correctCount || 0, target: selectedZoneData.visual.rebuild?.target || 35 }}
               weatheredPct={selectedZoneData.visual.weatheredPct}
               stablePct={selectedZoneData.visual.breakdown.stablePct}
-              canRebuild={selectedZoneData.visual.state === 'rebuilt_ready' || selectedZoneData.visual.state === 'rebuilding'}
+              canRebuild={!isObserver && (selectedZoneData.visual.state === 'rebuilt_ready' || selectedZoneData.visual.state === 'rebuilding')}
               onRebuild={() => {
+                if (isObserver) return
                 if (selectedZoneData.visual.state !== 'rebuilt_ready' && selectedZoneData.visual.state !== 'rebuilding') return
                 nav(`/theme/reconstruction_${encodeURIComponent(selectedZoneData.theme)}?sessionKind=reconstruction_theme&subjectId=${selectedBiome.subject}&theme=${encodeURIComponent(selectedZoneData.theme)}`)
               }}
@@ -470,13 +498,25 @@ export function WorldHubPage() {
         width={520}
       >
         {selectedBlockData && (
-          <BlockActionsPanel
-            blockName={selectedBlockData.blockName}
-            masteryLabel={stateToUiLabel(masteryByTag[selectedBlockData.tagId]?.state || 'discovering')}
-            expeditions={blockExpeditions}
-            onStart={onStartExpedition}
-            onClose={() => setOpenBlock(null)}
-          />
+          <>
+            <div style={{ marginBottom: 10 }}>
+              <div style={{ fontWeight: 800 }}>{selectedBlockData.blockName}</div>
+              <div className="small">Etat : {stateToUiLabel(masteryByTag[selectedBlockData.tagId]?.state || 'discovering')}</div>
+            </div>
+            {!isObserver ? (
+              <BlockActionsPanel
+                blockName={selectedBlockData.blockName}
+                masteryLabel={stateToUiLabel(masteryByTag[selectedBlockData.tagId]?.state || 'discovering')}
+                expeditions={blockExpeditions}
+                onStart={onStartExpedition}
+                onClose={() => setOpenBlock(null)}
+              />
+            ) : (
+              <div className="card" style={{ background:'rgba(255,255,255,0.04)' }}>
+                <div className="small">Mode parent : visualisation uniquement.</div>
+              </div>
+            )}
+          </>
         )}
       </Drawer>
 

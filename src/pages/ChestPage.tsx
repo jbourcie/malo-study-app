@@ -8,15 +8,16 @@ const rarityLabel: Record<string, string> = { common: 'Commun', rare: 'Rare', ep
 const typeLabel: Record<LootType, string> = { sticker: 'Sticker', fragment: 'Fragment', trophy: 'Trophée', avatar: 'Avatar' }
 
 export function ChestContent() {
-  const { user } = useAuth()
-  const { rewards } = useUserRewards(user?.uid || null)
+  const { user, activeChild } = useAuth()
+  const playerUid = activeChild?.id || user?.uid || null
+  const { rewards } = useUserRewards(playerUid)
   const owned = new Set(rewards.malocraft?.ownedLootIds || [])
   const [filter, setFilter] = React.useState<LootType | 'all'>('all')
 
   const equip = async (id: string) => {
-    if (!user) return
+    if (!playerUid) return
     try {
-      await equipAvatar(user.uid, id)
+      await equipAvatar(playerUid, id)
     } catch (e) {
       console.error('equip avatar', e)
     }
@@ -24,6 +25,10 @@ export function ChestContent() {
 
   const filtered = MALLOOT_CATALOG.filter(item => (filter === 'all' ? true : item.type === filter))
     .sort((a, b) => (a.biomeId || '').localeCompare(b.biomeId || '') || a.title.localeCompare(b.title))
+
+  if (!playerUid) {
+    return <div className="card">Sélectionnez un enfant pour voir son coffre.</div>
+  }
 
   return (
     <div className="grid">

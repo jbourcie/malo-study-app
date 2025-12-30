@@ -12,8 +12,9 @@ export function ZonePage() {
   const { biomeId, themeId } = useParams<{ biomeId: BiomeId, themeId: string }>()
   const theme = themeId ? decodeURIComponent(themeId) : null
   const biome = biomeId ? getBiome(biomeId) : null
-  const { user } = useAuth()
-  const { rewards, loading } = useUserRewards(user?.uid || null)
+  const { user, activeChild } = useAuth()
+  const playerUid = activeChild?.id || user?.uid || null
+  const { rewards, loading } = useUserRewards(playerUid)
   const navigate = useNavigate()
 
   if (!biomeId || !biome || !theme) {
@@ -21,6 +22,17 @@ export function ZonePage() {
       <div className="container grid">
         <div className="card mc-card">
           <div className="small">Zone introuvable.</div>
+          <button className="mc-button secondary" style={{ marginTop: 10 }} onClick={() => navigate('/world')}>← Retour carte</button>
+        </div>
+      </div>
+    )
+  }
+
+  if (!playerUid) {
+    return (
+      <div className="container grid">
+        <div className="card mc-card">
+          <div className="small">Sélectionnez un enfant rattaché pour accéder à cette zone.</div>
           <button className="mc-button secondary" style={{ marginTop: 10 }} onClick={() => navigate('/world')}>← Retour carte</button>
         </div>
       </div>
