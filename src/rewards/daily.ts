@@ -307,12 +307,15 @@ export async function updateDailyProgress(opts: {
     if (allCompleted && !bonusSnap.exists() && !bonusAwarded) {
       const rewardsData = rewardsSnap.exists() ? (rewardsSnap.data() as any) : {}
       const currentXp = rewardsData?.xp || 0
+      const currentCoins = rewardsData?.coins || 0
       deltaXp += DAILY_QUEST_CONFIG.xpRewards.dailyBonus
+      const bonusCoins = 10
       const newXp = currentXp + deltaXp
       const lvlInfo = computeLevelFromXp(newXp)
       tx.set(rewardsRef, {
         xp: newXp,
         level: lvlInfo.level,
+        coins: currentCoins + bonusCoins,
         badges: rewardsData?.badges || [],
         masteryByTag: rewardsData?.masteryByTag || {},
         collectibles: rewardsData?.collectibles
@@ -320,7 +323,7 @@ export async function updateDailyProgress(opts: {
           : { owned: [], equippedAvatarId: null },
         updatedAt: serverTimestamp(),
       }, { merge: true })
-      tx.set(bonusEvRef, { dateKey: today, type: 'daily_bonus', createdAt: serverTimestamp() })
+      tx.set(bonusEvRef, { dateKey: today, type: 'daily_bonus', coinsAwarded: bonusCoins, createdAt: serverTimestamp() })
       bonusAwarded = true
     }
 

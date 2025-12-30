@@ -9,7 +9,7 @@ import { useDailyQuests } from '../state/useDailyQuests'
 import { getTagMeta } from '../taxonomy/tagCatalog'
 import { Drawer } from '../components/ui/Drawer'
 import { BiomeTile } from '../components/world/WorldTiles'
-import { BiomeSummaryPanel, ZoneTilesGrid, BlockGrid, BlockActionsPanel } from '../components/world/BiomePanels'
+import { BiomeSummaryPanel, ZoneTilesGrid, BlockActionsPanel } from '../components/world/BiomePanels'
 import { ZoneSummaryPanel, ZoneBlocksGrid } from '../components/world/ZonePanels'
 import { PlayerHudCompact } from '../components/home/PlayerHudCompact'
 import { DailyQuestsCompact } from '../components/home/DailyQuestsCompact'
@@ -27,6 +27,8 @@ import { CollectionContent } from './Collection'
 import { ChestContent } from './ChestPage'
 import { stateToUiLabel, getMasteryState } from '../game/worldHelpers'
 import { getBlocksForBiome as getBlocks } from '../game/blockCatalog'
+import { COSMETICS_CATALOG, type Cosmetic } from '../game/cosmeticsCatalog'
+import { equipCosmetic, isCosmeticOwned, purchaseCosmetic } from '../rewards/cosmeticsService'
 
 function getParisDateKeyLocal(): string {
   const now = new Date()
@@ -54,6 +56,11 @@ export function WorldHubPage() {
   const [openBlock, setOpenBlock] = React.useState<{ tagId: string, biomeId: string } | null>(null)
   const [openChest, setOpenChest] = React.useState(false)
   const [openCollection, setOpenCollection] = React.useState(false)
+  const [openAtelier, setOpenAtelier] = React.useState(false)
+  const [cosmeticFilter, setCosmeticFilter] = React.useState<'all' | 'monuments' | 'effects' | 'npc'>('all')
+  const [atelierMessage, setAtelierMessage] = React.useState<string | null>(null)
+  const [atelierError, setAtelierError] = React.useState<string | null>(null)
+  const [atelierBusyId, setAtelierBusyId] = React.useState<string | null>(null)
   const [highlightBiomeId, setHighlightBiomeId] = React.useState<string | null>(null)
   const [highlightZoneTheme, setHighlightZoneTheme] = React.useState<string | null>(null)
 
@@ -309,8 +316,55 @@ export function WorldHubPage() {
     nav(`/theme/expedition?${params.toString()}`)
   }
 
+  const handlePurchaseCosmetic = async (cosmeticId: string) => {
+    if (!playerUid) return
+    setAtelierBusyId(cosmeticId)
+    setAtelierError(null)
+    setAtelierMessage(null)
+    try {
+      await purchaseCosmetic(playerUid, cosmeticId)
+      setAtelierMessage('Acheté !')
+    } catch (e: any) {
+      setAtelierError(e?.message || 'Achat impossible')
+    } finally {
+      setAtelierBusyId(null)
+    }
+  }
+
+  const handleEquipCosmetic = async (cosmeticId: string) => {
+    if (!playerUid) return
+    setAtelierBusyId(cosmeticId)
+    setAtelierError(null)
+    setAtelierMessage(null)
+    try {
+      await equipCosmetic(playerUid, cosmeticId)
+      setAtelierMessage('Équipé !')
+    } catch (e: any) {
+      setAtelierError(e?.message || 'Équipement impossible')
+    } finally {
+      setAtelierBusyId(null)
+    }
+  }
+
   const npcGuide = NPC_CATALOG[npcId]
   const npcLine = npcAdvice ? getNpcLine(npcId, npcAdvice.messageKey as any, {}) : null
+  const slotForType = (type: Cosmetic['type']) => {
+    if (type === 'monument_skin_biome') return 'biomeMonumentSkin'
+    if (type === 'monument_skin_zone') return 'zoneMonumentSkin'
+    if (type === 'tile_effect') return 'tileEffect'
+    return 'npcStyle'
+  }
+  const formatCosmeticClass = (base: string, id?: string | null) => id ? `${base} ${base}--${id.replace(/_/g, '-')}` : ''
+  const biomeSkinClass = formatCosmeticClass('monument-skin', rewards.equippedCosmetics?.biomeMonumentSkin)
+  const zoneSkinClass = formatCosmeticClass('monument-skin', rewards.equippedCosmetics?.zoneMonumentSkin)
+  const tileEffectClass = formatCosmeticClass('tile-effect', rewards.equippedCosmetics?.tileEffect)
+  const npcStyleClass = formatCosmeticClass('npc-style', rewards.equippedCosmetics?.npcStyle)
+  const filteredCosmetics = COSMETICS_CATALOG.filter((c) => {
+    if (cosmeticFilter === 'monuments') return c.type === 'monument_skin_biome' || c.type === 'monument_skin_zone'
+    if (cosmeticFilter === 'effects') return c.type === 'tile_effect'
+    if (cosmeticFilter === 'npc') return c.type === 'npc_style'
+    return true
+  })
 
   return (
     <div className="container grid">
@@ -323,7 +377,7 @@ export function WorldHubPage() {
           onChangeNpc={() => setShowNpcPicker(true)}
         />
         {!isObserver && (
-          <div className="card mc-card">
+          <div className={`card mc-card ${npcStyleClass}`}>
             <div className="row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                 <div style={{ fontSize: '2rem' }}>{npcGuide.avatar}</div>
@@ -334,7 +388,7 @@ export function WorldHubPage() {
               </div>
               <button className="mc-button secondary" onClick={() => setShowNpcPicker(true)}>Changer</button>
             </div>
-            <div className="mc-card" style={{ marginTop: 10, border: '2px solid var(--mc-border)' }}>
+            <div className={`mc-card ${npcStyleClass}`} style={{ marginTop: 10, border: '2px solid var(--mc-border)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, justifyContent: 'space-between' }}>
                   <div style={{ flex: 1 }}>
                     <div className="small" style={{ color: 'var(--mc-muted)' }}>Guide MaloCraft</div>
@@ -391,6 +445,7 @@ export function WorldHubPage() {
           bonusAwarded={daily?.bonusAwarded}
           onStart={onStartMission}
           onChangeNpc={() => setShowNpcPicker(true)}
+          className={npcStyleClass}
         />
       )}
 
@@ -398,6 +453,8 @@ export function WorldHubPage() {
         <div className="row" style={{ gap: 10, flexWrap: 'wrap' }}>
           <button className="mc-button secondary" onClick={() => setOpenChest(true)}>🎒 Inventaire</button>
           <button className="mc-button secondary" onClick={() => setOpenCollection(true)}>🏅 Collection</button>
+          <button className="mc-button" onClick={() => setOpenAtelier(true)}>🛠️ Atelier</button>
+          <span className="mc-chip gold">🪙 {rewards.coins || 0}</span>
         </div>
       )}
 
@@ -411,6 +468,7 @@ export function WorldHubPage() {
             monumentCount={biomeVisual.rebuild?.correctCount || 0}
             target={biomeVisual.rebuild?.target || 100}
             highlighted={highlightBiomeId === biome.id}
+            className={biomeSkinClass}
             onClick={() => { setOpenBiomeId(biome.id); setOpenZone(null); setOpenBlock(null); setHighlightBiomeId(null); setHighlightZoneTheme(null) }}
           />
         ))}
@@ -446,11 +504,13 @@ export function WorldHubPage() {
             onRebuild={focusBiomeVisual.rebuild?.status === 'ready' || focusBiomeVisual.rebuild?.status === 'rebuilding'
               ? () => nav(`/theme/reconstruction_biome_${selectedBiome.subject}?sessionKind=reconstruction_biome&subjectId=${selectedBiome.subject}`)
               : undefined}
+            className={biomeSkinClass}
           />
         )}
         <ZoneTilesGrid
           zones={biomeZones}
           highlightedTheme={highlightZoneTheme}
+          className={zoneSkinClass}
           onSelect={(theme) => { setOpenZone({ biomeId: openBiomeId!, theme }); setOpenBlock(null); setHighlightZoneTheme(null) }}
         />
       </Drawer>
@@ -476,6 +536,7 @@ export function WorldHubPage() {
                 if (selectedZoneData.visual.state !== 'rebuilt_ready' && selectedZoneData.visual.state !== 'rebuilding') return
                 nav(`/theme/reconstruction_${encodeURIComponent(selectedZoneData.theme)}?sessionKind=reconstruction_theme&subjectId=${selectedBiome.subject}&theme=${encodeURIComponent(selectedZoneData.theme)}`)
               }}
+              className={zoneSkinClass}
             />
             <div style={{ marginTop: 10 }}>
               <ZoneBlocksGrid blocks={selectedZoneData.blocks.map(b => ({
@@ -483,7 +544,7 @@ export function WorldHubPage() {
                 label: getTagMeta(b.tagId).label,
                 description: b.description,
                 visual: b.visual,
-              }))} onSelect={(tagId) => setOpenBlock({ tagId, biomeId: selectedBiome.id })} />
+              }))} className={tileEffectClass} onSelect={(tagId) => setOpenBlock({ tagId, biomeId: selectedBiome.id })} />
             </div>
           </>
         )}
@@ -518,6 +579,104 @@ export function WorldHubPage() {
             )}
           </>
         )}
+      </Drawer>
+
+      <Drawer
+        open={openAtelier}
+        onClose={() => { setOpenAtelier(false); setAtelierMessage(null); setAtelierError(null); setAtelierBusyId(null) }}
+        title="Atelier"
+        zIndex={970}
+      >
+        <div className="row" style={{ justifyContent: 'space-between', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+          <div>
+            <div className="small" style={{ color: 'var(--mc-muted)' }}>Solde</div>
+            <div className="row" style={{ gap: 8, alignItems: 'center' }}>
+              <span className="mc-chip gold">🪙 {rewards.coins || 0}</span>
+              <span className="mc-chip">Niveau {rewards.level || 1}</span>
+            </div>
+          </div>
+          <div className="row" style={{ gap: 8, flexWrap: 'wrap' }}>
+            {[
+              { id: 'all', label: 'Tous' },
+              { id: 'monuments', label: 'Monuments' },
+              { id: 'effects', label: 'Effets' },
+              { id: 'npc', label: 'PNJ' },
+            ].map(f => (
+              <button
+                key={f.id}
+                className={`mc-chip ${cosmeticFilter === f.id ? 'accent' : ''}`}
+                onClick={() => setCosmeticFilter(f.id as any)}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+        </div>
+        {atelierMessage && <div className="small" style={{ color: '#7fffb2', marginBottom: 8 }}>{atelierMessage}</div>}
+        {atelierError && <div className="small" style={{ color: '#ff9fb0', marginBottom: 8 }}>{atelierError}</div>}
+        <div className="grid2">
+          {filteredCosmetics.map((item) => {
+            const owned = isCosmeticOwned(item, rewards)
+            const equipped = rewards.equippedCosmetics?.[slotForType(item.type)] === item.id
+            const locked = !owned && !!item.unlockLevel && (rewards.level || 1) < item.unlockLevel
+            const purchasable = !owned && typeof item.costCoins === 'number' && !locked
+            const canBuy = purchasable && (rewards.coins || 0) >= (item.costCoins || 0)
+            const previewClass = item.type === 'tile_effect'
+              ? formatCosmeticClass('tile-effect', item.id)
+              : item.type === 'npc_style'
+                ? formatCosmeticClass('npc-style', item.id)
+                : formatCosmeticClass('monument-skin', item.id)
+            const typeIcon = item.type === 'tile_effect'
+              ? '✨'
+              : item.type === 'npc_style'
+                ? '🗨️'
+                : '🏛️'
+            return (
+              <div key={item.id} className={`mc-card ${previewClass}`} style={{ position: 'relative', overflow: 'hidden' }}>
+                <div className="row" style={{ justifyContent: 'space-between', alignItems: 'flex-start', gap: 8 }}>
+                  <div>
+                    <div className="small" style={{ color: 'var(--mc-muted)' }}>{typeIcon} {item.type === 'npc_style' ? 'PNJ' : item.type === 'tile_effect' ? 'Effet' : 'Monument'}</div>
+                    <div style={{ fontWeight: 900 }}>{item.label}</div>
+                    <div className="small" style={{ color: 'var(--mc-muted)' }}>{item.description}</div>
+                  </div>
+                  {equipped && <span className="mc-chip accent">Équipé</span>}
+                </div>
+                <div className="row" style={{ gap: 8, marginTop: 8, flexWrap: 'wrap' }}>
+                  {typeof item.costCoins === 'number' && (
+                    <span className="mc-chip gold">🪙 {item.costCoins}</span>
+                  )}
+                  {item.unlockLevel && (
+                    <span className={`mc-chip ${owned ? 'accent' : 'muted'}`}>Niveau {item.unlockLevel}</span>
+                  )}
+                </div>
+                <div className="row" style={{ gap: 8, marginTop: 10, flexWrap: 'wrap' }}>
+                  {locked && <span className="mc-chip muted">Niveau {item.unlockLevel} requis</span>}
+                  {!locked && !owned && purchasable && (
+                    <button
+                      className="mc-button"
+                      disabled={!canBuy || atelierBusyId === item.id}
+                      onClick={() => handlePurchaseCosmetic(item.id)}
+                    >
+                      {canBuy ? `Acheter (${item.costCoins} coins)` : 'Manque de coins'}
+                    </button>
+                  )}
+                  {!locked && owned && !equipped && (
+                    <button
+                      className="mc-button secondary"
+                      disabled={atelierBusyId === item.id}
+                      onClick={() => handleEquipCosmetic(item.id)}
+                    >
+                      Équiper
+                    </button>
+                  )}
+                  {owned && !purchasable && !equipped && !locked && (
+                    <span className="mc-chip accent">Débloqué</span>
+                  )}
+                </div>
+              </div>
+            )
+          })}
+        </div>
       </Drawer>
 
       <Drawer open={openChest} onClose={() => setOpenChest(false)} title="Coffre" zIndex={980}>

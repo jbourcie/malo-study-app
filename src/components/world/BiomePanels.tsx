@@ -35,11 +35,12 @@ type BiomeSummaryProps = {
   rebuild: { correctCount: number; target: number; statusLabel: string }
   onRebuild?: () => void
   canRebuild?: boolean
+  className?: string
 }
 
-export function BiomeSummaryPanel({ biome, rebuild, onRebuild, canRebuild }: BiomeSummaryProps) {
+export function BiomeSummaryPanel({ biome, rebuild, onRebuild, canRebuild, className }: BiomeSummaryProps) {
   return (
-    <div className="card mc-card">
+    <div className={`card mc-card ${className || ''}`}>
       <div className="row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
           <div className="small" style={{ color: 'var(--mc-muted)' }}>Biome</div>
@@ -67,11 +68,12 @@ type ZoneTilesGridProps = {
   zones: ZoneViewModel[]
   onSelect: (theme: string) => void
   highlightedTheme?: string | null
+  className?: string
 }
 
-export function ZoneTilesGrid({ zones, onSelect, highlightedTheme }: ZoneTilesGridProps) {
+export function ZoneTilesGrid({ zones, onSelect, highlightedTheme, className }: ZoneTilesGridProps) {
   return (
-    <div className="card mc-card">
+    <div className={`card mc-card ${className || ''}`}>
       <div className="row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
           <div className="small" style={{ color: 'var(--mc-muted)' }}>Zones du biome</div>
@@ -89,6 +91,7 @@ export function ZoneTilesGrid({ zones, onSelect, highlightedTheme }: ZoneTilesGr
             rebuild={{ count: zone.visual.rebuild?.correctCount || 0, target: zone.visual.rebuild?.target || 35 }}
             onClick={() => onSelect(zone.theme)}
             highlighted={highlightedTheme === zone.theme}
+            className={className}
           />
         ))}
       </div>
@@ -101,9 +104,10 @@ type BlockGridProps = {
   availability: Record<string, boolean>
   selectedBlockId?: string | null
   onSelect: (tagId: string) => void
+  className?: string
 }
 
-export function BlockGrid({ blocks, availability, selectedBlockId, onSelect }: BlockGridProps) {
+export function BlockGrid({ blocks, availability, selectedBlockId, onSelect, className }: BlockGridProps) {
   return (
     <div className="grid" style={{ gap: 12 }}>
       {blocks.map((block) => {
@@ -118,6 +122,7 @@ export function BlockGrid({ blocks, availability, selectedBlockId, onSelect }: B
             chip={`${block.masteryState === 'mastered' ? '🟨' : block.masteryState === 'progressing' ? '🟩' : '🟫'} ${stateToUiLabel(block.masteryState)}`}
             onClick={() => hasQuestions && onSelect(block.tagId)}
             selectable={hasQuestions}
+            className={className}
           />
         )
       })}

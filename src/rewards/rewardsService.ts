@@ -13,12 +13,15 @@ export async function getOrInitRewards(uid: string): Promise<UserRewards> {
     return {
       xp: data.xp || 0,
       level: data.level || 1,
+      coins: data.coins || 0,
       badges: Array.isArray(data.badges) ? data.badges : [],
       masteryByTag: typeof data.masteryByTag === 'object' && data.masteryByTag ? data.masteryByTag : {},
       blockProgress: typeof data.blockProgress === 'object' && data.blockProgress ? data.blockProgress : {},
       collectibles: data.collectibles && Array.isArray(data.collectibles.owned)
         ? { owned: data.collectibles.owned, equippedAvatarId: data.collectibles.equippedAvatarId ?? null }
         : { owned: [], equippedAvatarId: null },
+      ownedCosmetics: typeof data.ownedCosmetics === 'object' && data.ownedCosmetics ? data.ownedCosmetics : {},
+      equippedCosmetics: typeof data.equippedCosmetics === 'object' && data.equippedCosmetics ? data.equippedCosmetics : {},
       malocraft: data.malocraft && Array.isArray(data.malocraft.ownedLootIds)
         ? { ownedLootIds: data.malocraft.ownedLootIds, equippedAvatarId: data.malocraft.equippedAvatarId ?? null, biomeMilestones: data.malocraft.biomeMilestones || {} }
         : { ownedLootIds: [], equippedAvatarId: null, biomeMilestones: {} },
@@ -27,13 +30,27 @@ export async function getOrInitRewards(uid: string): Promise<UserRewards> {
       updatedAt: data.updatedAt,
     }
   }
-  const initial: UserRewards = { xp: 0, level: 1, badges: [], masteryByTag: {}, blockProgress: {}, collectibles: { owned: [], equippedAvatarId: null }, malocraft: { ownedLootIds: [], equippedAvatarId: null, biomeMilestones: {} }, zoneRebuildProgress: {}, biomeRebuildProgress: {}, updatedAt: serverTimestamp() as any }
+  const initial: UserRewards = {
+    xp: 0,
+    level: 1,
+    coins: 0,
+    badges: [],
+    masteryByTag: {},
+    blockProgress: {},
+    collectibles: { owned: [], equippedAvatarId: null },
+    ownedCosmetics: {},
+    equippedCosmetics: {},
+    malocraft: { ownedLootIds: [], equippedAvatarId: null, biomeMilestones: {} },
+    zoneRebuildProgress: {},
+    biomeRebuildProgress: {},
+    updatedAt: serverTimestamp() as any,
+  }
   await setDoc(ref, initial)
   return initial
 }
 
-export async function awardSessionRewards(uid: string, sessionId: string | null, deltaXp: number, store: RewardStore = createFirestoreRewardStore()): Promise<UserRewards> {
-  if (deltaXp <= 0) return await getOrInitRewards(uid)
+export async function awardSessionRewards(uid: string, sessionId: string | null, deltaXp: number, coinsEarned = 0, store: RewardStore = createFirestoreRewardStore()): Promise<UserRewards> {
+  if (deltaXp <= 0 && coinsEarned <= 0) return await getOrInitRewards(uid)
   let result: UserRewards | null = null
 
   await store.runTransaction(async (tx) => {
@@ -41,19 +58,22 @@ export async function awardSessionRewards(uid: string, sessionId: string | null,
     const eventAlreadyExists = sessionId ? await tx.getRewardEvent(uid, sessionId) : null
 
     if (sessionId && eventAlreadyExists) {
-      result = existing || { xp: 0, level: 1 }
+      result = existing ? { ...existing, coins: existing.coins || 0 } : { xp: 0, level: 1, coins: 0 }
       return
     }
 
     const current: UserRewards = {
       xp: existing?.xp || 0,
       level: existing?.level || 1,
+      coins: existing?.coins || 0,
       badges: Array.isArray(existing?.badges) ? existing.badges : [],
       masteryByTag: typeof existing?.masteryByTag === 'object' && existing?.masteryByTag ? existing.masteryByTag : {},
       blockProgress: typeof existing?.blockProgress === 'object' && existing?.blockProgress ? existing.blockProgress : {},
       collectibles: existing?.collectibles && Array.isArray(existing.collectibles.owned)
         ? { owned: existing.collectibles.owned, equippedAvatarId: existing.collectibles.equippedAvatarId ?? null }
         : { owned: [], equippedAvatarId: null },
+      ownedCosmetics: typeof existing?.ownedCosmetics === 'object' && existing.ownedCosmetics ? existing.ownedCosmetics : {},
+      equippedCosmetics: typeof existing?.equippedCosmetics === 'object' && existing.equippedCosmetics ? existing.equippedCosmetics : {},
       malocraft: existing?.malocraft && Array.isArray(existing.malocraft.ownedLootIds)
         ? { ownedLootIds: existing.malocraft.ownedLootIds, equippedAvatarId: existing.malocraft.equippedAvatarId ?? null, biomeMilestones: existing.malocraft.biomeMilestones || {} }
         : { ownedLootIds: [], equippedAvatarId: null, biomeMilestones: {} },
@@ -62,10 +82,12 @@ export async function awardSessionRewards(uid: string, sessionId: string | null,
       updatedAt: existing?.updatedAt,
     }
     const newXp = Math.max(0, (current.xp || 0) + deltaXp)
+    const newCoins = Math.max(0, (current.coins || 0) + Math.max(0, coinsEarned))
     const levelInfo = computeLevelFromXp(newXp)
     const nextRewards: UserRewards = {
       xp: newXp,
       level: levelInfo.level,
+      coins: newCoins,
       badges: current.badges || [],
       masteryByTag: current.masteryByTag || {},
       blockProgress: current.blockProgress || {},
@@ -73,6 +95,8 @@ export async function awardSessionRewards(uid: string, sessionId: string | null,
         owned: current.collectibles?.owned || [],
         equippedAvatarId: current.collectibles?.equippedAvatarId ?? null,
       },
+      ownedCosmetics: current.ownedCosmetics || {},
+      equippedCosmetics: current.equippedCosmetics || {},
       malocraft: current.malocraft || { ownedLootIds: [], equippedAvatarId: null, biomeMilestones: {} },
       zoneRebuildProgress: current.zoneRebuildProgress || {},
       biomeRebuildProgress: current.biomeRebuildProgress || {},
@@ -84,13 +108,14 @@ export async function awardSessionRewards(uid: string, sessionId: string | null,
       tx.setRewardEvent(uid, sessionId, {
         sessionId,
         deltaXp,
+        coinsEarned,
         awardedAt: store.createTimestamp(),
       })
     }
     result = nextRewards
   })
 
-  return result || { xp: 0, level: 1 }
+  return result || { xp: 0, level: 1, coins: 0 }
 }
 
 export async function applyMasteryEvents(opts: {
@@ -106,10 +131,13 @@ export async function applyMasteryEvents(opts: {
     const current: UserRewards = {
       xp: existing?.xp || 0,
       level: existing?.level || 1,
+      coins: existing?.coins || 0,
       badges: Array.isArray(existing?.badges) ? existing.badges : [],
       masteryByTag: typeof existing?.masteryByTag === 'object' && existing?.masteryByTag ? existing.masteryByTag : {},
       blockProgress: typeof existing?.blockProgress === 'object' && existing?.blockProgress ? existing.blockProgress : {},
       collectibles: existing?.collectibles,
+      ownedCosmetics: existing?.ownedCosmetics,
+      equippedCosmetics: existing?.equippedCosmetics,
       malocraft: existing?.malocraft,
       zoneRebuildProgress: existing?.zoneRebuildProgress,
       biomeRebuildProgress: existing?.biomeRebuildProgress,
@@ -167,6 +195,8 @@ export async function applyMasteryEvents(opts: {
       ...current,
       masteryByTag: mastery,
       blockProgress,
+      ownedCosmetics: current.ownedCosmetics || {},
+      equippedCosmetics: current.equippedCosmetics || {},
       zoneRebuildProgress: current.zoneRebuildProgress || {},
       biomeRebuildProgress: current.biomeRebuildProgress || {},
       updatedAt: store.createTimestamp(),

@@ -10,6 +10,7 @@ type Props = {
   bonusAwarded?: boolean
   onStart?: (quest?: DailyQuest | null) => void
   onChangeNpc?: () => void
+  className?: string
 }
 
 const questIcons: Record<string, string> = {
@@ -18,13 +19,13 @@ const questIcons: Record<string, string> = {
   progress: '🚀',
 }
 
-export function DailyQuestsCompact({ npcId, quests, loading = false, bonusAwarded = false, onStart, onChangeNpc }: Props) {
+export function DailyQuestsCompact({ npcId, quests, loading = false, bonusAwarded = false, onStart, onChangeNpc, className }: Props) {
   const npc = NPC_CATALOG[npcId]
   const allCompleted = quests.length > 0 && quests.every(q => q.completed)
   const primaryQuest = quests.find(q => q.tagId) || quests[0]
 
   return (
-    <div className="card mc-card">
+    <div className={`card mc-card ${className || ''}`}>
       <div className="row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <div style={{ fontSize: '2rem' }}>{npc.avatar}</div>

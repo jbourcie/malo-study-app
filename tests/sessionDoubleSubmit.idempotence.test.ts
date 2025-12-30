@@ -12,15 +12,16 @@ describe('session replay idempotence', () => {
       { exerciseId: 'q2', tags: ['math_fractions'], correct: false },
     ]
 
-    await awardSessionRewards(uid, sessionId, 18, store)
+    await awardSessionRewards(uid, sessionId, 18, 1, store)
     await applyMasteryEvents({ uid, sessionId, items }, store)
     const afterFirst = store.getState(uid)
 
-    await awardSessionRewards(uid, sessionId, 18, store)
+    await awardSessionRewards(uid, sessionId, 18, 1, store)
     await applyMasteryEvents({ uid, sessionId, items }, store)
     const afterSecond = store.getState(uid)
 
     expect(afterSecond.rewards?.xp).toBe(afterFirst.rewards?.xp)
+    expect(afterSecond.rewards?.coins).toBe(afterFirst.rewards?.coins)
     expect(afterSecond.rewards?.masteryByTag?.math_fractions?.score).toBe(afterFirst.rewards?.masteryByTag?.math_fractions?.score)
     expect(afterSecond.rewards?.blockProgress?.math_fractions?.attempts).toBe(afterFirst.rewards?.blockProgress?.math_fractions?.attempts)
     expect(Array.from(afterSecond.events.keys()).sort()).toEqual([

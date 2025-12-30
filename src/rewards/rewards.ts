@@ -5,6 +5,7 @@ export type MasteryState = 'discovering' | 'progressing' | 'mastered'
 export type UserRewards = {
   xp: number
   level: number
+  coins?: number
   badges?: string[]
   masteryByTag?: Record<string, { state: MasteryState, score: number, updatedAt?: Timestamp }>
   blockProgress?: Record<string, {
@@ -18,6 +19,13 @@ export type UserRewards = {
   collectibles?: {
     owned: string[]
     equippedAvatarId?: string
+  }
+  ownedCosmetics?: Record<string, boolean>
+  equippedCosmetics?: {
+    biomeMonumentSkin?: string
+    zoneMonumentSkin?: string
+    tileEffect?: string
+    npcStyle?: string
   }
   malocraft?: {
     ownedLootIds: string[]

@@ -23,6 +23,7 @@ export function PlayerHudCompact({
   const badges = rewards.badges || []
   const recentBadges = badges.slice(-3).map(id => BADGES.find(b => b.id === id)).filter(Boolean)
   const avatar: CollectibleDef | undefined = equippedAvatarId ? COLLECTIBLES.find(c => c.id === equippedAvatarId) : undefined
+  const coins = rewards.coins || 0
 
   return (
     <div className="card mc-card">
@@ -37,7 +38,10 @@ export function PlayerHudCompact({
             <div className="small">XP {rewards.xp || 0} · Prochain : {levelInfo.xpIntoLevel}/{levelInfo.xpForNext}</div>
           </div>
         </div>
-        {streak > 0 && <span className="mc-chip accent">🔥 Streak {streak} j</span>}
+        <div className="row" style={{ gap: 6 }}>
+          <span className="mc-chip gold">🪙 {coins}</span>
+          {streak > 0 && <span className="mc-chip accent">🔥 Streak {streak} j</span>}
+        </div>
       </div>
       {recentBadges.length > 0 && (
         <div style={{ marginTop: 8 }}>

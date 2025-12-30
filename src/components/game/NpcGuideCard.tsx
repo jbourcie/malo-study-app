@@ -11,6 +11,7 @@ type Props = {
   onChangeNpc: () => void
   loading?: boolean
   bonusAwarded?: boolean
+  className?: string
 }
 
 const questIcons: Record<string, string> = {
@@ -19,13 +20,13 @@ const questIcons: Record<string, string> = {
   progress: '🚀',
 }
 
-export function NpcGuideCard({ npcId, quests, onStart, onChangeNpc, loading = false, bonusAwarded = false }: Props) {
+export function NpcGuideCard({ npcId, quests, onStart, onChangeNpc, loading = false, bonusAwarded = false, className }: Props) {
   const npc = NPC_CATALOG[npcId]
   const allCompleted = quests.length > 0 && quests.every(q => q.completed)
   const primaryQuest = quests.find(q => q.tagId) || quests[0]
 
   return (
-    <div className="card mc-card">
+    <div className={`card mc-card ${className || ''}`}>
       <div className="row" style={{ justifyContent:'space-between', alignItems:'center', gap:10 }}>
         <div style={{ display:'flex', alignItems:'center', gap:10 }}>
           <div style={{ fontSize:'2rem' }}>{npc.avatar}</div>

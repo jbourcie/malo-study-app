@@ -30,12 +30,13 @@ type BiomeTileProps = {
   target?: number
   onClick: () => void
   highlighted?: boolean
+  className?: string
 }
 
-export function BiomeTile({ biome, totalBlocks, masteredCount, monumentCount, target = 100, onClick, highlighted = false }: BiomeTileProps) {
+export function BiomeTile({ biome, totalBlocks, masteredCount, monumentCount, target = 100, onClick, highlighted = false, className }: BiomeTileProps) {
   const progress = totalBlocks > 0 ? Math.round((masteredCount / totalBlocks) * 100) : 0
   return (
-    <div className="card mc-card world-card" role="button" tabIndex={0} onClick={onClick} onKeyDown={(e) => {
+    <div className={`card mc-card world-card ${className || ''}`} role="button" tabIndex={0} onClick={onClick} onKeyDown={(e) => {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick() }
     }} style={highlighted ? { boxShadow: '0 0 24px rgba(122,162,255,0.55)', borderColor: 'rgba(122,162,255,0.8)' } : undefined}>
       <div className="row" style={{ alignItems: 'center', gap: 12 }}>
@@ -66,13 +67,14 @@ type ZoneTileProps = {
   rebuild: { count: number; target: number }
   onClick: () => void
   highlighted?: boolean
+  className?: string
 }
 
-export function ZoneTile({ theme, blocksCount, stablePct = 0, weatheredPct = 0, rebuild, onClick, highlighted = false }: ZoneTileProps) {
+export function ZoneTile({ theme, blocksCount, stablePct = 0, weatheredPct = 0, rebuild, onClick, highlighted = false, className }: ZoneTileProps) {
   const state = getMonumentState(rebuild.count, rebuild.target)
   const stateLabel = state === 'active' ? 'Reconstruite' : state === 'building' ? 'En chantier' : 'Ruines'
   return (
-    <div className="mc-card zone-card" role="button" tabIndex={0} onClick={onClick} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick() } }} style={highlighted ? { boxShadow: '0 0 18px rgba(122,162,255,0.55)', borderColor: 'rgba(122,162,255,0.8)' } : undefined}>
+    <div className={`mc-card zone-card ${className || ''}`} role="button" tabIndex={0} onClick={onClick} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick() } }} style={highlighted ? { boxShadow: '0 0 18px rgba(122,162,255,0.55)', borderColor: 'rgba(122,162,255,0.8)' } : undefined}>
       <div className="row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
           <div style={{ fontWeight: 800 }}>{theme}</div>
@@ -105,13 +107,14 @@ type BlockTileProps = {
   chip?: string
   onClick?: () => void
   selectable?: boolean
+  className?: string
 }
 
-export function BlockTile({ label, description, visual, chip, onClick, selectable = true }: BlockTileProps) {
+export function BlockTile({ label, description, visual, chip, onClick, selectable = true, className }: BlockTileProps) {
   const chipTone = visual.state === 'beautified' ? 'gold' : visual.state === 'repaired' ? 'accent' : ''
   return (
     <div
-      className={`block-card mc-card ${visual.state === 'beautified' ? 'block-shiny' : visual.state === 'repaired' ? 'block-solid' : 'block-cracked'} ${visual.weathered ? 'block-weathered' : ''}`}
+      className={`block-card mc-card ${visual.state === 'beautified' ? 'block-shiny' : visual.state === 'repaired' ? 'block-solid' : 'block-cracked'} ${visual.weathered ? 'block-weathered' : ''} ${className || ''}`}
       role={selectable ? 'button' : undefined}
       tabIndex={selectable ? 0 : -1}
       onClick={selectable ? onClick : undefined}

@@ -29,6 +29,7 @@ import { getNpcLine, type NpcDialogueLine } from '../game/npc/npcDialogue'
 import { getPreferredNpcId } from '../game/npc/npcStorage'
 import { NPC_CATALOG, type NpcId } from '../game/npc/npcCatalog'
 import { applyZoneRebuildProgress, applyBiomeRebuildProgress } from '../game/rebuildService'
+import { computeCoinsEarned } from '../rewards/cosmeticsService'
 
 type AnswerState = Record<string, any>
 type LessonReminderState = {
@@ -184,6 +185,7 @@ export function ThemeSessionPage() {
   const [sessionRewards, setSessionRewards] = React.useState<{
     deltaXp: number
     levelUp: boolean
+    coinsEarned?: number
     newRewards?: any
     prevRewards?: any
     unlockedBadges?: string[]
@@ -516,7 +518,7 @@ export function ThemeSessionPage() {
         durationSec,
       })
 
-      const rewards = await saveAttemptAndRewards({
+      const attemptRewards = await saveAttemptAndRewards({
         uid: playerUid,
         subjectId: theme.subjectId as SubjectId,
         themeId,
@@ -527,6 +529,7 @@ export function ThemeSessionPage() {
       })
 
       const correctCount = items.filter(i => i.answered && i.correct).length
+      const coinsEarned = computeCoinsEarned(correctCount)
       const streaks: number[] = []
       let currentStreak = 0
       let comebackCount = 0
@@ -609,7 +612,7 @@ export function ThemeSessionPage() {
       let unlockedBadges: string[] = []
       let rolledCollectibleId: string | null = null
       try {
-        const res = await awardSessionRewards(playerUid, progress.attemptId || null, deltaXp)
+        const res = await awardSessionRewards(playerUid, progress.attemptId || null, deltaXp, coinsEarned)
         newRewards = res
         levelUp = (res?.level || 1) > (liveRewards?.level || 1)
         await applyMasteryEvents({
@@ -742,7 +745,7 @@ export function ThemeSessionPage() {
         console.error('awardSessionRewards failed', e)
         // fallback: do not block UX
       }
-      setSessionRewards({ deltaXp, levelUp, newRewards, prevRewards, unlockedBadges, collectibleId: rolledCollectibleId, xpBreakdown: xpOutcome.breakdown, blockProgress })
+      setSessionRewards({ deltaXp, levelUp, coinsEarned, newRewards, prevRewards, unlockedBadges, collectibleId: rolledCollectibleId, xpBreakdown: xpOutcome.breakdown, blockProgress })
       const blockLabel = blockProgress?.tagId ? getTagMeta(blockProgress.tagId)?.label || null : (sessionTargetTagId ? getTagMeta(sessionTargetTagId)?.label || null : null)
       setNpcEndLine(prev => {
         const endLine = getNpcLine(npcId, 'session_end', {
@@ -767,7 +770,7 @@ export function ThemeSessionPage() {
         .map(t => t.tagId!)
 
       setWeakTags(sortedWeak)
-      setResult({ score: rewards.score, outOf: rewards.outOf, durationSec, ...rewards })
+      setResult({ score: attemptRewards.score, outOf: attemptRewards.outOf, durationSec, ...attemptRewards, coinsGain: coinsEarned })
 
       // feedback: weakest tag from incorrect answers, improved from highest delta
       const incorrectTags = items.filter(i => !i.correct).flatMap(i => i.tags || [])
@@ -782,7 +785,7 @@ export function ThemeSessionPage() {
       if (tagDelta.size) {
         improvedTag = Array.from(tagDelta.entries()).sort((a, b) => b[1] - a[1])[0]?.[0]
       }
-      const accuracy = rewards.outOf ? (rewards.score / rewards.outOf) * 100 : 0
+      const accuracy = attemptRewards.outOf ? (attemptRewards.score / attemptRewards.outOf) * 100 : 0
       const fb = getSessionFeedback({
         accuracy,
         weakestTag: incorrectTags[0] || weakTags[0],
@@ -917,6 +920,9 @@ export function ThemeSessionPage() {
               <h3 style={{ marginTop: 0 }}>Bravo {user?.displayName?.split(' ')[0] || '!'}</h3>
               <div className="small">Score {result?.score}/{result?.outOf}</div>
               <div className="small" style={{ marginTop: 6 }}>+{sessionRewards?.deltaXp ?? 0} XP</div>
+              {sessionRewards?.coinsEarned !== undefined && (
+                <div className="small" style={{ marginTop: 4 }}>+{sessionRewards.coinsEarned} coins</div>
+              )}
               {sessionRewards?.xpBreakdown && (
                 <div className="small" style={{ marginTop: 4 }}>
                   Base {sessionRewards.xpBreakdown.base} · série +{sessionRewards.xpBreakdown.streakBonus} · retour +{sessionRewards.xpBreakdown.comebackBonus} · session +{sessionRewards.xpBreakdown.completion}
@@ -973,6 +979,11 @@ export function ThemeSessionPage() {
           {sessionRewards && (
             <div className="small" style={{ marginTop: 8 }}>
               +{sessionRewards.deltaXp} XP {sessionRewards.levelUp ? `· 🎉 Niveau ${sessionRewards.newRewards?.level}` : ''}
+            </div>
+          )}
+          {sessionRewards?.coinsEarned !== undefined && (
+            <div className="small" style={{ marginTop: 4 }}>
+              +{sessionRewards.coinsEarned} coins gagnés
             </div>
           )}
           {sessionRewards?.xpBreakdown && (

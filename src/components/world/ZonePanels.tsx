@@ -11,12 +11,13 @@ type ZoneSummaryProps = {
   stablePct?: number
   onRebuild?: () => void
   canRebuild?: boolean
+  className?: string
 }
 
-export function ZoneSummaryPanel({ biome, theme, rebuild, weatheredPct = 0, stablePct = 0, onRebuild, canRebuild }: ZoneSummaryProps) {
+export function ZoneSummaryPanel({ biome, theme, rebuild, weatheredPct = 0, stablePct = 0, onRebuild, canRebuild, className }: ZoneSummaryProps) {
   const state = rebuild.correctCount >= rebuild.target ? 'Reconstruite' : rebuild.correctCount > 0 ? 'En chantier' : 'Ruines'
   return (
-    <div className="card mc-card">
+    <div className={`card mc-card ${className || ''}`}>
       <div className="row" style={{ justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
           <div className="small" style={{ color: 'var(--mc-muted)' }}>Zone</div>
@@ -60,9 +61,10 @@ type ZoneBlocksGridProps = {
     }
   }>
   onSelect?: (tagId: string) => void
+  className?: string
 }
 
-export function ZoneBlocksGrid({ blocks, onSelect }: ZoneBlocksGridProps) {
+export function ZoneBlocksGrid({ blocks, onSelect, className }: ZoneBlocksGridProps) {
   return (
     <div className="grid" style={{ gap: 12 }}>
       {blocks.map((block) => (
@@ -74,6 +76,7 @@ export function ZoneBlocksGrid({ blocks, onSelect }: ZoneBlocksGridProps) {
           chip={undefined}
           onClick={onSelect ? () => onSelect(block.tagId) : undefined}
           selectable={!!onSelect}
+          className={className}
         />
       ))}
     </div>

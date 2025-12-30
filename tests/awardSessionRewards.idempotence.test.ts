@@ -8,14 +8,15 @@ describe('awardSessionRewards idempotence', () => {
     const uid = 'user-1'
     const sessionId = 'session-123'
 
-    await awardSessionRewards(uid, sessionId, 24, store)
+    await awardSessionRewards(uid, sessionId, 24, 10, store)
     const afterFirst = store.getState(uid)
 
-    await awardSessionRewards(uid, sessionId, 24, store)
+    await awardSessionRewards(uid, sessionId, 24, 10, store)
     const afterSecond = store.getState(uid)
 
     expect(afterFirst.rewards?.xp).toBe(24)
     expect(afterSecond.rewards?.xp).toBe(24)
+    expect(afterSecond.rewards?.coins).toBe(10)
     expect(Array.from(afterSecond.events.keys())).toEqual([sessionId])
   })
 })

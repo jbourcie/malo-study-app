@@ -258,7 +258,7 @@ export async function saveAttemptAndRewards(args: {
   })
 
   const xpGain = score * 10
-  const coinsGain = Math.max(1, Math.min(3, Math.round(score / Math.max(1, outOf) * 3)))
+  const coinsGain = Math.max(0, score)
 
   let rewards: { xpGain: number, coinsGain: number, streakDays: number, badges: string[] } | null = null
 
