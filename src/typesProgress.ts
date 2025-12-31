@@ -6,6 +6,7 @@ export type TagMasteryBucket = 'weak' | 'developing' | 'nearly' | 'mastered'
 export interface AttemptItem {
   id?: string
   exerciseId: string
+  questionId?: string
   subjectId: SubjectId
   themeId: string
   difficulty: 1 | 2 | 3

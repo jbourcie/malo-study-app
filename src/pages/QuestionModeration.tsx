@@ -1,5 +1,5 @@
 import React from 'react'
-import { collection, getDocs, query, where, writeBatch } from 'firebase/firestore'
+import { collection, getDocs, getDoc, query, where, writeBatch, doc } from 'firebase/firestore'
 import { db } from '../firebase'
 import { fetchQuestionsForModeration, setQuestionStatus, updateQuestionContent, deleteQuestion, archiveQuestion, softDeleteQuestion } from '../data/questions'
 import type { ModerationFilters } from '../data/questions'
@@ -7,6 +7,8 @@ import type { QualityStatus, QuestionV1 } from '../domain/questions/types'
 import { useAuth } from '../state/useAuth'
 import { TAG_CATALOG, getTagMeta } from '../taxonomy/tagCatalog'
 import { loadNpcPriorityTags, saveNpcPriorityTags } from '../data/npcPriorities'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { getReportCountForQuestion } from '../data/questionReports'
 
 const STATUS_OPTIONS: QualityStatus[] = ['draft', 'reviewed', 'published', 'rejected', 'archived']
 
@@ -20,6 +22,8 @@ function statusLabel(status: QualityStatus) {
 
 export function QuestionModerationPage() {
   const { user } = useAuth()
+  const nav = useNavigate()
+  const location = useLocation()
   const [filters, setFilters] = React.useState<ModerationFilters & { includeDeleted?: boolean }>({ status: 'draft', includeDeleted: false })
   const [questions, setQuestions] = React.useState<QuestionV1[]>([])
   const [loading, setLoading] = React.useState(false)
@@ -35,11 +39,36 @@ export function QuestionModerationPage() {
   const [prioritySearch, setPrioritySearch] = React.useState<string>('')
   const [children, setChildren] = React.useState<Array<{ id: string, displayName: string }>>([])
   const [selectedChildPriority, setSelectedChildPriority] = React.useState<string>('default')
+  const [reportCount, setReportCount] = React.useState<number | null>(null)
+  const [reportCountLoading, setReportCountLoading] = React.useState(false)
+  const focusQuestionIdRef = React.useRef<string | null>(null)
+
+  React.useEffect(() => {
+    const stateId = (location.state as any)?.focusQuestionId
+    const queryId = new URLSearchParams(location.search).get('questionId')
+    const targetId = stateId || queryId
+    if (targetId && targetId !== focusQuestionIdRef.current) {
+      focusQuestionIdRef.current = targetId
+      setFilters(f => ({ ...f, status: undefined, includeDeleted: true }))
+      setSelectedId(targetId)
+    }
+  }, [location])
 
   const load = React.useCallback(async () => {
     setLoading(true)
     try {
-      const res = await fetchQuestionsForModeration(filters)
+      let res = await fetchQuestionsForModeration(filters)
+      if (focusQuestionIdRef.current && !res.find(q => q.id === focusQuestionIdRef.current)) {
+        try {
+          const snap = await getDoc(doc(db, 'questions', focusQuestionIdRef.current))
+          if (snap.exists()) {
+            const data = { id: snap.id, ...(snap.data() as any) } as QuestionV1
+            res = [data, ...res]
+          }
+        } catch (e) {
+          console.warn('focus question fetch failed', e)
+        }
+      }
       setQuestions(res)
       setSelectedIds((prev) => {
         const next = new Set<string>()
@@ -49,6 +78,13 @@ export function QuestionModerationPage() {
       if (selectedId) {
         const found = res.find(q => q.id === selectedId)
         if (found) setEdit(found)
+        setSelectedIds(prev => {
+          const next = new Set<string>()
+          res.forEach(q => {
+            if (prev.has(q.id) || q.id === selectedId) next.add(q.id)
+          })
+          return next
+        })
       }
     } finally {
       setLoading(false)
@@ -83,6 +119,10 @@ export function QuestionModerationPage() {
     })()
   }, [selectedChildPriority])
 
+  React.useEffect(() => {
+    setReportCount(null)
+  }, [selectedId])
+
   const selectQuestion = (q: QuestionV1) => {
     setSelectedId(q.id)
     setEdit(q)
@@ -104,6 +144,19 @@ export function QuestionModerationPage() {
   const onField = (key: keyof QuestionV1, value: any) => {
     if (!edit) return
     setEdit({ ...edit, [key]: value })
+  }
+
+  const fetchReportCount = async () => {
+    if (!edit) return
+    setReportCountLoading(true)
+    try {
+      const count = await getReportCountForQuestion(edit.id)
+      setReportCount(count)
+    } catch (e: any) {
+      alert(e?.message || 'Impossible de charger les reports.')
+    } finally {
+      setReportCountLoading(false)
+    }
   }
 
   const onSave = async () => {
@@ -372,6 +425,19 @@ export function QuestionModerationPage() {
             </div>
             {edit && <span className="badge">{statusLabel(edit.quality?.status || 'draft')}</span>}
           </div>
+          {edit && (
+            <div className="small" style={{ marginTop:4 }}>
+              Reports : <strong>{reportCount !== null ? reportCount : '—'}</strong>
+              <button
+                className="btn secondary"
+                style={{ marginLeft: 8, padding:'2px 8px', fontSize:'0.8rem' }}
+                onClick={fetchReportCount}
+                disabled={reportCountLoading}
+              >
+                {reportCountLoading ? '...' : 'Charger'}
+              </button>
+            </div>
+          )}
 
           {edit ? (
             <>
@@ -416,6 +482,7 @@ export function QuestionModerationPage() {
 
               <div className="row" style={{ gap: 8, flexWrap:'wrap', marginTop:8 }}>
                 <button className="btn secondary" onClick={onSave}>Save</button>
+                <button className="btn secondary" onClick={() => nav(`/admin/reports?questionId=${edit.id}`)}>Voir reports</button>
                 <button className="btn secondary" onClick={() => changeStatus('reviewed')}>Mark reviewed</button>
                 <button className="btn secondary" onClick={() => changeStatus('published', { requireNote: false })}>Publish</button>
                 <button className="btn secondary" onClick={() => changeStatus('rejected', { requireNote: true })}>Reject</button>

@@ -70,6 +70,7 @@ export async function saveSessionWithProgress(args: SaveSessionArgs) {
     const correct = isCorrect(ex, answers[ex.id])
     return {
       exerciseId: ex.id,
+      questionId: ex.id,
       subjectId,
       themeId,
       difficulty: ex.difficulty,

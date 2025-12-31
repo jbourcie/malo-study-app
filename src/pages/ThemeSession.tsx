@@ -2,6 +2,7 @@ import React from 'react'
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom'
 import { listExercises, listReadings, listExercisesByTag, saveAttemptAndRewards, type AttemptItemInput } from '../data/firestore'
 import { saveSessionWithProgress } from '../data/progress'
+import { createQuestionReport, type ReportReason } from '../data/questionReports'
 import { useAuth } from '../state/useAuth'
 import type { Exercise, ExerciseMCQ, ExerciseShortText, ExerciseFillBlank, SubjectId, Reading } from '../types'
 import { normalize } from '../utils/normalize'
@@ -30,6 +31,7 @@ import { getPreferredNpcId } from '../game/npc/npcStorage'
 import { NPC_CATALOG, type NpcId } from '../game/npc/npcCatalog'
 import { applyZoneRebuildProgress, applyBiomeRebuildProgress } from '../game/rebuildService'
 import { computeCoinsEarned } from '../rewards/cosmeticsService'
+import { Drawer } from '../components/ui/Drawer'
 
 type AnswerState = Record<string, any>
 type LessonReminderState = {
@@ -50,6 +52,15 @@ type FeedbackItem = {
   packLesson?: string | null
   packLessonTitle?: string | null
   npcLine?: NpcDialogueLine | null
+}
+
+const REPORT_REASON_LABELS: Record<ReportReason, string> = {
+  wrong_answer: 'Mauvaise correction',
+  ambiguous: 'Énoncé ambigu',
+  typo: 'Faute ou typo',
+  too_hard: 'Trop difficile',
+  off_topic: 'Hors sujet',
+  other: 'Autre',
 }
 
 function isCorrect(ex: Exercise, ans: any): boolean {
@@ -200,6 +211,13 @@ export function ThemeSessionPage() {
   const [errorMsg, setErrorMsg] = React.useState<string>('')
   const [searchParams] = useSearchParams()
   const [isSubmitting, setIsSubmitting] = React.useState(false)
+  const [attemptId, setAttemptId] = React.useState<string | null>(null)
+  const [reportTarget, setReportTarget] = React.useState<FeedbackItem | null>(null)
+  const [reportReason, setReportReason] = React.useState<ReportReason>('wrong_answer')
+  const [reportMessage, setReportMessage] = React.useState('')
+  const [reportStatuses, setReportStatuses] = React.useState<Record<string, 'sent' | 'already'>>({})
+  const [reportError, setReportError] = React.useState('')
+  const [reportSubmitting, setReportSubmitting] = React.useState(false)
   const [lessonReminder, setLessonReminder] = React.useState<LessonReminderState | null>(null)
   const [openLessonByQuestion, setOpenLessonByQuestion] = React.useState<Record<string, boolean>>({})
   const [npcId, setNpcId] = React.useState<NpcId>(getPreferredNpcId())
@@ -502,6 +520,7 @@ export function ThemeSessionPage() {
         const answered = answeredItemIds.has(ex.id)
         return {
           exerciseId: ex.id,
+          questionId: ex.id,
           difficulty: ex.difficulty,
           tags: ex.tags || [],
           correct: answered ? isCorrect(ex, answers[ex.id]) : false,
@@ -517,6 +536,7 @@ export function ThemeSessionPage() {
         exercises: exos,
         durationSec,
       })
+      setAttemptId(progress.attemptId || null)
 
       const attemptRewards = await saveAttemptAndRewards({
         uid: playerUid,
@@ -865,10 +885,67 @@ export function ThemeSessionPage() {
     setResult(null)
     setAnswers({})
     setOpenLessonByQuestion({})
+    setReportStatuses({})
+    setReportTarget(null)
+    setReportMessage('')
+    setReportReason('wrong_answer')
+    setReportError('')
+    setAttemptId(null)
     npcStartShownRef.current = false
     streakPraiseShownRef.current = false
     setNpcStartLine(null)
     setNpcEndLine(null)
+  }
+
+  const getReportContext = React.useCallback((questionId: string) => {
+    const ex = exos.find(e => e.id === questionId) as any
+    return {
+      setId: ex?.setId,
+      primaryTag: ex?.primaryTag || (Array.isArray(ex?.tags) ? ex.tags[0] : undefined),
+      blockId: ex?.blockId || ex?.themeId,
+      sessionId: attemptId || undefined,
+      grade: (theme as any)?.grade || undefined,
+    }
+  }, [attemptId, exos, theme])
+
+  const openReportDrawer = (item: FeedbackItem) => {
+    setReportTarget(item)
+    setReportReason('wrong_answer')
+    setReportMessage('')
+    setReportError('')
+  }
+
+  const closeReportDrawer = () => {
+    setReportTarget(null)
+    setReportMessage('')
+    setReportError('')
+  }
+
+  const onSendReport = async () => {
+    if (!playerUid || !reportTarget) return
+    setReportSubmitting(true)
+    setReportError('')
+    const targetId = reportTarget.id
+    try {
+      const res = await createQuestionReport({
+        questionId: targetId,
+        uid: playerUid,
+        reason: reportReason,
+        message: reportMessage,
+        context: getReportContext(targetId),
+      })
+      setReportStatuses(prev => ({ ...prev, [targetId]: res.alreadyExists ? 'already' : 'sent' }))
+      closeReportDrawer()
+    } catch (e: any) {
+      if (e?.code === 'already-exists') {
+        setReportStatuses(prev => ({ ...prev, [targetId]: 'already' }))
+        closeReportDrawer()
+      } else {
+        setReportError(e?.message || 'Impossible d’envoyer le signalement.')
+      }
+    } finally {
+      setReportSubmitting(false)
+    }
   }
 
   if (!themeId) return <div className="container"><div className="card">Thème introuvable.</div></div>
@@ -911,6 +988,44 @@ export function ThemeSessionPage() {
 
     return (
       <div className="container grid" style={{ position: 'relative' }}>
+        <Drawer open={!!reportTarget} onClose={closeReportDrawer} title="Signaler une question" width={520}>
+          {reportTarget && (
+            <div>
+              <div className="small" style={{ marginBottom: 6 }}>Question {reportTarget.idx}</div>
+              <div style={{ fontWeight:700 }}>{reportTarget.prompt}</div>
+              <div style={{ marginTop: 12 }}>
+                {(Object.entries(REPORT_REASON_LABELS) as Array<[ReportReason, string]>).map(([reason, label]) => (
+                  <label key={reason} className="small row" style={{ gap: 8, alignItems:'center', marginBottom:6 }}>
+                    <input
+                      type="radio"
+                      name="report-reason"
+                      value={reason}
+                      checked={reportReason === reason}
+                      onChange={() => setReportReason(reason as ReportReason)}
+                    />
+                    <span>{label}</span>
+                  </label>
+                ))}
+              </div>
+              <label className="small" style={{ display:'block', marginTop: 10 }}>
+                Commentaire (optionnel)
+                <textarea
+                  className="input"
+                  value={reportMessage}
+                  onChange={(e) => setReportMessage(e.target.value)}
+                  maxLength={240}
+                  placeholder="Détaille le problème (240 caractères max)"
+                />
+                <div className="small" style={{ textAlign:'right' }}>{reportMessage.length}/240</div>
+              </label>
+              {reportError && <div className="small" style={{ color:'#ff5a6f', marginTop: 6 }}>{reportError}</div>}
+              <div className="row" style={{ gap: 8, marginTop: 12 }}>
+                <button className="btn secondary" onClick={closeReportDrawer}>Annuler</button>
+                <button className="btn" onClick={onSendReport} disabled={reportSubmitting}>Envoyer</button>
+              </div>
+            </div>
+          )}
+        </Drawer>
         {showRewardModal && (
           <div style={{
             position:'fixed', inset:0, background:'rgba(0,0,0,0.55)',
@@ -1096,6 +1211,20 @@ export function ThemeSessionPage() {
                     )}
                   </>
                 )}
+                <div className="row" style={{ gap: 8, marginTop: 8, flexWrap:'wrap' }}>
+                  <button
+                    className="btn secondary"
+                    onClick={() => openReportDrawer(f)}
+                    disabled={!!reportStatuses[f.id]}
+                  >
+                    {reportStatuses[f.id] === 'sent' ? 'Signalée ✓' : reportStatuses[f.id] === 'already' ? 'Déjà signalée ✓' : 'Signaler'}
+                  </button>
+                  {reportStatuses[f.id] && (
+                    <span className="small" style={{ color:'var(--mc-muted)' }}>
+                      Merci pour ton aide !
+                    </span>
+                  )}
+                </div>
               </div>
             ))}
           </div>

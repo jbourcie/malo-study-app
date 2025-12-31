@@ -7,6 +7,7 @@ import { fetchExercisesForPlay } from './questions'
 
 export type AttemptItemInput = {
   exerciseId: string
+  questionId?: string
   difficulty: 1 | 2 | 3
   tags?: string[]
   correct: boolean
@@ -357,6 +358,7 @@ export async function saveAttemptAndRewards(args: {
           createdAt: serverTimestamp(),
           index: idx,
           exerciseId: item.exerciseId,
+          questionId: item.questionId || item.exerciseId,
           subjectId,
           themeId,
           correct: item.correct,

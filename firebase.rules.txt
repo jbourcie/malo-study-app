@@ -4,7 +4,16 @@ service cloud.firestore {
 
     function signedIn() { return request.auth != null; }
     function role() { return signedIn() ? get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role : null; }
-    function isAdmin() { return signedIn() && role() == 'admin'; }
+    function isAdmin() {
+      return signedIn() && (
+        request.auth.token.admin == true ||
+        request.auth.token.admin == 'true' ||
+        request.auth.token.admin == 1 ||
+        request.auth.token.admin == '1' ||
+        request.auth.token.role == 'admin' ||
+        role() == 'admin'
+      );
+    }
     function isParent() { return signedIn() && (role() == 'parent' || role() == 'admin'); }
     function isOwner(userId) { return signedIn() && request.auth.uid == userId; }
     function isLinkedParent(userId) {
@@ -70,50 +79,63 @@ service cloud.firestore {
       );
 
       match /attempts/{attemptId} {
-        allow read: if canReadUser(userId);
+        allow read, list: if isAdmin() || canReadUser(userId);
         allow write: if isOwner(userId) || isAdmin();
       }
       match /attemptItems/{itemId} {
-        allow read: if canReadUser(userId);
+        allow read, list: if isAdmin() || canReadUser(userId);
         allow write: if isOwner(userId) || isAdmin();
       }
       match /stats/{docId} {
-        allow read: if canReadUser(userId);
+        allow read, list: if isAdmin() || canReadUser(userId);
         allow write: if isOwner(userId) || isAdmin();
       }
       // Journaux journaliers (chemin : statsDays/{dateKey})
       match /statsDays/{dateKey} {
-        allow read: if canReadUser(userId);
+        allow read, list: if isAdmin() || canReadUser(userId);
         allow write: if isOwner(userId) || isAdmin();
       }
       match /tagProgress/{tagId} {
-        allow read: if canReadUser(userId);
+        allow read, list: if isAdmin() || canReadUser(userId);
         allow write: if isOwner(userId) || isAdmin();
       }
       match /progressSummary/{docId} {
-        allow read: if canReadUser(userId);
+        allow read, list: if isAdmin() || canReadUser(userId);
         allow write: if isOwner(userId) || isAdmin();
       }
       match /visibilityThemes/{docId} {
-        allow read: if canReadUser(userId);
+        allow read, list: if isAdmin() || canReadUser(userId);
         allow write: if canWriteVisibility(userId);
       }
       match /visibilityExercises/{docId} {
-        allow read: if canReadUser(userId);
+        allow read, list: if isAdmin() || canReadUser(userId);
         allow write: if canWriteVisibility(userId);
       }
       match /meta/{docId} {
-        allow read: if canReadUser(userId);
+        allow read, list: if isAdmin() || canReadUser(userId);
         allow write: if isOwner(userId) || isAdmin() || isLinkedParent(userId);
       }
       match /rewardEvents/{docId} {
-        allow read: if canReadUser(userId);
+        allow read, list: if isAdmin() || canReadUser(userId);
         allow write: if isOwner(userId) || isAdmin();
       }
       match /inventory/{docId} {
-        allow read: if canReadUser(userId);
+        allow read, list: if isAdmin() || canReadUser(userId);
         allow write: if isOwner(userId) || isAdmin();
       }
+    }
+
+    // Signalements de questions (lecture/triage admin-only)
+    match /questionReports/{reportId} {
+      allow create: if signedIn()
+        && request.auth.uid == request.resource.data.uid
+        && reportId == (request.resource.data.questionId + '_' + request.auth.uid)
+        && request.resource.data.status == 'open'
+        && request.resource.data.reason in ['wrong_answer','ambiguous','typo','too_hard','off_topic','other']
+        && (!('message' in request.resource.data) || request.resource.data.message.size() <= 240);
+      allow read: if isAdmin();
+      allow list: if isAdmin();
+      allow update, delete: if isAdmin();
     }
 
     // Codes de reprise enfant (permettent de recharger un compte enfant sur un autre appareil)

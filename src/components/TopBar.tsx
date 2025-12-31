@@ -203,6 +203,7 @@ export function TopBar() {
             <>
               <Link className="btn secondary" to="/admin/import">Import</Link>
               <Link className="btn secondary" to="/admin/questions">Questions</Link>
+              <Link className="btn secondary" to="/admin/reports">Reports</Link>
               <Link className="btn secondary" to="/admin/pack-request">Pack request</Link>
               <Link className="btn secondary" to="/admin/progression">Progression enfant</Link>
             </>

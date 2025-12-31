@@ -9,6 +9,7 @@ import { AdminImportPage } from './pages/AdminImport'
 import { ProgressPage } from './pages/Progress'
 import { QuestionModerationPage } from './pages/QuestionModeration'
 import { PackRequestBuilderPage } from './pages/admin/PackRequestBuilderPage'
+import { QuestionReportsPage } from './pages/admin/QuestionReportsPage'
 import { ProgressOverviewPage } from './pages/ProgressOverview'
 import { NotFoundPage } from './pages/NotFound'
 import { CollectionPage } from './pages/Collection'
@@ -35,6 +36,7 @@ export function App() {
         <Route path="/admin/import" element={<RequireAdmin><AdminImportPage /></RequireAdmin>} />
         <Route path="/admin/progression" element={<RequireAdmin><ProgressPage /></RequireAdmin>} />
         <Route path="/admin/questions" element={<RequireAdmin><QuestionModerationPage /></RequireAdmin>} />
+        <Route path="/admin/reports" element={<RequireAdmin><QuestionReportsPage /></RequireAdmin>} />
         <Route path="/admin/pack-request" element={<RequireAdmin><PackRequestBuilderPage /></RequireAdmin>} />
         <Route path="/parent/priorites" element={<RequireParent><PrioritySettingsPage /></RequireParent>} />
         <Route path="/collection" element={<RequireAuth><CollectionPage /></RequireAuth>} />
