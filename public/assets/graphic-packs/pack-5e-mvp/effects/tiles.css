@@ -1,0 +1,56 @@
+.biome-tile,
+.zone-tile,
+.block-tile {
+  border-radius: 14px;
+  background: rgba(245, 241, 230, 0.82);
+  border: 2px solid var(--mc-ink);
+  box-shadow: 0 6px 0 #0a1225, 0 0 0 1px rgba(15, 23, 42, 0.45);
+  padding: 6px 10px;
+  color: var(--mc-ink);
+  backdrop-filter: blur(6px);
+  transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
+}
+
+.biome-tile:hover,
+.zone-tile:hover,
+.block-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 0 #0a1225, 0 0 0 2px var(--mc-accent);
+}
+
+.biome-tile:focus-visible,
+.zone-tile:focus-visible,
+.block-tile:focus-visible {
+  outline: 3px solid var(--mc-accent-strong);
+  outline-offset: 3px;
+}
+
+.is-highlighted {
+  box-shadow: 0 12px 0 #0a1225, 0 0 0 3px var(--mc-accent-strong);
+}
+
+.is-weathered {
+  filter: grayscale(0.35) contrast(0.9) saturate(0.9);
+}
+
+.mc-biome-state-discovering {
+  background: rgba(110, 145, 205, 0.85);
+  color: #0f172a;
+}
+
+.mc-biome-state-progressing {
+  background: rgba(242, 214, 117, 0.9);
+}
+
+.mc-biome-state-mastered {
+  background: rgba(47, 143, 91, 0.9);
+  color: #0b120d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .biome-tile,
+  .zone-tile,
+  .block-tile {
+    transition: none;
+  }
+}

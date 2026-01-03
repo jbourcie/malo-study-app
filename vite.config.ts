@@ -9,7 +9,7 @@ export default defineConfig({
   base,
   test: {
     environment: 'node',
-    include: ['tests/**/*.test.ts'],
+    include: ['tests/**/*.test.ts', 'src/world/graphicPacks/**/*.test.ts'],
     watch: false,
   },
 })

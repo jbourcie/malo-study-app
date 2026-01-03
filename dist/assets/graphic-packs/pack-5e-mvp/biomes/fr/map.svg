@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <title>MaloCraft 5e — Biome FR (placeholder)</title>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-opacity="0.25"/>
+    </filter>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <rect width="32" height="32" fill="rgba(0,0,0,0.02)"/>
+      <path d="M32 0H0V32" fill="none" stroke="rgba(0,0,0,0.06)" stroke-width="2"/>
+    </pattern>
+    <pattern id="pixels" width="16" height="16" patternUnits="userSpaceOnUse">
+      <rect width="16" height="16" fill="rgba(255,255,255,0.04)"/>
+      <rect x="0" y="0" width="8" height="8" fill="rgba(255,255,255,0.07)"/>
+      <rect x="8" y="8" width="8" height="8" fill="rgba(0,0,0,0.04)"/>
+    </pattern>
+  </defs>
+
+<rect width="1920" height="1080" fill="#7bb6ff"/>
+
+<rect width="1920" height="1080" fill="url(#grid)" opacity="0.65"/>
+
+<g filter="url(#shadow)">
+<path d="M160,240 C260,120 460,80 700,140 C820,170 980,120 1120,160 C1320,220 1500,180 1640,260 C1760,330 1780,520 1680,620 C1560,740 1320,720 1160,760 C960,820 780,950 560,900 C360,850 200,740 160,580 C120,430 90,320 160,240 Z" fill="#d7f2ff" stroke="rgba(0,0,0,0.18)" stroke-width="8"/>
+<path d="M220,310 C310,210 470,190 650,230 C820,270 980,210 1120,240 C1320,290 1510,260 1600,340 C1690,420 1690,540 1600,610 C1510,690 1340,670 1180,700 C980,760 840,870 650,840 C470,810 320,720 250,610 C180,500 160,400 220,310 Z" fill="#3f77c9" opacity="0.18"/>
+</g>
+
+<g filter="url(#shadow)">
+<rect x="240" y="300" width="360" height="210" rx="28" ry="28" fill="#ffffff" stroke="rgba(0,0,0,0.28)" stroke-width="6" />
+
+<rect x="250" y="310" width="340" height="190" rx="22" ry="22" fill="url(#pixels)" opacity="0.9"/>
+
+</g>
+<rect x="258" y="318" width="324" height="52" rx="16" ry="16" fill="#2a3a55" stroke="rgba(0,0,0,0.18)" stroke-width="3" />
+
+
+    <text x="420.0" y="354" text-anchor="middle" font-family="Verdana, Arial, sans-serif"
+          font-size="26" font-weight="700" fill="rgba(0,0,0,0.75)">Compréhension</text>
+    
+<g filter="url(#shadow)">
+<rect x="660" y="300" width="360" height="210" rx="28" ry="28" fill="#ffffff" stroke="rgba(0,0,0,0.28)" stroke-width="6" />
+
+<rect x="670" y="310" width="340" height="190" rx="22" ry="22" fill="url(#pixels)" opacity="0.9"/>
+
+</g>
+<rect x="678" y="318" width="324" height="52" rx="16" ry="16" fill="#2a3a55" stroke="rgba(0,0,0,0.18)" stroke-width="3" />
+
+
+    <text x="840.0" y="354" text-anchor="middle" font-family="Verdana, Arial, sans-serif"
+          font-size="26" font-weight="700" fill="rgba(0,0,0,0.75)">Lexique</text>
+    
+<g filter="url(#shadow)">
+<rect x="460" y="540" width="360" height="210" rx="28" ry="28" fill="#ffffff" stroke="rgba(0,0,0,0.28)" stroke-width="6" />
+
+<rect x="470" y="550" width="340" height="190" rx="22" ry="22" fill="url(#pixels)" opacity="0.9"/>
+
+</g>
+<rect x="478" y="558" width="324" height="52" rx="16" ry="16" fill="#2a3a55" stroke="rgba(0,0,0,0.18)" stroke-width="3" />
+
+
+    <text x="640.0" y="594" text-anchor="middle" font-family="Verdana, Arial, sans-serif"
+          font-size="26" font-weight="700" fill="rgba(0,0,0,0.75)">Grammaire</text>
+    
+<g filter="url(#shadow)">
+<rect x="880" y="540" width="360" height="210" rx="28" ry="28" fill="#ffffff" stroke="rgba(0,0,0,0.28)" stroke-width="6" />
+
+<rect x="890" y="550" width="340" height="190" rx="22" ry="22" fill="url(#pixels)" opacity="0.9"/>
+
+</g>
+<rect x="898" y="558" width="324" height="52" rx="16" ry="16" fill="#2a3a55" stroke="rgba(0,0,0,0.18)" stroke-width="3" />
+
+
+    <text x="1060.0" y="594" text-anchor="middle" font-family="Verdana, Arial, sans-serif"
+          font-size="26" font-weight="700" fill="rgba(0,0,0,0.75)">Conjugaison</text>
+    
+<g filter="url(#shadow)">
+<rect x="220" y="560" width="220" height="170" rx="28" ry="28" fill="#ffffff" stroke="rgba(0,0,0,0.28)" stroke-width="6" />
+
+<rect x="230" y="570" width="200" height="150" rx="22" ry="22" fill="url(#pixels)" opacity="0.9"/>
+
+</g>
+<rect x="238" y="578" width="184" height="52" rx="16" ry="16" fill="#2a3a55" stroke="rgba(0,0,0,0.18)" stroke-width="3" />
+
+
+    <text x="330.0" y="614" text-anchor="middle" font-family="Verdana, Arial, sans-serif"
+          font-size="26" font-weight="700" fill="rgba(0,0,0,0.75)">Orthographe</text>
+    
+<g filter="url(#shadow)">
+<rect x="1280" y="360" width="300" height="190" rx="28" ry="28" fill="#ffffff" stroke="rgba(0,0,0,0.28)" stroke-width="6" />
+
+<rect x="1290" y="370" width="280" height="170" rx="22" ry="22" fill="url(#pixels)" opacity="0.9"/>
+
+</g>
+<rect x="1298" y="378" width="264" height="52" rx="16" ry="16" fill="#2a3a55" stroke="rgba(0,0,0,0.18)" stroke-width="3" />
+
+
+    <text x="1430.0" y="414" text-anchor="middle" font-family="Verdana, Arial, sans-serif"
+          font-size="26" font-weight="700" fill="rgba(0,0,0,0.75)">Méthode</text>
+    
+
+    <g>
+      <rect x="60" y="60" width="1800" height="90" rx="26" ry="26" fill="rgba(255,255,255,0.78)" stroke="rgba(0,0,0,0.18)" stroke-width="5"/>
+      <text x="960.0" y="118" text-anchor="middle" font-family="Verdana, Arial, sans-serif"
+            font-size="36" font-weight="800" fill="rgba(0,0,0,0.78)">
+        Biome FR — zones (placeholder)
+      </text>
+    </g>
+    
+
+    <g>
+      <rect x="60" y="960" width="1800" height="70" rx="20" ry="20" fill="rgba(255,255,255,0.72)" stroke="rgba(0,0,0,0.14)" stroke-width="4"/>
+      <text x="90" y="1005" font-family="Verdana, Arial, sans-serif" font-size="20" fill="rgba(0,0,0,0.7)">
+        Placeholder biome map — replace art later; anchors align to this 1920×1080 canvas.
+      </text>
+    </g>
+    
+
+</svg>

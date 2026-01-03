@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="math:grandeurs__mesures rebuilt">
+  <rect x="4" y="4" width="192" height="192" rx="18" fill="#f5f1e6" stroke="#0f172a" stroke-width="8" />
+  <rect x="32" y="140" width="136" height="26" fill="#6b5946" stroke="#0f172a" stroke-width="6" />
+  <rect x="52" y="80" width="96" height="60" fill="#1e9fb3" stroke="#0f172a" stroke-width="8" />
+  <rect x="72" y="60" width="56" height="30" fill="#f2d675" stroke="#0f172a" stroke-width="6" />
+  <path d="M100 60l18-16v32z" fill="#f59f3b" stroke="#0f172a" stroke-width="5" />
+  <path d="M64 128h72" stroke="#0f172a" stroke-width="6" />
+  <circle cx="140" cy="148" r="10" fill="#f2d675" stroke="#0f172a" stroke-width="5" />
+</svg>

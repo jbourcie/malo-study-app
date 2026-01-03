@@ -31,28 +31,47 @@ type BiomeTileProps = {
   onClick: () => void
   highlighted?: boolean
   className?: string
+  variant?: 'default' | 'compact'
 }
 
-export function BiomeTile({ biome, totalBlocks, masteredCount, monumentCount, target = 100, onClick, highlighted = false, className }: BiomeTileProps) {
+export function BiomeTile({ biome, totalBlocks, masteredCount, monumentCount, target = 100, onClick, highlighted = false, className, variant = 'default' }: BiomeTileProps) {
   const progress = totalBlocks > 0 ? Math.round((masteredCount / totalBlocks) * 100) : 0
+  const isCompact = variant === 'compact'
+  const cardPadding = isCompact ? 10 : 16
+  const iconSize = isCompact ? '1.4rem' : '1.8rem'
+  const titleSize = isCompact ? '1rem' : '1.1rem'
   return (
     <div className={`card mc-card world-card ${className || ''}`} role="button" tabIndex={0} onClick={onClick} onKeyDown={(e) => {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onClick() }
-    }} style={highlighted ? { boxShadow: '0 0 24px rgba(122,162,255,0.55)', borderColor: 'rgba(122,162,255,0.8)' } : undefined}>
-      <div className="row" style={{ alignItems: 'center', gap: 12 }}>
-        <div style={{ fontSize: '1.8rem' }}>{biome.icon}</div>
+    }} style={{
+      padding: cardPadding,
+      minHeight: isCompact ? 'auto' : undefined,
+      ...(highlighted ? { boxShadow: '0 0 24px rgba(122,162,255,0.55)', borderColor: 'rgba(122,162,255,0.8)' } : {}),
+    }}>
+      <div className="row" style={{ alignItems: 'center', gap: isCompact ? 10 : 12 }}>
+        <div style={{ fontSize: iconSize }}>{biome.icon}</div>
         <div style={{ flex: 1 }}>
-          <div style={{ fontWeight: 800, fontSize: '1.1rem' }}>{biome.name}</div>
-          <div className="small" style={{ color: 'var(--mc-muted)' }}>{biome.description}</div>
+          <div style={{ fontWeight: 800, fontSize: titleSize, lineHeight: 1.2 }}>{biome.name}</div>
+          {!isCompact && <div className="small" style={{ color: 'var(--mc-muted)' }}>{biome.description}</div>}
         </div>
         <MonumentBadge count={monumentCount} target={target} />
       </div>
-      <div className="small" style={{ marginTop: 10 }}>
-        Progression : {progress}% ({masteredCount}/{totalBlocks})
-      </div>
-      <ProgressBar value={progress} label="Maîtrise" />
-      <div className="row" style={{ marginTop: 8, justifyContent: 'flex-end', gap: 8, alignItems: 'center' }}>
-        <span className="small" style={{ color: 'var(--mc-muted)' }}>Entrer dans le biome</span>
+      {!isCompact && (
+        <>
+          <div className="small" style={{ marginTop: 10 }}>
+            Progression : {progress}% ({masteredCount}/{totalBlocks})
+          </div>
+          <ProgressBar value={progress} label="Maîtrise" />
+        </>
+      )}
+      {isCompact && (
+        <div className="small" style={{ marginTop: 6, display: 'flex', alignItems: 'center', gap: 6 }}>
+          <span>{progress}%</span>
+          <ProgressBar value={progress} label="Maîtrise" />
+        </div>
+      )}
+      <div className="row" style={{ marginTop: isCompact ? 6 : 8, justifyContent: 'flex-end', gap: 8, alignItems: 'center' }}>
+        {!isCompact && <span className="small" style={{ color: 'var(--mc-muted)' }}>Entrer dans le biome</span>}
         <span className="mc-chip accent">→</span>
       </div>
     </div>

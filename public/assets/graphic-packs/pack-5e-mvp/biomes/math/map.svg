@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-label="Biome Mathématiques (placeholder)">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#122033"/>
+      <stop offset="100%" stop-color="#0B1220"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#2a3c5a" stroke-width="1" opacity="0.35"/>
+    </pattern>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <style>
+      .title { font: 700 44px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill:#E9F2FF; }
+      .sub   { font: 500 22px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill:#B8CCE6; opacity:0.95; }
+      .zone  { font: 700 22px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill:#0B1220; }
+      .hint  { font: 500 16px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill:#B8CCE6; opacity:0.85; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="1920" height="1080" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1920" height="1080" fill="url(#grid)" opacity="0.55"/>
+
+  <!-- Header -->
+  <g transform="translate(80,92)">
+    <text class="title">Biome — Mathématiques</text>
+    <text class="sub" y="44">Placeholder 5e • zones = thèmes • repère 1920×1080</text>
+  </g>
+
+  <!-- Decorative "river" -->
+  <path d="M 210 660 C 520 560, 740 740, 980 650 C 1210 565, 1380 760, 1710 640"
+        fill="none" stroke="#2ED3FF" stroke-width="10" opacity="0.12"/>
+  <path d="M 210 660 C 520 560, 740 740, 980 650 C 1210 565, 1380 760, 1710 640"
+        fill="none" stroke="#2ED3FF" stroke-width="4" opacity="0.22"/>
+
+  <!-- Zone islands (for anchors) -->
+  <g filter="url(#softShadow)">
+    <!-- Fractions -->
+    <g transform="translate(1210,170)">
+      <rect width="520" height="220" rx="28" fill="#F2C14E"/>
+      <rect x="18" y="18" width="484" height="184" rx="22" fill="#FFD56A" opacity="0.65"/>
+      <text class="zone" x="32" y="68">Fractions</text>
+      <text class="hint" x="32" y="108">Îlot placeholder (anchors zones + blocs)</text>
+    </g>
+
+    <!-- Nombres & calcul -->
+    <g transform="translate(1210,420)">
+      <rect width="520" height="220" rx="28" fill="#8AD0FF"/>
+      <rect x="18" y="18" width="484" height="184" rx="22" fill="#B9E4FF" opacity="0.55"/>
+      <text class="zone" x="32" y="68">Nombres &amp; calcul</text>
+      <text class="hint" x="32" y="108">Opérations • mental • puissances</text>
+    </g>
+
+    <!-- Géométrie -->
+    <g transform="translate(1120,680)">
+      <rect width="520" height="220" rx="28" fill="#7CFFCB"/>
+      <rect x="18" y="18" width="484" height="184" rx="22" fill="#B3FFE1" opacity="0.55"/>
+      <text class="zone" x="32" y="68">Géométrie</text>
+      <text class="hint" x="32" y="108">Angles • triangles • symétries</text>
+    </g>
+
+    <!-- Grandeurs & mesures -->
+    <g transform="translate(220,600)">
+      <rect width="540" height="240" rx="28" fill="#FF6B6B"/>
+      <rect x="18" y="18" width="504" height="204" rx="22" fill="#FF9A9A" opacity="0.50"/>
+      <text class="zone" x="32" y="74">Grandeurs &amp; mesures</text>
+      <text class="hint" x="32" y="116">Périmètre • aire • volumes • unités</text>
+    </g>
+
+    <!-- Proportionnalité -->
+    <g transform="translate(300,240)">
+      <rect width="560" height="260" rx="28" fill="#B58CFF"/>
+      <rect x="18" y="18" width="524" height="224" rx="22" fill="#D5BFFF" opacity="0.50"/>
+      <text class="zone" x="32" y="78">Proportionnalité</text>
+      <text class="hint" x="32" y="120">Tableaux • % • échelles</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(80,1030)">
+    <text class="hint">Astuce: active ?mapDebug=1 pour voir et ajuster les anchors.</text>
+  </g>
+</svg>

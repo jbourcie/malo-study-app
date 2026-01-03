@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#5c9e4f"/>
+
+  <!-- French biome -->
+  <rect x="200" y="200" width="420" height="260" fill="#6bbf59"/>
+  <text x="410" y="340" text-anchor="middle" font-size="36" fill="#1f3d1a">FRANÇAIS</text>
+
+  <!-- Math biome -->
+  <rect x="1300" y="200" width="420" height="260" fill="#c9a24d"/>
+  <text x="1510" y="340" text-anchor="middle" font-size="36" fill="#4a3b12">MATHS</text>
+
+  <!-- English biome -->
+  <rect x="250" y="650" width="380" height="220" fill="#4f8fd1"/>
+  <text x="440" y="780" text-anchor="middle" font-size="36" fill="#102c4f">ANGLAIS</text>
+
+  <!-- Spanish biome -->
+  <rect x="770" y="700" width="380" height="220" fill="#d16b6b"/>
+  <text x="960" y="830" text-anchor="middle" font-size="36" fill="#4f1010">ESPAGNOL</text>
+
+  <!-- History biome -->
+  <rect x="1350" y="650" width="380" height="220" fill="#9c7bbf"/>
+  <text x="1540" y="780" text-anchor="middle" font-size="36" fill="#2d1f3d">HIST-GEO</text>
+</svg>

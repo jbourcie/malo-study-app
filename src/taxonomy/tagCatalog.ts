@@ -147,6 +147,14 @@ export const TAG_CATALOG: Record<string, TagMeta> = {
     theme: "Compréhension",
     order: 90,
   },
+  fr_comprehension_types_textes: {
+    id: "fr_comprehension_types_textes",
+    label: "Types de textes",
+    description: "Reconnaître texte narratif, descriptif, explicatif ou argumentatif.",
+    subject: "fr",
+    theme: "Compréhension",
+    order: 95,
+  },
 
   // =========================
   // FRANÇAIS — Lexique
@@ -190,6 +198,14 @@ export const TAG_CATALOG: Record<string, TagMeta> = {
     subject: "fr",
     theme: "Lexique",
     order: 150,
+  },
+  fr_lexique_champ_lexical: {
+    id: "fr_lexique_champ_lexical",
+    label: "Champ lexical",
+    description: "Identifier les mots liés à un même thème.",
+    subject: "fr",
+    theme: "Lexique",
+    order: 160,
   },
 
   // =========================
@@ -424,6 +440,14 @@ export const TAG_CATALOG: Record<string, TagMeta> = {
     subject: "fr",
     theme: "Orthographe",
     order: 630,
+  },
+  fr_orthographe_lexicale: {
+    id: "fr_orthographe_lexicale",
+    label: "Orthographe lexicale",
+    description: "Mots fréquents, lettres muettes, doubles consonnes.",
+    subject: "fr",
+    theme: "Orthographe",
+    order: 635,
   },
   fr_orthographe_punctuation: {
     id: "fr_orthographe_punctuation",

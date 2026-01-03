@@ -10,9 +10,11 @@
     "lint": "echo \"(optionnel)\"",
     "deploy": "vite build",
     "test": "vitest run",
-    "test:watch": "vitest watch"
+    "test:watch": "vitest watch",
+    "pack:anchors:new-fr-blocks": "ts-node --esm --experimental-specifier-resolution=node scripts/autoAddNewFrBlockAnchors.ts"
   },
   "dependencies": {
+    "framer-motion": "^11.11.9",
     "firebase-admin": "^12.6.0",
     "firebase": "^12.7.0",
     "react": "^18.3.1",

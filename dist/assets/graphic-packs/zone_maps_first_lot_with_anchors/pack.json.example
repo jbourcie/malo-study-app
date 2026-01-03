@@ -1,0 +1,824 @@
+{
+  "id": "pack-5e-mvp",
+  "label": "Pack 5e V2 — zones lot 1",
+  "grade": "5e",
+  "version": "1.0.0",
+  "map": {
+    "baseLayer": "base/map.svg",
+    "width": 1920,
+    "height": 1080
+  },
+  "maps": {
+    "world": {
+      "baseLayer": "base/map.svg",
+      "width": 1920,
+      "height": 1080
+    },
+    "biomes": {},
+    "zones": {
+      "fr:comprehension": {
+        "baseLayer": "zones/fr/comprehension/map.svg",
+        "width": 1920,
+        "height": 1080
+      },
+      "fr:conjugaison": {
+        "baseLayer": "zones/fr/conjugaison/map.svg",
+        "width": 1920,
+        "height": 1080
+      },
+      "fr:grammaire": {
+        "baseLayer": "zones/fr/grammaire/map.svg",
+        "width": 1920,
+        "height": 1080
+      },
+      "fr:lexique": {
+        "baseLayer": "zones/fr/lexique/map.svg",
+        "width": 1920,
+        "height": 1080
+      },
+      "fr:orthographe": {
+        "baseLayer": "zones/fr/orthographe/map.svg",
+        "width": 1920,
+        "height": 1080
+      },
+      "fr:methode": {
+        "baseLayer": "zones/fr/methode/map.svg",
+        "width": 1920,
+        "height": 1080
+      },
+      "math:fractions": {
+        "baseLayer": "zones/math/fractions/map.svg",
+        "width": 1920,
+        "height": 1080
+      },
+      "math:grandeurs_et_mesures": {
+        "baseLayer": "zones/math/grandeurs_et_mesures/map.svg",
+        "width": 1920,
+        "height": 1080
+      },
+      "math:geometrie": {
+        "baseLayer": "zones/math/geometrie/map.svg",
+        "width": 1920,
+        "height": 1080
+      },
+      "math:nombres_et_calcul": {
+        "baseLayer": "zones/math/nombres_et_calcul/map.svg",
+        "width": 1920,
+        "height": 1080
+      },
+      "math:proportionnalite": {
+        "baseLayer": "zones/math/proportionnalite/map.svg",
+        "width": 1920,
+        "height": 1080
+      },
+      "en:comprehension": {
+        "baseLayer": "zones/en/comprehension/map.svg",
+        "width": 1920,
+        "height": 1080
+      },
+      "en:grammaire": {
+        "baseLayer": "zones/en/grammaire/map.svg",
+        "width": 1920,
+        "height": 1080
+      },
+      "en:vocabulaire": {
+        "baseLayer": "zones/en/vocabulaire/map.svg",
+        "width": 1920,
+        "height": 1080
+      },
+      "es:comprehension": {
+        "baseLayer": "zones/es/comprehension/map.svg",
+        "width": 1920,
+        "height": 1080
+      },
+      "es:grammaire": {
+        "baseLayer": "zones/es/grammaire/map.svg",
+        "width": 1920,
+        "height": 1080
+      },
+      "es:vocabulaire": {
+        "baseLayer": "zones/es/vocabulaire/map.svg",
+        "width": 1920,
+        "height": 1080
+      },
+      "hist:geographie": {
+        "baseLayer": "zones/hist/geographie/map.svg",
+        "width": 1920,
+        "height": 1080
+      },
+      "hist:methodes": {
+        "baseLayer": "zones/hist/methodes/map.svg",
+        "width": 1920,
+        "height": 1080
+      },
+      "hist:reperes": {
+        "baseLayer": "zones/hist/reperes/map.svg",
+        "width": 1920,
+        "height": 1080
+      }
+    }
+  },
+  "css": [
+    "theme.css",
+    "effects/tiles.css"
+  ],
+  "anchors": {
+    "world": {
+      "safeArea": {
+        "left": 80,
+        "top": 70,
+        "right": 80,
+        "bottom": 90
+      },
+      "biomes": {}
+    },
+    "biomes": {},
+    "zones": {
+      "fr:comprehension": {
+        "safeArea": {
+          "left": 60,
+          "top": 60,
+          "right": 60,
+          "bottom": 60
+        },
+        "blocks": {
+          "fr_comprehension_chronologie": {
+            "x": 480,
+            "y": 280,
+            "radius": 24
+          },
+          "fr_comprehension_connecteurs_logiques": {
+            "x": 978,
+            "y": 302,
+            "radius": 24
+          },
+          "fr_comprehension_detail": {
+            "x": 1413,
+            "y": 282,
+            "radius": 24
+          },
+          "fr_comprehension_idee_principale": {
+            "x": 498,
+            "y": 544,
+            "radius": 24
+          },
+          "fr_comprehension_inference": {
+            "x": 933,
+            "y": 524,
+            "radius": 24
+          },
+          "fr_comprehension_intention_auteur": {
+            "x": 1431,
+            "y": 546,
+            "radius": 24
+          },
+          "fr_comprehension_point_de_vue": {
+            "x": 516,
+            "y": 766,
+            "radius": 24
+          },
+          "fr_comprehension_pronom_referent": {
+            "x": 951,
+            "y": 788,
+            "radius": 24
+          },
+          "fr_comprehension_vocabulaire_contexte": {
+            "x": 1386,
+            "y": 768,
+            "radius": 24
+          }
+        }
+      },
+      "fr:conjugaison": {
+        "safeArea": {
+          "left": 60,
+          "top": 60,
+          "right": 60,
+          "bottom": 60
+        },
+        "blocks": {
+          "fr_conjugaison_accord_participe_passe": {
+            "x": 390,
+            "y": 280,
+            "radius": 24
+          },
+          "fr_conjugaison_conditionnel_present": {
+            "x": 798,
+            "y": 302,
+            "radius": 24
+          },
+          "fr_conjugaison_futur_simple": {
+            "x": 1143,
+            "y": 282,
+            "radius": 24
+          },
+          "fr_conjugaison_imparfait": {
+            "x": 1488,
+            "y": 304,
+            "radius": 24
+          },
+          "fr_conjugaison_imperatif": {
+            "x": 393,
+            "y": 524,
+            "radius": 24
+          },
+          "fr_conjugaison_passe_compose": {
+            "x": 801,
+            "y": 546,
+            "radius": 24
+          },
+          "fr_conjugaison_passe_simple": {
+            "x": 1146,
+            "y": 526,
+            "radius": 24
+          },
+          "fr_conjugaison_plus_que_parfait": {
+            "x": 1491,
+            "y": 548,
+            "radius": 24
+          },
+          "fr_conjugaison_present": {
+            "x": 396,
+            "y": 768,
+            "radius": 24
+          },
+          "fr_conjugaison_subjonctif_present": {
+            "x": 804,
+            "y": 790,
+            "radius": 24
+          },
+          "fr_conjugaison_valeurs_temps": {
+            "x": 1149,
+            "y": 770,
+            "radius": 24
+          }
+        }
+      },
+      "fr:grammaire": {
+        "safeArea": {
+          "left": 60,
+          "top": 60,
+          "right": 60,
+          "bottom": 60
+        },
+        "blocks": {
+          "fr_grammaire_circonstancielle": {
+            "x": 390,
+            "y": 232,
+            "radius": 24
+          },
+          "fr_grammaire_classes_mots": {
+            "x": 798,
+            "y": 254,
+            "radius": 24
+          },
+          "fr_grammaire_completive": {
+            "x": 1143,
+            "y": 234,
+            "radius": 24
+          },
+          "fr_grammaire_coordination_juxtaposition": {
+            "x": 1488,
+            "y": 256,
+            "radius": 24
+          },
+          "fr_grammaire_discours_direct_indirect": {
+            "x": 393,
+            "y": 428,
+            "radius": 24
+          },
+          "fr_grammaire_fonction_cod": {
+            "x": 801,
+            "y": 450,
+            "radius": 24
+          },
+          "fr_grammaire_fonctions": {
+            "x": 1146,
+            "y": 430,
+            "radius": 24
+          },
+          "fr_grammaire_gn_gv": {
+            "x": 1491,
+            "y": 452,
+            "radius": 24
+          },
+          "fr_grammaire_interrogation": {
+            "x": 396,
+            "y": 624,
+            "radius": 24
+          },
+          "fr_grammaire_negation": {
+            "x": 804,
+            "y": 646,
+            "radius": 24
+          },
+          "fr_grammaire_phrase_simple_complexe": {
+            "x": 1149,
+            "y": 626,
+            "radius": 24
+          },
+          "fr_grammaire_proposition_relative": {
+            "x": 1494,
+            "y": 648,
+            "radius": 24
+          },
+          "fr_grammaire_propositions": {
+            "x": 399,
+            "y": 820,
+            "radius": 24
+          },
+          "fr_grammaire_subordination": {
+            "x": 807,
+            "y": 842,
+            "radius": 24
+          },
+          "fr_grammaire_voix_active_passive": {
+            "x": 1152,
+            "y": 822,
+            "radius": 24
+          }
+        }
+      },
+      "fr:lexique": {
+        "safeArea": {
+          "left": 60,
+          "top": 60,
+          "right": 60,
+          "bottom": 60
+        },
+        "blocks": {
+          "fr_lexique_antonyme": {
+            "x": 480,
+            "y": 360,
+            "radius": 24
+          },
+          "fr_lexique_famille_mots": {
+            "x": 978,
+            "y": 382,
+            "radius": 24
+          },
+          "fr_lexique_niveaux_langue": {
+            "x": 1413,
+            "y": 362,
+            "radius": 24
+          },
+          "fr_lexique_sens_propre_figure": {
+            "x": 498,
+            "y": 704,
+            "radius": 24
+          },
+          "fr_lexique_synonyme": {
+            "x": 933,
+            "y": 684,
+            "radius": 24
+          }
+        }
+      },
+      "fr:orthographe": {
+        "safeArea": {
+          "left": 60,
+          "top": 60,
+          "right": 60,
+          "bottom": 60
+        },
+        "blocks": {
+          "fr_orthographe_accord_gn": {
+            "x": 630,
+            "y": 360,
+            "radius": 24
+          },
+          "fr_orthographe_accord_sujet_verbe": {
+            "x": 1278,
+            "y": 382,
+            "radius": 24
+          },
+          "fr_orthographe_homophones_grammaticaux": {
+            "x": 663,
+            "y": 682,
+            "radius": 24
+          },
+          "fr_orthographe_punctuation": {
+            "x": 1248,
+            "y": 704,
+            "radius": 24
+          }
+        }
+      },
+      "fr:methode": {
+        "safeArea": {
+          "left": 60,
+          "top": 60,
+          "right": 60,
+          "bottom": 60
+        },
+        "blocks": {
+          "meta_transfert": {
+            "x": 630,
+            "y": 360,
+            "radius": 24
+          }
+        }
+      },
+      "math:fractions": {
+        "safeArea": {
+          "left": 60,
+          "top": 60,
+          "right": 60,
+          "bottom": 60
+        },
+        "blocks": {
+          "math_fractions_addition": {
+            "x": 390,
+            "y": 280,
+            "radius": 24
+          },
+          "math_fractions_comparer": {
+            "x": 798,
+            "y": 302,
+            "radius": 24
+          },
+          "math_fractions_division": {
+            "x": 1143,
+            "y": 282,
+            "radius": 24
+          },
+          "math_fractions_equivalentes": {
+            "x": 1488,
+            "y": 304,
+            "radius": 24
+          },
+          "math_fractions_multiplication": {
+            "x": 393,
+            "y": 524,
+            "radius": 24
+          },
+          "math_fractions_ordonner": {
+            "x": 801,
+            "y": 546,
+            "radius": 24
+          },
+          "math_fractions_problemes": {
+            "x": 1146,
+            "y": 526,
+            "radius": 24
+          },
+          "math_fractions_representer": {
+            "x": 1491,
+            "y": 548,
+            "radius": 24
+          },
+          "math_fractions_simplifier": {
+            "x": 396,
+            "y": 768,
+            "radius": 24
+          },
+          "math_fractions_soustraction": {
+            "x": 804,
+            "y": 790,
+            "radius": 24
+          },
+          "math_fractions_vocabulaire": {
+            "x": 1149,
+            "y": 770,
+            "radius": 24
+          }
+        }
+      },
+      "math:grandeurs_et_mesures": {
+        "safeArea": {
+          "left": 60,
+          "top": 60,
+          "right": 60,
+          "bottom": 60
+        },
+        "blocks": {
+          "math_mesures_aire": {
+            "x": 630,
+            "y": 360,
+            "radius": 24
+          },
+          "math_mesures_perimetre": {
+            "x": 1278,
+            "y": 382,
+            "radius": 24
+          },
+          "math_mesures_unites_conversions": {
+            "x": 663,
+            "y": 682,
+            "radius": 24
+          },
+          "math_mesures_volumes": {
+            "x": 1248,
+            "y": 704,
+            "radius": 24
+          }
+        }
+      },
+      "math:geometrie": {
+        "safeArea": {
+          "left": 60,
+          "top": 60,
+          "right": 60,
+          "bottom": 60
+        },
+        "blocks": {
+          "math_geometrie_angles": {
+            "x": 480,
+            "y": 360,
+            "radius": 24
+          },
+          "math_geometrie_cercle": {
+            "x": 978,
+            "y": 382,
+            "radius": 24
+          },
+          "math_geometrie_paralleles": {
+            "x": 1413,
+            "y": 362,
+            "radius": 24
+          },
+          "math_geometrie_symetrie_axiale": {
+            "x": 498,
+            "y": 704,
+            "radius": 24
+          },
+          "math_geometrie_triangles": {
+            "x": 933,
+            "y": 684,
+            "radius": 24
+          }
+        }
+      },
+      "math:nombres_et_calcul": {
+        "safeArea": {
+          "left": 60,
+          "top": 60,
+          "right": 60,
+          "bottom": 60
+        },
+        "blocks": {
+          "math_calcul_mental": {
+            "x": 480,
+            "y": 360,
+            "radius": 24
+          },
+          "math_nombres_decimaux": {
+            "x": 978,
+            "y": 382,
+            "radius": 24
+          },
+          "math_nombres_entiers": {
+            "x": 1413,
+            "y": 362,
+            "radius": 24
+          },
+          "math_priorites_operatoires": {
+            "x": 498,
+            "y": 704,
+            "radius": 24
+          },
+          "math_puissances_base": {
+            "x": 933,
+            "y": 684,
+            "radius": 24
+          }
+        }
+      },
+      "math:proportionnalite": {
+        "safeArea": {
+          "left": 60,
+          "top": 60,
+          "right": 60,
+          "bottom": 60
+        },
+        "blocks": {
+          "math_proportionnalite_echelles": {
+            "x": 630,
+            "y": 360,
+            "radius": 24
+          },
+          "math_proportionnalite_pourcentages": {
+            "x": 1278,
+            "y": 382,
+            "radius": 24
+          },
+          "math_proportionnalite_tableaux": {
+            "x": 663,
+            "y": 682,
+            "radius": 24
+          }
+        }
+      },
+      "en:comprehension": {
+        "safeArea": {
+          "left": 60,
+          "top": 60,
+          "right": 60,
+          "bottom": 60
+        },
+        "blocks": {
+          "en_comprehension_inference": {
+            "x": 630,
+            "y": 360,
+            "radius": 24
+          },
+          "en_comprehension_short_text": {
+            "x": 1278,
+            "y": 382,
+            "radius": 24
+          }
+        }
+      },
+      "en:grammaire": {
+        "safeArea": {
+          "left": 60,
+          "top": 60,
+          "right": 60,
+          "bottom": 60
+        },
+        "blocks": {
+          "en_grammar_future": {
+            "x": 480,
+            "y": 360,
+            "radius": 24
+          },
+          "en_grammar_past_simple": {
+            "x": 978,
+            "y": 382,
+            "radius": 24
+          },
+          "en_grammar_present_continuous": {
+            "x": 1413,
+            "y": 362,
+            "radius": 24
+          },
+          "en_grammar_present_simple": {
+            "x": 498,
+            "y": 704,
+            "radius": 24
+          },
+          "en_grammar_pronouns": {
+            "x": 933,
+            "y": 684,
+            "radius": 24
+          }
+        }
+      },
+      "en:vocabulaire": {
+        "safeArea": {
+          "left": 60,
+          "top": 60,
+          "right": 60,
+          "bottom": 60
+        },
+        "blocks": {
+          "en_vocab_daily_life": {
+            "x": 630,
+            "y": 360,
+            "radius": 24
+          },
+          "en_vocab_school": {
+            "x": 1278,
+            "y": 382,
+            "radius": 24
+          }
+        }
+      },
+      "es:comprehension": {
+        "safeArea": {
+          "left": 60,
+          "top": 60,
+          "right": 60,
+          "bottom": 60
+        },
+        "blocks": {
+          "es_comprehension_short_text": {
+            "x": 630,
+            "y": 360,
+            "radius": 24
+          }
+        }
+      },
+      "es:grammaire": {
+        "safeArea": {
+          "left": 60,
+          "top": 60,
+          "right": 60,
+          "bottom": 60
+        },
+        "blocks": {
+          "es_grammar_past": {
+            "x": 630,
+            "y": 360,
+            "radius": 24
+          },
+          "es_grammar_present": {
+            "x": 1278,
+            "y": 382,
+            "radius": 24
+          },
+          "es_grammar_pronouns": {
+            "x": 663,
+            "y": 682,
+            "radius": 24
+          }
+        }
+      },
+      "es:vocabulaire": {
+        "safeArea": {
+          "left": 60,
+          "top": 60,
+          "right": 60,
+          "bottom": 60
+        },
+        "blocks": {
+          "es_vocab_daily_life": {
+            "x": 630,
+            "y": 360,
+            "radius": 24
+          },
+          "es_vocab_school": {
+            "x": 1278,
+            "y": 382,
+            "radius": 24
+          }
+        }
+      },
+      "hist:geographie": {
+        "safeArea": {
+          "left": 60,
+          "top": 60,
+          "right": 60,
+          "bottom": 60
+        },
+        "blocks": {
+          "hist_geo_cartes": {
+            "x": 630,
+            "y": 360,
+            "radius": 24
+          },
+          "hist_geo_paysages": {
+            "x": 1278,
+            "y": 382,
+            "radius": 24
+          }
+        }
+      },
+      "hist:methodes": {
+        "safeArea": {
+          "left": 60,
+          "top": 60,
+          "right": 60,
+          "bottom": 60
+        },
+        "blocks": {
+          "hist_methodes_chronologie": {
+            "x": 630,
+            "y": 360,
+            "radius": 24
+          },
+          "hist_methodes_documents": {
+            "x": 1278,
+            "y": 382,
+            "radius": 24
+          }
+        }
+      },
+      "hist:reperes": {
+        "safeArea": {
+          "left": 60,
+          "top": 60,
+          "right": 60,
+          "bottom": 60
+        },
+        "blocks": {
+          "hist_reperes_ancien_regime": {
+            "x": 630,
+            "y": 360,
+            "radius": 24
+          },
+          "hist_reperes_islam_moyen_age": {
+            "x": 1278,
+            "y": 382,
+            "radius": 24
+          },
+          "hist_reperes_moyen_age": {
+            "x": 663,
+            "y": 682,
+            "radius": 24
+          },
+          "hist_reperes_renaissance": {
+            "x": 1248,
+            "y": 704,
+            "radius": 24
+          }
+        }
+      }
+    }
+  },
+  "assets": {
+    "biomes": "biomes/",
+    "zones": "zones/",
+    "monuments": "monuments/"
+  }
+}

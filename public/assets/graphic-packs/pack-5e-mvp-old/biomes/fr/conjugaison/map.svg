@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="parchment" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f3ead3"/>
+      <stop offset="100%" stop-color="#e7d8b8"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity="0.18"/>
+    </filter>
+    <filter id="paperNoise" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix in="noise" type="matrix"
+        values="1 0 0 0 0
+                0 1 0 0 0
+                0 0 1 0 0
+                0 0 0 0.08 0" result="alphaNoise"/>
+      <feComposite in="alphaNoise" in2="SourceGraphic" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="1920" height="1080" fill="url(#parchment)"/>
+  <rect x="36" y="36" width="1848" height="1008" rx="28" fill="none" stroke="#6b5a3a" stroke-width="10" opacity="0.55"/>
+  <rect x="64" y="64" width="1792" height="952" rx="22" fill="none" stroke="#6b5a3a" stroke-width="4" opacity="0.35"/>
+
+  <g filter="url(#softShadow)">
+    <text x="960" y="120" text-anchor="middle" class="mc-title">Français — Conjugaison</text>
+    <text x="960" y="160" text-anchor="middle" class="mc-sub">Carte de zone — placeholder (test pipeline V2)</text>
+  </g>
+
+  <path d="M 192 508 Q 192 508 518 436 Q 518 436 860 502 Q 860 502 1200 459 Q 1200 459 1483 564 Q 1483 564 1775 538" fill="none" stroke="#6b5a3a" stroke-width="10" opacity="0.14" stroke-linecap="round"/>
+  <path d="M 192 508 Q 192 508 518 436 Q 518 436 860 502 Q 860 502 1200 459 Q 1200 459 1483 564 Q 1483 564 1775 538" fill="none" stroke="#6b5a3a" stroke-width="4" opacity="0.24" stroke-linecap="round"/>
+
+
+  <g class="mc-slot" data-slot="1">
+    <rect x="261.0" y="250.0" width="240" height="140" rx="18" class="mc-slot-rect"/>
+    <text x="381.0" y="328.0" text-anchor="middle" class="mc-slot-text">Bloc 1</text>
+  </g>
+
+  <g class="mc-slot" data-slot="2">
+    <rect x="676.0" y="296.0" width="240" height="140" rx="18" class="mc-slot-rect"/>
+    <text x="796.0" y="374.0" text-anchor="middle" class="mc-slot-text">Bloc 2</text>
+  </g>
+
+  <g class="mc-slot" data-slot="3">
+    <rect x="1039.0" y="297.0" width="240" height="140" rx="18" class="mc-slot-rect"/>
+    <text x="1159.0" y="375.0" text-anchor="middle" class="mc-slot-text">Bloc 3</text>
+  </g>
+
+  <g class="mc-slot" data-slot="4">
+    <rect x="1408.0" y="292.0" width="240" height="140" rx="18" class="mc-slot-rect"/>
+    <text x="1528.0" y="370.0" text-anchor="middle" class="mc-slot-text">Bloc 4</text>
+  </g>
+
+  <g class="mc-slot" data-slot="5">
+    <rect x="320.0" y="484.0" width="240" height="140" rx="18" class="mc-slot-rect"/>
+    <text x="440.0" y="562.0" text-anchor="middle" class="mc-slot-text">Bloc 5</text>
+  </g>
+
+  <g class="mc-slot" data-slot="6">
+    <rect x="618.0" y="466.0" width="240" height="140" rx="18" class="mc-slot-rect"/>
+    <text x="738.0" y="544.0" text-anchor="middle" class="mc-slot-text">Bloc 6</text>
+  </g>
+
+  <g class="mc-slot" data-slot="7">
+    <rect x="1003.0" y="462.0" width="240" height="140" rx="18" class="mc-slot-rect"/>
+    <text x="1123.0" y="540.0" text-anchor="middle" class="mc-slot-text">Bloc 7</text>
+  </g>
+
+  <g class="mc-slot" data-slot="8">
+    <rect x="1400.0" y="449.0" width="240" height="140" rx="18" class="mc-slot-rect"/>
+    <text x="1520.0" y="527.0" text-anchor="middle" class="mc-slot-text">Bloc 8</text>
+  </g>
+
+  <g class="mc-slot" data-slot="9">
+    <rect x="255.0" y="695.0" width="240" height="140" rx="18" class="mc-slot-rect"/>
+    <text x="375.0" y="773.0" text-anchor="middle" class="mc-slot-text">Bloc 9</text>
+  </g>
+
+  <g class="mc-slot" data-slot="10">
+    <rect x="633.0" y="700.0" width="240" height="140" rx="18" class="mc-slot-rect"/>
+    <text x="753.0" y="778.0" text-anchor="middle" class="mc-slot-text">Bloc 10</text>
+  </g>
+
+  <g class="mc-slot" data-slot="11">
+    <rect x="990.0" y="664.0" width="240" height="140" rx="18" class="mc-slot-rect"/>
+    <text x="1110.0" y="742.0" text-anchor="middle" class="mc-slot-text">Bloc 11</text>
+  </g>
+
+  <g class="mc-slot" data-slot="12">
+    <rect x="1427.0" y="668.0" width="240" height="140" rx="18" class="mc-slot-rect"/>
+    <text x="1547.0" y="746.0" text-anchor="middle" class="mc-slot-text">Bloc 12</text>
+  </g>
+
+
+  <text x="80" y="1010" class="mc-footer">Zone: fr:conjugaison · 2025-12-31</text>
+
+  <g filter="url(#paperNoise)"></g>
+
+  <style>
+    .mc-title {
+      font: 700 56px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      fill: #3a2f1f;
+      letter-spacing: 0.5px;
+    }
+    .mc-sub {
+      font: 500 22px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      fill: #3a2f1f;
+      opacity: 0.75;
+    }
+    .mc-slot-rect {
+      fill: rgba(58, 47, 31, 0.04);
+      stroke: rgba(58, 47, 31, 0.26);
+      stroke-width: 4;
+    }
+    .mc-slot-text {
+      font: 600 22px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      fill: #3a2f1f;
+      opacity: 0.8;
+    }
+    .mc-footer {
+      font: 500 18px system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      fill: #3a2f1f;
+      opacity: 0.55;
+    }
+  </style>
+</svg>

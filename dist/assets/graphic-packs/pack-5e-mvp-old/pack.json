@@ -1,0 +1,96 @@
+{
+  "id": "pack-5e-mvp",
+  "label": "MVP — Pack graphique 5e",
+  "grade": "5e",
+  "version": "1.1.0",
+
+  "map": {
+    "baseLayer": "base/map.svg",
+    "width": 1920,
+    "height": 1080
+  },
+
+  "maps": {
+    "world": { "baseLayer": "base/map.svg", "width": 1920, "height": 1080 },
+
+    "biomes": {
+      "fr":   { "baseLayer": "biomes/fr/map.svg",   "width": 1920, "height": 1080 },
+      "math": { "baseLayer": "biomes/math/map.svg", "width": 1920, "height": 1080 },
+      "en":   { "baseLayer": "biomes/en/map.svg",   "width": 1920, "height": 1080 },
+      "es":   { "baseLayer": "biomes/es/map.svg",   "width": 1920, "height": 1080 },
+      "hist": { "baseLayer": "biomes/hist/map.svg", "width": 1920, "height": 1080 }
+    },
+
+    "zones": {
+      "fr:comprehension": { "baseLayer": "zones/fr/comprehension/map.svg", "width": 1920, "height": 1080 },
+      "fr:lexique":       { "baseLayer": "zones/fr/lexique/map.svg",       "width": 1920, "height": 1080 },
+      "fr:grammaire":     { "baseLayer": "zones/fr/grammaire/map.svg",     "width": 1920, "height": 1080 },
+      "fr:conjugaison":   { "baseLayer": "zones/fr/conjugaison/map.svg",   "width": 1920, "height": 1080 },
+      "fr:orthographe":   { "baseLayer": "zones/fr/orthographe/map.svg",   "width": 1920, "height": 1080 },
+
+      "math:fractions":           { "baseLayer": "zones/math/fractions/map.svg",           "width": 1920, "height": 1080 },
+      "math:nombres_calcul":      { "baseLayer": "zones/math/nombres_calcul/map.svg",      "width": 1920, "height": 1080 },
+      "math:geometrie":           { "baseLayer": "zones/math/geometrie/map.svg",           "width": 1920, "height": 1080 },
+      "math:mesures":             { "baseLayer": "zones/math/mesures/map.svg",             "width": 1920, "height": 1080 },
+      "math:proportionnalite":    { "baseLayer": "zones/math/proportionnalite/map.svg",    "width": 1920, "height": 1080 }
+    }
+  },
+
+  "anchors": {
+    "world": {
+      "safeArea": { "left": 80, "top": 70, "right": 80, "bottom": 90 },
+      "biomes": {
+        "fr":   { "x": 430,  "y": 290, "radius": 110 },
+        "math": { "x": 1490, "y": 290, "radius": 110 },
+        "en":   { "x": 520,  "y": 820, "radius": 100 },
+        "es":   { "x": 960,  "y": 860, "radius": 100 },
+        "hist": { "x": 1500, "y": 820, "radius": 110 }
+      }
+    },
+
+    "biomes": {
+      "fr": {
+        "safeArea": { "left": 60, "top": 60, "right": 60, "bottom": 60 },
+        "zones": {
+          "Compréhension": { "x": 360, "y": 230, "radius": 28 },
+          "Lexique":       { "x": 480, "y": 240, "radius": 28 },
+          "Grammaire":     { "x": 400, "y": 340, "radius": 28 },
+          "Conjugaison":   { "x": 470, "y": 360, "radius": 28 },
+          "Orthographe":   { "x": 340, "y": 280, "radius": 28 }
+        }
+      },
+
+      "math": {
+        "safeArea": { "left": 60, "top": 60, "right": 60, "bottom": 60 },
+        "zones": {
+          "Fractions":            { "x": 1420, "y": 240, "radius": 28 },
+          "Nombres & calcul":     { "x": 1540, "y": 240, "radius": 28 },
+          "Géométrie":            { "x": 1450, "y": 330, "radius": 28 },
+          "Grandeurs & mesures":  { "x": 1540, "y": 340, "radius": 28 },
+          "Proportionnalité":     { "x": 1480, "y": 400, "radius": 28 }
+        }
+      }
+    },
+
+    "zones": {
+      "fr:comprehension": { "safeArea": { "left": 80, "top": 70, "right": 80, "bottom": 90 } },
+      "fr:lexique":       { "safeArea": { "left": 80, "top": 70, "right": 80, "bottom": 90 } },
+      "fr:grammaire":     { "safeArea": { "left": 80, "top": 70, "right": 80, "bottom": 90 } },
+      "fr:conjugaison":   { "safeArea": { "left": 80, "top": 70, "right": 80, "bottom": 90 } },
+      "fr:orthographe":   { "safeArea": { "left": 80, "top": 70, "right": 80, "bottom": 90 } }
+    }
+  },
+
+  "css": [
+    "theme.css",
+    "effects/glow.css",
+    "effects/weathered.css",
+    "effects/animations.css"
+  ],
+
+  "assets": {
+    "biomes": "biomes/",
+    "zones": "zones/",
+    "monuments": "monuments/"
+  }
+}

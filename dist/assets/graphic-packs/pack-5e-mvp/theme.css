@@ -1,0 +1,18 @@
+:root {
+  --mc-ink: #0f172a;
+  --mc-shadow: rgba(12, 18, 34, 0.55);
+  --mc-paper: #f5f1e6;
+  --mc-sky: #4e6c93;
+  --mc-ground: #2f4432;
+  --mc-water: #1f4f7a;
+  --mc-wood: #5c3b2e;
+  --mc-stone: #6b5946;
+  --mc-ice: #7ea9c7;
+  --mc-accent: #f2d675;
+  --mc-accent-strong: #f59f3b;
+  --mc-subject-fr: #2f8f5b;
+  --mc-subject-math: #1e9fb3;
+  --mc-subject-en: #6d4dc2;
+  --mc-subject-es: #d2732f;
+  --mc-subject-hist: #9c7237;
+}

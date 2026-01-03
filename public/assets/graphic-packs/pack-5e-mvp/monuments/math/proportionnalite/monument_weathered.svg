@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="math:proportionnalite weathered">
+  <rect x="4" y="4" width="192" height="192" rx="18" fill="#ede7d5" stroke="#0f172a" stroke-width="8" />
+  <rect x="32" y="140" width="136" height="26" fill="#6b5946" stroke="#0f172a" stroke-width="6" />
+  <rect x="52" y="80" width="96" height="60" fill="#1e9fb3" stroke="#0f172a" stroke-width="8" />
+  <path d="M52 116l16-18 8 12 10-16 10 14 16-18 12 16 8-12" fill="none" stroke="#0f172a" stroke-width="5" />
+  <path d="M58 104l-6 18m36-30l-8 18m44-20l-10 16" stroke="#0a1225" stroke-width="4" />
+  <path d="M52 130h96" stroke="#0f172a" stroke-width="6" />
+  <path d="M60 118l-10 18m50-8l-8 12m36-10l-6 10" stroke="#30543b" stroke-width="5" />
+</svg>

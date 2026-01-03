@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <title>MaloCraft 5e — Biome ES (placeholder)</title>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-opacity="0.25"/>
+    </filter>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <rect width="32" height="32" fill="rgba(0,0,0,0.02)"/>
+      <path d="M32 0H0V32" fill="none" stroke="rgba(0,0,0,0.06)" stroke-width="2"/>
+    </pattern>
+    <pattern id="pixels" width="16" height="16" patternUnits="userSpaceOnUse">
+      <rect width="16" height="16" fill="rgba(255,255,255,0.04)"/>
+      <rect x="0" y="0" width="8" height="8" fill="rgba(255,255,255,0.07)"/>
+      <rect x="8" y="8" width="8" height="8" fill="rgba(0,0,0,0.04)"/>
+    </pattern>
+  </defs>
+
+<rect width="1920" height="1080" fill="#ff93b0"/>
+
+<rect width="1920" height="1080" fill="url(#grid)" opacity="0.65"/>
+
+<g filter="url(#shadow)">
+<path d="M160,240 C260,120 460,80 700,140 C820,170 980,120 1120,160 C1320,220 1500,180 1640,260 C1760,330 1780,520 1680,620 C1560,740 1320,720 1160,760 C960,820 780,950 560,900 C360,850 200,740 160,580 C120,430 90,320 160,240 Z" fill="#ffe3ea" stroke="rgba(0,0,0,0.18)" stroke-width="8"/>
+<path d="M220,310 C310,210 470,190 650,230 C820,270 980,210 1120,240 C1320,290 1510,260 1600,340 C1690,420 1690,540 1600,610 C1510,690 1340,670 1180,700 C980,760 840,870 650,840 C470,810 320,720 250,610 C180,500 160,400 220,310 Z" fill="#c5406a" opacity="0.18"/>
+</g>
+
+<g filter="url(#shadow)">
+<rect x="420" y="360" width="420" height="240" rx="28" ry="28" fill="#ffffff" stroke="rgba(0,0,0,0.28)" stroke-width="6" />
+
+<rect x="430" y="370" width="400" height="220" rx="22" ry="22" fill="url(#pixels)" opacity="0.9"/>
+
+</g>
+<rect x="438" y="378" width="384" height="52" rx="16" ry="16" fill="#4a1c2d" stroke="rgba(0,0,0,0.18)" stroke-width="3" />
+
+
+    <text x="630.0" y="414" text-anchor="middle" font-family="Verdana, Arial, sans-serif"
+          font-size="26" font-weight="700" fill="rgba(0,0,0,0.75)">Vocabulaire</text>
+    
+<g filter="url(#shadow)">
+<rect x="940" y="360" width="420" height="240" rx="28" ry="28" fill="#ffffff" stroke="rgba(0,0,0,0.28)" stroke-width="6" />
+
+<rect x="950" y="370" width="400" height="220" rx="22" ry="22" fill="url(#pixels)" opacity="0.9"/>
+
+</g>
+<rect x="958" y="378" width="384" height="52" rx="16" ry="16" fill="#4a1c2d" stroke="rgba(0,0,0,0.18)" stroke-width="3" />
+
+
+    <text x="1150.0" y="414" text-anchor="middle" font-family="Verdana, Arial, sans-serif"
+          font-size="26" font-weight="700" fill="rgba(0,0,0,0.75)">Grammaire</text>
+    
+<g filter="url(#shadow)">
+<rect x="680" y="660" width="520" height="240" rx="28" ry="28" fill="#ffffff" stroke="rgba(0,0,0,0.28)" stroke-width="6" />
+
+<rect x="690" y="670" width="500" height="220" rx="22" ry="22" fill="url(#pixels)" opacity="0.9"/>
+
+</g>
+<rect x="698" y="678" width="484" height="52" rx="16" ry="16" fill="#4a1c2d" stroke="rgba(0,0,0,0.18)" stroke-width="3" />
+
+
+    <text x="940.0" y="714" text-anchor="middle" font-family="Verdana, Arial, sans-serif"
+          font-size="26" font-weight="700" fill="rgba(0,0,0,0.75)">Compréhension</text>
+    
+
+    <g>
+      <rect x="60" y="60" width="1800" height="90" rx="26" ry="26" fill="rgba(255,255,255,0.78)" stroke="rgba(0,0,0,0.18)" stroke-width="5"/>
+      <text x="960.0" y="118" text-anchor="middle" font-family="Verdana, Arial, sans-serif"
+            font-size="36" font-weight="800" fill="rgba(0,0,0,0.78)">
+        Biome ES — zones (placeholder)
+      </text>
+    </g>
+    
+
+    <g>
+      <rect x="60" y="960" width="1800" height="70" rx="20" ry="20" fill="rgba(255,255,255,0.72)" stroke="rgba(0,0,0,0.14)" stroke-width="4"/>
+      <text x="90" y="1005" font-family="Verdana, Arial, sans-serif" font-size="20" fill="rgba(0,0,0,0.7)">
+        Placeholder biome map — replace art later; anchors align to this 1920×1080 canvas.
+      </text>
+    </g>
+    
+
+</svg>

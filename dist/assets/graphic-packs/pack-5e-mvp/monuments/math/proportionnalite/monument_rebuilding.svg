@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="math:proportionnalite rebuilding">
+  <rect x="4" y="4" width="192" height="192" rx="18" fill="#f5f1e6" stroke="#0f172a" stroke-width="8" />
+  <rect x="20" y="150" width="160" height="24" fill="#c6b897" stroke="#0f172a" stroke-width="6" />
+  <rect x="40" y="70" width="120" height="80" fill="#d8d2c2" stroke="#0f172a" stroke-width="6" />
+  <path d="M40 110h120M40 90h120" stroke="#0f172a" stroke-width="6" />
+  <path d="M70 70v80M100 70v80M130 70v80" stroke="#0f172a" stroke-width="6" />
+  <rect x="30" y="130" width="140" height="10" fill="#1e9fb3" stroke="#0f172a" stroke-width="4" />
+  <path d="M44 134l6 10m20-10l6 10m20-10l6 10m20-10l6 10m20-10l6 10" stroke="#0f172a" stroke-width="4" />
+</svg>

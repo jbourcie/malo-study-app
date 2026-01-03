@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="sparkle overlay">
+  <g fill="#f2d675" stroke="#0f172a" stroke-width="4" stroke-linejoin="bevel">
+    <path d="M100 20l10 30 30 10-30 10-10 30-10-30-30-10 30-10z" />
+    <path d="M150 90l8 18 18 8-18 8-8 18-8-18-18-8 18-8z" />
+    <path d="M60 120l6 14 14 6-14 6-6 14-6-14-14-6 14-6z" />
+  </g>
+  <rect x="20" y="20" width="160" height="160" fill="none" stroke="#f2d675" stroke-width="3" stroke-dasharray="6 8" opacity="0.55" />
+</svg>

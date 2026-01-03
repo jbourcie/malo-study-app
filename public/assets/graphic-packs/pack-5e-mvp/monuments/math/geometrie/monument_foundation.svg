@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="math:geometrie foundation">
+  <rect x="4" y="4" width="192" height="192" rx="18" fill="#f5f1e6" stroke="#0f172a" stroke-width="8" />
+  <rect x="20" y="140" width="160" height="32" fill="#c6b897" stroke="#0f172a" stroke-width="6" />
+  <rect x="30" y="120" width="40" height="24" fill="#9c7237" stroke="#0f172a" stroke-width="6" />
+  <rect x="90" y="110" width="50" height="34" fill="#1e9fb3" stroke="#0f172a" stroke-width="6" />
+  <rect x="150" y="120" width="30" height="26" fill="#6b5946" stroke="#0f172a" stroke-width="6" />
+  <path d="M50 128l12 12" stroke="#0f172a" stroke-width="4" />
+  <path d="M92 118l12 14" stroke="#0f172a" stroke-width="4" />
+  <path d="M162 124l-10 18" stroke="#0f172a" stroke-width="4" />
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="construction stage 3">
+  <rect x="8" y="150" width="184" height="24" fill="#c6b897" stroke="#0f172a" stroke-width="6" />
+  <rect x="36" y="70" width="128" height="90" fill="#d8d2c2" stroke="#0f172a" stroke-width="6" />
+  <rect x="56" y="50" width="88" height="30" fill="#f2d675" stroke="#0f172a" stroke-width="6" />
+  <path d="M36 120h128" stroke="#0f172a" stroke-width="6" />
+  <path d="M70 70v90M100 70v90M130 70v90" stroke="#0f172a" stroke-width="6" />
+  <path d="M60 140h88" stroke="#0f172a" stroke-width="6" />
+  <path d="M100 50l18-16v32z" fill="#f59f3b" stroke="#0f172a" stroke-width="5" />
+</svg>

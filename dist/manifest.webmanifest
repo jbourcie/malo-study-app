@@ -1,7 +1,7 @@
 {
-  "name": "Malo – Révisions",
-  "short_name": "Révisions",
-  "start_url": "./",
+  "name": "Malo Craft",
+  "short_name": "MaloCraft",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#101827",
   "theme_color": "#101827",

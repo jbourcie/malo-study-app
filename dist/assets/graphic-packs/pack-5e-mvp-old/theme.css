@@ -1,0 +1,78 @@
+/* MaloCraft pack-5e-mvp — minimal theme (V1)
+   Goal: Provide required classes with obvious visual differences.
+   Keep it light: only borders/shadows/opacity. */
+
+:root {
+  --mc-surface: rgba(255,255,255,0.06);
+  --mc-surface-2: rgba(255,255,255,0.10);
+  --mc-stroke: rgba(255,255,255,0.14);
+  --mc-stroke-2: rgba(255,255,255,0.24);
+  --mc-text: rgba(255,255,255,0.90);
+  --mc-muted: rgba(255,255,255,0.62);
+}
+
+/* Generic helpers */
+.is-locked {
+  opacity: 0.55;
+  filter: grayscale(0.35);
+}
+
+.is-weathered {
+  position: relative;
+}
+.is-weathered::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(0,0,0,0.00),
+    rgba(0,0,0,0.00) 10px,
+    rgba(0,0,0,0.18) 10px,
+    rgba(0,0,0,0.18) 20px
+  );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Highlight (PNJ focus) */
+.is-highlighted {
+  outline: 3px solid rgba(255, 221, 107, 0.9);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(255, 221, 107, 0.22);
+}
+
+/* Biome states */
+.biome-damaged {
+  border: 2px dashed rgba(255, 120, 120, 0.55);
+  background: rgba(255, 120, 120, 0.08);
+}
+.biome-improving {
+  border: 2px solid rgba(255, 221, 107, 0.55);
+  background: rgba(255, 221, 107, 0.08);
+}
+.biome-rebuilt {
+  border: 2px solid rgba(120, 255, 170, 0.55);
+  background: rgba(120, 255, 170, 0.08);
+}
+
+/* Zone states */
+.zone-intact {
+  border: 2px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+}
+.zone-rebuilding {
+  border: 2px solid rgba(107, 177, 255, 0.55);
+  background: rgba(107, 177, 255, 0.08);
+}
+.zone-rebuilt {
+  border: 2px solid rgba(120, 255, 170, 0.55);
+  background: rgba(120, 255, 170, 0.08);
+}
+.zone-degraded {
+  border: 2px dotted rgba(255, 168, 107, 0.55);
+  background: rgba(255, 168, 107, 0.07);
+}
+
+/* Optional: monuments can share same classes or have their own.
+   For MVP, we reuse biome/zone classes on monument containers. */

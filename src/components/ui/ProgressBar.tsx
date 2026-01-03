@@ -13,11 +13,19 @@ export function ProgressBar({ value, max = 100, label, tone = 'default' }: Props
   return (
     <div>
       {label && <div className="small" style={{ color: 'var(--mc-muted)' }}>{label}</div>}
-      <div style={{ height: 10, background: 'rgba(255,255,255,0.08)', borderRadius: 999, overflow: 'hidden', border: '1px solid var(--mc-border)' }}>
+      <div style={{
+        height: 10,
+        background: 'rgba(255,255,255,0.16)',
+        borderRadius: 999,
+        overflow: 'hidden',
+        border: '1px solid rgba(255,255,255,0.22)',
+        boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.25)',
+      }}>
         <div style={{
           width: `${pct}%`,
           height: '100%',
-          background: color,
+          background: `linear-gradient(90deg, ${color}, ${color})`,
+          boxShadow: '0 0 10px rgba(255,255,255,0.18)',
           transition: 'width 0.3s ease',
         }} />
       </div>
